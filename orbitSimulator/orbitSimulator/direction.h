@@ -20,38 +20,38 @@ class Direction
 {
 public:
 	Direction(): radians(0.0) {}
-	Direction(double degrees): radians(0.0)
+	Direction(float degrees): radians(0.0)
 	{
 		radians = convertToRadians(degrees);
 	}
 	
-	Direction(double dx, double dy): radians(0.0)
+	Direction(float dx, float dy): radians(0.0)
 	{
 		radians = atan2(dx, dy);
 	}
 
-	double convertToDegrees(double radians);
-	double convertToRadians(double degrees);
+	float convertToDegrees(float radians);
+	float convertToRadians(float degrees);
 	
-	void setRadians(double radians)
+	void setRadians(float radians)
 	{
 		if (radians >= 0.0)
 		{
-			double rotations = (double)(int)((M_PI + radians) / (M_PI * 2.0));
+			float rotations = (float)(int)((M_PI + radians) / (M_PI * 2.0));
 			radians -= rotations * (M_PI * 2.0);
 		}
 		else
 		{
-			double rotations = -(double)(int)((radians - M_PI) / (M_PI * 2.0));
+			float rotations = -(float)(int)((radians - M_PI) / (M_PI * 2.0));
 			radians += rotations * (M_PI * 2.0);
 		}
 	}
 	
-	void setDxDy(double dx, double dy){ radians = atan2(dx, dy); }
-	void setDegrees(double degrees)   { radians = convertToRadians(degrees); }
+	void setDxDy(float dx, float dy) { radians = atan2(dx, dy); }
+	void setDegrees(float degrees)   { radians = convertToRadians(degrees); }
 	
-	double getDx() const { return sin(radians); }
-	double getDy() const { return cos(radians); }
+	float getDx() const { return sin(radians); }
+	float getDy() const { return cos(radians); }
 	
 	void setDown()  { radians = M_PI; }
 	void setUp()    { radians = 0.0;  }
@@ -61,7 +61,7 @@ public:
 	void reverse() { setRadians(radians + M_PI); }
 	
 private:
-	double radians;
+	float radians;
 	
 };
 

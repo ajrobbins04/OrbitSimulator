@@ -19,7 +19,7 @@ public:
 	
 	// constructors
 	Velocity(): dx(0.0), dy(0.0) {}
-	Velocity(double dx, double dy) : dx(dx), dy(dy) {}
+	Velocity(float dx, float dy) : dx(dx), dy(dy) {}
 	Velocity(const Velocity &rhs) : dx(rhs.dx), dy(rhs.dy) {}
 	Velocity & operator = (const Velocity &rhs)
 	{
@@ -29,9 +29,9 @@ public:
 	}
 	
 	// setters
-	void setDx(double dx) { this->dx = dx; }
-	void setDy(double dy) { this->dy = dy; }
-	void setDxDy(double dx, double dy) {
+	void setDx(float dx) { this->dx = dx; }
+	void setDy(float dy) { this->dy = dy; }
+	void setDxDy(float dx, float dy) {
 		this->dx = dx;
 		this->dy = dy;
 	}
@@ -41,17 +41,17 @@ public:
 		setSpeedDirection(getSpeed(), direction);
 	}
 	
-	void setSpeed(double speed)
+	void setSpeed(float speed)
 	{
 		setSpeedDirection(speed, getDirection());
 	}
 	
-	void setSpeedDirection(double speed, const Direction &direction);
+	void setSpeedDirection(float speed, const Direction &direction);
 	
 	// getters
-	double getDx()    const { return dx; }
-	double getDy()    const { return dy; }
-	double getSpeed() const;
+	float getDx() const    { return dx; }
+	float getDy() const    { return dy; }
+	float getSpeed() const;
 	
 	Direction getDirection() const;
 	Velocity getVelocity()   const
@@ -61,8 +61,8 @@ public:
 	}
 	
    
-	void addDx(double dx) { setDx(getDx() + dx); }
-	void addDy(double dy) { setDy(getDy() + dy); }
+	void addDx(float dx) { setDx(getDx() + dx); }
+	void addDy(float dy) { setDy(getDy() + dy); }
 	void addVelocity(const Velocity &velocity)
 	{
 		dx += velocity.dx;
@@ -70,7 +70,7 @@ public:
 	}
 	
 	void updateVelocity(const Acceleration &acc);
-	void updateVelocity(const Acceleration &acc, int time);
+	void updateVelocity(const Acceleration &acc, float time);
 	void reverse()
 	{
 		dx *= -1.0;
@@ -84,8 +84,8 @@ public:
 	}
 	
 private:
-	double dx;
-	double dy;
+	float dx;
+	float dy;
 	
 };
 

@@ -31,34 +31,34 @@ public:
 	Satellite() : pos(0.0, 0.0), radius(0.0),
 	direction(0.0), velocity(0.0, 0.0), dead(false) {}
 	
-	Satellite(const Position &pos, double radius, Direction &dir, const Velocity &velocity) :
+	Satellite(const Position &pos, float radius, Direction &dir, const Velocity &velocity) :
 	pos(0.0, 0.0), radius(0.0),
 	direction(0.0), velocity(0.0, 0.0), dead(false) {
 		
 		dir.setDxDy(velocity.getDx(), velocity.getDy());
 		
 	}
-	Satellite(double x, double y): pos(x, y), radius(0.0),
+	Satellite(float x, float y): pos(x, y), radius(0.0),
 	direction(0.0), velocity(0.0, 0.0), dead(false) {}
  
   
-	void setPosition(double x, double y)
+	void setPosition(float x, float y)
 	{
 		pos.setMetersX(x);
 		pos.setMetersY(y);
 	}
 
    
-	void setVelocity(double dx, double dy)
+	void setVelocity(float dx, float dy)
 	{
 		velocity.setDx(dx);
 		velocity.setDy(dy);
 	}
 	
 	Position getPos() { return pos; }
-	double getPosX()  const { return pos.getMetersX(); }
-	double getPosY()  const { return pos.getMetersY(); }
-	double getAltitude();
+	float getPosX()  const { return pos.getMetersX(); }
+	float getPosY()  const { return pos.getMetersY(); }
+	float getAltitude();
 
 	bool isDead() const { return dead; }
 	void kill();
@@ -70,8 +70,8 @@ public:
 	
 private:
 	Position pos;
-	double radius;
-	double angularVelocity;
+	float radius;
+	float angularVelocity;
 	Direction direction;
 	Velocity velocity;
 	bool dead;

@@ -41,10 +41,10 @@ public:
    
 private:
    // utility funciton because floating point numbers are approximations
-   bool closeEnough(double value, double test, double tolerence) const
+   bool closeEnough(float value, float test, float tolerence) const
    {
-	  double difference = value - test;
-	  return (difference >= -tolerence) && (difference <= tolerence);
+	   float difference = value - test;
+	   return (difference >= -tolerence) && (difference <= tolerence);
    }
 
    void defaultConstructor() const

@@ -11,7 +11,7 @@
 #include <cassert>
 
 
-Position::Position(double x, double y) : x(0.0), y(0.0)
+Position::Position(float x, float y) : x(0.0), y(0.0)
 {
    setMetersX(x);
    setMetersY(y);
@@ -44,14 +44,14 @@ std::ostream& operator << (std::ostream& out, const Position& pt)
 ******************************************/
 std::istream& operator >> (std::istream& in, Position& pt)
 {
-   double x;
-   double y;
-   in >> x >> y;
+	float x;
+	float y;
+    in >> x >> y;
 
-   pt.setMetersX(x);
-   pt.setMetersY(y);
+    pt.setMetersX(x);
+    pt.setMetersY(y);
 
-   return in;
+    return in;
 }
 
 

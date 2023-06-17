@@ -27,26 +27,26 @@ class Acceleration
 public:
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
-	Acceleration(double ddx, double ddy): ddx(ddx), ddy(ddy) {}
-	Acceleration(double altitude, const Direction &direction): ddx(0.0), ddy(0.0)
+	Acceleration(float ddx, float ddy): ddx(ddx), ddy(ddy) {}
+	Acceleration(float altitude, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
-		double gravity = getGravity(altitude);
+		float gravity = getGravity(altitude);
 		updateAcc(gravity, direction);
 	}
    
-	void setDDx(double ddx) { this->ddx = ddx; }
-	void setDDy(double ddy) { this->ddy = ddy; }
+	void setDDx(float ddx) { this->ddx = ddx; }
+	void setDDy(float ddy) { this->ddy = ddy; }
 	
-	double getDDx() const { return ddx; }
-	double getDDy() const { return ddy; }
+	float getDDx() const { return ddx; }
+	float getDDy() const { return ddy; }
 	
-	double getGravity(double altitude);
-	void updateAcc(double gravity, const Direction &direction);
+	float getGravity(float altitude);
+	void updateAcc(float gravity, const Direction &direction);
 
    
 private:
-   double ddx; // change in change in x
-   double ddy; // change in change in y
+	float ddx; // change in change in x
+	float ddy; // change in change in y
    
 };
 

@@ -34,7 +34,7 @@ public:
 	void test_getAltitude_xAxis();
 	void test_getAltitude_yAxis();
 
-	double get_gravity(double altitude);
+	float get_gravity(float altitude);
 	void test_getGravity_surface();
 	void test_getGravity_500k();
 	void test_getGravity_2000k();
@@ -43,6 +43,14 @@ public:
 	void test_updateVelocity_moving();
 	void test_updateVelocity_accFromStop();
 	void test_updateVelocity_accFromStop_longer();
+	void test_updateVelocity_complex();
+	
+	void test_updatePosition_stationary();
+	void test_updatePosition_moving();
+	void test_updatePosition_movingLonger();
+	void test_updatePosition_fromStop();
+	void test_updatePosition_fromStop_longer();
+	void test_updatePosition_complex();
 };
 
 #endif

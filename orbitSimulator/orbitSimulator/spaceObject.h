@@ -23,13 +23,13 @@ class SpaceObject
 public:
 	SpaceObject(): pos(0.0, 0.0), radius(0.0), direction(0.0) {}
 	
-	SpaceObject(const Position &pos, double radius, const Direction &direction):
+	SpaceObject(const Position &pos, float radius, const Direction &direction):
 	pos(0.0, 0.0), radius(0.0), direction(0.0)
 	{
 		initialize(pos, radius, direction);
 	}
 	
-	void initialize(Position pos, double radiusPixels, Direction direction)
+	void initialize(Position pos, float radiusPixels, Direction direction)
 	{
 
 		// Earth's radius = 6378000 meters
@@ -39,23 +39,23 @@ public:
 			// fragments have smallest radius of 2 px
 			// GPS Satellite has largest radius of 12 px
 			assert(radius >= 2 && radius <= 12);
-			double radiusMeters = pos.convertToMeters(radius);
+			float radiusMeters = pos.convertToMeters(radius);
 			setRadius(radiusMeters);
 		}
 	}
 
-	void setRadius(double radius) { this->radius = radius; }
+	void setRadius(float radius) { this->radius = radius; }
 	
 //	virtual void draw();
 //	virtual void move(int time);
 	
-	double getRadius()     const { return radius; }
+	float getRadius()      const { return radius; }
 	Position getPosition() const { return pos;    }
 
 	
 private:
 	Position pos;
-	double radius;
+	float radius;
 	Direction direction;
 
 };
