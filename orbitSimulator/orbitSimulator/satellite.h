@@ -28,26 +28,21 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : pos(0.0, 0.0), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {}
+	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
+	Satellite(float x, float y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
+	Satellite(float x, float y, float radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
 	
-	Satellite(const Position &pos, float radius, Direction &dir, const Velocity &velocity) :
-	pos(0.0, 0.0), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {
+	Satellite(const Position &pos, float radius, const Velocity &velocity) :
+	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), dead(false) {
 		
-		dir.setDxDy(velocity.getDx(), velocity.getDy());
-		
+		direction.setDxDy(velocity.getDx(), velocity.getDy());
 	}
-	Satellite(float x, float y): pos(x, y), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {}
- 
-  
-	void setPosition(float x, float y)
+	
+	Satellite(float x, float y, float radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
+	direction(0.0, 0.0), dead(false)
 	{
-		pos.setMetersX(x);
-		pos.setMetersY(y);
+		direction.setDxDy(velocity.getDx(), velocity.getDy());
 	}
-
    
 	void setVelocity(float dx, float dy)
 	{
@@ -55,11 +50,7 @@ public:
 		velocity.setDy(dy);
 	}
 	
-	Position getPos() { return pos; }
-	float getPosX()  const { return pos.getMetersX(); }
-	float getPosY()  const { return pos.getMetersY(); }
 	float getAltitude();
-
 	bool isDead() const { return dead; }
 	void kill();
 	void updatePosition();
@@ -68,12 +59,11 @@ public:
 //	virtual void draw();
  
 	
-private:
-	Position pos;
-	float radius;
-	float angularVelocity;
-	Direction direction;
+protected:
+	// inherits pos and radius
 	Velocity velocity;
+	Direction direction;
+	float angularVelocity;
 	bool dead;
    
 };

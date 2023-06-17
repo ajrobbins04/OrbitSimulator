@@ -19,6 +19,7 @@
 		02DEF05A2A3D307100999231 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DEF0592A3D307100999231 /* OpenGL.framework */; };
 		02DEF05C2A3D307A00999231 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DEF05B2A3D307900999231 /* GLUT.framework */; };
 		02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF05D2A3D456500999231 /* testSatellite.cpp */; };
+		02DEF0612A3E37D100999231 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0602A3E37D100999231 /* ship.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,8 @@
 		02DEF05B2A3D307900999231 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		02DEF05D2A3D456500999231 /* testSatellite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSatellite.cpp; sourceTree = "<group>"; };
 		02DEF05F2A3E2FDC00999231 /* ship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ship.h; sourceTree = "<group>"; };
+		02DEF0602A3E37D100999231 /* ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ship.cpp; sourceTree = "<group>"; };
+		02DEF0622A3E3FD900999231 /* earth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = earth.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				02DEF0512A3D2D8D00999231 /* velocity.cpp */,
 				02DEF0552A3D2DB900999231 /* orbit.h */,
 				02DEF05F2A3E2FDC00999231 /* ship.h */,
+				02DEF0602A3E37D100999231 /* ship.cpp */,
+				02DEF0622A3E3FD900999231 /* earth.h */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */,
 				02DEF0432A3D2CCD00999231 /* satellite.cpp in Sources */,
 				02DEF0572A3D2F4200999231 /* testRunner.cpp in Sources */,
+				02DEF0612A3E37D100999231 /* ship.cpp in Sources */,
 				02DEF0542A3D2DAC00999231 /* main.cpp in Sources */,
 				02DEF04F2A3D2D6E00999231 /* uiInteract.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,

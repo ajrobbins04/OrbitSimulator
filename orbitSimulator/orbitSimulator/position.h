@@ -55,7 +55,7 @@ public:
 	{
 	   this->metersFromPixels = metersFromPixels;
 	}
-	float convertToMeters(float pixels) { return pixels * metersFromPixels; }
+	float convertToMeters(float pixels) const { return pixels * metersFromPixels; }
 	float getZoom() const { return metersFromPixels; }
 
 private:
