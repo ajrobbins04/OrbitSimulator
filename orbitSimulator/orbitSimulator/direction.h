@@ -2,7 +2,7 @@
  * Header File:
  *    Direction
  * Author:
- *
+ *	  Br. Helfrich
  * Summary:
  *
  ************************************************************************/
@@ -29,9 +29,12 @@ public:
 	{
 		radians = atan2(dx, dy);
 	}
-
-	float convertToDegrees(float radians);
-	float convertToRadians(float degrees);
+	
+	Direction& operator = (const Direction &rhs)
+	{
+		radians = rhs.radians;
+		return *this;
+	}
 	
 	void setRadians(float radians)
 	{
@@ -50,15 +53,35 @@ public:
 	void setDxDy(float dx, float dy) { radians = atan2(dx, dy); }
 	void setDegrees(float degrees)   { radians = convertToRadians(degrees); }
 	
-	float getDx() const { return sin(radians); }
-	float getDy() const { return cos(radians); }
-	
 	void setDown()  { radians = M_PI; }
 	void setUp()    { radians = 0.0;  }
 	void setRight() { radians = M_PI_2; }
 	void setLeft()  { radians = -M_PI_2; }
 	
+	float getDx() const { return sin(radians); }
+	float getDy() const { return cos(radians); }
+	float getRadians() const { return radians; }
+	float getDegrees() const { return convertToDegrees(radians); }
+	
+	// rotates by an amount in radians
+	void rotate(float amount)
+	{
+		radians += amount;
+		if (radians > M_PI)
+			radians -= 2.0 + M_PI;
+		if (radians < -M_PI)
+			radians += 2.0 + M_PI;
+	}
+	
 	void reverse() { setRadians(radians + M_PI); }
+	
+	float convertToDegrees(float radians) const;
+	float convertToRadians(float degrees) const;
+	
+	Direction operator+(float degrees) const
+	{
+		return Direction(getDegrees() + degrees);
+	}
 	
 private:
 	float radians;
