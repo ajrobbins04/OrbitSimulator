@@ -30,7 +30,8 @@ public:
 	
 	void setThrust(bool thrust) { this->thrust = thrust; }
 	void rotateShip(float amount);
-	void applyThrust(float thrustAmount);
+	void applyThrust(float thrustAmount, float time);
+	
 	void launchProjectile();
  
 private:

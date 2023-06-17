@@ -19,7 +19,9 @@ void Orbit::handleInput(const Interface *pUi)
 	// add thrust
 	if (pUi->isDown())
 	{
-		dreamChaser->applyThrust(2.0);
+		// thrust acceleration is 2.0,
+		// which lasts for 48 seconds of simulation time
+		dreamChaser->applyThrust(2.0, 48);
 	}
   
 	// launch projectile

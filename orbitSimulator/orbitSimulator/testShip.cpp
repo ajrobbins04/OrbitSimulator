@@ -5,7 +5,10 @@ void TestShip::run()
 	test_rotate_right();
     test_rotate_left();
 	test_rotate_alternating();
+	
+	test_applyThrust_stationary();
 }
+
 
 void TestShip::test_rotate_right()
 {
@@ -57,4 +60,15 @@ void TestShip::test_rotate_alternating()
 	float differenceRadians = abs(currentRadians - originalRadians);
 
 	assert(differenceRadians > 0.2 && differenceRadians < 0.2000001);
+}
+
+void TestShip::test_applyThrust_stationary()
+{
+	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(0, 0));
+	
+	// thrust amount = 2.0 and time = 48
+	ship.applyThrust(2.0, 48);
+	float velocity = ship.velocity.getSpeed();
+	assert(velocity == 96.0);
+	
 }

@@ -71,6 +71,8 @@ public:
 	
 	void updateVelocity(const Acceleration &acc);
 	void updateVelocity(const Acceleration &acc, float time);
+	void updateVelocity(const Acceleration &acc, float time, float thrustAmount);
+	
 	void reverse()
 	{
 		dx *= -1.0;
