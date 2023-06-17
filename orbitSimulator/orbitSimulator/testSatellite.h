@@ -14,6 +14,7 @@
 #include <cassert>
 #include "position.h"
 #include "velocity.h"
+#include "satellite.h"
 
 
 using namespace std;
@@ -27,10 +28,21 @@ class TestSatellite
 {
 public:
    
-   void run();
-   
+    void run();
+	
+	void test_getAltitude_surface();
+	void test_getAltitude_xAxis();
+	void test_getAltitude_yAxis();
 
-
+	double get_gravity(double altitude);
+	void test_getGravity_surface();
+	void test_getGravity_500k();
+	void test_getGravity_2000k();
+	
+	void test_updateVelocity_stationary();
+	void test_updateVelocity_moving();
+	void test_updateVelocity_accFromStop();
+	void test_updateVelocity_accFromStop_longer();
 };
 
 #endif

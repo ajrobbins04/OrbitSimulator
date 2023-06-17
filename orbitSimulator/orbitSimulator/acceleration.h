@@ -19,9 +19,7 @@
 #include <iostream>
 #include "position.h"
 #include "direction.h"
-
-class TestAcceleration;
-
+#
 using namespace std;
 
 class Acceleration
@@ -29,9 +27,11 @@ class Acceleration
 public:
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
-	Acceleration(double acc, const Direction &direction): ddx(0.0), ddy(0.0)
+	Acceleration(double ddx, double ddy): ddx(ddx), ddy(ddy) {}
+	Acceleration(double altitude, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
-		updateAcc(acc, direction);
+		double gravity = getGravity(altitude);
+		updateAcc(gravity, direction);
 	}
    
 	void setDDx(double ddx) { this->ddx = ddx; }

@@ -18,6 +18,7 @@
 		02DEF0572A3D2F4200999231 /* testRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0562A3D2F4200999231 /* testRunner.cpp */; };
 		02DEF05A2A3D307100999231 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DEF0592A3D307100999231 /* OpenGL.framework */; };
 		02DEF05C2A3D307A00999231 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DEF05B2A3D307900999231 /* GLUT.framework */; };
+		02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF05D2A3D456500999231 /* testSatellite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		02DEF0562A3D2F4200999231 /* testRunner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testRunner.cpp; sourceTree = "<group>"; };
 		02DEF0592A3D307100999231 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		02DEF05B2A3D307900999231 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		02DEF05D2A3D456500999231 /* testSatellite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSatellite.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				02DEF0562A3D2F4200999231 /* testRunner.cpp */,
 				02DEF0482A3D2D1D00999231 /* testPosition.h */,
 				02DEF0492A3D2D3000999231 /* testSatellite.h */,
+				02DEF05D2A3D456500999231 /* testSatellite.cpp */,
 				02DEF04A2A3D2D4100999231 /* uiDraw.h */,
 				02DEF04B2A3D2D5000999231 /* uiDraw.cpp */,
 				02DEF04D2A3D2D5E00999231 /* uiInteract.h */,
@@ -190,6 +193,7 @@
 				02DEF04F2A3D2D6E00999231 /* uiInteract.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
+				02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */,
 				02DEF0402A3D2CAC00999231 /* position.cpp in Sources */,
 				02DEF04C2A3D2D5000999231 /* uiDraw.cpp in Sources */,
 			);

@@ -18,7 +18,7 @@ double Satellite::getAltitude()
  *  Updates the satellite's position based on its current
  *  position, velocity, and time.
  *********************************************/
-void Satellite::update()
+void Satellite::updatePosition()
 {
 	double x = pos.getMetersX() + velocity.getDx() * TIME;
 	double y = pos.getMetersY() + velocity.getDy() * TIME;
@@ -26,3 +26,17 @@ void Satellite::update()
 	pos.setMeters(x, y);
 }
 
+
+/*********************************************
+ *  MOVE
+ *  Moves the satellite by updating the velocity, followed
+ *  by the position.
+ *********************************************/
+void Satellite::move()
+{
+	double altitude = getAltitude();
+	Acceleration acc(altitude, direction);
+	velocity.updateVelocity(acc);
+	updatePosition();
+	
+}

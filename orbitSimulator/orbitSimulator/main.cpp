@@ -20,6 +20,7 @@
 #include "acceleration.h"
 #include "satellite.h"
 #include "velocity.h"
+#include "testRunner.h"
 
 #define TIME 48
 #define FRAME_RATE 80
@@ -98,7 +99,8 @@ void callBack(const Interface* pUI, void* p)
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL.
    Demo* pDemo = (Demo*)p;
-   
+
+	testRunner();
    //Acceleration a;
    //double angle = a.getAngle();
    //std::cout << angle << std::endl;
@@ -111,7 +113,7 @@ void callBack(const Interface* pUI, void* p)
 	//Acceleration acc(-0.1122, -0.1943);
 	
 	//pDemo->hubble.reCalculate();
-	pDemo->hubble.update();
+	//pDemo->hubble.update();
 	
 	Position ptHubble(pDemo->hubble.getPosX(), pDemo->hubble.getPosY());
 	
