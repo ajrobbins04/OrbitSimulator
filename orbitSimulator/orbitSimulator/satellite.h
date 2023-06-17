@@ -59,10 +59,13 @@ public:
 	float getAltitude();
 	bool isDead() const { return dead; }
 	void kill();
+	void addKick();
 	void updatePosition();
 	void move();
+	void destroy();
  
 //	virtual void draw();
+//  virtual void destroy();
  
 	
 protected:

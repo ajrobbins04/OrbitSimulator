@@ -118,7 +118,7 @@ void TestShip::test_applyThrust_double()
 	float differenceDy = abs(originalDy - currentDy);
 	
 	
-	assert( differenceDx == 192);
+	assert(differenceDx == 192);
 	assert(differenceDy == 192);
 	
 }

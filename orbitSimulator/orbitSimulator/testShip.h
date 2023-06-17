@@ -36,6 +36,17 @@ public:
 	void test_applyThrust_stationary();
 	void test_applyThrust_moving();
 	void test_applyThrust_double();
+	
+	// will be implementing these test cases
+	// during lab 10
+	void test_launchProjectile_stationary();
+	void test_launchProjectile_moving();
+	void test_launchProjectile_thrustApplied();
+	void test_launchProjectile_pointingDown();
+	void test_launchProjectile_pointingUp();
+	void test_launchProjectile_pointingRight();
+	void test_launchProjectile_pointingLeft();
+
 };
 
 #endif  

@@ -51,6 +51,30 @@ public:
 	void test_updatePosition_fromStop();
 	void test_updatePosition_fromStop_longer();
 	void test_updatePosition_complex();
+	
+	// will be implementing these test cases
+	// during lab 10
+	void test_destroySputnik();
+	void test_destroyGPS();
+	void test_destroyHubble();
+	void test_destroyDragon();
+	void test_destroyStarlink();
+	void test_createPiece_inheritVelocity();
+	void test_createPiece_addKick();
+	void test_createPiece_tooClose();
+	void test_destroyPiece_leftSolar();
+	void test_destroyPiece_rightSolar();
+	void test_destroyPiece_center();
+	void test_destroyPiece_telescope();
+	void test_destroyPiece_computer();
+	void test_destroyPiece_body();
+	void test_createFragment_inheritVelocity();
+	void test_createFragment_addKick();
+	void test_createFragment_tooClose();
+	void test_createFragment_expire();
+
+	
+	
 };
 
 #endif
