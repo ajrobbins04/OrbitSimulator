@@ -21,10 +21,10 @@ using namespace std;
 class SpaceObject
 {
 public:
-	SpaceObject(): name("spaceObj"), pos(0.0, 0.0), radius(0.0), direction(0.0) {}
+	SpaceObject(): name("spaceObject"), pos(0.0, 0.0), radius(0.0), direction(0.0) {}
 	
 	SpaceObject(string name, const Position &pos, double radius, const Direction &direction):
-	name("spaceObj"), pos(0.0, 0.0), radius(0.0), direction(0.0)
+	name("spaceObject"), pos(0.0, 0.0), radius(0.0), direction(0.0)
 	{
 		initialize(name, pos, radius, direction);
 	}
@@ -37,6 +37,7 @@ public:
 		// Radius given in pixels. Must convert to meters.
 		assert(radius > 0);
 		double radiusMeters = pos.convertToMeters(radius);
+		setRadius(radiusMeters);
 	}
 	
 	void setName(string name)     { this->name = name;     }
@@ -44,8 +45,7 @@ public:
 	
 	double getRadius()     const { return radius; }
 	Position getPosition() const { return pos;    }
-	virtual void draw();
-	virtual void move();
+
 	
 private:
 	string name;
