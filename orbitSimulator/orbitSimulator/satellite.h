@@ -43,6 +43,12 @@ public:
 	{
 		direction.setDxDy(velocity.getDx(), velocity.getDy());
 	}
+	
+	Satellite(float x, float y, float radius, float dx, float dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
+	direction(0.0, 0.0), dead(false)
+	{
+		direction.setDxDy(velocity.getDx(), velocity.getDy());
+	}
    
 	void setVelocity(float dx, float dy)
 	{

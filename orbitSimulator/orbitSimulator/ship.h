@@ -19,21 +19,16 @@ class Ship : public Satellite
 {
 public:
 	friend TestShip;
-	
-	Ship() : pos(0.0, 0.0), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {}
-	
-	Ship(const Position &pos, float radius, Direction &dir, const Velocity &velocity) :
-	pos(0.0, 0.0), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {
-		
-		dir.setDxDy(velocity.getDx(), velocity.getDy());
-		
-	}
-	Ship(float x, float y): pos(x, y), radius(0.0),
-	direction(0.0), velocity(0.0, 0.0), dead(false) {}
  
-  
+	
+	Ship() : Satellite(Position(0.0, 0.0), 0.0, Velocity(0.0, 0.0)) {}
+	
+	Ship(const Position &pos, float radius, const Velocity &velocity) : Satellite(pos, radius, velocity) {}
+	
+	Ship(float x, float y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)) {}
+	Ship(float x, float y, float radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)) {}
+	Ship(float x, float y, float radius, const Velocity &velocity): Satellite(Position(x, y), radius, velocity) {}
+	Ship(float x, float y, float radius, float dx, float dy): Satellite(Position(x, y), radius, Velocity(dx, dy)) {}
  
 private:
 	Position pos;
