@@ -7,8 +7,8 @@
  *********************************************/
 double Acceleration::getGravity(double altitude)
 {
-	// just a temporary variable to store one aspect of
-	// the gravity computation
+	// tmp is just a temporary variable to store one
+	// aspect of the gravity computation
 	double tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
 	double gravity = EARTH_GRAVITY * pow(tmp, 2);
 

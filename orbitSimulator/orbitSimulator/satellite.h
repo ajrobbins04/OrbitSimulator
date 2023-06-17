@@ -26,12 +26,12 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : name("satellite"), pos(0.0, 0.0), radius(0.0),
-	dir(0.0), velocity(0.0, 0.0), dead(false) {}
+	Satellite() : pos(0.0, 0.0), radius(0.0),
+	direction(0.0), velocity(0.0, 0.0), dead(false) {}
 	
 	Satellite(string name, const Position &pos, double radius, Direction &dir, const Velocity &velocity) :
-	name("satellite"), pos(0.0, 0.0), radius(0.0),
-	dir(0.0), velocity(0.0, 0.0), dead(false) {
+	pos(0.0, 0.0), radius(0.0),
+	direction(0.0), velocity(0.0, 0.0), dead(false) {
 		
 		dir.setDxDy(velocity.getDx(), velocity.getDy());
 		
@@ -55,13 +55,19 @@ public:
 	double getPosY()  const { return pos.getMetersY(); }
 	double getAltitude();
 
+	bool isDead() const { return dead; }
+	void kill();
 	void update();
-   
+	void move();
+ 
+//	virtual void draw();
+ 
+	
 private:
-	string name;
 	Position pos;
 	double radius;
-	Direction dir;
+	double angularVelocity;
+	Direction direction;
 	Velocity velocity;
 	bool dead;
    

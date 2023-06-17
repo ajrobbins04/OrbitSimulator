@@ -13,23 +13,16 @@ double Satellite::getAltitude()
 	return distance - EARTH_RADIUS;
 }
 
+/*********************************************
+ *  UPDATE
+ *  Updates the satellite's position based on its current
+ *  position, velocity, and time.
+ *********************************************/
 void Satellite::update()
 {
-	/*double x = pos->getMetersX();
-	double dx = v.getDx();
-	double ddx = acc->getDDx();
+	double x = pos.getMetersX() + velocity.getDx() * TIME;
+	double y = pos.getMetersY() + velocity.getDy() * TIME;
 	
-	double accTimeX = ddx * pow(TIME, 2);
-	double newX = x + dx * TIME + (accTimeX / 2);
-	pos->setMetersX(newX);
-   
-	double y = pos->getMetersY();
-	double dy = v->getDy();
-	double ddy = acc->getDDy();
-
-	double accTimeY = ddy * pow(TIME, 2);
-	double newY = y + dy * TIME + (accTimeY / 2);
-
-	pos->setMetersY(newY);*/
+	pos.setMeters(x, y);
 }
 
