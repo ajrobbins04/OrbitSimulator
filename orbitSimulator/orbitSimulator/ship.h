@@ -1,18 +1,24 @@
 /***********************************************************************
  * Header File:
- *    Orbit
+ *    Ship
  * Author:
  *    Amber Robbins, Martin Nkala
  * Summary:
  *
  ************************************************************************/
-#ifndef orbit_h
-#define orbit_h
 
-class Orbit
+#ifndef ship_h
+#define ship_h
+
+#include "satellite.h"
+
+
+class Ship : public Satellite
 {
 public:
+	Ship();
 private:
 
+ 
 };
-#endif /* orbit_h */
+#endif

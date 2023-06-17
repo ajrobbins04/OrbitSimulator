@@ -59,6 +59,7 @@
 		02DEF0592A3D307100999231 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		02DEF05B2A3D307900999231 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		02DEF05D2A3D456500999231 /* testSatellite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testSatellite.cpp; sourceTree = "<group>"; };
+		02DEF05F2A3E2FDC00999231 /* ship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ship.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 				02DEF0502A3D2D7D00999231 /* velocity.h */,
 				02DEF0512A3D2D8D00999231 /* velocity.cpp */,
 				02DEF0552A3D2DB900999231 /* orbit.h */,
+				02DEF05F2A3E2FDC00999231 /* ship.h */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
