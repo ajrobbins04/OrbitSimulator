@@ -7,6 +7,8 @@ void TestShip::run()
 	test_rotate_alternating();
 	
 	test_applyThrust_stationary();
+	test_applyThrust_moving();
+	test_applyThrust_double();
 }
 
 
@@ -68,7 +70,55 @@ void TestShip::test_applyThrust_stationary()
 	
 	// thrust amount = 2.0 and time = 48
 	ship.applyThrust(2.0, 48);
-	float velocity = ship.velocity.getSpeed();
-	assert(velocity == 96.0);
+	
+	float dx = ship.velocity.getDx();
+	float dy = ship.velocity.getDy();
+	  
+	assert( dx == 96);
+//	assert( dy == 96);
+	
+}
+
+void TestShip::test_applyThrust_moving()
+{
+	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(-1940, -3360.18));
+	
+	float originalDx = ship.velocity.getDx();
+	float originalDy = ship.velocity.getDy();
+	
+	// thrust amount = 2.0 and time = 48
+	ship.applyThrust(2.0, 48);
+	
+	float currentDx = ship.velocity.getDx();
+	float currentDy = ship.velocity.getDy();
+	
+	float differenceDx = abs(originalDx - currentDx);
+	float differenceDy = abs(originalDy - currentDy);
+	
+	
+	assert( differenceDx > 96 && differenceDx < 97  && differenceDy > 96 && differenceDy < 97 );
+	
+}
+
+void TestShip::test_applyThrust_double()
+{
+	Ship ship(Position(0.0, -13020000), 10, Velocity(5800, 0.0));
+	
+	float originalDx = ship.velocity.getDx();
+	float originalDy = ship.velocity.getDy();
+	
+	// thrust amount = 2.0 and time = 48
+	ship.applyThrust(2.0, 48);
+	ship.applyThrust(2.0, 48);
+	
+	float currentDx = ship.velocity.getDx();
+	float currentDy = ship.velocity.getDy();
+	
+	float differenceDx = abs(originalDx - currentDx);
+	float differenceDy = abs(originalDy - currentDy);
+	
+	
+	assert( differenceDx == 192);
+	assert(differenceDy == 192);
 	
 }

@@ -34,6 +34,8 @@ public:
 	void test_rotate_alternating();
 	
 	void test_applyThrust_stationary();
+	void test_applyThrust_moving();
+	void test_applyThrust_double();
 };
 
 #endif  
