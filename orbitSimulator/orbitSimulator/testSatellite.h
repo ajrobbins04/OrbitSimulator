@@ -12,8 +12,7 @@
 
 #include <iostream>
 #include <cassert>
-#include "position.h"
-#include "velocity.h"
+
 #include "satellite.h"
 
 
@@ -35,6 +34,7 @@ public:
 	void test_getAltitude_yAxis();
 
 	float get_gravity(float altitude);
+	
 	void test_getGravity_surface();
 	void test_getGravity_500k();
 	void test_getGravity_2000k();

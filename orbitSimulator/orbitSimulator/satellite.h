@@ -69,8 +69,8 @@ protected:
 	// inherits pos and radius
 	Velocity velocity;
 	Direction direction;
-	float angularVelocity;
 	bool dead;
+	float angularVelocity;
    
 };
 

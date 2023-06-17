@@ -5,14 +5,17 @@ void TestSatellite::run()
 	test_getAltitude_surface();
 	test_getAltitude_xAxis();
 	test_getAltitude_yAxis();
+	
 	test_getGravity_surface();
 	test_getGravity_500k();
 	test_getGravity_2000k();
+	
 	test_updateVelocity_stationary();
 	test_updateVelocity_moving();
 	test_updateVelocity_accFromStop();
 	test_updateVelocity_accFromStop_longer();
 	test_updateVelocity_complex();
+	
 	test_updatePosition_stationary();
 	test_updatePosition_moving();
 	test_updatePosition_movingLonger();
@@ -78,7 +81,7 @@ void TestSatellite::test_getGravity_500k()
 	float gravity = get_gravity(alt);
 	
 	
-//	assert(gravity == -8.4);
+  //  assert(gravity == -8.4);
 }
 
 void TestSatellite::test_getGravity_2000k()
@@ -88,7 +91,7 @@ void TestSatellite::test_getGravity_2000k()
 	float alt = s.getAltitude();
 	float gravity = get_gravity(alt);
 	
-//	assert(gravity == -5.7);
+   // assert(gravity == -5.7);
 }
 
 void TestSatellite::test_updateVelocity_stationary()

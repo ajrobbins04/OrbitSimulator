@@ -20,6 +20,8 @@
 		02DEF05C2A3D307A00999231 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DEF05B2A3D307900999231 /* GLUT.framework */; };
 		02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF05D2A3D456500999231 /* testSatellite.cpp */; };
 		02DEF0612A3E37D100999231 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0602A3E37D100999231 /* ship.cpp */; };
+		02DEF0642A3E468300999231 /* orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0632A3E468300999231 /* orbit.cpp */; };
+		02DEF0672A3E503300999231 /* testShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0662A3E503300999231 /* testShip.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +65,9 @@
 		02DEF05F2A3E2FDC00999231 /* ship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ship.h; sourceTree = "<group>"; };
 		02DEF0602A3E37D100999231 /* ship.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ship.cpp; sourceTree = "<group>"; };
 		02DEF0622A3E3FD900999231 /* earth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = earth.h; sourceTree = "<group>"; };
+		02DEF0632A3E468300999231 /* orbit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orbit.cpp; sourceTree = "<group>"; };
+		02DEF0652A3E4FEF00999231 /* testShip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testShip.h; sourceTree = "<group>"; };
+		02DEF0662A3E503300999231 /* testShip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testShip.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +118,8 @@
 				02DEF0482A3D2D1D00999231 /* testPosition.h */,
 				02DEF0492A3D2D3000999231 /* testSatellite.h */,
 				02DEF05D2A3D456500999231 /* testSatellite.cpp */,
+				02DEF0652A3E4FEF00999231 /* testShip.h */,
+				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF04A2A3D2D4100999231 /* uiDraw.h */,
 				02DEF04B2A3D2D5000999231 /* uiDraw.cpp */,
 				02DEF04D2A3D2D5E00999231 /* uiInteract.h */,
@@ -120,6 +127,7 @@
 				02DEF0502A3D2D7D00999231 /* velocity.h */,
 				02DEF0512A3D2D8D00999231 /* velocity.cpp */,
 				02DEF0552A3D2DB900999231 /* orbit.h */,
+				02DEF0632A3E468300999231 /* orbit.cpp */,
 				02DEF05F2A3E2FDC00999231 /* ship.h */,
 				02DEF0602A3E37D100999231 /* ship.cpp */,
 				02DEF0622A3E3FD900999231 /* earth.h */,
@@ -197,12 +205,14 @@
 				02DEF0432A3D2CCD00999231 /* satellite.cpp in Sources */,
 				02DEF0572A3D2F4200999231 /* testRunner.cpp in Sources */,
 				02DEF0612A3E37D100999231 /* ship.cpp in Sources */,
+				02DEF0672A3E503300999231 /* testShip.cpp in Sources */,
 				02DEF0542A3D2DAC00999231 /* main.cpp in Sources */,
 				02DEF04F2A3D2D6E00999231 /* uiInteract.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
 				02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */,
 				02DEF0402A3D2CAC00999231 /* position.cpp in Sources */,
+				02DEF0642A3E468300999231 /* orbit.cpp in Sources */,
 				02DEF04C2A3D2D5000999231 /* uiDraw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
