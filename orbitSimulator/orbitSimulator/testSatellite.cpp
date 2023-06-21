@@ -34,6 +34,12 @@ float TestSatellite::get_gravity(float altitude)
 	return gravity;
 }
 
+bool closeEnough(float actual, float predicted)
+{
+	float diff = abs(actual - predicted);
+	
+	return diff < .000001;
+}
 
 void TestSatellite::test_getAltitude_surface()
 {

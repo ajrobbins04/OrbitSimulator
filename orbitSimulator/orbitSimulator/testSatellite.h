@@ -27,13 +27,14 @@ class TestSatellite
 {
 public:
    
+	// test helper functions
     void run();
+	float get_gravity(float altitude);
+	bool closeEnough(float actual, float predicted);
 	
 	void test_getAltitude_surface();
 	void test_getAltitude_xAxis();
 	void test_getAltitude_yAxis();
-
-	float get_gravity(float altitude);
 	
 	void test_getGravity_surface();
 	void test_getGravity_500k();
