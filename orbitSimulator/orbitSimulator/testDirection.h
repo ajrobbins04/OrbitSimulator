@@ -2,7 +2,7 @@
 * Header File:
 *    Test Direction : Test the Direction class.
 * Author:
-*    Amber Robbins, Martin Nkala
+*    Br. Helfrich
 * Summary:
 *    All the unit tests for Direction.
 ************************************************************************/

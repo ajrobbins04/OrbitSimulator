@@ -24,6 +24,7 @@
 		02DEF0672A3E503300999231 /* testShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0662A3E503300999231 /* testShip.cpp */; };
 		02DEF06A2A43E8BA00999231 /* testAcceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0692A43E8BA00999231 /* testAcceleration.cpp */; };
 		02DEF06D2A4404E300999231 /* testDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF06C2A4404E300999231 /* testDirection.cpp */; };
+		02DEF0702A44CA7200999231 /* testVelocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF06F2A44CA7200999231 /* testVelocity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,8 @@
 		02DEF0692A43E8BA00999231 /* testAcceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testAcceleration.cpp; sourceTree = "<group>"; };
 		02DEF06B2A4403D400999231 /* testDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testDirection.h; sourceTree = "<group>"; };
 		02DEF06C2A4404E300999231 /* testDirection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testDirection.cpp; sourceTree = "<group>"; };
+		02DEF06E2A44CA6100999231 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
+		02DEF06F2A44CA7200999231 /* testVelocity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testVelocity.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				02DEF0692A43E8BA00999231 /* testAcceleration.cpp */,
 				02DEF06B2A4403D400999231 /* testDirection.h */,
 				02DEF06C2A4404E300999231 /* testDirection.cpp */,
+				02DEF06E2A44CA6100999231 /* testVelocity.h */,
+				02DEF06F2A44CA7200999231 /* testVelocity.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DEF0702A44CA7200999231 /* testVelocity.cpp in Sources */,
 				02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */,
 				02DEF0432A3D2CCD00999231 /* satellite.cpp in Sources */,
 				02DEF0572A3D2F4200999231 /* testRunner.cpp in Sources */,
