@@ -41,18 +41,6 @@ bool TestSatellite::closeEnough(float actual, float expected, float tolerance)
 }
 
 /*********************************************
-* GET ALTITUDE
-* Finds the altitude between the earth's location and the
-* location at a given position (pos).
-*********************************************/
-float TestSatellite::getAltitude(const Position &pos)
-{
-	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
-						  + pos.getMetersY() * pos.getMetersY());
-	return distance - EARTH_RADIUS;
-}
-
-/*********************************************
 * GET GRAVITY
 *********************************************/
 float TestSatellite::getGravity(float altitude)
@@ -104,11 +92,15 @@ void TestSatellite::test_getGravity_surface()
 void TestSatellite::test_getGravity_500k()
 {
 	Satellite s(6378000 + 500000, 0);
+ 
 	
 	float alt = s.getAltitude();
-	float gravity = getGravity(alt);
+	 
+	Acceleration a(alt, s.velocity.getDirection());
 	
-	//assert(closeEnough(gravity, -8.4, 0.01));
+	assert(closeEnough(a.getDDx(), -8.4, 0.01));
+	assert(closeEnough(a.getDDy(), 0.0, 0.01));
+
 }
 
 void TestSatellite::test_getGravity_2000k()
