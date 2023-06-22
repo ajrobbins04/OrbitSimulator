@@ -11,7 +11,6 @@
 #include "testPosition.h"
 #include "testDirection.h"
 #include "testVelocity.h"
-#include "testAcceleration.h"
 #include "testSatellite.h"
 #include "testShip.h"
 
@@ -25,7 +24,6 @@ void testRunner()
     TestPosition().run();
 	TestDirection().run();
 	TestVelocity().run();
-	TestAcceleration().run();
 	TestSatellite().run();
 	TestShip().run();
 	

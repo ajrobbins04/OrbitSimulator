@@ -33,6 +33,7 @@ public:
     void run();
 	bool closeEnough(float actual, float expected, float tolerance);
 	float getAltitude(const Position &pos);
+	float getGravity(float altitude);
 	float getDDx(Acceleration &aGravity, float altitude, const Position &pos);
 	float getDDy(Acceleration &aGravity, float altitude, const Position &pos);
 	

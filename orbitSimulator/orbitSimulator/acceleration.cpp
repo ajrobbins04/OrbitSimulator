@@ -17,11 +17,11 @@ float Acceleration::getGravity(float altitude)
 
 /*********************************************
  * UPDATE ACCELERATION
- * Updates the acceleration at the current direction.
+ * Updates the speed and direction.
  *********************************************/
-void Acceleration::updateAcc(float gravity, const Direction &direction)
+void Acceleration::updateAcc(float aGravity, const Direction &direction)
 {
-	setDDx(gravity * direction.getDx());
-	setDDy(gravity * direction.getDy());
+	setDDx(aGravity * direction.getDx());
+	setDDy(aGravity * direction.getDy());
 }
 

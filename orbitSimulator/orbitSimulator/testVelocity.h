@@ -47,11 +47,11 @@ public:
 	void test_getDirection_northEast();
 	void test_getDirection_west();
 	void test_getDirection_south();
- 	void test_getDirection_negative();
+	void test_getDirection_negative();
 	
-	void test_setSpeed_northEast();
-	void test_setSpeed_east();
-	void test_setSpeed_north();
+	void test_updateVelocity_northEast();
+	void test_updateVelocity_east();
+	void test_updateVelocity_north();
 	
 	void test_reverse_northEast();
 	void test_reverse_east();
@@ -66,4 +66,5 @@ public:
 	void test_fromStopLonger();
 	void test_add_complex();
 };
+
 #endif /* testVelocity_h */

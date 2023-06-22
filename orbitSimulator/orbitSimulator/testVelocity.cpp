@@ -21,7 +21,16 @@ void TestVelocity::run()
 	test_getDirection_northEast();
 	test_getDirection_west();
 	test_getDirection_south();
-	test_getDirection_negative(); }
+	test_getDirection_negative();
+ 
+	test_updateVelocity_northEast();
+	test_updateVelocity_east();
+	test_updateVelocity_north();
+	
+	test_reverse_northEast();
+	test_reverse_east();
+	test_reverse_north();
+}
 
 /*********************************************
  * CLOSE ENOUGH
@@ -170,40 +179,120 @@ void TestVelocity::test_getDirection_north()
 
 /*********************************************
 * TEST - GET DIRECTION - EAST
-*********************************************/
+* If there's only horizontal velocity moving to the right,
+* then its direction should equal PI / 2 (that's 90 degrees)
+* *********************************************/
 void TestVelocity::test_getDirection_east()
 {
+	Velocity v(1.0, 0.0);
 	
+	Direction d = v.getDirection();
+	
+	assert(closeEnough(d.getRadians(), M_PI_2, 0.0001));
+	assert(v.getDx() == 1.0);
+	assert(v.getDy() == 0.0);
 }
 
 /*********************************************
 * TEST - GET DIRECTION - NORTHEAST
-*********************************************/
+* *********************************************/
 void TestVelocity::test_getDirection_northEast()
 {
+	Velocity v(1.0, 1.0);
 	
+	Direction d = v.getDirection();
+	
+	assert(closeEnough(d.getRadians(), M_PI_2 / 2.0, 0.0001));
+	assert(v.getDx() == 1.0);
+	assert(v.getDy() == 1.0);
 }
 
 /*********************************************
 * TEST - GET DIRECTION - WEST
-*********************************************/
+* If there's only horizontal velocity moving to the left,
+* then its direction should equal - PI / 2 ( that's -90 degrees)
+* *********************************************/
 void TestVelocity::test_getDirection_west()
 {
+	Velocity v(-1.0, 0.0);
 	
+	Direction d = v.getDirection();
+	
+	assert(closeEnough(d.getRadians(), - M_PI_2, 0.0001));
+	assert(v.getDx() == -1.0);
+	assert(v.getDy() == 0.0);
 }
 
 /*********************************************
 * TEST - GET DIRECTION - SOUTH
-*********************************************/
+* If there's only vertical velocity moving down, then its direction
+* should equal PI (that's 180 degrees)
+* *********************************************/
 void TestVelocity::test_getDirection_south()
+{
+	Velocity v(0.0, -1.0);
+	
+	Direction d = v.getDirection();
+	
+	assert(closeEnough(d.getRadians(), M_PI, 0.0001));
+	assert(v.getDx() == 0.0);
+	assert(v.getDy() == -1.0);
+}
+
+/*********************************************
+* TEST - GET DIRECTION - NEGATIVE
+* *********************************************/
+void TestVelocity::test_getDirection_negative()
+{
+	
+}
+
+
+/*********************************************
+* TEST - SET SPEED - NORTHEAST
+* *********************************************/
+void TestVelocity::test_updateVelocity_northEast()
+{
+
+}
+
+/*********************************************
+* TEST - SET SPEED - EAST
+* *********************************************/
+void TestVelocity::test_updateVelocity_east()
+{
+
+}
+
+/*********************************************
+* TEST - SET SPEED - NORTH
+* *********************************************/
+void TestVelocity::test_updateVelocity_north()
 {
 	
 }
 
 /*********************************************
-* TEST - GET DIRECTION - NEGATIVE
-*********************************************/
-void TestVelocity::test_getDirection_negative()
+* TEST - REVERSE - NORTHEAST
+* *********************************************/
+void TestVelocity::test_reverse_northEast()
 {
 	
 }
+
+/*********************************************
+* TEST - REVERSE - EAST
+* *********************************************/
+void TestVelocity::test_reverse_east()
+{
+	
+}
+
+/*********************************************
+* TEST - REVERSE - NORTH
+* *********************************************/
+void TestVelocity::test_reverse_north()
+{
+	
+}
+

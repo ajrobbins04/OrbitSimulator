@@ -27,12 +27,9 @@ Direction Velocity::getDirection() const
  *********************************************/
 void Velocity::updateVelocity(const Acceleration &acc)
 {
-	float currDx = getDx();
-	float currDy = getDy();
-	
 	// velocity = current velocity + acceleration * time
-	float newDx = currDx + acc.getDDx() * TIME;
-	float newDy = currDy + acc.getDDy() * TIME;
+	float newDx = getDx() + acc.getDDx() * TIME;
+	float newDy = getDy() + acc.getDDy() * TIME;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -45,12 +42,9 @@ void Velocity::updateVelocity(const Acceleration &acc)
  *********************************************/
 void Velocity::updateVelocity(const Acceleration &acc, float time)
 {
-	float currDx = getDx();
-	float currDy = getDy();
-	
 	// velocity = current velocity + acceleration * time
-	float newDx = currDx + acc.getDDx() * time;
-	float newDy = currDy + acc.getDDy() * time;
+	float newDx = getDx() + acc.getDDx() * time;
+	float newDy = getDy() + acc.getDDy() * time;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -60,16 +54,12 @@ void Velocity::updateVelocity(const Acceleration &acc, float time)
 /*********************************************
  * UPDATE
  * Updates the velocity based on its current velocity,
- * acceleration, and time.
+ * acceleration, time, AND thrustAmount.
  *********************************************/
 void Velocity::updateVelocity(const Acceleration &aGravity, float time, float thrustAmount)
 {
-	float currDx = getDx();
-	float currDy = getDy();
-	
-	// velocity = current velocity + acceleration * time
-	float newDx = currDx + aGravity.getDDx() + thrustAmount * time;
-	float newDy = currDy + aGravity.getDDy() + thrustAmount * time;
+	float newDx = getDx() + aGravity.getDDx() + thrustAmount * time;
+	float newDy = getDy() + aGravity.getDDy() + thrustAmount * time;
 	
 	setDx(newDx);
 	setDy(newDy);
