@@ -5,14 +5,19 @@
  * Computes amount of acceleration due to gravity
  * at a given altitude
  *********************************************/
-float Acceleration::getGravity(float altitude)
+void Acceleration::setGravity(float altitude, const Position &pos)
 {
+	Direction dir;
+	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
+	
 	// tmp is just a temporary variable to store one
 	// aspect of the gravity computation
 	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
 	float gravity = EARTH_GRAVITY * pow(tmp, 2);
+	
+	setDDx(gravity * dir.getDx());
+	setDDy(gravity * dir.getDy());
 
-	return gravity;
 }
 
 /*********************************************

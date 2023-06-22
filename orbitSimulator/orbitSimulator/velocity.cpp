@@ -51,14 +51,14 @@ void Velocity::updateVelocity(const Acceleration &acc, float time)
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc, float time, float thrustAmount)
+void Velocity::updateVelocity(const Acceleration &aGravity, float time, float thrustAmount)
 {
 	float currDx = getDx();
 	float currDy = getDy();
 	
 	// velocity = current velocity + acceleration * time
-	float newDx = currDx + acc.getDDx() + thrustAmount * time;
-	float newDy = currDy + acc.getDDy() + thrustAmount * time;
+	float newDx = currDx + aGravity.getDDx() + thrustAmount * time;
+	float newDy = currDy + aGravity.getDDy() + thrustAmount * time;
 	
 	setDx(newDx);
 	setDy(newDy);

@@ -35,7 +35,7 @@ public:
 	void launchProjectile();
  
 private:
-	// inherits pos, radius, velocity, direction, dead, and angularVelocity
+	// inherits pos, radius, velocity, direction, aGravity, dead, and angularVelocity
 	bool thrust;
  
 };

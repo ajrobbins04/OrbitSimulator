@@ -15,6 +15,8 @@
 
 #include "satellite.h"
 
+#define EARTH_RADIUS 6378000
+#define EARTH_GRAVITY -9.8067
 
 using namespace std;
 
@@ -29,7 +31,9 @@ public:
    
 	// test helper functions
     void run();
-	float get_gravity(float altitude);
+	float getAltitude(const Position &pos);
+	float getDDx(Acceleration &aGravity, float altitude, const Position &pos);
+	float getDDy(Acceleration &aGravity, float altitude, const Position &pos);
 	bool closeEnough(float actual, float predicted, float difference);
 	
 	void test_getAltitude_surface();

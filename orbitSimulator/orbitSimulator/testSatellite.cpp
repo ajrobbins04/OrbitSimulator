@@ -24,21 +24,52 @@ void TestSatellite::run()
 	test_updatePosition_complex();
 }
 
-float TestSatellite::get_gravity(float altitude)
+float TestSatellite::getAltitude(const Position &pos)
 {
+	float distance = sqrt((pos.getMetersX() * pos.getMetersX())
+						   + (pos.getMetersY() * pos.getMetersY()));
+	return distance - EARTH_RADIUS;
+}
+
+
+float TestSatellite::getDDx(Acceleration &aGravity, float altitude, const Position &pos)
+{
+	Direction dir;
+	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
+	
 	// tmp is just a temporary variable to store one
 	// aspect of the gravity computation
 	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
 	float gravity = EARTH_GRAVITY * pow(tmp, 2);
-
-	return gravity;
+	
+	aGravity.setDDx(gravity * dir.getDx());
+	return aGravity.getDDx();
 }
 
-bool TestSatellite::closeEnough(float actual, float predicted, float difference)
+float TestSatellite::getDDy(Acceleration &aGravity, float altitude, const Position &pos)
 {
+	Direction dir;
+	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
+	
+	// tmp is just a temporary variable to store one
+	// aspect of the gravity computation
+	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
+	float gravity = EARTH_GRAVITY * pow(tmp, 2);
+	
+	aGravity.setDDy(gravity * dir.getDx());
+	return aGravity.getDDy();
+}
+
+bool TestSatellite::closeEnough(float actual, float predicted, float tolerance)
+{
+	/*
 	float diff = abs(actual - predicted);
 	
-	return diff <= difference;
+	return diff <= difference;*/
+	float difference = actual - predicted;
+	
+	return ((difference >= - tolerance) && (difference <= tolerance));
+	
 }
 
 void TestSatellite::test_getAltitude_surface()
@@ -71,32 +102,41 @@ void TestSatellite::test_getAltitude_yAxis()
 
 void TestSatellite::test_getGravity_surface()
 {
-	Satellite s(6378000, 0);
+	Position pos(6378000, 0);
+	Acceleration aGravity(0.0, 0.0);
 	
-	float alt = s.getAltitude();
-	float gravity = get_gravity(alt);
-	
-	assert(closeEnough(gravity, -9.8066, 0.01));
+	float alt = getAltitude(pos);
+	float ddx = getDDx(aGravity, alt, pos);
+	float ddy = getDDy(aGravity, alt, pos);
+	assert(closeEnough(ddx, -9.806, 0.01));
+	assert(closeEnough(ddy, 0, 0.01));
 }
 
 void TestSatellite::test_getGravity_500k()
 {
-	Satellite s(6378000 + 500000, 0);
+	Position pos(6378000 + 500000, 0);
+	Acceleration aGravity(0.0, 0.0);
 	
-	float alt = s.getAltitude();
-	float gravity = get_gravity(alt);
-	
-	assert(closeEnough(gravity, -8.4, 0.01));
+	float alt = getAltitude(pos);
+	float ddx = getDDx(aGravity, alt, pos);
+	float ddy = getDDy(aGravity, alt, pos);
+	 
+	assert(closeEnough(ddx, -8.4, 0.01));
+	assert(closeEnough(ddy, 0, 0.01));
 }
 
 void TestSatellite::test_getGravity_2000k()
 {
-	Satellite s(6378000 + 2000000, 0);
+	Position pos(6378000 + 2000000, 0);
+	Acceleration aGravity(0.0, 0.0);
 	
-	float alt = s.getAltitude();
-	float gravity = get_gravity(alt);
-	
-	assert(closeEnough(gravity, -5.7, 0.01));
+	float alt = getAltitude(pos);
+	float ddx = getDDx(aGravity, alt, pos);
+	float ddy = getDDy(aGravity, alt, pos);
+	 
+	assert(closeEnough(ddx, -5.7, 0.01));
+	assert(closeEnough(ddy, 0, 0.01));
+ 
 }
 
 void TestSatellite::test_updateVelocity_stationary()
