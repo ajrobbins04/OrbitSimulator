@@ -96,7 +96,8 @@ void TestSatellite::test_getGravity_500k()
 	
 	float alt = s.getAltitude();
 	 
-	Acceleration a(alt, s.velocity.getDirection());
+	Acceleration a(0.0, 0.0);
+	a.updateAcc(alt, s.velocity.getDirection());
 	
 	assert(closeEnough(a.getDDx(), -8.4, 0.01));
 	assert(closeEnough(a.getDDy(), 0.0, 0.01));
