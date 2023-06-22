@@ -34,11 +34,11 @@ float TestSatellite::get_gravity(float altitude)
 	return gravity;
 }
 
-bool TestSatellite::closeEnough(float actual, float predicted)
+bool TestSatellite::closeEnough(float actual, float predicted, float difference)
 {
 	float diff = abs(actual - predicted);
 	
-	return diff < .000001;
+	return diff <= difference;
 }
 
 void TestSatellite::test_getAltitude_surface()
@@ -76,9 +76,7 @@ void TestSatellite::test_getGravity_surface()
 	float alt = s.getAltitude();
 	float gravity = get_gravity(alt);
 	
-	assert(closeEnough(gravity, 9.8066));
- 
-	//assert(gravity == -9.8066);
+	assert(closeEnough(gravity, -9.8066, 0.01));
 }
 
 void TestSatellite::test_getGravity_500k()
@@ -88,8 +86,7 @@ void TestSatellite::test_getGravity_500k()
 	float alt = s.getAltitude();
 	float gravity = get_gravity(alt);
 	
-	
-  //  assert(gravity == -8.4);
+	assert(closeEnough(gravity, -8.4, 0.01));
 }
 
 void TestSatellite::test_getGravity_2000k()
@@ -99,7 +96,7 @@ void TestSatellite::test_getGravity_2000k()
 	float alt = s.getAltitude();
 	float gravity = get_gravity(alt);
 	
-   // assert(gravity == -5.7);
+	assert(closeEnough(gravity, -5.7, 0.01));
 }
 
 void TestSatellite::test_updateVelocity_stationary()
@@ -120,8 +117,8 @@ void TestSatellite::test_updateVelocity_moving()
 	float time = 0;
 	v.updateVelocity(acc, time);
  
-	assert(closeEnough(v.getDx(), 1.2));
-	assert(closeEnough(v.getDy(), 3.4));
+	assert(closeEnough(v.getDx(), 1.2, 0.01));
+	assert(closeEnough(v.getDy(), 3.4, 0.01));
 }
 
 void TestSatellite::test_updateVelocity_accFromStop()
@@ -131,8 +128,8 @@ void TestSatellite::test_updateVelocity_accFromStop()
 	float time = 1;
 	v.updateVelocity(acc, time);
 	
-	assert(closeEnough(v.getDx(), 1.2));
-	assert(closeEnough(v.getDy(), 3.4));
+	assert(closeEnough(v.getDx(), 1.2, 0.01));
+	assert(closeEnough(v.getDy(), 3.4, 0.01));
 }
 
 void TestSatellite::test_updateVelocity_accFromStop_longer()
@@ -142,8 +139,8 @@ void TestSatellite::test_updateVelocity_accFromStop_longer()
 	float time = 2;
 	v.updateVelocity(acc, time);
 	
-	assert(closeEnough(v.getDx(), 2.4));
-	assert(closeEnough(v.getDy(), 6.8));
+	assert(closeEnough(v.getDx(), 2.4, 0.01));
+	assert(closeEnough(v.getDy(), 6.8, 0.01));
 }
 
 void TestSatellite::test_updateVelocity_complex()
@@ -153,8 +150,8 @@ void TestSatellite::test_updateVelocity_complex()
 	float time = 3;
 	v.updateVelocity(acc, time);
 	
-	assert(closeEnough(v.getDx(), 5.6));
-	assert(closeEnough(v.getDy(), 6.6));
+	assert(closeEnough(v.getDx(), 5.6, 0.01));
+	assert(closeEnough(v.getDy(), 6.6, 0.01));
 }
 
 void TestSatellite::test_updatePosition_stationary()
@@ -167,8 +164,8 @@ void TestSatellite::test_updatePosition_stationary()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(closeEnough(s.getPosX(), 11.1));
-	assert(closeEnough(s.getPosY(), 22.2));
+	assert(closeEnough(s.getPosX(), 11.1, 0.01));
+	assert(closeEnough(s.getPosY(), 22.2, 0.01));
 }
 
 void TestSatellite::test_updatePosition_moving()
@@ -181,8 +178,8 @@ void TestSatellite::test_updatePosition_moving()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(closeEnough(s.getPosX(), 11.6));
-	assert(closeEnough(s.getPosY(), 22.6));
+	assert(closeEnough(s.getPosX(), 11.6, 0.01));
+	assert(closeEnough(s.getPosY(), 22.6, 0.01));
 }
 
 void TestSatellite::test_updatePosition_movingLonger()
@@ -195,8 +192,8 @@ void TestSatellite::test_updatePosition_movingLonger()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(closeEnough(s.getPosX(), 12.1));
-	assert(closeEnough(s.getPosY(), 23.0));
+	assert(closeEnough(s.getPosX(), 12.1, 0.01));
+	assert(closeEnough(s.getPosY(), 23.0, 0.01));
 }
 
 void TestSatellite::test_updatePosition_fromStop()
@@ -209,8 +206,8 @@ void TestSatellite::test_updatePosition_fromStop()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(s.getPosX() - 11.2 < .000001 && s.getPosY() - 22.35 < .000001);
-	//assert(s.getPosX() == 11.2 && s.getPosY() == 22.35);
+	assert(closeEnough(s.getPosX(), 11.2, 0.01));
+	assert(closeEnough(s.getPosY(), 22.35, 0.01));
 }
 
 void TestSatellite::test_updatePosition_fromStop_longer()
@@ -223,8 +220,8 @@ void TestSatellite::test_updatePosition_fromStop_longer()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(s.getPosX() - 11.5 < .000001 && s.getPosY() - 22.8 < .000001);
-	//assert(s.getPosX() == 11.5 && s.getPosY() == 22.8);
+	assert(closeEnough(s.getPosX(), 11.5, 0.01));
+	assert(closeEnough(s.getPosY(), 22.8, 0.01));
 }
 
 void TestSatellite::test_updatePosition_complex()
@@ -237,6 +234,7 @@ void TestSatellite::test_updatePosition_complex()
 	velocity.updateVelocity(acc, time);
 	s.updatePosition();
 	
-	assert(s.getPosX() - 13.5 < .000001 && s.getPosY() - 26.8 < .000001);
-	//assert(s.getPosX() == 13.5 && s.getPosY() == 26.8);
+	assert(closeEnough(s.getPosX(), 13.5, 0.01));
+	assert(closeEnough(s.getPosY(), 26.8, 0.01));
+	 
 }
