@@ -34,6 +34,7 @@ public:
 	void test_defaultConstructor();
 	void test_nonDefaultConstructor();
 	void test_copyConstructor();
+	void test_assignmentOperator();
 	
 	void test_getSpeed_vertical();
 	void test_getSpeed_horizontal();
