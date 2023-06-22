@@ -30,9 +30,10 @@ public:
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
 	Acceleration(float ddx, float ddy): ddx(ddx), ddy(ddy) {}
-	Acceleration(float altitude, const Position &pos): ddx(0.0), ddy(0.0)
+	Acceleration(float altitude, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
-		setGravity(altitude, pos);
+		float gravity = getGravity(altitude);
+		updateAcc(gravity, direction);
 	}
    
 	void setDDx(float ddx) { this->ddx = ddx; }
@@ -41,7 +42,7 @@ public:
 	float getDDx() const { return ddx; }
 	float getDDy() const { return ddy; }
 	
-	void setGravity(float altitude, const Position &pos);
+	float getGravity(float altitude);
 	void updateAcc(float gravity, const Direction &direction);
 
    

@@ -154,10 +154,18 @@ void TestVelocity::test_getSpeed_diagonal_2()
 
 /*********************************************
 * TEST - GET DIRECTION - NORTH
+* If there's only vertical velocity moving up, then its direction
+* should equal 0 radians.
 *********************************************/
 void TestVelocity::test_getDirection_north()
 {
+	Velocity v(0.0, 1.0);
 	
+	Direction d = v.getDirection();
+	
+	assert(closeEnough(d.getRadians(), 0.00, 0.0001));
+	assert(v.getDx() == 0.0);
+	assert(v.getDy() == 1.0);
 }
 
 /*********************************************

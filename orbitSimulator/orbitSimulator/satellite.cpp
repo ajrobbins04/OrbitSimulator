@@ -34,9 +34,7 @@ void Satellite::updatePosition()
 void Satellite::move()
 {
 	float altitude = getAltitude();
-	//aGravity.updateAcc()
-	aGravity.setGravity(altitude, pos);
-	velocity.updateVelocity(aGravity);
+	Acceleration acc(altitude, direction);
+	velocity.updateVelocity(acc);
 	updatePosition();
-	
 }

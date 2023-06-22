@@ -9,10 +9,9 @@ void Ship::applyThrust(float thrustAmount, float time)
 {
 	setThrust(true);
 	float altitude = getAltitude();
-	aGravity.setGravity(altitude, pos);
-	velocity.updateVelocity(aGravity, time, thrustAmount);
+	Acceleration acc(altitude, direction);
+	velocity.updateVelocity(acc, time, thrustAmount);
 	updatePosition();
-	
 }
 
 void Ship::launchProjectile()

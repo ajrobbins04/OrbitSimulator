@@ -14,6 +14,7 @@
 #include <cassert>
 
 #include "velocity.h"
+#include "direction.h"
 
 using namespace std;
 

@@ -28,35 +28,28 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), aGravity(0.0, 0.0), dead(false) {}
+	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
 	
-	Satellite(float x, float y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0), direction(0.0, 0.0),
-	aGravity(0.0, 0.0), dead(false) {}
+	Satellite(float x, float y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
 	
-	Satellite(float x, float y, float radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0), direction(0.0, 0.0),
-	aGravity(0.0, 0.0), dead(false) {}
+	Satellite(float x, float y, float radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
 	
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
-	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), aGravity(0.0, 0.0), dead(false) {
+	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), dead(false) {
 		
-		direction.setDxDy(velocity.getDx(), velocity.getDy());
-		float altitude = getAltitude();
-		aGravity.setGravity(altitude, pos);
-		
+		direction = velocity.getDirection();
 	}
 	
 	Satellite(float x, float y, float radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
-	direction(0.0, 0.0), aGravity(0.0, 0.0), dead(false)
+	direction(0.0, 0.0), dead(false)
 	{
-		direction.setDxDy(velocity.getDx(), velocity.getDy());
-		float altitude = getAltitude();
-		aGravity.setGravity(altitude, pos);
+		direction = velocity.getDirection();;
 	}
 	
 	Satellite(float x, float y, float radius, float dx, float dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
-	direction(0.0, 0.0), aGravity(0.0, 0.0), dead(false)
+	direction(0.0, 0.0), dead(false)
 	{
-		direction.setDxDy(velocity.getDx(), velocity.getDy());
+		direction = velocity.getDirection();
 	}
    
 	void setVelocity(float dx, float dy)
@@ -77,15 +70,14 @@ public:
 //  virtual void destroy();
  
 	
-protected:
-	// inherits pos and radius
+protected: // inherits pos and radius
 	Velocity velocity;
 	Direction direction;
-	Acceleration aGravity;
 	bool dead;
 	float angularVelocity;
    
 };
+
 
 #endif /* satellite_h */
 

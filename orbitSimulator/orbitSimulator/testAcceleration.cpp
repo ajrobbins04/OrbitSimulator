@@ -45,7 +45,7 @@ void TestAcceleration::test_getGravity_surface()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	aGravity.setGravity(alt, pos);
+	//aGravity.setGravity(alt, pos);
 	
 	float ddx = aGravity.getDDx();
 	float ddy = aGravity.getDDy();
@@ -64,7 +64,7 @@ void TestAcceleration::test_getGravity_500k()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	aGravity.setGravity(alt, pos);
+	//aGravity.setGravity(alt, pos);
 	
  	assert(closeEnough(aGravity.getDDx(), -8.4, 0.01));
 	assert(closeEnough(aGravity.getDDy(), 0, 0.01));
@@ -80,7 +80,7 @@ void TestAcceleration::test_getGravity_2000k()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	aGravity.setGravity(alt, pos);
+	//aGravity.setGravity(alt, pos);
 	 
 	assert(closeEnough(aGravity.getDDx(), -5.7, 0.01));
 	assert(closeEnough(aGravity.getDDy(), 0, 0.01));

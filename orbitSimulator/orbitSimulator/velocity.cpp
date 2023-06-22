@@ -10,6 +10,17 @@ float Velocity::getSpeed() const
 }
 
 /*********************************************
+ * GET DIRECTION
+ * Computes the direction based on the current
+ * velocity.
+ *********************************************/
+Direction Velocity::getDirection() const
+{
+	Direction dir;
+	dir.setDxDy(dx, dy);
+	return dir;
+}
+/*********************************************
  * UPDATE
  * Updates the velocity based on its current velocity,
  * acceleration, and time.

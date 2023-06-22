@@ -46,14 +46,15 @@ public:
 		setSpeedDirection(speed, getDirection());
 	}
 	
+	Direction getDirection() const;
 	void setSpeedDirection(float speed, const Direction &direction);
 	
 	// getters
 	float getDx() const    { return dx; }
 	float getDy() const    { return dy; }
 	float getSpeed() const;
+
 	
-	Direction getDirection() const;
 	Velocity getVelocity()   const
 	{
 		Velocity velocity(dx, dy);
