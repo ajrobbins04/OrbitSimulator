@@ -19,7 +19,7 @@ void Acceleration::setGravity(float altitude, const Position &pos)
 	setDDy(gravity * dir.getDy());
 
 }
-
+ 
 /*********************************************
  * UPDATE ACCELERATION
  * Updates the acceleration at the current direction.

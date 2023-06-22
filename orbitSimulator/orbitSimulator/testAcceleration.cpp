@@ -36,8 +36,8 @@ float TestAcceleration::getAltitude(const Position &pos)
 }
  
 /*********************************************
- * CONVERT TO DEGREES
- * Converts a value in radians to degrees.
+ * TEST - GET GRAVITY SURFACE
+ *
  *********************************************/
 void TestAcceleration::test_getGravity_surface()
 {
@@ -50,13 +50,13 @@ void TestAcceleration::test_getGravity_surface()
 	float ddx = aGravity.getDDx();
 	float ddy = aGravity.getDDy();
 	
-	assert(closeEnough(ddx, -9.806, 0.01));
-	assert(closeEnough(ddy, 0, 0.01));
+	assert(closeEnough(aGravity.getDDx(), -9.806, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0, 0.01));
 }
 
 /*********************************************
- * CONVERT TO DEGREES
- * Converts a value in radians to degrees.
+ * TEST - GET GRAVITY 500K
+ *
  *********************************************/
 void TestAcceleration::test_getGravity_500k()
 {
@@ -66,16 +66,13 @@ void TestAcceleration::test_getGravity_500k()
 	float alt = getAltitude(pos);
 	aGravity.setGravity(alt, pos);
 	
-	float ddx = aGravity.getDDx();
-	float ddy = aGravity.getDDy();
-	 
-	assert(closeEnough(ddx, -8.4, 0.01));
-	assert(closeEnough(ddy, 0, 0.01));
+ 	assert(closeEnough(aGravity.getDDx(), -8.4, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0, 0.01));
 }
 
 /*********************************************
- * CONVERT TO DEGREES
- * Converts a value in radians to degrees.
+ * TEST - GET GRAVITY 2000K
+ *
  *********************************************/
 void TestAcceleration::test_getGravity_2000k()
 {
@@ -84,11 +81,8 @@ void TestAcceleration::test_getGravity_2000k()
 	
 	float alt = getAltitude(pos);
 	aGravity.setGravity(alt, pos);
-	
-	float ddx = aGravity.getDDx();
-	float ddy = aGravity.getDDy();
 	 
-	assert(closeEnough(ddx, -5.7, 0.01));
-	assert(closeEnough(ddy, 0, 0.01));
+	assert(closeEnough(aGravity.getDDx(), -5.7, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0, 0.01));
  
 }
