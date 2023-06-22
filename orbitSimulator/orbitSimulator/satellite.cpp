@@ -5,11 +5,10 @@
  *  Computes the distance from the center of the
  *  earth to the satellite's current position.
  *********************************************/
-float Satellite::getAltitude(const Position &posEarth)
+float Satellite::getAltitude()
 {
-	// earth is at (0,0) - which is the default Position
-	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
-				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
+ 	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
+						  + pos.getMetersY() * pos.getMetersY());
 	return distance - EARTH_RADIUS;
 }
 
@@ -34,7 +33,7 @@ void Satellite::updatePosition()
  *********************************************/
 void Satellite::move()
 {
-	float altitude = getAltitude(Position());
+	float altitude = getAltitude();
 	//aGravity.updateAcc()
 	aGravity.setGravity(altitude, pos);
 	velocity.updateVelocity(aGravity);

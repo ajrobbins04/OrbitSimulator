@@ -47,11 +47,8 @@ bool TestSatellite::closeEnough(float actual, float expected, float tolerance)
 *********************************************/
 float TestSatellite::getAltitude(const Position &pos)
 {
-	// earth is at (0,0)
-	Position posEarth(0.0, 0.0);
-	
-	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
-				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
+	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
+						  + pos.getMetersY() * pos.getMetersY());
 	return distance - EARTH_RADIUS;
 }
 
@@ -88,7 +85,7 @@ void TestSatellite::test_getAltitude_surface()
 {
 	Satellite s(6378000, 0);
 	
-	float alt = s.getAltitude(Position());
+	float alt = s.getAltitude();
 	
 	assert(alt == 0);
 	
@@ -98,7 +95,7 @@ void TestSatellite::test_getAltitude_xAxis()
 {
 	Satellite s(6379000, 0);
 	
-	float alt = s.getAltitude(Position());
+	float alt = s.getAltitude();
 	
 	assert(alt == 1000);
 }
@@ -107,7 +104,7 @@ void TestSatellite::test_getAltitude_yAxis()
 {
 	Satellite s(0, 6379000);
 	
-	float alt = s.getAltitude(Position());
+	float alt = s.getAltitude();
 	
 	assert(alt == 1000);
 }

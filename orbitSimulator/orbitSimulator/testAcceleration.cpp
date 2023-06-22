@@ -30,14 +30,11 @@ bool TestAcceleration::closeEnough(float actual, float expected, float tolerance
 *********************************************/
 float TestAcceleration::getAltitude(const Position &pos)
 {
-	// earth is at (0,0)
-	Position posEarth(0.0, 0.0);
-	
-	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
-				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
+	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
+						  + pos.getMetersY() * pos.getMetersY());
 	return distance - EARTH_RADIUS;
 }
-
+ 
 /*********************************************
  * CONVERT TO DEGREES
  * Converts a value in radians to degrees.
@@ -48,8 +45,11 @@ void TestAcceleration::test_getGravity_surface()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	float ddx = getDDx(aGravity, alt, pos);
-	float ddy = getDDy(aGravity, alt, pos);
+	aGravity.setGravity(alt, pos);
+	
+	float ddx = aGravity.getDDx();
+	float ddy = aGravity.getDDy();
+	
 	assert(closeEnough(ddx, -9.806, 0.01));
 	assert(closeEnough(ddy, 0, 0.01));
 }
@@ -64,8 +64,10 @@ void TestAcceleration::test_getGravity_500k()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	float ddx = getDDx(aGravity, alt, pos);
-	float ddy = getDDy(aGravity, alt, pos);
+	aGravity.setGravity(alt, pos);
+	
+	float ddx = aGravity.getDDx();
+	float ddy = aGravity.getDDy();
 	 
 	assert(closeEnough(ddx, -8.4, 0.01));
 	assert(closeEnough(ddy, 0, 0.01));
@@ -81,8 +83,10 @@ void TestAcceleration::test_getGravity_2000k()
 	Acceleration aGravity(0.0, 0.0);
 	
 	float alt = getAltitude(pos);
-	float ddx = getDDx(aGravity, alt, pos);
-	float ddy = getDDy(aGravity, alt, pos);
+	aGravity.setGravity(alt, pos);
+	
+	float ddx = aGravity.getDDx();
+	float ddy = aGravity.getDDy();
 	 
 	assert(closeEnough(ddx, -5.7, 0.01));
 	assert(closeEnough(ddy, 0, 0.01));

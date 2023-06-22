@@ -65,7 +65,7 @@ public:
 		velocity.setDy(dy);
 	}
 	
-	float getAltitude(const Position &posEarth);
+	float getAltitude();
 	bool isDead() const { return dead; }
 	void kill();
 	void addKick();
