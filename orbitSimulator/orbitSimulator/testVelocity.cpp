@@ -13,7 +13,8 @@ void TestVelocity::run()
 	
 	test_getSpeed_vertical();
 	test_getSpeed_horizontal();
-	test_getSpeed_diagonal();
+	test_getSpeed_diagonal_1();
+	test_getSpeed_diagonal_2();
 	
 	test_getDirection_north();
 	test_getDirection_east();
@@ -122,11 +123,33 @@ void TestVelocity::test_getSpeed_horizontal()
 }
 
 /*********************************************
-* TEST - GET SPEED - DIAGONAL
-*********************************************/
-void TestVelocity::test_getSpeed_diagonal()
+* TEST - GET SPEED - DIAGONAL 1
+* *********************************************/
+void TestVelocity::test_getSpeed_diagonal_1()
 {
+	Velocity v(3.0, 4.0);
 	
+	// speed = sqrt(dx * dx + dy * dy)
+	float speed = v.getSpeed();
+	
+	assert(closeEnough(speed, 5.00, 0.0001));
+	assert(v.getDx() == 3.0);
+	assert(v.getDy() == 4.0);
+}
+
+/*********************************************
+* TEST - GET SPEED - DIAGONAL 2
+* *********************************************/
+void TestVelocity::test_getSpeed_diagonal_2()
+{
+	Velocity v(8.0, 6.0);
+	
+	// speed = sqrt(dx * dx + dy * dy)
+	float speed = v.getSpeed();
+	
+	assert(closeEnough(speed, 10.00, 0.0001));
+	assert(v.getDx() == 8.0);
+	assert(v.getDy() == 6.0);
 }
 
 /*********************************************

@@ -38,7 +38,8 @@ public:
 	
 	void test_getSpeed_vertical();
 	void test_getSpeed_horizontal();
-	void test_getSpeed_diagonal();
+	void test_getSpeed_diagonal_1();
+	void test_getSpeed_diagonal_2();
 	
 	void test_getDirection_north();
 	void test_getDirection_east();
