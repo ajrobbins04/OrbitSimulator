@@ -1,5 +1,9 @@
 #include "testSatellite.h"
 
+/*********************************************
+ * RUN
+ * Runs all test cases.
+ *********************************************/
 void TestSatellite::run()
 {
 	test_getAltitude_surface();
@@ -24,10 +28,30 @@ void TestSatellite::run()
 	test_updatePosition_complex();
 }
 
+/*********************************************
+ * CLOSE ENOUGH
+ * Determines if the difference between the actual result and
+ * the expected result is within the given tolerance range.
+ *********************************************/
+bool TestSatellite::closeEnough(float actual, float expected, float tolerance)
+{
+	float difference = actual - expected;
+	
+	return ((difference >= - tolerance) && (difference <= tolerance));
+}
+
+/*********************************************
+* GET ALTITUDE
+* Finds the altitude between the earth's location and the
+* location at a given position (pos).
+*********************************************/
 float TestSatellite::getAltitude(const Position &pos)
 {
-	float distance = sqrt((pos.getMetersX() * pos.getMetersX())
-						   + (pos.getMetersY() * pos.getMetersY()));
+	// earth is at (0,0)
+	Position posEarth(0.0, 0.0);
+	
+	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
+				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
 	return distance - EARTH_RADIUS;
 }
 
@@ -60,23 +84,11 @@ float TestSatellite::getDDy(Acceleration &aGravity, float altitude, const Positi
 	return aGravity.getDDy();
 }
 
-bool TestSatellite::closeEnough(float actual, float predicted, float tolerance)
-{
-	/*
-	float diff = abs(actual - predicted);
-	
-	return diff <= difference;*/
-	float difference = actual - predicted;
-	
-	return ((difference >= - tolerance) && (difference <= tolerance));
-	
-}
-
 void TestSatellite::test_getAltitude_surface()
 {
 	Satellite s(6378000, 0);
 	
-	float alt = s.getAltitude();
+	float alt = s.getAltitude(Position());
 	
 	assert(alt == 0);
 	
@@ -86,7 +98,7 @@ void TestSatellite::test_getAltitude_xAxis()
 {
 	Satellite s(6379000, 0);
 	
-	float alt = s.getAltitude();
+	float alt = s.getAltitude(Position());
 	
 	assert(alt == 1000);
 }
@@ -95,7 +107,7 @@ void TestSatellite::test_getAltitude_yAxis()
 {
 	Satellite s(0, 6379000);
 	
-	float alt = s.getAltitude();
+	float alt = s.getAltitude(Position());
 	
 	assert(alt == 1000);
 }

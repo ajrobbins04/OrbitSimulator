@@ -22,6 +22,7 @@
 		02DEF0612A3E37D100999231 /* ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0602A3E37D100999231 /* ship.cpp */; };
 		02DEF0642A3E468300999231 /* orbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0632A3E468300999231 /* orbit.cpp */; };
 		02DEF0672A3E503300999231 /* testShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0662A3E503300999231 /* testShip.cpp */; };
+		02DEF06A2A43E8BA00999231 /* testAcceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0692A43E8BA00999231 /* testAcceleration.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		02DEF0632A3E468300999231 /* orbit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = orbit.cpp; sourceTree = "<group>"; };
 		02DEF0652A3E4FEF00999231 /* testShip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testShip.h; sourceTree = "<group>"; };
 		02DEF0662A3E503300999231 /* testShip.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testShip.cpp; sourceTree = "<group>"; };
+		02DEF0682A43E79100999231 /* testAcceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAcceleration.h; sourceTree = "<group>"; };
+		02DEF0692A43E8BA00999231 /* testAcceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testAcceleration.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				02DEF05F2A3E2FDC00999231 /* ship.h */,
 				02DEF0602A3E37D100999231 /* ship.cpp */,
 				02DEF0622A3E3FD900999231 /* earth.h */,
+				02DEF0682A43E79100999231 /* testAcceleration.h */,
+				02DEF0692A43E8BA00999231 /* testAcceleration.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				02DEF0672A3E503300999231 /* testShip.cpp in Sources */,
 				02DEF0542A3D2DAC00999231 /* main.cpp in Sources */,
 				02DEF04F2A3D2D6E00999231 /* uiInteract.cpp in Sources */,
+				02DEF06A2A43E8BA00999231 /* testAcceleration.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
 				02DEF05E2A3D456500999231 /* testSatellite.cpp in Sources */,

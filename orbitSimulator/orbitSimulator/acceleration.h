@@ -19,12 +19,15 @@
 #include <iostream>
 #include "position.h"
 #include "direction.h"
-#
+
+class TestAcceleration;
+
 using namespace std;
 
 class Acceleration
 {
 public:
+	friend TestAcceleration;
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
 	Acceleration(float ddx, float ddy): ddx(ddx), ddy(ddy) {}

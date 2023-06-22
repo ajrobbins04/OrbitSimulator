@@ -29,12 +29,12 @@ class TestSatellite
 {
 public:
    
-	// test helper functions
+	// test utility methods
     void run();
+	bool closeEnough(float actual, float expected, float tolerance);
 	float getAltitude(const Position &pos);
 	float getDDx(Acceleration &aGravity, float altitude, const Position &pos);
 	float getDDy(Acceleration &aGravity, float altitude, const Position &pos);
-	bool closeEnough(float actual, float predicted, float difference);
 	
 	void test_getAltitude_surface();
 	void test_getAltitude_xAxis();
