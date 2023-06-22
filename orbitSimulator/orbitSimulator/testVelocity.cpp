@@ -52,8 +52,8 @@ void TestVelocity::test_nonDefaultConstructor()
 {
 	Velocity v(4.5, 6.7);
 	
-	assert(closeEnough(v.getDx(), 4.5, 0.001));
-	assert(closeEnough(v.getDy(), 6.7, 0.001));
+	assert(closeEnough(v.getDx(), 4.5, 0.0001));
+	assert(closeEnough(v.getDy(), 6.7, 0.0001));
 }
 
 /*********************************************
@@ -65,10 +65,10 @@ void TestVelocity::test_copyConstructor()
 	
 	Velocity v2(v1);
 	
-	assert(closeEnough(v1.getDx(), -4.2, 0.001));
-	assert(closeEnough(v1.getDy(), 7.9, 0.001));
-	assert(closeEnough(v2.getDx(), -4.2, 0.001));
-	assert(closeEnough(v2.getDy(), 7.9, 0.001));
+	assert(closeEnough(v1.getDx(), -4.2, 0.0001));
+	assert(closeEnough(v1.getDy(), 7.9, 0.0001));
+	assert(closeEnough(v2.getDx(), -4.2, 0.0001));
+	assert(closeEnough(v2.getDy(), 7.9, 0.0001));
 }
 
 /*********************************************
@@ -81,26 +81,44 @@ void TestVelocity::test_assignmentOperator()
 	
 	v2 = v1;
 	
-	assert(closeEnough(v1.getDx(), 10.1, 0.001));
-	assert(closeEnough(v1.getDy(), -9.9, 0.001));
-	assert(closeEnough(v2.getDx(), 10.1, 0.001));
-	assert(closeEnough(v2.getDy(), -9.9, 0.001));
+	assert(closeEnough(v1.getDx(), 10.1, 0.0001));
+	assert(closeEnough(v1.getDy(), -9.9, 0.0001));
+	assert(closeEnough(v2.getDx(), 10.1, 0.0001));
+	assert(closeEnough(v2.getDy(), -9.9, 0.0001));
 }
 
 /*********************************************
 * TEST - GET SPEED - VERTICAL
+* The amount of speed should equal the vertical velocity
+* when no horizontal velocity is given.
 *********************************************/
 void TestVelocity::test_getSpeed_vertical()
 {
+	Velocity v(0.0, 1.0);
 	
+	// speed = sqrt(dx * dx + dy * dy)
+	float speed = v.getSpeed();
+	
+	assert(closeEnough(speed, 1.00, 0.0001));
+	assert(v.getDx() == 0.0);
+	assert(v.getDy() == 1.0);
 }
 
 /*********************************************
 * TEST - GET SPEED - HORIZONTAL
+* The amount of speed should equal the horizontal velocity
+* when no vertical velocity is given.
 *********************************************/
 void TestVelocity::test_getSpeed_horizontal()
 {
+	Velocity v(1.0, 0.0);
 	
+	// speed = sqrt(dx * dx + dy * dy)
+	float speed = v.getSpeed();
+	
+	assert(closeEnough(speed, 1.00, 0.0001));
+	assert(v.getDx() == 1.0);
+	assert(v.getDy() == 0.0);
 }
 
 /*********************************************
