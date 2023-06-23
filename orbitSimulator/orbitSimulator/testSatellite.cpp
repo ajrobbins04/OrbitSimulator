@@ -72,29 +72,35 @@ void TestSatellite::test_getAltitude_yAxis()
 void TestSatellite::test_getGravity_surface()
 {
 	Satellite s(6378000, 0);
-	Acceleration aGravity = s.getGravity();
+	Acceleration aGravity(0.0, 0.0);
+	
+	aGravity = s.getGravity();
 
-	assert(closeEnough(aGravity.getDDx(), -9.8066, 0.01));
-	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
+	assert(closeEnough(aGravity.getDDx(), -9.8066, 0.001));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.001));
 }
 
 void TestSatellite::test_getGravity_500k()
 {
 	Satellite s(6378000 + 500000, 0);
- 
-	Acceleration aGravity = s.getGravity();
-	assert(closeEnough(aGravity.getDDx(), -8.4, 0.01));
-	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
+	Acceleration aGravity(0.0, 0.0);
+	
+	aGravity = s.getGravity();
+	
+	assert(closeEnough(aGravity.getDDx(), -8.4, 0.001));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.001));
 
 }
 
 void TestSatellite::test_getGravity_2000k()
 {
 	Satellite s(6378000 + 2000000, 0);
+	Acceleration aGravity(0.0, 0.0);
 	
-	Acceleration aGravity = s.getGravity();
-	assert(closeEnough(aGravity.getDDx(), -5.7, 0.01));
-	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
+	aGravity = s.getGravity();
+	
+	assert(closeEnough(aGravity.getDDx(), -5.7, 0.001));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.001));
 
 }
 

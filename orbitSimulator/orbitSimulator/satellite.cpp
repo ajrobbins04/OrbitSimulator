@@ -26,7 +26,7 @@ Acceleration Satellite::getGravity()
 	
 	// direction of gravity points down
 	Direction dir;
-	dir.setDxDy(-pos.getMetersX(), -pos.getMetersY());
+	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
 	
 	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
 	float aGravity = EARTH_GRAVITY * pow(tmp, 2);
