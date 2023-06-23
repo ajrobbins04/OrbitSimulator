@@ -1,32 +1,12 @@
 #include "acceleration.h"
 
 /*********************************************
- * GET GRAVITY
- * Computes amount of acceleration due to gravity
- * at a given altitude
+ * SET ACCELERATION
+ * Sets the speed and direction.
  *********************************************/
-float Acceleration::getGravity(float altitude)
+void Acceleration::setAcc(float gravity, const Direction &direction)
 {
-	// tmp is just a temporary variable to store one
-	// aspect of the gravity computation
-	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
-	float gravity = EARTH_GRAVITY * pow(tmp, 2);
-	
-	return gravity;
-}
-
-/*********************************************
- * UPDATE ACCELERATION
- * Updates the speed and direction.
- *********************************************/
-/*void Acceleration::updateAcc(float aGravity, const Direction &direction)
-{
-	setDDx(aGravity * direction.getDx());
-	setDDy(aGravity * direction.getDy());
-}*/
-void Acceleration::updateAcc(float altitude, const Direction &direction)
-{
-	float gravity = getGravity(altitude);
 	setDDx(gravity * direction.getDx());
 	setDDy(gravity * direction.getDy());
 }
+

@@ -16,7 +16,6 @@
 
 #include <cmath>
 #include <iostream>
-#include "position.h"
 #include "direction.h"
 
 class TestAcceleration;
@@ -30,21 +29,17 @@ public:
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
 	Acceleration(float ddx, float ddy): ddx(ddx), ddy(ddy) {}
-	Acceleration(float altitude, const Direction &direction): ddx(0.0), ddy(0.0)
+	Acceleration(float gravity, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
-		updateAcc(altitude, direction);
+		setAcc(gravity, direction);
 	}
-   
+	
+	void setAcc(float altitude, const Direction &direction);
 	void setDDx(float ddx) { this->ddx = ddx; }
 	void setDDy(float ddy) { this->ddy = ddy; }
 	
 	float getDDx() const { return ddx; }
 	float getDDy() const { return ddy; }
-	
-	float getGravity(float altitude);
-	/*void updateAcc(float gravity, const Direction &direction);*/
-
-	void updateAcc(float altitude, const Direction &direction);
    
 private:
 	float ddx; // change in change in x

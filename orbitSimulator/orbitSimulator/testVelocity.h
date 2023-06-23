@@ -15,6 +15,7 @@
 
 #include "velocity.h"
 #include "direction.h"
+#include "position.h"
 
 using namespace std;
 

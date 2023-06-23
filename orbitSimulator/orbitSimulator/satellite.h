@@ -16,7 +16,6 @@
 #include <cmath>
 #include <iostream>
 #include <iomanip>
-#include "position.h"
 #include "velocity.h"
 #include "direction.h"
 #include "spaceObject.h"
@@ -43,7 +42,7 @@ public:
 	Satellite(float x, float y, float radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
 	direction(0.0, 0.0), dead(false)
 	{
-		direction = velocity.getDirection();;
+		direction = velocity.getDirection();
 	}
 	
 	Satellite(float x, float y, float radius, float dx, float dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
@@ -59,6 +58,7 @@ public:
 	}
 	
 	float getAltitude();
+	Acceleration getGravity();
 	bool isDead() const { return dead; }
 	void kill();
 	void addKick();

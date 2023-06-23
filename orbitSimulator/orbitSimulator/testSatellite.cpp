@@ -19,7 +19,7 @@ void TestSatellite::run()
 	test_updateVelocity_accFromStop();
 	test_updateVelocity_accFromStop_longer();
 	test_updateVelocity_complex();
-	
+
 	test_updatePosition_stationary();
 	test_updatePosition_moving();
 	test_updatePosition_movingLonger();
@@ -39,17 +39,7 @@ bool TestSatellite::closeEnough(float actual, float expected, float tolerance)
 	
 	return ((difference >= - tolerance) && (difference <= tolerance));
 }
-
-/*********************************************
-* GET GRAVITY
-*********************************************/
-float TestSatellite::getGravity(float altitude)
-{
-	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
-	float gravity = EARTH_GRAVITY * pow(tmp, 2);
-	
-	return gravity;
-}
+ 
 
 void TestSatellite::test_getAltitude_surface()
 {
@@ -82,25 +72,19 @@ void TestSatellite::test_getAltitude_yAxis()
 void TestSatellite::test_getGravity_surface()
 {
 	Satellite s(6378000, 0);
-	
-	float alt = s.getAltitude();
-	float gravity = getGravity(alt);
-	
-	assert(closeEnough(gravity, -9.8066, 0.01));
+	Acceleration aGravity = s.getGravity();
+
+	assert(closeEnough(aGravity.getDDx(), -9.8066, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
 }
 
 void TestSatellite::test_getGravity_500k()
 {
 	Satellite s(6378000 + 500000, 0);
  
-	
-	float alt = s.getAltitude();
-	 
-	Acceleration a(0.0, 0.0);
-	a.updateAcc(alt, s.velocity.getDirection());
-	
-	assert(closeEnough(a.getDDx(), -8.4, 0.01));
-	assert(closeEnough(a.getDDy(), 0.0, 0.01));
+	Acceleration aGravity = s.getGravity();
+	assert(closeEnough(aGravity.getDDx(), -8.4, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
 
 }
 
@@ -108,12 +92,12 @@ void TestSatellite::test_getGravity_2000k()
 {
 	Satellite s(6378000 + 2000000, 0);
 	
-	float alt = s.getAltitude();
-	float gravity = getGravity(alt);
-	
-	assert(closeEnough(gravity, -5.7, 0.01));
+	Acceleration aGravity = s.getGravity();
+	assert(closeEnough(aGravity.getDDx(), -5.7, 0.01));
+	assert(closeEnough(aGravity.getDDy(), 0.0, 0.01));
 
 }
+
 
 void TestSatellite::test_updateVelocity_stationary()
 {
@@ -254,3 +238,4 @@ void TestSatellite::test_updatePosition_complex()
 	assert(closeEnough(s.getPosY(), 26.8, 0.01));
 	 
 }
+

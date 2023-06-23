@@ -14,7 +14,6 @@
 #include <iostream>
 #include <string>
 #include "position.h"
-#include "direction.h"
 
 using namespace std;
 

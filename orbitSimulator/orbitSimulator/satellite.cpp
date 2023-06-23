@@ -8,11 +8,30 @@
 float Satellite::getAltitude()
 {
 	Position posEarth(0.0, 0.0);
- 	/*float distance = sqrt(pos.getMetersX() * pos.getMetersX()
+	/*float distance = sqrt(pos.getMetersX() * pos.getMetersX()
 						  + pos.getMetersY() * pos.getMetersY());*/
 	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
 				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
 	return distance - EARTH_RADIUS;
+}
+
+/*********************************************
+ * GET GRAVITY
+ * Computes amount and direction of gravity
+ * at a given altitude
+ *********************************************/
+Acceleration Satellite::getGravity()
+{
+	float altitude = getAltitude();
+	
+	// direction of gravity points down
+	Direction dir;
+	dir.setDxDy(-pos.getMetersX(), -pos.getMetersY());
+	
+	float tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
+	float aGravity = EARTH_GRAVITY * pow(tmp, 2);
+	
+	return Acceleration(aGravity, dir);
 }
 
 /*********************************************

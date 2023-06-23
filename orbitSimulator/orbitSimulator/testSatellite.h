@@ -28,13 +28,9 @@ using namespace std;
 class TestSatellite
 {
 public:
-   
 	// test utility methods
-    void run();
+	void run();
 	bool closeEnough(float actual, float expected, float tolerance);
-	float getGravity(float altitude);
-	float getDDx(Acceleration &aGravity, float altitude, const Position &pos);
-	float getDDy(Acceleration &aGravity, float altitude, const Position &pos);
 	
 	void test_getAltitude_surface();
 	void test_getAltitude_xAxis();
@@ -43,20 +39,20 @@ public:
 	void test_getGravity_surface();
 	void test_getGravity_500k();
 	void test_getGravity_2000k();
-	
+
 	void test_updateVelocity_stationary();
 	void test_updateVelocity_moving();
 	void test_updateVelocity_accFromStop();
 	void test_updateVelocity_accFromStop_longer();
 	void test_updateVelocity_complex();
-	
+
 	void test_updatePosition_stationary();
 	void test_updatePosition_moving();
 	void test_updatePosition_movingLonger();
 	void test_updatePosition_fromStop();
 	void test_updatePosition_fromStop_longer();
 	void test_updatePosition_complex();
-	
+
 	// will be implementing these test cases
 	// during lab 10
 	void test_destroySputnik();
@@ -77,7 +73,6 @@ public:
 	void test_createFragment_addKick();
 	void test_createFragment_tooClose();
 	void test_createFragment_expire();
-
 	
 	
 };
