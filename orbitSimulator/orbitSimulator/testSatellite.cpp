@@ -42,6 +42,9 @@ bool TestSatellite::closeEnough(float actual, float expected, float tolerance)
 }
  
 
+/*********************************************
+* TEST - 	GET ALTITUDE - SURFACE
+*********************************************/
 void TestSatellite::test_getAltitude_surface()
 {
 	Satellite s(6378000, 0);
@@ -52,6 +55,9 @@ void TestSatellite::test_getAltitude_surface()
 	
 }
 
+/*********************************************
+* TEST - 	GET ALTITUDE - X AXIS
+*********************************************/
 void TestSatellite::test_getAltitude_xAxis()
 {
 	Satellite s(6379000, 0);
@@ -61,6 +67,9 @@ void TestSatellite::test_getAltitude_xAxis()
 	assert(alt == 1000);
 }
 
+/*********************************************
+* TEST - 	GET ALTITUDE - Y AXIS
+*********************************************/
 void TestSatellite::test_getAltitude_yAxis()
 {
 	Satellite s(0, 6379000);
@@ -70,6 +79,9 @@ void TestSatellite::test_getAltitude_yAxis()
 	assert(alt == 1000);
 }
 
+/*********************************************
+* TEST - 	GET GRAVITY - SURFACE
+*********************************************/
 void TestSatellite::test_getGravity_surface()
 {
 	Satellite s(6378000, 0);
@@ -81,6 +93,9 @@ void TestSatellite::test_getGravity_surface()
 	assert(closeEnough(aGravity.getDDy(), 0.0, 0.03));
 }
 
+/*********************************************
+* TEST - 	GET GRAVITY - 500 K
+*********************************************/
 void TestSatellite::test_getGravity_500k()
 {
 	Satellite s(6378000 + 500000, 0);
@@ -93,6 +108,9 @@ void TestSatellite::test_getGravity_500k()
 
 }
 
+/*********************************************
+* TEST - 	GET GRAVITY - 2000 K
+*********************************************/
 void TestSatellite::test_getGravity_2000k()
 {
 	Satellite s(6378000 + 2000000, 0);
