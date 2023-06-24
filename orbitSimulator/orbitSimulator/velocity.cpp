@@ -58,8 +58,8 @@ void Velocity::updateVelocity(const Acceleration &aGravity, float time)
  *********************************************/
 void Velocity::updateVelocity(const Acceleration &aGravity, float time, float thrustAmount)
 {
-	float newDx = getDx() + aGravity.getDDx() + thrustAmount * time;
-	float newDy = getDy() + aGravity.getDDy() + thrustAmount * time;
+	float newDx = getDx() + (aGravity.getDDx() + thrustAmount) * time;
+	float newDy = getDy() + (aGravity.getDDy() + thrustAmount) * time;
 	
 	setDx(newDx);
 	setDy(newDy);

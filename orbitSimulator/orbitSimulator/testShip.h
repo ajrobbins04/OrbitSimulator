@@ -13,8 +13,9 @@
 #include <iostream>
 #include <cassert>
 
-#include "orbit.h"
+#include "direction.h"
 #include "ship.h"
+#include "uiInteract.h"
 
 using namespace std;
 
