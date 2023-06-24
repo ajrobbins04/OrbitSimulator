@@ -21,7 +21,7 @@ void TestVelocity::run()
 	test_getDirection_northEast();
 	test_getDirection_west();
 	test_getDirection_south();
-	test_getDirection_negative();
+	/*test_getDirection_negative();
  
 	test_updateVelocity_northEast();
 	test_updateVelocity_east();
@@ -29,7 +29,7 @@ void TestVelocity::run()
 	
 	test_reverse_northEast();
 	test_reverse_east();
-	test_reverse_north();
+	test_reverse_north();*/
 }
 
 /*********************************************

@@ -47,6 +47,28 @@ void Satellite::updatePosition()
 	pos.setMeters(x, y);
 }
 
+void Satellite::updatePosition(float time)
+{
+	float x = pos.getMetersX() + velocity.getDx() * time;
+	float y = pos.getMetersY() + velocity.getDy() * time;
+	
+	pos.setMeters(x, y);
+}
+/*********************************************
+ *  UPDATE
+ *  Updates the satellite's position based on its current
+ *  position, velocity, and time.
+ *********************************************/
+void Satellite::updatePosition(float time, const Acceleration &acc)
+{
+	//float x = pos.getMetersX() + velocity.getDx() * time;
+	//float y = pos.getMetersY() + velocity.getDy() * time;
+	
+	//pos.setMeters(x, y);
+	
+	pos.addMetersX(velocity.getDx() * time + (0.5 * acc.getDDx()) * (time * time));
+	pos.addMetersY(velocity.getDy() * time + (0.5 * acc.getDDy()) * (time * time));
+}
 
 /*********************************************
  *  MOVE
@@ -56,7 +78,8 @@ void Satellite::updatePosition()
 void Satellite::move()
 {
 	float altitude = getAltitude();
-	Acceleration acc(altitude, direction);
+	//Acceleration acc(altitude, direction);
+	Acceleration acc = getGravity();
 	velocity.updateVelocity(acc);
 	updatePosition();
 }

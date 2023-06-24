@@ -63,6 +63,8 @@ public:
 	void kill();
 	void addKick();
 	void updatePosition();
+	void updatePosition(float time);
+	void updatePosition(float time, const Acceleration &acc);
 	void move();
 	void destroy();
  

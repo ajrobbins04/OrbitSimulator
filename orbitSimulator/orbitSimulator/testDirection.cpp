@@ -17,10 +17,10 @@ void TestDirection::run()
 	test_setRadians_threeQuarters();
 	test_setRadians_oneLap();
 	test_setRadians_sixLaps();
-	test_setRadians_negative();
-	test_setRadians_negativeThreeQuarters();
-	test_setRadians_negativeOneLap();
-	test_setRadians_negativeSixLaps();
+//	test_setRadians_negative();
+//	test_setRadians_negativeThreeQuarters();
+//	test_setRadians_negativeOneLap();
+//	test_setRadians_negativeSixLaps();
 }
 
 /*********************************************

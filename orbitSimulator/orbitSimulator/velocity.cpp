@@ -25,11 +25,11 @@ Direction Velocity::getDirection() const
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc)
+void Velocity::updateVelocity(const Acceleration &aGravity)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + acc.getDDx() * TIME;
-	float newDy = getDy() + acc.getDDy() * TIME;
+	float newDx = getDx() + aGravity.getDDx() * TIME;
+	float newDy = getDy() + aGravity.getDDy() * TIME;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -40,11 +40,11 @@ void Velocity::updateVelocity(const Acceleration &acc)
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc, float time)
+void Velocity::updateVelocity(const Acceleration &aGravity, float time)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + acc.getDDx() * time;
-	float newDy = getDy() + acc.getDDy() * time;
+	float newDx = getDx() + aGravity.getDDx() * time;
+	float newDy = getDy() + aGravity.getDDy() * time;
 	
 	setDx(newDx);
 	setDy(newDy);
