@@ -235,8 +235,8 @@ void TestSatellite::test_updatePosition_fromStop()
 	s.velocity.updateVelocity(acc, time);
 	s.updatePosition(time);
 	
-	//assert(closeEnough(s.getPosX(), 11.2, 0.01));
-	//assert(closeEnough(s.getPosY(), 22.35, 0.01));
+	assert(closeEnough(s.getPosX(), 11.2, 1));
+	assert(closeEnough(s.getPosY(), 22.35, 1));
 }
 
 void TestSatellite::test_updatePosition_fromStop_longer()

@@ -11,6 +11,7 @@
 #define ship_h
 
 #include "satellite.h"
+#include "uiInteract.h"
 
 class TestShip;
 
@@ -29,7 +30,7 @@ public:
 	Ship(float x, float y, float radius, float dx, float dy): Satellite(Position(x, y), radius, Velocity(dx, dy)), thrust(false) {}
 	
 	void setThrust(bool thrust) { this->thrust = thrust; }
-	void rotateShip(float amount);
+	void rotateShip(const Interface *pUi);
 	void applyThrust(float thrustAmount, float time);
 	
 	void launchProjectile();

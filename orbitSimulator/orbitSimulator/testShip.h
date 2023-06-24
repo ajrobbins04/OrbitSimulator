@@ -28,6 +28,7 @@ class TestShip
 public:
 	
 	void run();
+	bool closeEnough(float actual, float expected, float tolerance);
 	
 	void test_rotate_right();
 	void test_rotate_left();
