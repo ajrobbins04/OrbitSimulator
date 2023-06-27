@@ -100,7 +100,6 @@ void callBack(const Interface* pUI, void* p)
    // is the first step of every single callback function in OpenGL.
    Demo* pDemo = (Demo*)p;
 
-	testRunner();
    //Acceleration a;
    //double angle = a.getAngle();
    //std::cout << angle << std::endl;
@@ -220,6 +219,7 @@ int main(int argc, char** argv)
    // Initialize the demo
    Demo demo(ptUpperRight);
 
+   testRunner();
    // set everything into action
    ui.run(callBack, &demo);
 

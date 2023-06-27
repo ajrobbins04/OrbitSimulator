@@ -4,9 +4,9 @@
  * SET ACCELERATION
  * Sets the speed and direction.
  *********************************************/
-void Acceleration::setAcc(float gravity, const Direction &direction)
+void Acceleration::setAcc(float aGravity, const Direction &direction)
 {
-	setDDx(gravity * direction.getDx());
-	setDDy(gravity * direction.getDy());
+	setDDx(aGravity * direction.getDx());
+	setDDy(aGravity * direction.getDy());
 }
 

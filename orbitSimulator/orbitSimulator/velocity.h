@@ -52,7 +52,7 @@ public:
 	// getters
 	float getDx() const    { return dx; }
 	float getDy() const    { return dy; }
-	float getSpeed() const;
+	float getSpeed() const; // speed = velocity + acceleration
 
 	
 	Velocity getVelocity()   const
@@ -70,6 +70,7 @@ public:
 		dy += velocity.dy;
 	}
 	
+	void applyAcceleration(const Acceleration &acc);
 	void updateVelocity(const Acceleration &acc);
 	void updateVelocity(const Acceleration &acc, float time);
 	void updateVelocity(const Acceleration &acc, float time, float thrustAmount);

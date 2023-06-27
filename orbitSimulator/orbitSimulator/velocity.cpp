@@ -20,16 +20,27 @@ Direction Velocity::getDirection() const
 	dir.setDxDy(dx, dy);
 	return dir;
 }
+
+/*********************************************
+ * APPLY ACCELERATION
+ * Applies acceleration to the current velocity
+ *********************************************/
+void Velocity::applyAcceleration(const Acceleration &acc)
+{
+	dx += acc.getDDx();
+	dy += acc.getDDy();
+}
+
 /*********************************************
  * UPDATE
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &aGravity)
+void Velocity::updateVelocity(const Acceleration &acc)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + aGravity.getDDx() * TIME;
-	float newDy = getDy() + aGravity.getDDy() * TIME;
+	float newDx = getDx() + acc.getDDx() * TIME;
+	float newDy = getDy() + acc.getDDy() * TIME;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -40,11 +51,11 @@ void Velocity::updateVelocity(const Acceleration &aGravity)
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &aGravity, float time)
+void Velocity::updateVelocity(const Acceleration &acc, float time)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + aGravity.getDDx() * time;
-	float newDy = getDy() + aGravity.getDDy() * time;
+	float newDx = getDx() + acc.getDDx() * time;
+	float newDy = getDy() + acc.getDDy() * time;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -56,10 +67,10 @@ void Velocity::updateVelocity(const Acceleration &aGravity, float time)
  * Updates the velocity based on its current velocity,
  * acceleration, time, AND thrustAmount.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &aGravity, float time, float thrustAmount)
+void Velocity::updateVelocity(const Acceleration &acc, float time, float thrustAmount)
 {
-	float newDx = getDx() + (aGravity.getDDx() + thrustAmount) * time;
-	float newDy = getDy() + (aGravity.getDDy() + thrustAmount) * time;
+	float newDx = getDx() + (acc.getDDx() + thrustAmount) * time;
+	float newDy = getDy() + (acc.getDDy() + thrustAmount) * time;
 	
 	setDx(newDx);
 	setDy(newDy);
