@@ -29,7 +29,7 @@ class TestShip
 public:
 	
 	void run();
-	bool closeEnough(float actual, float expected, float tolerance);
+	bool closeEnough(double actual, double expected, double tolerance);
 	
 	void test_rotate_right();
 	void test_rotate_left();

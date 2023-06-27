@@ -4,7 +4,7 @@
  * CONVERT TO RADIANS
  * Converts a value in degrees to radians.
  *********************************************/
-float Direction::convertToRadians(float degrees) const
+double Direction::convertToRadians(double degrees) const
 {
 	return (degrees / 360.0) * (2.0 * M_PI);
 }
@@ -13,7 +13,7 @@ float Direction::convertToRadians(float degrees) const
  * CONVERT TO DEGREES
  * Converts a value in radians to degrees.
  *********************************************/
-float Direction::convertToDegrees(float radians) const
+double Direction::convertToDegrees(double radians) const
 {
 	return 360.0 * (radians / (2.0 * M_PI));
 }

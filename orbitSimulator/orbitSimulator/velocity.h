@@ -19,7 +19,7 @@ public:
 	
 	// constructors
 	Velocity(): dx(0.0), dy(0.0) {}
-	Velocity(float dx, float dy) : dx(dx), dy(dy) {}
+	Velocity(double dx, double dy) : dx(dx), dy(dy) {}
 	Velocity(const Velocity &rhs) : dx(rhs.dx), dy(rhs.dy) {}
 	Velocity & operator = (const Velocity &rhs)
 	{
@@ -29,9 +29,9 @@ public:
 	}
 	
 	// setters
-	void setDx(float dx) { this->dx = dx; }
-	void setDy(float dy) { this->dy = dy; }
-	void setDxDy(float dx, float dy) {
+	void setDx(double dx) { this->dx = dx; }
+	void setDy(double dy) { this->dy = dy; }
+	void setDxDy(double dx, double dy) {
 		this->dx = dx;
 		this->dy = dy;
 	}
@@ -41,18 +41,18 @@ public:
 		setSpeedDirection(getSpeed(), direction);
 	}
 	
-	void setSpeed(float speed)
+	void setSpeed(double speed)
 	{
 		setSpeedDirection(speed, getDirection());
 	}
 	
 	Direction getDirection() const;
-	void setSpeedDirection(float speed, const Direction &dir);
+	void setSpeedDirection(double speed, const Direction &dir);
 	
 	// getters
-	float getDx() const    { return dx; }
-	float getDy() const    { return dy; }
-	float getSpeed() const; // speed = velocity + acceleration
+	double getDx() const    { return dx; }
+	double getDy() const    { return dy; }
+	double getSpeed() const; // speed = velocity + acceleration
 
 	
 	Velocity getVelocity()   const
@@ -62,8 +62,8 @@ public:
 	}
 	
    
-	void addDx(float dx) { setDx(getDx() + dx); }
-	void addDy(float dy) { setDy(getDy() + dy); }
+	void addDx(double dx) { setDx(getDx() + dx); }
+	void addDy(double dy) { setDy(getDy() + dy); }
 	void addVelocity(const Velocity &velocity)
 	{
 		dx += velocity.dx;
@@ -72,8 +72,8 @@ public:
 	
 	void applyAcceleration(const Acceleration &acc);
 	void updateVelocity(const Acceleration &acc);
-	void updateVelocity(const Acceleration &acc, float time);
-	void updateVelocity(const Acceleration &acc, float time, float thrustAmount);
+	void updateVelocity(const Acceleration &acc, double time);
+	void updateVelocity(const Acceleration &acc, double time, double thrustAmount);
 	
 	void reverse()
 	{
@@ -88,8 +88,8 @@ public:
 	}
 	
 private:
-	float dx;
-	float dy;
+	double dx;
+	double dy;
 	
 };
 

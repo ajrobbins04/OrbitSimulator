@@ -27,44 +27,46 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
+	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false), age(0.0) {}
 	
-	Satellite(float x, float y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
+	Satellite(double x, double y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0),
+	direction(0.0, 0.0), dead(false), age(0.0) {}
 	
-	Satellite(float x, float y, float radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false) {}
+	Satellite(double x, double y, double radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0),
+	direction(0.0, 0.0), dead(false), age(0.0) {}
 	
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
-	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), dead(false) {
+	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), dead(false), age(0.0) {
 		
 		direction = velocity.getDirection();
 	}
 	
-	Satellite(float x, float y, float radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
-	direction(0.0, 0.0), dead(false)
+	Satellite(double x, double y, double radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
+	direction(0.0, 0.0), dead(false), age(0.0)
 	{
 		direction = velocity.getDirection();
 	}
 	
-	Satellite(float x, float y, float radius, float dx, float dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
-	direction(0.0, 0.0), dead(false)
+	Satellite(double x, double y, double radius, double dx, double dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
+	direction(0.0, 0.0), dead(false), age(0.0)
 	{
 		direction = velocity.getDirection();
 	}
    
-	void setVelocity(float dx, float dy)
+	void setVelocity(double dx, double dy)
 	{
 		velocity.setDx(dx);
 		velocity.setDy(dy);
 	}
 	
-	float getAltitude();
+	double getAltitude();
 	Acceleration getGravity();
 	bool isDead() const { return dead; }
 	void kill();
 	void addKick();
 	void updatePosition();
-	void updatePosition(float time);
-	void updatePosition(float time, const Acceleration &acc);
+	void updatePosition(double time);
+	void updatePosition(double time, const Acceleration &acc);
 	void move();
 	void destroy();
  
@@ -76,7 +78,8 @@ protected: // inherits pos and radius
 	Velocity velocity;
 	Direction direction;
 	bool dead;
-	float angularVelocity;
+	double angularVelocity;
+	double age;
    
 };
 

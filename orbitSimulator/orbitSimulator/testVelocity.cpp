@@ -37,9 +37,9 @@ void TestVelocity::run()
  * Determines if the difference between the actual result and
  * the expected result is within the given tolerance range.
  *********************************************/
-bool TestVelocity::closeEnough(float actual, float expected, float tolerance)
+bool TestVelocity::closeEnough(double actual, double expected, double tolerance)
 {
-	float difference = actual - expected;
+	double difference = actual - expected;
 	
 	return ((difference >= - tolerance) && (difference <= tolerance));
 }
@@ -107,7 +107,7 @@ void TestVelocity::test_getSpeed_vertical()
 	Velocity v(0.0, 1.0);
 	
 	// speed = sqrt(dx * dx + dy * dy)
-	float speed = v.getSpeed();
+	double speed = v.getSpeed();
 	
 	assert(closeEnough(speed, 1.00, 0.0001));
 	assert(v.getDx() == 0.0);
@@ -124,7 +124,7 @@ void TestVelocity::test_getSpeed_horizontal()
 	Velocity v(1.0, 0.0);
 	
 	// speed = sqrt(dx * dx + dy * dy)
-	float speed = v.getSpeed();
+	double speed = v.getSpeed();
 	
 	assert(closeEnough(speed, 1.00, 0.0001));
 	assert(v.getDx() == 1.0);
@@ -139,7 +139,7 @@ void TestVelocity::test_getSpeed_diagonal_1()
 	Velocity v(3.0, 4.0);
 	
 	// speed = sqrt(dx * dx + dy * dy)
-	float speed = v.getSpeed();
+	double speed = v.getSpeed();
 	
 	assert(closeEnough(speed, 5.00, 0.0001));
 	assert(v.getDx() == 3.0);
@@ -154,7 +154,7 @@ void TestVelocity::test_getSpeed_diagonal_2()
 	Velocity v(8.0, 6.0);
 	
 	// speed = sqrt(dx * dx + dy * dy)
-	float speed = v.getSpeed();
+	double speed = v.getSpeed();
 	
 	assert(closeEnough(speed, 10.00, 0.0001));
 	assert(v.getDx() == 8.0);

@@ -28,9 +28,9 @@ void TestDirection::run()
  * Determines if the difference between the actual result and
  * the expected result is within the given tolerance range.
  *********************************************/
-bool TestDirection::closeEnough(float actual, float expected, float tolerance)
+bool TestDirection::closeEnough(double actual, double expected, double tolerance)
 {
-	float difference = actual - expected;
+	double difference = actual - expected;
 	
 	return ((difference >= - tolerance) && (difference <= tolerance));
 }

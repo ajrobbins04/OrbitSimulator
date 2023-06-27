@@ -42,7 +42,7 @@ void Ship::rotateShip(const Interface *pUi)
 	 }
  }
 
-void Ship::applyThrust(float thrustAmount, float time)
+void Ship::applyThrust(double thrustAmount, double time)
 {
 	setThrust(true);
 	//Acceleration acc(altitude, direction);

@@ -23,12 +23,12 @@ class Direction
 public:
 	friend TestDirection;
 	Direction(): radians(0.0) {}
-	Direction(float degrees): radians(0.0)
+	Direction(double degrees): radians(0.0)
 	{
 		radians = convertToRadians(degrees);
 	}
 	
-	Direction(float dx, float dy): radians(0.0)
+	Direction(double dx, double dy): radians(0.0)
 	{
 		radians = atan2(dx, dy);
 	}
@@ -39,23 +39,23 @@ public:
 		return *this;
 	}
 	
-	void setRadians(float rhs) // rhs given in radians
+	void setRadians(double rhs) // rhs given in radians
 	{
 		if (rhs >= 0.0)
 		{
-			float rotations = (float)(int)((M_PI + rhs) / (M_PI * 2.0));
+			double rotations = (double)(int)((M_PI + rhs) / (M_PI * 2.0));
 			rhs -= rotations * (M_PI * 2.0);
 		}
 		else
 		{
-			float rotations = -(float)(int)((rhs - M_PI) / (M_PI * 2.0));
+			double rotations = -(double)(int)((rhs - M_PI) / (M_PI * 2.0));
 			rhs += rotations * (M_PI * 2.0);
 		}
 		radians = rhs;
 	}
 	
-	void setDxDy(float dx, float dy) { radians = atan2(dx, dy); }
-	void setDegrees(float degrees)   { radians = convertToRadians(degrees); }
+	void setDxDy(double dx, double dy) { radians = atan2(dx, dy); }
+	void setDegrees(double degrees)   { radians = convertToRadians(degrees); }
 	 
 	void setUp()    { radians = 0.0;  }             // 0 degrees
 	void setDown()  { radians = M_PI; }             // 180 degrees
@@ -63,13 +63,13 @@ public:
 	void setLeft()  { radians = -M_PI_2; }          // -90 degrees
 	void reverse()  { setRadians(radians + M_PI); } // add 180 degrees to current value
 	
-	float getDx() const { return sin(radians); }
-	float getDy() const { return cos(radians); }
-	float getRadians() const { return radians; }
-	float getDegrees() const { return convertToDegrees(radians); }
+	double getDx() const { return sin(radians); }
+	double getDy() const { return cos(radians); }
+	double getRadians() const { return radians; }
+	double getDegrees() const { return convertToDegrees(radians); }
 	
 	// rotates by an amount in radians
-	void rotate(float amount)
+	void rotate(double amount)
 	{
 		radians += amount;
 		if (radians > M_PI)
@@ -78,16 +78,16 @@ public:
 			radians += 2.0 + M_PI;
 	}
 	
-	float convertToDegrees(float radians) const;
-	float convertToRadians(float degrees) const;
+	double convertToDegrees(double radians) const;
+	double convertToRadians(double degrees) const;
 	
-	Direction operator+(float degrees) const
+	Direction operator+(double degrees) const
 	{
 		return Direction(getDegrees() + degrees);
 	}
 	
 private:
-	float radians;
+	double radians;
 	
 };
 

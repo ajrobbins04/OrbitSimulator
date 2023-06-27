@@ -21,11 +21,9 @@ void TestShip::run()
  * Determines if the difference between the actual result and
  * the expected result is within the given tolerance range.
  *********************************************/
-bool TestShip::closeEnough(float actual, float expected, float tolerance)
+bool TestShip::closeEnough(double actual, double expected, double tolerance)
 {
-	tolerance += 0.01;
-
-	float difference = actual - expected;
+	double difference = actual - expected;
 	
 	return ((difference >= - tolerance) && (difference <= tolerance));
 }

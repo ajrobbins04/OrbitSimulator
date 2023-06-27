@@ -22,21 +22,21 @@ public:
  
 	Ship() : Satellite(Position(0.0, 0.0), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
 	
-	Ship(const Position &pos, float radius, const Velocity &velocity) : Satellite(pos, radius, velocity), thrust(false) {}
+	Ship(const Position &pos, double radius, const Velocity &velocity) : Satellite(pos, radius, velocity), thrust(false) {}
 	
-	Ship(float x, float y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
-	Ship(float x, float y, float radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)), thrust(false) {}
-	Ship(float x, float y, float radius, const Velocity &velocity): Satellite(Position(x, y), radius, velocity), thrust(false) {}
-	Ship(float x, float y, float radius, float dx, float dy): Satellite(Position(x, y), radius, Velocity(dx, dy)), thrust(false) {}
+	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
+	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)), thrust(false) {}
+	Ship(double x, double y, double radius, const Velocity &velocity): Satellite(Position(x, y), radius, velocity), thrust(false) {}
+	Ship(double x, double y, double radius, double dx, double dy): Satellite(Position(x, y), radius, Velocity(dx, dy)), thrust(false) {}
 	
 	void setThrust(bool thrust) { this->thrust = thrust; }
 	void rotateShip(const Interface *pUi);
-	void applyThrust(float thrustAmount, float time);
+	void applyThrust(double thrustAmount, double time);
 	
 	void launchProjectile();
  
 private:
-	// inherits pos, radius, velocity, direction, dead, and angularVelocity
+	// inherits pos, radius, velocity, direction, dead, age, and angularVelocity
 	bool thrust;
  
 };

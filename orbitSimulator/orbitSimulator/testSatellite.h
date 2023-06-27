@@ -30,8 +30,9 @@ class TestSatellite
 public:
 	// test utility methods
 	void run();
-	bool closeEnough(float actual, float expected, float tolerance);
+	bool closeEnough(double actual, double expected, double tolerance);
 	
+	void test_constructor_stationaryNorth();
 	void test_getAltitude_surface();
 	void test_getAltitude_xAxis();
 	void test_getAltitude_yAxis();

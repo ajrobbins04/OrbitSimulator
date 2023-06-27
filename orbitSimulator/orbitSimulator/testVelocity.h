@@ -31,7 +31,7 @@ public:
 	// test utility methods
 	void run();
 	float getAltitude(const Position &pos);
-	bool closeEnough(float actual, float expected, float tolerance);
+	bool closeEnough(double actual, double expected, double tolerance);
 	
 	void test_defaultConstructor();
 	void test_nonDefaultConstructor();

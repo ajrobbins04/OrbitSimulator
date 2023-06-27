@@ -4,7 +4,7 @@
  * GET SPEED
  * Computes the velocity speed.
  *********************************************/
-float Velocity::getSpeed() const
+double Velocity::getSpeed() const
 {
 	return sqrt(dx * dx + dy * dy);
 }
@@ -39,8 +39,8 @@ void Velocity::applyAcceleration(const Acceleration &acc)
 void Velocity::updateVelocity(const Acceleration &acc)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + acc.getDDx() * TIME;
-	float newDy = getDy() + acc.getDDy() * TIME;
+	double newDx = getDx() + acc.getDDx() * TIME;
+	double newDy = getDy() + acc.getDDy() * TIME;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -51,11 +51,11 @@ void Velocity::updateVelocity(const Acceleration &acc)
  * Updates the velocity based on its current velocity,
  * acceleration, and time.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc, float time)
+void Velocity::updateVelocity(const Acceleration &acc, double time)
 {
 	// velocity = current velocity + acceleration * time
-	float newDx = getDx() + acc.getDDx() * time;
-	float newDy = getDy() + acc.getDDy() * time;
+	double newDx = getDx() + acc.getDDx() * time;
+	double newDy = getDy() + acc.getDDy() * time;
 	
 	setDx(newDx);
 	setDy(newDy);
@@ -67,10 +67,10 @@ void Velocity::updateVelocity(const Acceleration &acc, float time)
  * Updates the velocity based on its current velocity,
  * acceleration, time, AND thrustAmount.
  *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc, float time, float thrustAmount)
+void Velocity::updateVelocity(const Acceleration &acc, double time, double thrustAmount)
 {
-	float newDx = getDx() + (acc.getDDx() + thrustAmount) * time;
-	float newDy = getDy() + (acc.getDDy() + thrustAmount) * time;
+	double newDx = getDx() + (acc.getDDx() + thrustAmount) * time;
+	double newDy = getDy() + (acc.getDDy() + thrustAmount) * time;
 	
 	setDx(newDx);
 	setDy(newDy);

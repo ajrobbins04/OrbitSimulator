@@ -28,22 +28,22 @@ public:
 	friend TestAcceleration;
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
-	Acceleration(float ddx, float ddy): ddx(ddx), ddy(ddy) {}
-	Acceleration(float aGravity, const Direction &direction): ddx(0.0), ddy(0.0)
+	Acceleration(double ddx, double ddy): ddx(ddx), ddy(ddy) {}
+	Acceleration(double aGravity, const Direction &direction): ddx(0.0), ddy(0.0)
 	{
 		setAcc(aGravity, direction);
 	}
 	
-	void setAcc(float aGravity, const Direction &direction);
-	void setDDx(float ddx) { this->ddx = ddx; }
-	void setDDy(float ddy) { this->ddy = ddy; }
+	void setAcc(double aGravity, const Direction &direction);
+	void setDDx(double ddx) { this->ddx = ddx; }
+	void setDDy(double ddy) { this->ddy = ddy; }
 	
-	float getDDx() const { return ddx; }
-	float getDDy() const { return ddy; }
+	double getDDx() const { return ddx; }
+	double getDDy() const { return ddy; }
    
 private:
-	float ddx; // change in change in x
-	float ddy; // change in change in y
+	double ddx; // change in change in x
+	double ddy; // change in change in y
    
 };
 
