@@ -47,7 +47,23 @@ bool TestSatellite::closeEnough(double actual, double expected, double tolerance
 *********************************************/
 void TestSatellite::test_constructor_stationaryNorth()
 {
-
+	Satellite sParent(512000000, 640000000);
+	sParent.setVelocity(0.0, 0.0);
+	
+	Direction d;
+	d.setRadians(0.0); // kick to the north
+	
+	Satellite s(sParent, d);
+	
+	assert(closeEnough(s.velocity.getDx(), 0.0, 250.0));      // small deviation
+	assert(closeEnough(s.velocity.getDy(), 2000.0, 1200.0));  // 1,000 <= v <= 3,000
+	assert(closeEnough(s.pos.getMetersX(), 512000000.0, 512000.0));
+	assert(closeEnough(s.pos.getMetersY(), 640000000.0, 512000.0));
+	assert(s.direction.getRadians() == 0.0);
+	assert(s.getAngularVelocity() == 0.0);
+	assert(s.isDead() == false);
+	assert(s.getRadius() == 0.0);
+	assert(s.age == 0.0);
 	
 }
 /*********************************************
