@@ -67,11 +67,8 @@ public:
 	   double frameRate = rate * TIME;
 	   angleShip = frameRate;
 	   angleEarth = frameRate;
-	  phaseStar = 0;
+	   phaseStar = 0;
    }
-
-
-   Satellite hubble;
 	
    Position ptSputnik;
    Position ptStarlink;
@@ -98,7 +95,7 @@ void callBack(const Interface* pUI, void* p)
 {
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL.
-   Demo* pDemo = (Demo*)p;
+   /*Demo* pDemo = (Demo*)p;
 
    //Acceleration a;
    //double angle = a.getAngle();
@@ -147,20 +144,20 @@ void callBack(const Interface* pUI, void* p)
    // draw satellites
    gout.drawHubble (ptHubble, pDemo->angleShip);
 	
-   /*
+   
    gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
 
    gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
    gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
    gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
    gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
-	*/
+	
 
    // draw parts
    pt.setPixelsX((pDemo->hubble.getPosX()/40) + 20);
    pt.setPixelsY((pDemo->hubble.getPosY()/40) + 20);
 	
-   /*
+   
    pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);
    pt.setPixelsY(pDemo->ptCrewDragon.getPixelsY() + 20);
    gout.drawCrewDragonRight(pt, pDemo->angleShip); // notice only two parameters are set
@@ -180,7 +177,7 @@ void callBack(const Interface* pUI, void* p)
    pt.setPixelsX(pDemo->ptShip.getPixelsX() + 20);
    pt.setPixelsY(pDemo->ptShip.getPixelsY() + 20);
    gout.drawFragment(pt, pDemo->angleShip);
-*/
+
    // draw a single star
    gout.drawStar(pDemo->ptStar, pDemo->phaseStar);
 
@@ -190,9 +187,9 @@ void callBack(const Interface* pUI, void* p)
 	
    gout.drawEarth(pt, pDemo->angleEarth);
 }
-
-double Position::metersFromPixels = 40.0;
-
+*/
+	double Position::metersFromPixels = 40.0;
+	
 /*********************************
  * Initialize the simulation and set it in motion
  *********************************/

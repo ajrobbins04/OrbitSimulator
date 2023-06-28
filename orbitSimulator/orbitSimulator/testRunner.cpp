@@ -31,7 +31,7 @@ void testRunner()
 	TestVelocity().run();
 	cout << "Velocity test cases pass.\n\n";
 	cout << "Running Satellite test cases...\n";
-	TestSatellite().run();
+	TestHubble().run();
 	cout << "Satellite test cases pass.\n\n";
 	cout << "Running Ship test cases...\n";
 	TestShip().run();

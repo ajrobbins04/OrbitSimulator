@@ -14,6 +14,7 @@
 #include <iostream>
 #include <string>
 #include "position.h"
+#include "uiDraw.h"  
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
 		{
 			// fragments have smallest radius of 2 px
 			// GPS Satellite has largest radius of 12 px
-		//	assert(radius >= 2 && radius <= 12);
+			//	assert(radius >= 2 && radius <= 12);
 			double radiusMeters = pos.convertToMeters(radius);
 			setRadius(radiusMeters);
 		}
@@ -55,7 +56,7 @@ public:
 		pos.setMetersY(y);
 	}
 
-//	virtual void draw() = 0;
+	virtual void draw(double frameRate, double rotation) = 0;
 //	virtual void move(int time);
 	
 	double getRadius()      const { return radius; }

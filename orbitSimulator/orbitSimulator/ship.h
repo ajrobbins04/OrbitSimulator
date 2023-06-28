@@ -32,6 +32,14 @@ public:
 	void setThrust(bool thrust) { this->thrust = thrust; }
 	void rotateShip(const Interface *pUi);
 	void applyThrust(double thrustAmount, double time);
+	bool getThrust() const { return thrust; }
+	
+	virtual void draw(double frameRate, double rotation) {
+		Position pt;
+		ogstream gout(pt);
+		
+		gout.drawShip(getPos(), rotation, getThrust());
+	}
 	
 	void launchProjectile();
  

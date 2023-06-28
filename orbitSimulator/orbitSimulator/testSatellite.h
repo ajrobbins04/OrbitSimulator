@@ -13,7 +13,7 @@
 #include <iostream>
 #include <cassert>
 
-#include "satellite.h"
+#include "hubble.h"
 
 #define EARTH_RADIUS 6378000
 #define EARTH_GRAVITY -9.8067
@@ -25,7 +25,7 @@ using namespace std;
 * A friend class for Satellite,
 * which contains the Satellite unit tests.
 ********************************/
-class TestSatellite
+class TestHubble
 {
 public:
 	// test utility methods

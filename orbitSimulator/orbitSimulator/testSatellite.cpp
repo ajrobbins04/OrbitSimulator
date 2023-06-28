@@ -4,7 +4,7 @@
  * RUN
  * Runs all test cases.
  *********************************************/
-void TestSatellite::run()
+void TestHubble::run()
 {
 	test_constructor_stationaryNorth();
 	
@@ -35,7 +35,7 @@ void TestSatellite::run()
  * Determines if the difference between the actual result and
  * the expected result is within the given tolerance range.
  *********************************************/
-bool TestSatellite::closeEnough(double actual, double expected, double tolerance)
+bool TestHubble::closeEnough(double actual, double expected, double tolerance)
 {
 	double difference = actual - expected;
 	
@@ -45,15 +45,15 @@ bool TestSatellite::closeEnough(double actual, double expected, double tolerance
 /*********************************************
 * TEST - 	CONSTRUCTOR - STATIONARY NORTH
 *********************************************/
-void TestSatellite::test_constructor_stationaryNorth()
+void TestHubble::test_constructor_stationaryNorth()
 {
-	Satellite sParent(512000000, 640000000);
+	Hubble sParent(512000000, 640000000);
 	sParent.setVelocity(0.0, 0.0);
 	
 	Direction d;
 	d.setRadians(0.0); // kick to the north
 	
-	Satellite s(sParent, d);
+	Hubble s(sParent, d);
 	
 	//assert(closeEnough(s.velocity.getDx(), 0.0, 250.0));      // small deviation
 	//assert(closeEnough(s.velocity.getDy(), 2000.0, 1200.0));  // 1,000 <= v <= 3,000
@@ -69,9 +69,9 @@ void TestSatellite::test_constructor_stationaryNorth()
 /*********************************************
 * TEST - 	GET ALTITUDE - SURFACE
 *********************************************/
-void TestSatellite::test_getAltitude_surface()
+void TestHubble::test_getAltitude_surface()
 {
-	Satellite s(6378000, 0);
+	Hubble s(6378000, 0);
 	
 	double alt = s.getAltitude();
 	
@@ -82,9 +82,9 @@ void TestSatellite::test_getAltitude_surface()
 /*********************************************
 * TEST - 	GET ALTITUDE - X AXIS
 *********************************************/
-void TestSatellite::test_getAltitude_xAxis()
+void TestHubble::test_getAltitude_xAxis()
 {
-	Satellite s(6379000, 0);
+	Hubble s(6379000, 0);
 	
 	double alt = s.getAltitude();
 	
@@ -94,9 +94,9 @@ void TestSatellite::test_getAltitude_xAxis()
 /*********************************************
 * TEST - 	GET ALTITUDE - Y AXIS
 *********************************************/
-void TestSatellite::test_getAltitude_yAxis()
+void TestHubble::test_getAltitude_yAxis()
 {
-	Satellite s(0, 6379000);
+	Hubble s(0, 6379000);
 	
 	double alt = s.getAltitude();
 	
@@ -106,9 +106,9 @@ void TestSatellite::test_getAltitude_yAxis()
 /*********************************************
 * TEST - 	GET GRAVITY - SURFACE
 *********************************************/
-void TestSatellite::test_getGravity_surface()
+void TestHubble::test_getGravity_surface()
 {
-	Satellite s(6378000, 0);
+	Hubble s(6378000, 0);
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -120,9 +120,9 @@ void TestSatellite::test_getGravity_surface()
 /*********************************************
 * TEST - 	GET GRAVITY - 500 K
 *********************************************/
-void TestSatellite::test_getGravity_500k()
+void TestHubble::test_getGravity_500k()
 {
-	Satellite s(6378000 + 500000, 0);
+	Hubble s(6378000 + 500000, 0);
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -135,9 +135,9 @@ void TestSatellite::test_getGravity_500k()
 /*********************************************
 * TEST - 	GET GRAVITY - 2000 K
 *********************************************/
-void TestSatellite::test_getGravity_2000k()
+void TestHubble::test_getGravity_2000k()
 {
-	Satellite s(6378000 + 2000000, 0);
+	Hubble s(6378000 + 2000000, 0);
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -150,7 +150,7 @@ void TestSatellite::test_getGravity_2000k()
 /*********************************************
 * TEST - UPDATE VELOCITY  -
 *********************************************/
-void TestSatellite::test_updateVelocity_stationary()
+void TestHubble::test_updateVelocity_stationary()
 {
 	Velocity v(0.0, 0.0);
 	Acceleration acc;
@@ -162,7 +162,7 @@ void TestSatellite::test_updateVelocity_stationary()
 	
 }
 
-void TestSatellite::test_updateVelocity_moving()
+void TestHubble::test_updateVelocity_moving()
 {
 	Velocity v(1.2, 3.4);
 	Acceleration acc;
@@ -173,7 +173,7 @@ void TestSatellite::test_updateVelocity_moving()
 	assert(closeEnough(v.getDy(), 3.4, 0.01));
 }
 
-void TestSatellite::test_updateVelocity_accFromStop()
+void TestHubble::test_updateVelocity_accFromStop()
 {
 	Velocity v(0.0, 0.0);
 	Acceleration acc(1.2, 3.4);
@@ -184,7 +184,7 @@ void TestSatellite::test_updateVelocity_accFromStop()
 	assert(closeEnough(v.getDy(), 3.4, 0.01));
 }
 
-void TestSatellite::test_updateVelocity_accFromStop_longer()
+void TestHubble::test_updateVelocity_accFromStop_longer()
 {
 	Velocity v(0.0, 0.0);
 	Acceleration acc(1.2, 3.4);
@@ -195,7 +195,7 @@ void TestSatellite::test_updateVelocity_accFromStop_longer()
 	assert(closeEnough(v.getDy(), 6.8, 0.01));
 }
 
-void TestSatellite::test_updateVelocity_complex()
+void TestHubble::test_updateVelocity_complex()
 {
 	Velocity v(4.1, 6.0);
 	Acceleration acc(0.5, 0.2);
@@ -206,9 +206,9 @@ void TestSatellite::test_updateVelocity_complex()
 	assert(closeEnough(v.getDy(), 6.6, 0.01));
 }
 
-void TestSatellite::test_updatePosition_stationary()
+void TestHubble::test_updatePosition_stationary()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	Velocity velocity(0.0, 0.0);
 	Acceleration acc;
 	double time = 0;
@@ -220,9 +220,9 @@ void TestSatellite::test_updatePosition_stationary()
 	assert(closeEnough(s.getPosY(), 22.2, 0.01));
 }
 
-void TestSatellite::test_updatePosition_moving()
+void TestHubble::test_updatePosition_moving()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	s.setVelocity(0.5, 0.4);
 	Acceleration acc(0.0, 0.0);
 	double time = 1;
@@ -234,9 +234,9 @@ void TestSatellite::test_updatePosition_moving()
 	assert(closeEnough(s.getPosY(), 22.6, 0.01));
 }
 
-void TestSatellite::test_updatePosition_movingLonger()
+void TestHubble::test_updatePosition_movingLonger()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	s.setVelocity(0.5, 0.4);
 	Acceleration acc;
 	double time = 2;
@@ -248,9 +248,9 @@ void TestSatellite::test_updatePosition_movingLonger()
 	assert(closeEnough(s.getPosY(), 23.0, 0.01));
 }
 
-void TestSatellite::test_updatePosition_fromStop()
+void TestHubble::test_updatePosition_fromStop()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	s.setVelocity(0.0, 0.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 1;
@@ -262,9 +262,9 @@ void TestSatellite::test_updatePosition_fromStop()
 	assert(closeEnough(s.getPosY(), 22.35, 1));
 }
 
-void TestSatellite::test_updatePosition_fromStop_longer()
+void TestHubble::test_updatePosition_fromStop_longer()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	s.setVelocity(0.0, 0.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 2;
@@ -276,14 +276,14 @@ void TestSatellite::test_updatePosition_fromStop_longer()
 	assert(closeEnough(s.getPosY(), 22.8, 1));
 }
 
-void TestSatellite::test_updatePosition_complex()
+void TestHubble::test_updatePosition_complex()
 {
-	Satellite s(11.1, 22.2);
+	Hubble s(11.1, 22.2);
 	s.setVelocity(1.0, 2.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 2;
 	
-	Satellite s2(11.1, 22.2);
+	Hubble s2(11.1, 22.2);
 	s2.velocity.updateVelocity(acc, time);
 	
 	s.updatePosition(time, acc);

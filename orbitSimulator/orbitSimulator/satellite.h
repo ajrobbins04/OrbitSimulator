@@ -77,7 +77,7 @@ public:
 	void move();
 	void destroy();
  
-//	virtual void draw();
+	virtual void draw(double frameRate,  double rotation) = 0;
 //  virtual void destroy();
  
 	
