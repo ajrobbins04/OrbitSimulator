@@ -1,13 +1,10 @@
 
 #include <cassert>      // for ASSERT
-#include "uiInteract.h" // for INTERFACE
 #include <iostream>
+#include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
-#include "position.h"      // for POINT
-#include "acceleration.h"
-#include "satellite.h"
-#include "velocity.h"
 #include "testRunner.h"
+#include "orbit.h"
 
 #define TIME 48
 #define FRAME_RATE 80
@@ -37,6 +34,7 @@ public:
 	unsigned char phaseStar;
 	double angleShip;
 	double angleEarth;
+	//Orbit orbitSimulator;
 };
 
 /*************************************
@@ -49,6 +47,9 @@ public:
 void callBack(const Interface* pUI, void* p)
 {
 	Demo* pDemo = (Demo*)p;
+	
+	//pDemo->orbitSimulator.draw(80);
+	
 }
 
 double Position::metersFromPixels = 40.0;

@@ -1,5 +1,12 @@
-
-
+/***********************************************************************
+ * Header File:
+ *    Dragon
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *	  Dragon is a whole satellite, and thus inherits from
+ *	  the Satellite class.
+ ************************************************************************/
 #ifndef dragon_h
 #define dragon_h
 

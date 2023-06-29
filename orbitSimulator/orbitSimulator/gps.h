@@ -1,4 +1,12 @@
- 
+/***********************************************************************
+ * Header File:
+ *    GPS
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *	  GPS is a whole satellite, and thus inherits from
+ *	  the Satellite class.
+ ************************************************************************/
 
 #ifndef gps_h
 #define gps_h

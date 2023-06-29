@@ -1,5 +1,12 @@
- 
-
+/***********************************************************************
+ * Header File:
+ *    Starlink
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *	  Starlink is a whole satellite, and thus inherits from
+ *	  the Satellite class.
+ ************************************************************************/
 #ifndef starlink_h
 #define starlink_h
 

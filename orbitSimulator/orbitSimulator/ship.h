@@ -4,7 +4,8 @@
  * Author:
  *    Amber Robbins, Martin Nkala
  * Summary:
- *
+ *	  Ship inherits from the satellite class, but it includes
+ *	  additional functionalities.
  ************************************************************************/
 
 #ifndef ship_h

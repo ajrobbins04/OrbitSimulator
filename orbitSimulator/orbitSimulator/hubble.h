@@ -1,4 +1,12 @@
-
+/***********************************************************************
+ * Header File:
+ *    Hubble
+ * Author:
+ *    Amber Robbins, Martin Nkala
+ * Summary:
+ *	  Sputnik is a whole satellite, and thus inherits from
+ *	  the Satellite class.
+ ************************************************************************/
 #ifndef hubble_h
 #define hubble_h
 
