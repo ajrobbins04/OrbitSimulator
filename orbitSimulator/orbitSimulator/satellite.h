@@ -27,33 +27,33 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), dead(false),
-	age(0.0), angularVelocity(0.0) {}
+	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), age(0.0),
+	angularVelocity(0.0) {}
 	
 	Satellite(const Satellite &s, const Direction &d) : SpaceObject(s.pos.getMetersX(), s.pos.getMetersY(), 0.0),
-	velocity(s.velocity.getDx(), s.velocity.getDy()), direction(d.getRadians()), dead(false), age(0.0), angularVelocity(0.0) {}
+	velocity(s.velocity.getDx(), s.velocity.getDy()), direction(d.getRadians()), age(0.0), angularVelocity(0.0) {}
 	
 	Satellite(double x, double y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0),
-	direction(0.0, 0.0), dead(false), age(0.0), angularVelocity(0.0)  {}
+	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)  {}
 	
 	Satellite(double x, double y, double radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0),
-	direction(0.0, 0.0), dead(false), age(0.0), angularVelocity(0.0) {}
+	direction(0.0, 0.0), age(0.0), angularVelocity(0.0) {}
 	
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
-	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0), dead(false),
+	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0),
 	age(0.0), angularVelocity(0.0)  {
 		
 		direction = velocity.getDirection();
 	}
 	
 	Satellite(double x, double y, double radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
-	direction(0.0, 0.0), dead(false), age(0.0), angularVelocity(0.0)
+	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)
 	{
 		direction = velocity.getDirection();
 	}
 	
 	Satellite(double x, double y, double radius, double dx, double dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
-	direction(0.0, 0.0), dead(false), age(0.0), angularVelocity(0.0) 
+	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)
 	{
 		direction = velocity.getDirection();
 	}
@@ -68,8 +68,6 @@ public:
 	Acceleration getGravity();
 	double getAngularVelocity() { return angularVelocity; }
 	
-	bool isDead() const { return dead; }
-	void kill();
 	void addKick();
 	void updatePosition();
 	void updatePosition(double time);
@@ -77,14 +75,13 @@ public:
 	void move();
 	void destroy();
  
-	virtual void draw(double frameRate,  double rotation) = 0;
+	virtual void draw(double rotation) = 0;
 //  virtual void destroy();
  
 	
-protected: // inherits pos and radius
+protected: // inherits pos, radius, and alive
 	Velocity velocity;
 	Direction direction;
-	bool dead;
 	double angularVelocity;
 	double age;
    

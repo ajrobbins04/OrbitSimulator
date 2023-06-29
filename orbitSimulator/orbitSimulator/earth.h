@@ -17,21 +17,19 @@ class Earth : public SpaceObject
 {
 public:
 	
-	Earth() : SpaceObject(0.0, 0.0, 0.0) {}
+	Earth() : SpaceObject(0.0, 0.0, 6378000.0) {}
 	Earth(double x, double y, double radius) : SpaceObject(x, y, radius) {}
 	 
-	virtual void draw(double frameRate, double rotation)
+	virtual void draw(double rotation)
 	{
 		Position pt;
 		ogstream gout(pt);
-		
-		/*double angleEarth = frameRate;
-		angleEarth -= -0.01;*/
-		gout.drawEarth(getPosition(), rotation);
+	 
+		gout.drawEarth(getPos(), rotation);
 	}
 
 private:
-	// inherits pos and radius
+	// inherits pos, radius, and alive
 	
 };
 #endif  

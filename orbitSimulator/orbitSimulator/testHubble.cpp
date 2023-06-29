@@ -61,7 +61,7 @@ void TestHubble::test_constructor_stationaryNorth()
 	assert(closeEnough(s.pos.getMetersY(), 640000000.0, 512000.0));
 	assert(s.direction.getRadians() == 0.0);
 	assert(s.getAngularVelocity() == 0.0);
-	assert(s.isDead() == false);
+	assert(s.isAlive() == true);
 	assert(s.getRadius() == 0.0);
 	assert(s.age == 0.0);
 	

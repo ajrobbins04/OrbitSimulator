@@ -34,7 +34,7 @@ public:
 	void applyThrust(double thrustAmount, double time);
 	bool getThrust() const { return thrust; }
 	
-	virtual void draw(double frameRate, double rotation) {
+	virtual void draw(double rotation) {
 		Position pt;
 		ogstream gout(pt);
 		
@@ -44,7 +44,7 @@ public:
 	void launchProjectile();
  
 private:
-	// inherits pos, radius, velocity, direction, dead, age, and angularVelocity
+	// inherits pos, radius, velocity, direction, alive, age, and angularVelocity
 	bool thrust;
  
 };

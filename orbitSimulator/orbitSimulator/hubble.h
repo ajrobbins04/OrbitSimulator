@@ -19,7 +19,7 @@ public:
 	Hubble(double x, double y, double radius, const Velocity &velocity): Satellite(x, y, radius, velocity) {}
 	Hubble(double x, double y, double radius, double dx, double dy): Satellite(x, y, radius, dx, dy) {}
 	
-	virtual void draw(double frameRate,  double rotation)
+	virtual void draw(double rotation)
 	{
 		Position pt;
 		ogstream gout(pt);
@@ -28,7 +28,7 @@ public:
 	}
 	
 private:
-	// inherits pos, radius, velocity, direction, dead,
+	// inherits pos, radius, velocity, direction, alive,
 	// angularVelocity and age
 };
 
