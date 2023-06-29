@@ -17,9 +17,10 @@ class Orbit
 {
 public:
 	Orbit(): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))) {}
-	//Orbit(Ship *dreamChaser): dreamChaser(dreamChaser) {}
+	Orbit(const Position &pos, double radius, const Velocity &velocity):
+	dreamChaser(new Ship(pos, radius, velocity)) {}
  
-	//void draw();
+	void draw();
 						 
 private:
 	Ship *dreamChaser;
