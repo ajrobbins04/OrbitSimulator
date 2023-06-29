@@ -16,12 +16,12 @@
 class Orbit
 {
 public:
-	//Orbit(): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))) {}
+	Orbit(): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))) {}
 	//Orbit(Ship *dreamChaser): dreamChaser(dreamChaser) {}
  
 	//void draw();
 						 
 private:
-
+	Ship *dreamChaser;
 };
 #endif /* orbit_h */
