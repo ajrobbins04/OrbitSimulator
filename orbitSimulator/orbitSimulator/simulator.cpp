@@ -6,11 +6,6 @@
 #include "testRunner.h"
 #include "orbit.h"
 
-#define TIME 48
-#define FRAME_RATE 80
-#define SECONDS_DAY 86400
-#define PI 3.141529
-
 using namespace std;
 
 class Demo
@@ -22,11 +17,11 @@ public:
 		ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 		ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 		
-		double rate = -(2 * PI / FRAME_RATE);
+		/*double rate = -(2 * PI / frameRate);
 		double frameRate = rate * TIME;
 		angleShip = frameRate;
 		angleEarth = frameRate;
-		phaseStar = 0;
+		phaseStar = 0;*/
 	}
 	
 	Position ptHubble;
@@ -34,7 +29,7 @@ public:
 	unsigned char phaseStar;
 	double angleShip;
 	double angleEarth;
-	//Orbit orbitSimulator;
+
 };
 
 /*************************************
@@ -46,9 +41,9 @@ public:
  **************************************/
 void callBack(const Interface* pUI, void* p)
 {
-	Demo* pDemo = (Demo*)p;
-	
-	//pDemo->orbitSimulator.draw(80);
+	//Demo* pDemo = (Demo*)p;
+	Orbit *orbit = (Orbit*)p;
+	orbit->draw();
 	
 }
 
@@ -74,15 +69,17 @@ int main(int argc, char** argv)
    ptUpperRight.setPixelsX(1000.0);
    ptUpperRight.setPixelsY(1000.0);
    Interface ui(0, NULL,
-	  "Demo",   /* name on the window */
+	  "Orbit Simulator",   /* name on the window */
 	  ptUpperRight);
 
-   // Initialize the demo
-   Demo demo(ptUpperRight);
+
+   /*Demo demo(ptUpperRight);*/
+	
+   Orbit orbit;
 
    testRunner();
    // set everything into action
-   ui.run(callBack, &demo);
+   ui.run(callBack, &orbit);
 
 
    return 0;

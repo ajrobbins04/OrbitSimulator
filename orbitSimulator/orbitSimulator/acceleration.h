@@ -10,11 +10,6 @@
 #ifndef acceleration_h
 #define acceleration_h
 
-#define EARTH_RADIUS 6378000
-#define EARTH_HEIGHT 35786000
-#define EARTH_GRAVITY -9.8067
-
-#include <cmath>
 #include <iostream>
 #include "direction.h"
 

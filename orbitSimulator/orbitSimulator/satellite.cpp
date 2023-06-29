@@ -75,11 +75,11 @@ void Satellite::updatePosition(double time, const Acceleration &acc)
  *  Moves the satellite by updating the velocity, followed
  *  by the position.
  *********************************************/
-void Satellite::move()
+void Satellite::move(double time)
 {
 	double altitude = getAltitude();
 	//Acceleration acc(altitude, direction);
 	Acceleration acc = getGravity();
-	velocity.updateVelocity(acc);
+	velocity.updateVelocity(acc, time);
 	updatePosition();
 }

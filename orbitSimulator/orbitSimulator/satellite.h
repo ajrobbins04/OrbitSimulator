@@ -72,7 +72,7 @@ public:
 	void updatePosition();
 	void updatePosition(double time);
 	void updatePosition(double time, const Acceleration &acc);
-	void move();
+	void move(double time);
 	void destroy();
  
 	virtual void draw(double rotation) = 0;

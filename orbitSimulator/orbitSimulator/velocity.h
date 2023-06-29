@@ -8,7 +8,6 @@
  ************************************************************************/
 #ifndef velocity_h
 #define velocity_h
-#define TIME 48
 
 #include "acceleration.h"
 #include "direction.h"
@@ -71,7 +70,6 @@ public:
 	}
 	
 	void applyAcceleration(const Acceleration &acc);
-	void updateVelocity(const Acceleration &acc);
 	void updateVelocity(const Acceleration &acc, double time);
 	void updateVelocity(const Acceleration &acc, double time, double thrustAmount);
 	

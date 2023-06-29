@@ -10,7 +10,6 @@
 #ifndef spaceObject_h
 #define spaceObject_h
 
-#include <cmath>
 #include <iostream>
 #include <string>
 #include "position.h"
@@ -39,6 +38,7 @@ public:
 	}
 	
 	SpaceObject(double x, double y): pos(x, y), radius(0.0), alive(true) {}
+	
 	SpaceObject(double x, double y, double radius): pos(x, y), radius(0.0), alive(true)
 	{
 		if (radius != 6378000)
@@ -56,14 +56,13 @@ public:
 		pos.setMetersY(y);
 	}
 
-	void kill() { this->alive = false; }
+	void kill()                      { this->alive = false;     }
 	
-	bool isAlive()     const { return alive;  }
-	double getRadius() const { return radius; }
-	Position getPos()  const { return pos;    }
-	double getPosX()   const { return pos.getMetersX(); }
-	double getPosY()   const { return pos.getMetersY(); }
-	
+	Position getPos()   const { return pos;              }
+	double getPosX()    const { return pos.getMetersX(); }
+	double getPosY()    const { return pos.getMetersY(); }
+	double getRadius()  const { return radius;           }
+	bool isAlive()      const { return alive;            }
 	
 	virtual void draw(double rotation) = 0;
 //	virtual void move(int time);

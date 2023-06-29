@@ -31,20 +31,6 @@ void Velocity::applyAcceleration(const Acceleration &acc)
 	dy += acc.getDDy();
 }
 
-/*********************************************
- * UPDATE
- * Updates the velocity based on its current velocity,
- * acceleration, and time.
- *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc)
-{
-	// velocity = current velocity + acceleration * time
-	double newDx = getDx() + acc.getDDx() * TIME;
-	double newDy = getDy() + acc.getDDy() * TIME;
-	
-	setDx(newDx);
-	setDy(newDy);
-}
 
 /*********************************************
  * UPDATE
