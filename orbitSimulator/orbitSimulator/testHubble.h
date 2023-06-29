@@ -7,8 +7,8 @@
 *    All the unit tests for Satellite.
 ************************************************************************/
 
-#ifndef testSatellite_h
-#define testSatellite_h
+#ifndef testHubble_h
+#define testHubble_h
 
 #include <iostream>
 #include <cassert>

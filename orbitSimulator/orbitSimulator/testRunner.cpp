@@ -11,7 +11,7 @@
 #include "testPosition.h"
 #include "testDirection.h"
 #include "testVelocity.h"
-#include "testSatellite.h"
+#include "testHubble.h"
 #include "testShip.h"
 
 
