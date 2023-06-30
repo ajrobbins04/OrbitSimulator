@@ -52,8 +52,9 @@ private:
 	Ship *dreamChaser;
 	Earth *earth;
 	Satellite *satellites[10];
-	double time;          // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
-	double rotationSpeed; // amount of rotation per frame
+	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
+	double rotationSpeed;  // amount of rotation per frame
+	Position ptUpperRight; // size of screen that will display orbit simulator
 
 };
 #endif /* orbit_h */
