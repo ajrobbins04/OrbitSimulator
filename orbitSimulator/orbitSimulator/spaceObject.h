@@ -68,7 +68,7 @@ public:
 	double getRotateAngle() const { return rotateAngle;      }
 	bool isAlive()          const { return alive;            }
 	
-	virtual void draw(double rotation) = 0;
+	virtual void draw(double rotation, ogstream & gout) = 0;
 //	virtual void move(int time);
 	
 protected:

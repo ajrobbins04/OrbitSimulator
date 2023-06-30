@@ -75,7 +75,7 @@ public:
 	void move(double time);
 	void destroy();
  
-	virtual void draw(double rotation) = 0;
+	virtual void draw(double rotation, ogstream & gout) = 0;
 //  virtual void destroy();
  
 	

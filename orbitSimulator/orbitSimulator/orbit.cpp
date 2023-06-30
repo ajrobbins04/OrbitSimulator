@@ -55,14 +55,13 @@ void Orbit::draw()
 		earth->adjustAngle(rotationSpeed);
 	}*/
 	Position pt;
-	pt.setMeters(0.0, 0.0);
+ 
 	ogstream gout(pt);
 	
-	gout.drawHubble(hubble->getPos(), hubble->getRotateAngle());
+	hubble->draw(hubble->getRotateAngle(), gout);
 	hubble->adjustAngle(-0.01);
 
-
-	gout.drawEarth(pt, earth->getRotateAngle());
+	earth->draw(earth->getRotateAngle(), gout);
 	earth->adjustAngle(rotationSpeed);
 }
 

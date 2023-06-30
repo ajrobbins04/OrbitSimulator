@@ -24,11 +24,8 @@ public:
 	Sputnik(double x, double y, double radius, const Velocity &velocity): Satellite(x, y, radius, velocity) {}
 	Sputnik(double x, double y, double radius, double dx, double dy): Satellite(x, y, radius, dx, dy) {}
 	
-	virtual void draw(double rotation)
-	{
-		Position pt;
-		ogstream gout(pt);
-		
+	virtual void draw(double rotation, ogstream & gout)
+	{ 
 		gout.drawSputnik(getPos(), rotation);
 	}
 	

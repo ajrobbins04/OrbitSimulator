@@ -24,11 +24,8 @@ public:
 	Dragon(double x, double y, double radius, const Velocity &velocity): Satellite(x, y, radius, velocity) {}
 	Dragon(double x, double y, double radius, double dx, double dy): Satellite(x, y, radius, dx, dy) {}
 	
-	virtual void draw(double rotation)
+	virtual void draw(double rotation, ogstream & gout)
 	{
-		Position pt;
-		ogstream gout(pt);
-		
 		gout.drawCrewDragon(getPos(), rotation);
 	}
 	

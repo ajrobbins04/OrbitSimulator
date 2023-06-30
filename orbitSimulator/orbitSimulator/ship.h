@@ -35,9 +35,7 @@ public:
 	void applyThrust(double thrustAmount, double time);
 	bool getThrust() const { return thrust; }
 	
-	virtual void draw(double rotation) {
-		Position pt;
-		ogstream gout(pt);
+	virtual void draw(double rotation, ogstream & gout) {
 		
 		gout.drawShip(getPos(), rotation, getThrust());
 	}
