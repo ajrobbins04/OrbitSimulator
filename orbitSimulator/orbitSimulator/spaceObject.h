@@ -20,10 +20,10 @@ using namespace std;
 class SpaceObject
 {
 public:
-	SpaceObject(): pos(0.0, 0.0), radius(0.0), alive(true){}
+	SpaceObject(): pos(0.0, 0.0), radius(0.0), rotateAngle(0.0), alive(true){}
 	
 	SpaceObject(const Position &pos, double radius):
-	pos(pos), radius(0.0), alive(true)
+	pos(pos), radius(0.0), rotateAngle(0.0), alive(true)
 	{
 		// Earth's radius = 6378000 meters
 		// All other radius values are given in pixels, and must be converted to meters
@@ -37,9 +37,10 @@ public:
 		}
 	}
 	
-	SpaceObject(double x, double y): pos(x, y), radius(0.0), alive(true) {}
+	SpaceObject(double x, double y): pos(x, y), radius(0.0), rotateAngle(0.0), alive(true) {}
 	
-	SpaceObject(double x, double y, double radius): pos(x, y), radius(0.0), alive(true)
+	SpaceObject(double x, double y, double radius): pos(x, y), radius(0.0),
+	rotateAngle(0.0), alive(true)
 	{
 		if (radius != 6378000)
 		{
@@ -49,20 +50,23 @@ public:
 		}
 	}
 
-	void setRadius(double radius) { this->radius = radius; }
+	void setRadius(double radius)       { this->radius = radius;       }
+	void setRotateAngle(double radians) { this->rotateAngle = radians; }
 	void setPosition(double x, double y)
 	{
 		pos.setMetersX(x);
 		pos.setMetersY(y);
 	}
 
-	void kill()                      { this->alive = false;     }
+	void kill()                      { this->alive = false;         }
+	void adjustAngle(double amount)  { this->rotateAngle += amount; }
 	
-	Position getPos()   const { return pos;              }
-	double getPosX()    const { return pos.getMetersX(); }
-	double getPosY()    const { return pos.getMetersY(); }
-	double getRadius()  const { return radius;           }
-	bool isAlive()      const { return alive;            }
+	Position getPos()       const { return pos;              }
+	double getPosX()        const { return pos.getMetersX(); }
+	double getPosY()        const { return pos.getMetersY(); }
+	double getRadius()      const { return radius;           }
+	double getRotateAngle() const { return rotateAngle;      }
+	bool isAlive()          const { return alive;            }
 	
 	virtual void draw(double rotation) = 0;
 //	virtual void move(int time);
@@ -70,6 +74,7 @@ public:
 protected:
 	Position pos;
 	double radius;
+	double rotateAngle;
 	bool alive;
 
 };

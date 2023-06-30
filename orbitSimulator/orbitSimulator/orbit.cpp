@@ -4,7 +4,12 @@ void Orbit::draw()
 {
 	Position pt;
 	ogstream gout(pt);
-
+	
+	if (earth->isAlive())
+	{
+		earth->draw(earth->getRotateAngle());
+		earth->adjustAngle(-0.01);
+	}
 }
 
 void Orbit::setRotationSpeed()
@@ -15,6 +20,5 @@ void Orbit::setRotationSpeed()
 	double radiansPerFrame = (radiansPerDay / frameRate) * (time / secondsPerDay);
  
 	rotationSpeed = radiansPerFrame;
-
 
 }
