@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Demo
+/*class Demo
 {
 public:
 	Demo(Position ptUpperRight) :
@@ -17,11 +17,11 @@ public:
 		ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 		ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 		
-		/*double rate = -(2 * PI / frameRate);
+		double rate = -(2 * PI / frameRate);
 		double frameRate = rate * TIME;
 		angleShip = frameRate;
 		angleEarth = frameRate;
-		phaseStar = 0;*/
+		phaseStar = 0;
 	}
 	
 	Position ptHubble;
@@ -30,7 +30,7 @@ public:
 	double angleShip;
 	double angleEarth;
 
-};
+};*/
 
 /*************************************
  * All the interesting work happens here, when
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 
    /*Demo demo(ptUpperRight);*/
 	
-   Orbit orbit;
+	Orbit orbit(ptUpperRight);
 
    testRunner();
    // set everything into action

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02A2CD7C2A4E64A200D9ABD6 /* gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */; };
 		02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0392A3D2C6100999231 /* acceleration.cpp */; };
 		02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF03C2A3D2C8100999231 /* direction.cpp */; };
 		02DEF0402A3D2CAC00999231 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF03F2A3D2CAC00999231 /* position.cpp */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gps.cpp; sourceTree = "<group>"; };
 		02DEF02E2A3D2C0900999231 /* orbitSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = orbitSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DEF0382A3D2C4A00999231 /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		02DEF0392A3D2C6100999231 /* acceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = acceleration.cpp; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				02DEF0492A3D2D3000999231 /* testHubble.h */,
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
+				02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				02DEF0612A3E37D100999231 /* ship.cpp in Sources */,
 				02DEF0672A3E503300999231 /* testShip.cpp in Sources */,
 				02DEF04F2A3D2D6E00999231 /* uiInteract.cpp in Sources */,
+				02A2CD7C2A4E64A200D9ABD6 /* gps.cpp in Sources */,
 				02DEF06D2A4404E300999231 /* testDirection.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
