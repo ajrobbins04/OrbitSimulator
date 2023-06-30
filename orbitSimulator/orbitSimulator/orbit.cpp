@@ -26,11 +26,12 @@ Orbit initialize(const Position &ptUpperRight)
 	double secondsPerMin = 60.0;
 	
 	double secondsPerDay = hoursPerDay * minPerHour * secondsPerMin;
-	double timeDilation = hoursPerDay * minPerHour;
+	double dilation = hoursPerDay * minPerHour;
+	double time = dilation / frameRate;
 
 
-	Orbit orbit(ship, earth, stars, timeDilation);
-	orbit.setRotationSpeed(frameRate, secondsPerDay);
+	Orbit orbit(ship, earth, stars, time);
+	orbit.setRotationSpeed(frameRate, secondsPerDay, dilation);
 	
 	return orbit;
 
@@ -40,7 +41,7 @@ Orbit initialize(const Position &ptUpperRight)
 	GPS *four = new GPS(Position(0.0, -26560000), 12, Velocity(3880, 0.0));
 	GPS *five = new GPS(Position(-23001634.72, -13280000), 12, Velocity(1940, -3360.18));
 	GPS *six = new GPS(Position(-23001634.72, 13280000), 12, Velocity(-1940, -3360.18));
-	
+	 Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
 	satellites[0] = one;
 	satellites[1] = two;*/
 }
@@ -52,28 +53,9 @@ Orbit initialize(const Position &ptUpperRight)
 void Orbit::draw()
 {
 
-	/*if (satellites[0]->isAlive())
-	{
-		satellites[0]->draw(satellites[0]->getRotateAngle());
-		satellites[0]->adjustAngle(rotationSpeed);
-	}*/
-	
-	Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
- 
-	/*hubble->draw(hubble->getRotateAngle());
-	hubble->adjustAngle(-0.01);
-	
-	if (earth->isAlive())
-	{
-		earth->draw(earth->getRotateAngle());
-		earth->adjustAngle(rotationSpeed);
-	}*/
 	Position pt;
  
 	ogstream gout(pt);
-	
-	hubble->draw(hubble->getRotationAngle(), gout);
-	hubble->adjustAngle(-0.01);
 
 	earth->draw(earth->getRotationAngle(), gout);
 	earth->adjustAngle(rotationSpeed);
@@ -93,10 +75,10 @@ void Orbit::draw()
  * Sets the amount of rotation change (in radians) that's
  * applied to earth as each new frame is drawn.
  *********************************************/
-void Orbit::setRotationSpeed(double frameRate, double secondsPerDay)
+void Orbit::setRotationSpeed(double frameRate, double secondsPerDay, double dilation)
 {
 	double radiansPerDay = (M_PI * 2.0) / frameRate;
-	double radiansPerFrame =  -(radiansPerDay) * (time / secondsPerDay);
+	double radiansPerFrame =  -(radiansPerDay) * (dilation / secondsPerDay);
  
 	rotationSpeed = radiansPerFrame;
 }
