@@ -12,8 +12,6 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	Earth *earth = new Earth();
 	
-	Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
-	
 	// create stars
 	vector<Star> stars;
 	for (int i = 0; i < 200; i++)
@@ -21,6 +19,9 @@ Orbit initialize(const Position &ptUpperRight)
 		Star star(ptUpperRight);
 		stars.push_back(star);
 	}
+	vector<Satellite*> satellites;
+	Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
+	satellites.push_back(hubble);
 	
 	double frameRate = 30.0;    // OpenGL draws 30 frames/second
 	double hoursPerDay = 24.0;
@@ -31,8 +32,7 @@ Orbit initialize(const Position &ptUpperRight)
 	double dilation = hoursPerDay * minPerHour;
 	double time = dilation / frameRate;
 
-
-	Orbit orbit(ship, earth, hubble, stars, time);
+	Orbit orbit(ship, earth, satellites, stars, time);
 	orbit.setRotationSpeed(frameRate, secondsPerDay, dilation);
 	
 	return orbit;
@@ -54,7 +54,7 @@ Orbit initialize(const Position &ptUpperRight)
  *********************************************/
 void Orbit::move()
 {
-	
+ 
 }
 /*********************************************
  * DRAW
@@ -69,7 +69,14 @@ void Orbit::draw()
 	earth->draw(earth->getRotationAngle(), gout);
 	earth->adjustAngle(rotationSpeed);
 	
-	hubble->draw(hubble->getRotationAngle(), gout);
+	vector<Satellite*>::iterator sats_Iter;
+
+	sats_Iter = satellites.begin();
+	for (; sats_Iter != satellites.end(); sats_Iter++)
+	{
+		(*sats_Iter)->draw((*sats_Iter)->getRotationAngle(), gout);
+	}
+ 
 	vector<Star>::iterator stars_Iter;
 
 	stars_Iter = stars.begin();

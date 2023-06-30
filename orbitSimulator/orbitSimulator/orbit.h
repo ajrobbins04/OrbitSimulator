@@ -29,8 +29,8 @@ class Orbit
 {
 public:
  
-	Orbit(Ship *ship, Earth *earth, Hubble *hubble, vector<Star> &stars, double time): ship(ship), earth(earth),
-	hubble(hubble), stars(stars), time(time), rotationSpeed(0.0) {}
+	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time): ship(ship),
+	earth(earth), satellites(satellites), stars(stars), time(time), rotationSpeed(0.0) {}
 	
 	/*Orbit(const Position &ptUpperRight): ship(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()), time(48.0) {
 		
@@ -56,9 +56,8 @@ private:
 	Ship *ship;
 	Earth *earth;
 	vector<Star> stars;
-	Hubble *hubble;
-	//Satellite *satellites[10];
-	
+	vector<Satellite*> satellites;
+
 	//Position ptUpperRight; // size of screen that will display orbit simulator
 	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 	double rotationSpeed;  // amount of rotation per frame

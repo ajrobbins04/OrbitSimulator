@@ -44,6 +44,7 @@ void callBack(const Interface* pUI, void* p)
 {
 	//Demo* pDemo = (Demo*)p;
 	Orbit *orbit = (Orbit*)p;
+	orbit->move();
 	orbit->draw();
 	
 }
