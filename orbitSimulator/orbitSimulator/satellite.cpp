@@ -39,35 +39,10 @@ Acceleration Satellite::getGravity()
  *  Updates the satellite's position based on its current
  *  position, velocity, and time.
  *********************************************/
-void Satellite::updatePosition()
+void Satellite::updatePosition(const Acceleration &aGravity, double time)
 {
-	double x = pos.getMetersX() + velocity.getDx() * TIME;
-	double y = pos.getMetersY() + velocity.getDy() * TIME;
-	
-	pos.setMeters(x, y);
-}
-
-void Satellite::updatePosition(double time)
-{
-	double x = pos.getMetersX() + velocity.getDx() * time;
-	double y = pos.getMetersY() + velocity.getDy() * time;
-	
-	pos.setMeters(x, y);
-}
-/*********************************************
- *  UPDATE
- *  Updates the satellite's position based on its current
- *  position, velocity, and time.
- *********************************************/
-void Satellite::updatePosition(double time, const Acceleration &acc)
-{
-	//float x = pos.getMetersX() + velocity.getDx() * time;
-	//float y = pos.getMetersY() + velocity.getDy() * time;
-	
-	//pos.setMeters(x, y);
-	
-	pos.addMetersX(velocity.getDx() * time + (0.5 * acc.getDDx()) * (time * time));
-	pos.addMetersY(velocity.getDy() * time + (0.5 * acc.getDDy()) * (time * time));
+	pos.addMetersX(velocity.getDx() * time + (0.5 * aGravity.getDDx()) * (time * time));
+	pos.addMetersY(velocity.getDy() * time + (0.5 * aGravity.getDDy()) * (time * time));
 }
 
 /*********************************************
@@ -77,9 +52,7 @@ void Satellite::updatePosition(double time, const Acceleration &acc)
  *********************************************/
 void Satellite::move(double time)
 {
-	double altitude = getAltitude();
-	//Acceleration acc(altitude, direction);
-	Acceleration acc = getGravity();
-	velocity.updateVelocity(acc, time);
-	updatePosition();
+	Acceleration aGravity = getGravity();
+	velocity.updateVelocity(aGravity, time);
+	updatePosition(aGravity, time);
 }

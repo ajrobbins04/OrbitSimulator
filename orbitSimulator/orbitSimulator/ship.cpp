@@ -45,10 +45,9 @@ void Ship::rotateShip(const Interface *pUi)
 void Ship::applyThrust(double thrustAmount, double time)
 {
 	setThrust(true);
-	//Acceleration acc(altitude, direction);
-	Acceleration acc = getGravity();
-	velocity.updateVelocity(acc, time, thrustAmount);
-	updatePosition();
+	Acceleration aGravity = getGravity();
+	velocity.updateVelocity(aGravity, time, thrustAmount);
+	updatePosition(aGravity, time);
 }
 
 void Ship::launchProjectile()

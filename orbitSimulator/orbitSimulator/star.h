@@ -34,6 +34,7 @@ public:
 	Position      getPos()       const { return pos;       }
 	unsigned char getPhaseStar() const { return phaseStar; }
 	
+	void advancePhaseStar() { this->phaseStar += 1; }
 	void setPhaseStar(unsigned char phaseStar) { this->phaseStar = phaseStar; }
 
 	

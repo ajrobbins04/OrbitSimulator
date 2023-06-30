@@ -214,7 +214,7 @@ void TestHubble::test_updatePosition_stationary()
 	double time = 0;
 	
 	velocity.updateVelocity(acc, time);
-	s.updatePosition();
+	s.updatePosition(acc, time);
 	
 	assert(closeEnough(s.getPosX(), 11.1, 0.01));
 	assert(closeEnough(s.getPosY(), 22.2, 0.01));
@@ -228,7 +228,7 @@ void TestHubble::test_updatePosition_moving()
 	double time = 1;
 	
 	s.velocity.updateVelocity(acc, time);
-	s.updatePosition(time);
+	s.updatePosition(acc, time);
 	
 	assert(closeEnough(s.getPosX(), 11.6, 0.01));
 	assert(closeEnough(s.getPosY(), 22.6, 0.01));
@@ -242,7 +242,7 @@ void TestHubble::test_updatePosition_movingLonger()
 	double time = 2;
 	
 	s.velocity.updateVelocity(acc, time);
-	s.updatePosition(time);
+	s.updatePosition(acc, time);
 	
 	assert(closeEnough(s.getPosX(), 12.1, 0.01));
 	assert(closeEnough(s.getPosY(), 23.0, 0.01));
@@ -256,7 +256,7 @@ void TestHubble::test_updatePosition_fromStop()
 	double time = 1;
 	
 	s.velocity.updateVelocity(acc, time);
-	s.updatePosition(time);
+	s.updatePosition(acc, time);
 	
 	assert(closeEnough(s.getPosX(), 11.2, 1));
 	assert(closeEnough(s.getPosY(), 22.35, 1));
@@ -270,7 +270,7 @@ void TestHubble::test_updatePosition_fromStop_longer()
 	double time = 2;
 	
 	s.velocity.updateVelocity(acc, time);
-	s.updatePosition(time, acc);
+	s.updatePosition(acc, time);
 	
 	assert(closeEnough(s.getPosX(), 11.5, 1));
 //	assert(closeEnough(s.getPosY(), 22.8, 1));
@@ -286,7 +286,7 @@ void TestHubble::test_updatePosition_complex()
 	Hubble s2(11.1, 22.2);
 	s2.velocity.updateVelocity(acc, time);
 	
-	s.updatePosition(time, acc);
+	s.updatePosition(acc, time);
 
 	
 	assert(closeEnough(s.getPosY(), 26.8, 1));

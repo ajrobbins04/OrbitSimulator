@@ -69,9 +69,7 @@ public:
 	double getAngularVelocity() { return angularVelocity; }
 	
 	void addKick();
-	void updatePosition();
-	void updatePosition(double time);
-	void updatePosition(double time, const Acceleration &acc);
+	void updatePosition(const Acceleration &acGravity, double time);
 	void move(double time);
 	void destroy();
  
