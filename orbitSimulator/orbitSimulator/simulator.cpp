@@ -32,6 +32,7 @@ public:
 
 };*/
 
+
 /*************************************
  * All the interesting work happens here, when
  * I get called back from OpenGL to draw a frame.
@@ -75,7 +76,7 @@ int main(int argc, char** argv)
 
    /*Demo demo(ptUpperRight);*/
 	
-	Orbit orbit(ptUpperRight);
+	Orbit orbit = initialize(ptUpperRight);
 
    testRunner();
    // set everything into action

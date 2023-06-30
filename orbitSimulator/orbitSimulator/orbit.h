@@ -15,46 +15,63 @@
 #endif
 
 #include <cmath>
+#include <vector>
 #include "uiInteract.h"
-#include "satellite.h"
 #include "earth.h"
+#include "star.h"
 #include "ship.h"
 #include "hubble.h"
 #include "gps.h"
 
+using namespace std;
+
 class Orbit
 {
 public:
-	Orbit(const Position &ptUpperRight): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()),
-	time(48.0) {
+ 
+	Orbit(Ship *ship, Earth *earth, vector<Star> &stars, double timeDilation): ship(ship), earth(earth),
+	stars(stars), time(timeDilation), rotationSpeed(0.0) {
+		
+ 
+	}
+	
+	/*Orbit(const Position &ptUpperRight): ship(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()), time(48.0) {
 		
 		initialize(ptUpperRight);
 	}
 	
 	Orbit(const Position &ptUpperRight, const Position &pos, double radius, const Velocity &velocity, double t):
-	dreamChaser(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {
+	ship(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {
 		
 		initialize(ptUpperRight);
 	}
 	
 	Orbit(const Position &ptUpperRight, const Position &pos, double radius, const Velocity &velocity, double t, double rate):
-	dreamChaser(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {
-		
-		initialize(ptUpperRight);
-	}
+	ship(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {}*/
 	
 	void initialize(const Position &ptUpperRight);
 	void setRotationSpeed(double frameRate, double secondsPerDay);
+
 	void move();
 	void draw();
 						 
 private:
-	Ship *dreamChaser;
+	Ship *ship;
 	Earth *earth;
-	Satellite *satellites[10];
+	//Satellite *satellites[10];
+	vector<Star> stars;
+	//Position ptUpperRight; // size of screen that will display orbit simulator
 	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 	double rotationSpeed;  // amount of rotation per frame
-	Position ptUpperRight; // size of screen that will display orbit simulator
+
 
 };
+
+/*********************************************
+ * INITIALIZE
+ * Create all attributes to be passed into a new orbit
+ * object, then return the object.
+ *********************************************/
+Orbit initialize(const Position &ptUpperRight);
+
 #endif /* orbit_h */

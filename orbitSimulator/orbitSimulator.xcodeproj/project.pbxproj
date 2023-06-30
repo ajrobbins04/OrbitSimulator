@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 024223C02A4F5CFF00BBB7EF /* star.cpp */; };
 		02A2CD7C2A4E64A200D9ABD6 /* gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */; };
 		02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0392A3D2C6100999231 /* acceleration.cpp */; };
 		02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF03C2A3D2C8100999231 /* direction.cpp */; };
@@ -41,6 +42,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
+		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gps.cpp; sourceTree = "<group>"; };
 		02DEF02E2A3D2C0900999231 /* orbitSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = orbitSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DEF0382A3D2C4A00999231 /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 				02DEF03C2A3D2C8100999231 /* direction.cpp */,
 				02DEF03E2A3D2C9B00999231 /* position.h */,
 				02DEF03F2A3D2CAC00999231 /* position.cpp */,
+				024223BD2A4F584500BBB7EF /* star.h */,
 				02DEF0442A3D2CE000999231 /* spaceObject.h */,
 				02DEF0622A3E3FD900999231 /* earth.h */,
 				02E65B0F2A4BB8F000ED0814 /* earth.cpp */,
@@ -157,6 +161,7 @@
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
 				02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */,
+				024223C02A4F5CFF00BBB7EF /* star.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				02DEF06D2A4404E300999231 /* testDirection.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
+				024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */,
 				02E65B152A4BC51700ED0814 /* simulator.cpp in Sources */,
 				02DEF05E2A3D456500999231 /* testHubble.cpp in Sources */,
 				02DEF0402A3D2CAC00999231 /* position.cpp in Sources */,

@@ -28,8 +28,7 @@ public:
 	Hubble(double x, double y, double radius, double dx, double dy): Satellite(x, y, radius, dx, dy) {}
 	
 	virtual void draw(double rotation, ogstream & gout)
-	{ 
-		
+	{
 		gout.drawHubble(getPos(), rotation);
 	}
 	
