@@ -1,5 +1,18 @@
 #include "orbit.h"
 
+void Orbit::initialize(Position ptUpperRight)
+{
+	double frameRate = 30.0;
+	double hoursPerDay = 24.0;
+	double minPerHour = 60.0;
+	double secondsPerMin = 60.0;
+	
+	double secondsPerDay = hoursPerDay * minPerHour * secondsPerMin;
+	double timeDilation = hoursPerDay * minPerHour;
+	this->time = timeDilation;
+	
+	
+}
 void Orbit::draw()
 {
 	Position pt;

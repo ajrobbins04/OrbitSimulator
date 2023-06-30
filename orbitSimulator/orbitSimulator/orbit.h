@@ -23,17 +23,18 @@
 class Orbit
 {
 public:
-	Orbit(): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()),
+	Orbit(Position ptUpperRight): dreamChaser(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()),
 	time(48.0) {
 
 		setRotationSpeed();
 	}
 	
-	Orbit(const Position &pos, double radius, const Velocity &velocity, double t):
+	Orbit(Position ptUpperRight, const Position &pos, double radius, const Velocity &velocity, double t):
 	dreamChaser(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {}
 	
 	Orbit(const Position &pos, double radius, const Velocity &velocity, double t, double rate):
 	dreamChaser(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {}
+	void initialize();
 	void setRotationSpeed();
 	void move();
 	void draw();
