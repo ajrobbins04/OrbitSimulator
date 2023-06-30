@@ -31,20 +31,8 @@ public:
  
 	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time): ship(ship),
 	earth(earth), satellites(satellites), stars(stars), time(time), rotationSpeed(0.0) {}
+ 
 	
-	/*Orbit(const Position &ptUpperRight): ship(new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0))), earth(new Earth()), time(48.0) {
-		
-		initialize(ptUpperRight);
-	}
-	
-	Orbit(const Position &ptUpperRight, const Position &pos, double radius, const Velocity &velocity, double t):
-	ship(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {
-		
-		initialize(ptUpperRight);
-	}
-	
-	Orbit(const Position &ptUpperRight, const Position &pos, double radius, const Velocity &velocity, double t, double rate):
-	ship(new Ship(pos, radius, velocity)), earth(new Earth()), time(t) {}*/
 	
 	void initialize(const Position &ptUpperRight);
 	void setRotationSpeed(double frameRate, double secondsPerDay, double dilation);

@@ -19,7 +19,23 @@ Orbit initialize(const Position &ptUpperRight)
 		Star star(ptUpperRight);
 		stars.push_back(star);
 	}
+	
 	vector<Satellite*> satellites;
+	
+	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
+	GPS *GPS_2 = new GPS(Position(23001634.72, 13280000.0), 12, Velocity(-1940.0, 3360.18));
+	GPS *GPS_3 = new GPS(Position(23001634.72, -13280000.0), 12, Velocity(1940, 3360.18));
+	GPS *GPS_4 = new GPS(Position(0.0, -26560000.0), 12, Velocity(3880.0, 0.0));
+	GPS *GPS_5 = new GPS(Position(-23001634.72, -13280000.0), 12, Velocity(1940.0, -3360.18));
+	GPS *GPS_6 = new GPS(Position(-23001634.72, 13280000.0), 12, Velocity(-1940.0, -3360.18));
+	
+	satellites.push_back(GPS_1);
+	satellites.push_back(GPS_2);
+	satellites.push_back(GPS_3);
+	satellites.push_back(GPS_4);
+	satellites.push_back(GPS_5);
+	satellites.push_back(GPS_6);
+	
 	Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
 	satellites.push_back(hubble);
 	
@@ -36,16 +52,7 @@ Orbit initialize(const Position &ptUpperRight)
 	orbit.setRotationSpeed(frameRate, secondsPerDay, dilation);
 	
 	return orbit;
-
-	/*GPS *one = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
-	GPS *two = new GPS(Position(23001634.72, 13280000), 12, Velocity(-1940, 3360.18));
-	GPS *three = new GPS(Position(23001634.72, -13280000), 12, Velocity(1940, 3360.18));
-	GPS *four = new GPS(Position(0.0, -26560000), 12, Velocity(3880, 0.0));
-	GPS *five = new GPS(Position(-23001634.72, -13280000), 12, Velocity(1940, -3360.18));
-	GPS *six = new GPS(Position(-23001634.72, 13280000), 12, Velocity(-1940, -3360.18));
-	 Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
-	satellites[0] = one;
-	satellites[1] = two;*/
+ 
 }
  
 /*********************************************
