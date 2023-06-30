@@ -7,9 +7,7 @@
  * *********************************************/
 Orbit initialize(const Position &ptUpperRight)
 {
-
-	Ship *ship = new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0));
-	
+	// create earth
 	Earth *earth = new Earth();
 	
 	// create stars
@@ -20,7 +18,11 @@ Orbit initialize(const Position &ptUpperRight)
 		stars.push_back(star);
 	}
 	
+	// create satellites (including the ship)
 	vector<Satellite*> satellites;
+	
+	Ship *ship = new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0));
+	satellites.push_back(ship);
 	
 	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
 	GPS *GPS_2 = new GPS(Position(23001634.72, 13280000.0), 12, Velocity(-1940.0, 3360.18));
@@ -36,8 +38,17 @@ Orbit initialize(const Position &ptUpperRight)
 	satellites.push_back(GPS_5);
 	satellites.push_back(GPS_6);
 	
-	Hubble *hubble = new Hubble(Position(0, -42164000), 10, Velocity(3100, 0));
+	Sputnik *sputnik = new Sputnik(Position(-36515095.13, 21082000.0), 4, Velocity(2050.0, 2684.68));
+	satellites.push_back(sputnik);
+	
+	Hubble *hubble = new Hubble(Position(0.0, -42164000.0), 10, Velocity(3100.0, 0.0));
 	satellites.push_back(hubble);
+	
+	Dragon *dragon = new Dragon(Position(0.0, 8000000.0), 7, Velocity(-7900.0, 0.0));
+	satellites.push_back(dragon);
+	
+	Starlink *starlink = new Starlink(Position(0.0, -13020000.0), 6, Velocity(5800.0, 0.0));
+	satellites.push_back(starlink);
 	
 	double frameRate = 30.0;    // OpenGL draws 30 frames/second
 	double hoursPerDay = 24.0;

@@ -20,8 +20,12 @@
 #include "earth.h"
 #include "star.h"
 #include "ship.h"
-#include "hubble.h"
 #include "gps.h"
+#include "sputnik.h"
+#include "hubble.h"
+#include "dragon.h"
+#include "starlink.h"
+
 
 using namespace std;
 
