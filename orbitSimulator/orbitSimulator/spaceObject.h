@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include "position.h"
+#include "direction.h"
 #include "uiDraw.h"  
 
 using namespace std;
@@ -20,10 +21,10 @@ using namespace std;
 class SpaceObject
 {
 public:
-	SpaceObject(): pos(0.0, 0.0), radius(0.0), rotationAngle(0.0), alive(true){}
+	SpaceObject(): pos(0.0, 0.0), radius(0.0), direction(0.0), alive(true){}
 	
 	SpaceObject(const Position &pos, double radius):
-	pos(pos), radius(0.0), rotationAngle(0.0), alive(true)
+	pos(pos), radius(0.0), direction(0.0), alive(true)
 	{
 		// Earth's radius = 6378000 meters
 		// All other radius values are given in pixels, and must be converted to meters
@@ -36,11 +37,22 @@ public:
 			setRadius(radiusMeters);
 		}
 	}
-	
-	SpaceObject(double x, double y): pos(x, y), radius(0.0), rotationAngle(0.0), alive(true) {}
+
+	SpaceObject(double x, double y): pos(x, y), radius(0.0), direction(0.0), alive(true) {}
 	
 	SpaceObject(double x, double y, double radius): pos(x, y), radius(0.0),
-	rotationAngle(0.0), alive(true)
+	direction(0.0), alive(true)
+	{
+		if (radius != 6378000)
+		{
+			//assert(radius >= 2 && radius <= 12);
+			double radiusMeters = pos.convertToMeters(radius);
+			setRadius(radiusMeters);
+		}
+	}
+	
+	SpaceObject(double x, double y, double radius, const Direction &dir): pos(x, y), radius(0.0),
+	direction(dir), alive(true)
 	{
 		if (radius != 6378000)
 		{
@@ -50,31 +62,32 @@ public:
 		}
 	}
 
-	void setRadius(double radius)         { this->radius = radius;         }
-	void setRotationAngle(double radians) { this->rotationAngle = radians; }
+	void setRadius(double radius)         { this->radius = radius;               }
+	void setDirection(double radians)     { this->direction.setRadians(radians); }
+	void setDirection(const Direction &d) { this->direction = d;                 }
 	void setPosition(double x, double y)
 	{
 		pos.setMetersX(x);
 		pos.setMetersY(y);
 	}
 
-	void kill()                      { this->alive = false;           }
-	void adjustAngle(double amount)  { this->rotationAngle += amount; }
+	void kill()                          { this->alive = false;            }
+	void adjustDirection(double amount)  { this->direction.rotate(amount); }
 	
 	Position getPos()         const { return pos;              }
 	double getPosX()          const { return pos.getMetersX(); }
 	double getPosY()          const { return pos.getMetersY(); }
 	double getRadius()        const { return radius;           }
-	double getRotationAngle() const { return rotationAngle;    }
-	bool isAlive()            const { return alive;            }
+	double getRotationAngle() const { return direction.getRadians(); }
+	bool isAlive()            const { return alive;                  }
 	
 	virtual void draw(double rotation, ogstream & gout) = 0;
 //	virtual void move(int time);
 	
 protected:
 	Position pos;
+	Direction direction;
 	double radius;
-	double rotationAngle;
 	bool alive;
 
 };

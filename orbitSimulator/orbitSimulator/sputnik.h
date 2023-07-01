@@ -17,7 +17,7 @@ class Sputnik : public Satellite
 public:
 	
 	Sputnik(): Satellite() {}
-	Sputnik(const Satellite &s, const Direction &d): Satellite(s, d) {}
+	Sputnik(const Satellite &s): Satellite(s) {}
 	Sputnik(double x, double y): Satellite(x, y) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
 	Sputnik(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}

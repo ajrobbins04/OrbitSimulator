@@ -17,7 +17,6 @@
 #include <iostream>
 #include <iomanip>
 #include "velocity.h"
-#include "direction.h"
 #include "spaceObject.h"
 
 class TestSatellite;
@@ -27,36 +26,25 @@ class Satellite : public SpaceObject
 public:
 	friend TestSatellite;
 	
-	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), direction(0.0, 0.0), age(0.0),
-	angularVelocity(0.0) {}
+	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), age(0.0), angularVelocity(0.0) {}
 	
-	Satellite(const Satellite &s, const Direction &d) : SpaceObject(s.pos.getMetersX(), s.pos.getMetersY(), 0.0),
-	velocity(s.velocity.getDx(), s.velocity.getDy()), direction(d.getRadians()), age(0.0), angularVelocity(0.0) {}
+	Satellite(const Satellite &s, const Direction &dir) : SpaceObject(s.pos.getMetersX(), s.pos.getMetersY(), 0.0, Direction(dir.getRadians())),
+	velocity(s.velocity.getDx(), s.velocity.getDy()), age(0.0), angularVelocity(0.0) {}
 	
 	Satellite(double x, double y): SpaceObject(Position(x, y), 0.0), velocity(0.0, 0.0),
-	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)  {}
+	age(0.0), angularVelocity(0.0)  {}
 	
 	Satellite(double x, double y, double radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0),
-	direction(0.0, 0.0), age(0.0), angularVelocity(0.0) {}
+	age(0.0), angularVelocity(0.0) {}
 	
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
-	SpaceObject(pos, radius), velocity(velocity), direction(0.0, 0.0),
-	age(0.0), angularVelocity(0.0)  {
-		
-		direction = velocity.getDirection();
-	}
+	SpaceObject(pos, radius), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
 	
 	Satellite(double x, double y, double radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
-	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)
-	{
-		direction = velocity.getDirection();
-	}
+	age(0.0), angularVelocity(0.0) {}
 	
 	Satellite(double x, double y, double radius, double dx, double dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
-	direction(0.0, 0.0), age(0.0), angularVelocity(0.0)
-	{
-		direction = velocity.getDirection();
-	}
+	age(0.0), angularVelocity(0.0) {}
    
 	void setVelocity(double dx, double dy)
 	{
@@ -77,9 +65,8 @@ public:
 //  virtual void destroy();
  
 	
-protected: // inherits pos, radius, and alive
+protected: // inherits pos, direction, radius, and alive
 	Velocity velocity;
-	Direction direction;
 	double angularVelocity;
 	double age;
    

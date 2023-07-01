@@ -21,13 +21,12 @@ public:
 	Earth(double x, double y, double radius) : SpaceObject(x, y, radius) {}
 	void setRotation(double time);
 	virtual void draw(double rotation, ogstream & gout)
-	{ 
-	 
+	{
 		gout.drawEarth(getPos(), rotation);
 	}
 
 private:
-	// inherits pos, radius, and alive
+	// inherits pos, direction, radius, and alive
 
 	
 };

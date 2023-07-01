@@ -18,7 +18,7 @@ class GPS : public Satellite
 public:
 	
 	GPS(): Satellite() {}
-	GPS(const Satellite &s, const Direction &d): Satellite(s, d) {}
+	GPS(const Satellite &s): Satellite(s) {}
 	GPS(double x, double y): Satellite(x, y) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}

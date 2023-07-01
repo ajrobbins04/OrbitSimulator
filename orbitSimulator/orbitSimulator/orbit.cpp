@@ -85,7 +85,7 @@ void Orbit::draw()
 	ogstream gout(pt);
 
 	earth->draw(earth->getRotationAngle(), gout);
-	earth->adjustAngle(rotationSpeed);
+	earth->adjustDirection(rotationSpeed);
 	
 	vector<Satellite*>::iterator sats_Iter;
 

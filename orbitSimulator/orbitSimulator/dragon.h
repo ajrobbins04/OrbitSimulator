@@ -17,7 +17,7 @@ class Dragon : public Satellite
 public:
 	
 	Dragon(): Satellite() {}
-	Dragon(const Satellite &s, const Direction &d): Satellite(s, d) {}
+	Dragon(const Satellite &s): Satellite(s) {}
 	Dragon(double x, double y): Satellite(x, y) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}

@@ -36,8 +36,6 @@ public:
 	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time): ship(ship),
 	earth(earth), satellites(satellites), stars(stars), time(time), rotationSpeed(0.0) {}
  
-	
-	
 	void initialize(const Position &ptUpperRight);
 	void setRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 

@@ -17,7 +17,7 @@ class Starlink : public Satellite
 public:
 	
 	Starlink(): Satellite() {}
-	Starlink(const Satellite &s, const Direction &d): Satellite(s, d) {}
+	Starlink(const Satellite &s): Satellite(s) {}
 	Starlink(double x, double y): Satellite(x, y) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
