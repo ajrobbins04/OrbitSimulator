@@ -20,7 +20,7 @@ public:
 	Star(): pos(0.0, 0.0), phaseStar(0) {}
 	Star(const Position &ptUpperRight): pos(0.0, 0.0), phaseStar(0) {
 		
-		this->phaseStar = random(0, 255);
+		this->phaseStar = 0;
 		pos.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
 		pos.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 		

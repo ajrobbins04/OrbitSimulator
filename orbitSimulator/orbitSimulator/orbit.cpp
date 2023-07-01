@@ -72,6 +72,13 @@ Orbit initialize(const Position &ptUpperRight)
  *********************************************/
 void Orbit::move()
 {
+	vector<Satellite*>::iterator sats_Iter;
+
+	sats_Iter = satellites.begin();
+	for (; sats_Iter != satellites.end(); sats_Iter++)
+	{
+		(*sats_Iter)->move(time);
+	}
  
 }
 /*********************************************
@@ -83,9 +90,6 @@ void Orbit::draw()
 	Position pt;
  
 	ogstream gout(pt);
-
-	earth->draw(earth->getRotationAngle(), gout);
-	earth->adjustDirection(rotationSpeed);
 	
 	vector<Satellite*>::iterator sats_Iter;
 
@@ -103,6 +107,9 @@ void Orbit::draw()
 		stars_Iter->draw(gout);
 		stars_Iter->advancePhaseStar();
 	}
+	
+	earth->draw(earth->getRotationAngle(), gout);
+	earth->adjustDirection(rotationSpeed);
  
 }
 
