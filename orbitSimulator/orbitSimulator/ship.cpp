@@ -2,28 +2,20 @@
 /*********************************************
 * ROTATE SHIP
 *********************************************/
-void Ship::rotateShip(const Interface *pUi)
+void Ship::input(const Interface *pUi, vector<Satellite*> satellites)
 {
 	// ship turns counter-clockwise
 	if (pUi->isLeft())
 	{
 		// rotates in radians
-		//direction.setLeft();
 		direction.rotate(-0.1);
-		
-		while (pUi->isLeft())
-			direction.rotate(-0.1);
-
 	}
 	 
 	// ship turns clockwise
 	if (pUi->isRight())
 	{
 		// rotates in radians
-		//direction.setRight();
 		direction.rotate(0.1);
-		while (pUi->isRight())
-			direction.rotate(0.1);
 	}
   
 	// add thrust
@@ -46,7 +38,7 @@ void Ship::applyThrust(double thrustAmount, double time)
 {
 	setThrust(true);
 	Acceleration aGravity = getGravity();
-	velocity.updateVelocity(aGravity, time, thrustAmount);
+	velocity.updateVelocity(aGravity, time * 2.0);
 	updatePosition(aGravity, time);
 }
 

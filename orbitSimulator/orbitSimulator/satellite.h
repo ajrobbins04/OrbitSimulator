@@ -9,6 +9,7 @@
 #ifndef satellite_h
 #define satellite_h
  
+#include <vector>
 #include <cmath>
 #include <iostream>
 #include <iomanip>

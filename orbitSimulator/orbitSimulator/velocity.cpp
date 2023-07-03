@@ -48,17 +48,4 @@ void Velocity::updateVelocity(const Acceleration &acc, double time)
 }
 
 
-/*********************************************
- * UPDATE
- * Updates the velocity based on its current velocity,
- * acceleration, time, AND thrustAmount.
- *********************************************/
-void Velocity::updateVelocity(const Acceleration &acc, double time, double thrustAmount)
-{
-	double newDx = getDx() + (acc.getDDx() + thrustAmount) * time;
-	double newDy = getDy() + (acc.getDDy() + thrustAmount) * time;
-	
-	setDx(newDx);
-	setDy(newDy);
-}
 

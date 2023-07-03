@@ -29,9 +29,6 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	// create the ship
 	Ship *ship = new Ship(pos, 10, Velocity(0.0, 0.0));
-
-	
-	
 	satellites.push_back(ship);
 	
 	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
@@ -82,7 +79,7 @@ Orbit initialize(const Position &ptUpperRight)
  *********************************************/
 void Orbit::handleInput(const Interface *pUI)
 {
-	
+ 	ship->input(pUI, satellites);
 }
 
 /*********************************************
