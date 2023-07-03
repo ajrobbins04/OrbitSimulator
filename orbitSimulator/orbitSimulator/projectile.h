@@ -21,8 +21,6 @@ public:
 	Projectile(double x, double y): Satellite(x, y) {}
 	Projectile(double x, double y, double radius): Satellite(x, y, radius) {}
 	Projectile(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
-	Projectile(double x, double y, double radius, const Velocity &velocity): Satellite(x, y, radius, velocity) {}
-	Projectile(double x, double y, double radius, double dx, double dy): Satellite(x, y, radius, dx, dy) {}
 	
 	virtual void draw(ogstream & gout)
 	{

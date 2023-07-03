@@ -41,11 +41,6 @@ public:
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
 	SpaceObject(pos, radius), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
 	
-	Satellite(double x, double y, double radius, const Velocity &velocity): SpaceObject(Position(x, y), radius), velocity(velocity),
-	age(0.0), angularVelocity(0.0) {}
-	
-	Satellite(double x, double y, double radius, double dx, double dy): SpaceObject(Position(x, y), radius), velocity(dx, dy),
-	age(0.0), angularVelocity(0.0) {}
    
 	void setVelocity(double dx, double dy)
 	{
