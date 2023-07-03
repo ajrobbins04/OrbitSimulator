@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0208CEFF2A5351BA0027F794 /* projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0208CEFE2A5351BA0027F794 /* projectile.cpp */; };
 		024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 024223C02A4F5CFF00BBB7EF /* star.cpp */; };
 		02A2CD7C2A4E64A200D9ABD6 /* gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */; };
 		02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0392A3D2C6100999231 /* acceleration.cpp */; };
@@ -42,6 +43,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0208CEFD2A5351A90027F794 /* projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectile.h; sourceTree = "<group>"; };
+		0208CEFE2A5351BA0027F794 /* projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projectile.cpp; sourceTree = "<group>"; };
+		0208CF002A53543C0027F794 /* satellitePiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satellitePiece.h; sourceTree = "<group>"; };
+		0208CF012A5354510027F794 /* satelliteFragment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satelliteFragment.h; sourceTree = "<group>"; };
 		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
 		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gps.cpp; sourceTree = "<group>"; };
@@ -131,12 +136,18 @@
 				02DEF03E2A3D2C9B00999231 /* position.h */,
 				02DEF03F2A3D2CAC00999231 /* position.cpp */,
 				024223BD2A4F584500BBB7EF /* star.h */,
+				024223C02A4F5CFF00BBB7EF /* star.cpp */,
 				02DEF0442A3D2CE000999231 /* spaceObject.h */,
 				02DEF0622A3E3FD900999231 /* earth.h */,
 				02E65B0F2A4BB8F000ED0814 /* earth.cpp */,
 				02DEF0412A3D2CBD00999231 /* satellite.h */,
 				02DEF0422A3D2CCD00999231 /* satellite.cpp */,
+				0208CF002A53543C0027F794 /* satellitePiece.h */,
+				0208CF012A5354510027F794 /* satelliteFragment.h */,
+				0208CEFD2A5351A90027F794 /* projectile.h */,
+				0208CEFE2A5351BA0027F794 /* projectile.cpp */,
 				02E65B192A4D266300ED0814 /* gps.h */,
+				02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */,
 				02E65B162A4D257200ED0814 /* sputnik.h */,
 				02E65B112A4BBF1A00ED0814 /* hubble.h */,
 				02E65B1C2A4D26F900ED0814 /* dragon.h */,
@@ -160,8 +171,6 @@
 				02DEF0492A3D2D3000999231 /* testHubble.h */,
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
-				02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */,
-				024223C02A4F5CFF00BBB7EF /* star.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0208CEFF2A5351BA0027F794 /* projectile.cpp in Sources */,
 				02DEF0702A44CA7200999231 /* testVelocity.cpp in Sources */,
 				02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */,
 				02DEF0432A3D2CCD00999231 /* satellite.cpp in Sources */,

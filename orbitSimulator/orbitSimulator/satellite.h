@@ -4,7 +4,9 @@
  * Author:
  *    Amber Robbins, Martin Nkala
  * Summary:
- *
+ *	Represent a whole satellite object in the orbit simulator. A satellite
+ *	object can be one of the satellites orbiting the earth, the ship that
+ *	shoots projectile, or the projectile itself.
  ************************************************************************/
 #ifndef satellite_h
 #define satellite_h
