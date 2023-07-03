@@ -27,8 +27,6 @@ public:
 	
 	virtual void draw(double rotation, ogstream & gout)
 	{
-		Position p = getPos();
-	
 		gout.drawGPS(getPos(), rotation);
 	}
 	

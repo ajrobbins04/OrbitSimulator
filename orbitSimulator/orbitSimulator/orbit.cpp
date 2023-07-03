@@ -29,6 +29,7 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	// create the ship
 	Ship *ship = new Ship(pos, 10, Velocity(0.0, 0.0));
+
 	
 	
 	satellites.push_back(ship);

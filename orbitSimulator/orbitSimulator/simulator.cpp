@@ -52,9 +52,10 @@ int main(int argc, char** argv)
 
 
    /*Demo demo(ptUpperRight);*/
+ 
 	//testRunner();
-	
     Orbit orbit = initialize(ptUpperRight);
+ 
    // set everything into action
    ui.run(callBack, &orbit);
 
