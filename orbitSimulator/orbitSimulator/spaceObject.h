@@ -75,6 +75,7 @@ public:
 	void adjustDirection(double amount)  { this->direction.rotate(amount); }
 	
 	Position getPos()         const { return pos;              }
+	Direction getDirection()  const { return direction;        }
 	double getPosX()          const { return pos.getMetersX(); }
 	double getPosY()          const { return pos.getMetersY(); }
 	double getRadius()        const { return radius;           }

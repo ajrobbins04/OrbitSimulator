@@ -55,8 +55,8 @@ public:
 		radians = rhs;
 	}
 	
-	void setDxDy(double dx, double dy) { radians = atan2(dx, dy); }
-	void setDegrees(double degrees)   { radians = convertToRadians(degrees); }
+	void setDxDy(double dx, double dy) { radians = atan2(dx, dy);             }
+	void setDegrees(double degrees)    { radians = convertToRadians(degrees); }
 	 
 	void setUp()    { radians = 0.0;  }             // 0 degrees
 	void setDown()  { radians = M_PI; }             // 180 degrees

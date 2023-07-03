@@ -17,12 +17,14 @@ class Projectile : public Satellite
 public:
 	
 	Projectile(): Satellite() {}
-	Projectile(const Satellite &s): Satellite(s) {}
-	Projectile(double x, double y): Satellite(x, y) {}
-	Projectile(double x, double y, double radius): Satellite(x, y, radius) {}
-	Projectile(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	Projectile(const Satellite &s): Satellite(s) {
+		setRadius(0.5);
+	}
+	Projectile(const Position &pos, double radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
-	virtual void draw(ogstream & gout)
+	void fire(double time);
+	
+	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawProjectile(getPos());
 	}

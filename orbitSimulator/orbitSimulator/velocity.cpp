@@ -31,6 +31,16 @@ void Velocity::applyAcceleration(const Acceleration &acc)
 	dy += acc.getDDy();
 }
 
+/*********************************************
+ * SET SPEED DIRECTION
+ * Sets the speed and the direction of an
+ * object's velocity.
+ *********************************************/
+void Velocity::setSpeedDirection(double speed, const Direction &dir)
+{
+	dx = speed * dir.getDx();
+	dy = speed * dir.getDy();
+}
 
 /*********************************************
  * UPDATE

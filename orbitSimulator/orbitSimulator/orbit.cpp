@@ -79,7 +79,7 @@ Orbit initialize(const Position &ptUpperRight)
  *********************************************/
 void Orbit::handleInput(const Interface *pUI)
 {
- 	ship->input(pUI, satellites);
+ 	ship->input(pUI, time, satellites);
 }
 
 /*********************************************

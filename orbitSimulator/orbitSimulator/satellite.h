@@ -41,7 +41,6 @@ public:
 	Satellite(const Position &pos, float radius, const Velocity &velocity) :
 	SpaceObject(pos, radius), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
 	
-   
 	void setVelocity(double dx, double dy)
 	{
 		velocity.setDx(dx);
@@ -50,15 +49,16 @@ public:
 	
 	double getAltitude();
 	Acceleration getGravity();
+	Velocity getVelocity() { return velocity; }
 	double getAngularVelocity() { return angularVelocity; }
 	
 	void addKick();
 	void updatePosition(const Acceleration &acGravity, double time);
-	void move(double time);
 	void destroy();
- 
+	
+	void move(double time);
 	virtual void draw(double rotation, ogstream & gout) = 0;
-//  virtual void destroy();
+ 
  
 	
 protected: // inherits pos, direction, radius, and alive
