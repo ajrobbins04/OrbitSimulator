@@ -2,7 +2,7 @@
 /*********************************************
 * ROTATE SHIP
 *********************************************/
-void Ship::input(const Interface *pUI, double time,  vector<Satellite*> satellites)
+void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellites)
 {
 	// ship turns counter-clockwise
 	if (pUI->isLeft())
@@ -45,11 +45,10 @@ void Ship::applyThrust(double thrustAmount, double time)
 	updatePosition(aGravity, time);
 }
 
-void Ship::launchProjectile(vector<Satellite*> satellites, double time)
+void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 {
-	Projectile *p = new Projectile(getPos(), 0.5, getVelocity());
-	p->fire(time);
+	Projectile *p = new Projectile(getPos(), 1, getVelocity());
 	satellites.push_back(p);
-	
+	p->fire(time);
 }
 

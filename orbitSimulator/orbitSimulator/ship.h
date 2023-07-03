@@ -30,11 +30,11 @@ public:
 	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)), thrust(false) {}
 	
 	void setThrust(bool thrust) { this->thrust = thrust; }
-	void input(const Interface *pUI, double time, vector<Satellite*> satellites);
+	void input(const Interface *pUI, double time, vector<Satellite*> &satellites);
 	void applyThrust(double thrustAmount, double time);
 	bool getThrust() const { return thrust; }
 	
-	void launchProjectile(vector<Satellite*> satellites, double time);
+	void launchProjectile(vector<Satellite*> &satellites, double time);
 
 	virtual void draw(double rotation, ogstream & gout)
 	{
