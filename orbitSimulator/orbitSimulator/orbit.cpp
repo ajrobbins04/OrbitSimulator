@@ -21,7 +21,16 @@ Orbit initialize(const Position &ptUpperRight)
 	// create satellites (including the ship)
 	vector<Satellite*> satellites;
 	
-	Ship *ship = new Ship(Position(0.0, 0.0), 10, Velocity(0.0, 0.0));
+	// create a random position for the ship's
+	// starting point
+	Position pos;
+	pos.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+	pos.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+	
+	// create the ship
+	Ship *ship = new Ship(pos, 10, Velocity(0.0, 0.0));
+	
+	
 	satellites.push_back(ship);
 	
 	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
@@ -96,7 +105,7 @@ void Orbit::move()
  *********************************************/
 void Orbit::draw()
 {
-	Position pt;
+	Position pt(0.0, 0.0);
  
 	ogstream gout(pt);
 	
@@ -119,14 +128,7 @@ void Orbit::draw()
 	earth->draw(earth->getRotationAngle(), gout);
 	earth->adjustDirection(rotationSpeed);
  
-	/*
-	 sats_Iter = satellites.begin();
-	 for (; sats_Iter != satellites.end(); sats_Iter++)
-	 {
-		 pt.setPixelsX(((*sats_Iter)->getPosX()/40) + 20);
-		 pt.setPixelsY(((*sats_Iter)->getPosY()/40) + 20);
-	 }
-	 */
+
 }
 
 /*********************************************

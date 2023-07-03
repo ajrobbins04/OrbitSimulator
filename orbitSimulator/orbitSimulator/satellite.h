@@ -9,15 +9,13 @@
 #ifndef satellite_h
 #define satellite_h
  
-#define TIME 48
-#define EARTH_RADIUS 6378000
-#define EARTH_GRAVITY -9.8067
-
 #include <cmath>
 #include <iostream>
 #include <iomanip>
 #include "velocity.h"
 #include "spaceObject.h"
+
+const double earthRadius = 6378000;
 
 class TestSatellite;
 

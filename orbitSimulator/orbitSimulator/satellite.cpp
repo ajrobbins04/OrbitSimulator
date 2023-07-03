@@ -10,9 +10,8 @@ double Satellite::getAltitude()
  
 	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
 						  + pos.getMetersY() * pos.getMetersY());
-	/*float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
-				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));*/
-	return distance - EARTH_RADIUS;
+
+	return distance - earthRadius;
 }
 
 /*********************************************
@@ -23,13 +22,14 @@ double Satellite::getAltitude()
 Acceleration Satellite::getGravity()
 {
 	double altitude = getAltitude();
+	double gravity = -9.8067;
 	
 	// direction of gravity points down
 	Direction dir;
 	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
 	
-	double tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
-	double aGravity = EARTH_GRAVITY * pow(tmp, 2);
+	double tmp = earthRadius / (earthRadius + altitude);
+	double aGravity = gravity * pow(tmp, 2);
 	
 	return Acceleration(aGravity, dir);
 }

@@ -28,7 +28,7 @@ public:
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		Position p = getPos();
-		cout << p << endl;
+	
 		gout.drawGPS(getPos(), rotation);
 	}
 	
