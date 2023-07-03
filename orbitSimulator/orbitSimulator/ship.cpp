@@ -2,33 +2,36 @@
 /*********************************************
 * ROTATE SHIP
 *********************************************/
-void Ship::input(const Interface *pUi, vector<Satellite*> satellites)
+void Ship::input(const Interface *pUI, vector<Satellite*> satellites)
 {
 	// ship turns counter-clockwise
-	if (pUi->isLeft())
+	if (pUI->isLeft())
 	{
 		// rotates in radians
 		direction.rotate(-0.1);
 	}
 	 
 	// ship turns clockwise
-	if (pUi->isRight())
+	if (pUI->isRight())
 	{
 		// rotates in radians
 		direction.rotate(0.1);
 	}
   
 	// add thrust
-	if (pUi->isDown())
+	if (pUI->isDown())
 	{
 		// thrust acceleration is 2.0,
 		// which lasts for 48 seconds of simulation time
 		 
 		applyThrust(2.0, 48);
+		
+		if (!pUI->isDown())
+			setThrust(false);
 	}
   
 	// launch projectile
-	if (pUi->isSpace())
+	if (pUI->isSpace())
 	{
 		launchProjectile();
 	 }
