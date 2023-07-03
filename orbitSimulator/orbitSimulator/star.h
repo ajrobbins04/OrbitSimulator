@@ -29,6 +29,7 @@ public:
 	void draw(ogstream & gout)
 	{
 		gout.drawStar(getPos(), getPhaseStar());
+		advancePhaseStar();
 	}
 	 
 	Position      getPos()       const { return pos;       }

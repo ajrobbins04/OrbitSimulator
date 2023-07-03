@@ -38,7 +38,8 @@ public:
  
 	void initialize(const Position &ptUpperRight);
 	void setRotationSpeed(double frameRate, double secondsPerDay, double dilation);
-
+	
+	void handleInput(const Interface *pUI);
 	void move();
 	void draw();
 						 
@@ -48,7 +49,6 @@ private:
 	vector<Star> stars;
 	vector<Satellite*> satellites;
 
-	//Position ptUpperRight; // size of screen that will display orbit simulator
 	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 	double rotationSpeed;  // amount of rotation per frame
 
@@ -61,5 +61,6 @@ private:
  * object, then return the object.
  *********************************************/
 Orbit initialize(const Position &ptUpperRight);
+
 
 #endif /* orbit_h */

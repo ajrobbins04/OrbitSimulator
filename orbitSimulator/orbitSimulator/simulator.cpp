@@ -8,31 +8,6 @@
 
 using namespace std;
 
-/*class Demo
-{
-public:
-	Demo(Position ptUpperRight) :
-	ptUpperRight(ptUpperRight)
-	{
-		ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-		ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-		
-		double rate = -(2 * PI / frameRate);
-		double frameRate = rate * TIME;
-		angleShip = frameRate;
-		angleEarth = frameRate;
-		phaseStar = 0;
-	}
-	
-	Position ptHubble;
-	Position ptUpperRight;
-	unsigned char phaseStar;
-	double angleShip;
-	double angleEarth;
-
-};*/
-
-
 /*************************************
  * All the interesting work happens here, when
  * I get called back from OpenGL to draw a frame.
@@ -44,6 +19,7 @@ void callBack(const Interface* pUI, void* p)
 {
 	//Demo* pDemo = (Demo*)p;
 	Orbit *orbit = (Orbit*)p;
+	orbit->handleInput(pUI);
 	orbit->move();
 	orbit->draw();
 	

@@ -7,11 +7,11 @@
  *********************************************/
 double Satellite::getAltitude()
 {
-	Position posEarth(0.0, 0.0);
-	/*float distance = sqrt(pos.getMetersX() * pos.getMetersX()
-						  + pos.getMetersY() * pos.getMetersY());*/
-	float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
-				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));
+ 
+	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
+						  + pos.getMetersY() * pos.getMetersY());
+	/*float distance = sqrt((pos.getMetersX() - posEarth.getMetersX()) * (pos.getMetersX() - posEarth.getMetersX()) +
+				(pos.getMetersY() - posEarth.getMetersY()) * (pos.getMetersY() - posEarth.getMetersY()));*/
 	return distance - EARTH_RADIUS;
 }
 

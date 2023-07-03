@@ -65,7 +65,16 @@ Orbit initialize(const Position &ptUpperRight)
 	return orbit;
  
 }
- 
+
+/*********************************************
+ * HANDLE INPUT
+ *
+ *********************************************/
+void Orbit::handleInput(const Interface *pUI)
+{
+	
+}
+
 /*********************************************
  * MOVE
  * Moves everything currently in orbit.
@@ -105,12 +114,19 @@ void Orbit::draw()
 	for (; stars_Iter != stars.end(); stars_Iter++)
 	{
 		stars_Iter->draw(gout);
-		stars_Iter->advancePhaseStar();
 	}
 	
 	earth->draw(earth->getRotationAngle(), gout);
 	earth->adjustDirection(rotationSpeed);
  
+	/*
+	 sats_Iter = satellites.begin();
+	 for (; sats_Iter != satellites.end(); sats_Iter++)
+	 {
+		 pt.setPixelsX(((*sats_Iter)->getPosX()/40) + 20);
+		 pt.setPixelsY(((*sats_Iter)->getPosY()/40) + 20);
+	 }
+	 */
 }
 
 /*********************************************
