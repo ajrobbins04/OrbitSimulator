@@ -49,7 +49,7 @@ public:
 	
 	double getAltitude();
 	Acceleration getGravity();
-	Velocity getVelocity() { return velocity; }
+	Velocity getVelocity()      { return velocity; }
 	double getAngularVelocity() { return angularVelocity; }
 	
 	void addKick();

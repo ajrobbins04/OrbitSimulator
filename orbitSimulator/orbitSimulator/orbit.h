@@ -16,6 +16,7 @@
 
 #include <cmath>
 #include <vector>
+#include <deque>
 #include "uiInteract.h"
 #include "earth.h"
 #include "star.h"

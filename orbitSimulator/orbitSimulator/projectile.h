@@ -10,6 +10,7 @@
 #ifndef projectile_h
 #define projectile_h
 
+#include <deque>
 #include "satellite.h"
 
 class Projectile : public Satellite
@@ -18,7 +19,7 @@ public:
 	
 	Projectile(): Satellite() {}
 	Projectile(const Satellite &s): Satellite(s) {
-		setRadius(0.5);
+		setRadius(1);
 	}
 	Projectile(const Position &pos, double radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
@@ -33,5 +34,7 @@ private:
 	// inherits pos, radius, velocity, direction, alive,
 	// angularVelocity and age
 	
+	deque<Position> projectilePath;
+
 };
 #endif
