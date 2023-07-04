@@ -78,10 +78,10 @@ public:
 	Direction getDirection()  const { return direction;        }
 	double getPosX()          const { return pos.getMetersX(); }
 	double getPosY()          const { return pos.getMetersY(); }
-	double getRadius()        const { return radius;           }
 	double getRotationAngle() const { return direction.getRadians(); }
 	bool isAlive()            const { return alive;                  }
 	
+	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
 //	virtual void move(int time);
 	

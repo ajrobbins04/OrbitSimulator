@@ -58,7 +58,7 @@ public:
 	
 	void move(double time);
 	
-	virtual double getRadiusSum() = 0;
+	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
  
  

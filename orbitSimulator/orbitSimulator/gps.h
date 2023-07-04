@@ -23,7 +23,7 @@ public:
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
-	virtual double getRadiusSum()
+	virtual double getRadius() const
 	{
 		// left & right solar array pieces each
 		// have 8 px. radius

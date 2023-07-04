@@ -22,11 +22,7 @@ public:
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
 	Sputnik(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 
-	virtual double getRadiusSum()
-	{
-		return radius;
-	}
-	
+	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)
 	{ 
 		gout.drawSputnik(getPos(), rotation);

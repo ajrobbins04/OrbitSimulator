@@ -25,10 +25,7 @@ public:
 	
 	void fire(double time);
 	
-	virtual double getRadiusSum()
-	{
-		return radius;
-	}
+	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawProjectile(getPos());

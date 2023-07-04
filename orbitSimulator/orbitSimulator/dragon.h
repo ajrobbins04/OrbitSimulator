@@ -22,7 +22,7 @@ public:
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 
-	virtual double getRadiusSum()
+	virtual double getRadius() const
 	{
 		// left & right solar array pieces each
 		// have 6 px. radius
