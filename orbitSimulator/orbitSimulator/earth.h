@@ -20,6 +20,7 @@ public:
 	Earth() : SpaceObject(0.0, 0.0, 6378000.0) {}
 	Earth(double x, double y, double radius) : SpaceObject(x, y, radius) {}
 	void setRotation(double time);
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawEarth(getPos(), rotation);

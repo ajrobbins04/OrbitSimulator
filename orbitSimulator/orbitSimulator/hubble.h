@@ -25,6 +25,18 @@ public:
 	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
 	Hubble(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
+	virtual double getRadiusSum()
+	{
+		// left & right solar array pieces each
+		// have 8 px. radius
+		double solarPiece = pos.convertToMeters(8);
+		
+		double telescopePiece = pos.convertToMeters(10);
+		double computerPiece = pos.convertToMeters(7);
+		
+		return radius + (solarPiece * 2) + telescopePiece + computerPiece;
+	}
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawHubble(getPos(), rotation);

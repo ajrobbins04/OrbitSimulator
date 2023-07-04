@@ -17,6 +17,8 @@
 #include <cmath>
 #include <vector>
 #include <deque>
+#include <typeinfo>
+
 #include "uiInteract.h"
 #include "earth.h"
 #include "star.h"
@@ -40,7 +42,9 @@ public:
 	void initialize(const Position &ptUpperRight);
 	void setRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 	
+	double computeCollisionRange(const Satellite &sat1, const Satellite &sat2);
 	void handleInput(const Interface *pUI);
+	void collisionDetection();
 	void move();
 	void draw();
 						 

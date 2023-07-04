@@ -57,5 +57,3 @@ void Velocity::updateVelocity(const Acceleration &acc, double time)
 	setDy(newDy);
 }
 
-
-

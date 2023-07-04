@@ -57,6 +57,8 @@ public:
 	void destroy();
 	
 	void move(double time);
+	
+	virtual double getRadiusSum() = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
  
  

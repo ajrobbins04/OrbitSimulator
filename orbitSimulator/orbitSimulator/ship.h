@@ -36,6 +36,11 @@ public:
 	
 	void launchProjectile(vector<Satellite*> &satellites, double time);
 
+	virtual double getRadiusSum()
+	{
+		return radius;
+	}
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawShip(getPos(), rotation, getThrust());

@@ -19,16 +19,21 @@ public:
 	
 	Projectile(): Satellite() {}
 	Projectile(const Satellite &s): Satellite(s) {
-		setRadius(1);
+		setRadius(0.5);
 	}
 	Projectile(const Position &pos, double radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
 	void fire(double time);
 	
+	virtual double getRadiusSum()
+	{
+		return radius;
+	}
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawProjectile(getPos());
 	}
+	
 	
 private:
 	// inherits pos, radius, velocity, direction, alive,

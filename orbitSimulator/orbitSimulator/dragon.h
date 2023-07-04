@@ -22,6 +22,15 @@ public:
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 
+	virtual double getRadiusSum()
+	{
+		// left & right solar array pieces each
+		// have 6 px. radius
+		double solarPiece = pos.convertToMeters(6);
+		
+		return radius + (solarPiece * 2);
+	}
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawCrewDragon(getPos(), rotation);

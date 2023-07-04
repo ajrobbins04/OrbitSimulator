@@ -23,6 +23,15 @@ public:
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	
+	virtual double getRadiusSum()
+	{
+		// left & right solar array pieces each
+		// have 8 px. radius
+		double pieceRadius = pos.convertToMeters(8);
+		
+		return radius + pieceRadius * 2;
+	}
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawGPS(getPos(), rotation);

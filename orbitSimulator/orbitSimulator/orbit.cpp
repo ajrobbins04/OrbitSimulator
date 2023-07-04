@@ -73,6 +73,10 @@ Orbit initialize(const Position &ptUpperRight)
  
 }
 
+double Orbit::computeCollisionRange(const Satellite &sat1, const Satellite &sat2)
+{
+	return 0;
+}
 /*********************************************
  * HANDLE INPUT
  *
@@ -97,6 +101,29 @@ void Orbit::move()
 	}
  
 }
+
+/*********************************************
+ * COLLISION DETECTION
+ *
+ *********************************************/
+void Orbit::collisionDetection()
+{
+	vector<Satellite*>::iterator sats_Iter1;
+
+	vector<Satellite*>::iterator sats_Iter2;
+
+	sats_Iter1 = satellites.begin();
+	for (; sats_Iter1 != satellites.end(); sats_Iter1++)
+	{
+		sats_Iter2 = satellites.begin();
+		for (; sats_Iter2 != satellites.end(); sats_Iter2++)
+		{
+			double distance = computeDistance((*sats_Iter1)->getPos(), (*sats_Iter2)->getPos());
+			
+		}
+	}
+}
+
 /*********************************************
  * DRAW
  * Draws everything currently in orbit.

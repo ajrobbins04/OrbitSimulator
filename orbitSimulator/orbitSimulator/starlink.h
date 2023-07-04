@@ -22,6 +22,12 @@ public:
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 
+	virtual double getRadiusSum()
+	{
+		double rightSolarPiece = pos.convertToMeters(4);
+		return radius + rightSolarPiece;
+	}
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{ 
 		gout.drawStarlink(getPos(), rotation);
