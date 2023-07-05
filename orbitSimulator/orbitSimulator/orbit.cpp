@@ -23,12 +23,12 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	// create a random position for the ship's
 	// starting point
-	Position pos;
-	pos.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-	pos.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+	Position shipPos;
+	shipPos.setPixelsX(-450.0);
+	shipPos.setPixelsY(450.0);
 	
 	// create the ship
-	Ship *ship = new Ship(pos, 10, Velocity(0.0, 0.0));
+	Ship *ship = new Ship(shipPos, 10, Velocity(0.0, 0.0));
 	satellites.push_back(ship);
 	
 	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
@@ -77,6 +77,7 @@ double Orbit::computeCollisionRange(const Satellite &sat1, const Satellite &sat2
 {
 	return 0;
 }
+
 /*********************************************
  * HANDLE INPUT
  *
@@ -97,9 +98,9 @@ void Orbit::move()
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
-		(*sats_Iter)->move(time);
+		if ((*sats_Iter)->isAlive())
+			(*sats_Iter)->move(time);
 	}
- 
 }
 
 /*********************************************
@@ -108,18 +109,15 @@ void Orbit::move()
  *********************************************/
 void Orbit::collisionDetection()
 {
-	vector<Satellite*>::iterator sats_Iter1;
+	vector<Satellite*>::iterator iter1;
 
-	vector<Satellite*>::iterator sats_Iter2;
+	vector<Satellite*>::iterator iter2;
 
-	sats_Iter1 = satellites.begin();
-	for (; sats_Iter1 != satellites.end(); sats_Iter1++)
+	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
-		sats_Iter2 = satellites.begin();
-		for (; sats_Iter2 != satellites.end(); sats_Iter2++)
+		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
 		{
-			double distance = computeDistance((*sats_Iter1)->getPos(), (*sats_Iter2)->getPos());
-			
+			double distance = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
 		}
 	}
 }
@@ -139,7 +137,8 @@ void Orbit::draw()
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
-		(*sats_Iter)->draw((*sats_Iter)->getRotationAngle(), gout);
+		if ((*sats_Iter)->isAlive())
+			(*sats_Iter)->draw((*sats_Iter)->getRotationAngle(), gout);
 	}
  
 	vector<Star>::iterator stars_Iter;
@@ -150,8 +149,11 @@ void Orbit::draw()
 		stars_Iter->draw(gout);
 	}
 	
-	earth->draw(earth->getRotationAngle(), gout);
-	earth->adjustDirection(rotationSpeed);
+	if (earth->isAlive())
+	{
+		earth->draw(earth->getRotationAngle(), gout);
+		earth->adjustDirection(rotationSpeed);
+	}
  
 
 }

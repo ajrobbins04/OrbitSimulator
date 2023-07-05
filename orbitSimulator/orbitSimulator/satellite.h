@@ -52,6 +52,7 @@ public:
 	Velocity getVelocity()      { return velocity; }
 	double getAngularVelocity() { return angularVelocity; }
 	
+	void computeAngularVelocity(double time);
 	void addKick();
 	void updatePosition(const Acceleration &acGravity, double time);
 	void destroy();

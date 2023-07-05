@@ -27,11 +27,19 @@ Acceleration Satellite::getGravity()
 	// direction of gravity points down
 	Direction dir;
 	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
-	
+
 	double tmp = earthRadius / (earthRadius + altitude);
 	double aGravity = gravity * pow(tmp, 2);
 	
 	return Acceleration(aGravity, dir);
+}
+
+/*********************************************
+ * 	COMPUTE ANGULAR VELOCITY
+ *********************************************/
+void Satellite::computeAngularVelocity(double time)
+{
+
 }
 
 /*********************************************
