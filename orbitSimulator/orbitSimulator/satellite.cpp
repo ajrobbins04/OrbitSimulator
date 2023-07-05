@@ -1,5 +1,5 @@
 #include "satellite.h"
-
+ 
 /*********************************************
  *  GET ALTITUDE
  *  Computes the distance from the center of the
@@ -34,11 +34,31 @@ Acceleration Satellite::getGravity()
 }
 
 /*********************************************
- * 	COMPUTE ANGULAR VELOCITY
+ * 	UPDATE DIRECTION
  *********************************************/
-void Satellite::computeAngularVelocity(double time)
+void Satellite::updateDirection(const Position &posPrev, double time)
 {
+	Position posCurrent = getPos();
 
+	double distance = computeDistance(posCurrent, posPrev);
+	double linearVelocity = distance / time;
+		
+	double angularVelocity = linearVelocity / radius;
+	double angleChange = angularVelocity / time;
+	direction.rotate(angleChange);
+	
+	/*
+	Position posCurrent = getPos();
+	
+	if (posPrev.getMetersX() != posCurrent.getMetersX() &&
+		posPrev.getMetersY() != posCurrent.getMetersY())
+	{
+		double dx = posCurrent.getMetersX() - posPrev.getMetersX();
+		double dy = posCurrent.getMetersY() - posPrev.getMetersY();
+		
+		direction.update(dx, dy);
+	}
+	 */
 }
 
 /*********************************************
@@ -59,8 +79,11 @@ void Satellite::updatePosition(const Acceleration &aGravity, double time)
  *********************************************/
 void Satellite::move(double time)
 {
+	Position posPrev = getPos();
 	Acceleration aGravity = getGravity();
+	
 	velocity.updateVelocity(aGravity, time);
 	updatePosition(aGravity, time);
- 
+	updateDirection(posPrev, time);
+	
 }

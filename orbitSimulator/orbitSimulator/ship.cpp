@@ -26,10 +26,11 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 		 
 		applyThrust(2.0, 48);
 		
-		if (!pUI->isDown())
-			setThrust(false);
 	}
   
+	if (!pUI->isDown())
+		setThrust(false);
+	
 	// launch projectile
 	if (pUI->isSpace())
 	{

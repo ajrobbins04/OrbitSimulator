@@ -53,12 +53,13 @@ public:
 	Velocity getVelocity()      { return velocity;        }
 	double getAngularVelocity() { return angularVelocity; }
 	
-	void computeAngularVelocity(double time);
-	void addKick();
+	void updateDirection(const Position &posPrev, double time);
 	void updatePosition(const Acceleration &acGravity, double time);
+	
+	void addKick();
 	void destroy();
 	
-	virtual void move(double time);
+	void move(double time);
 	
 	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;

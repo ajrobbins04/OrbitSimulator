@@ -71,8 +71,8 @@ public:
 		pos.setMetersY(y);
 	}
 
-	void kill()                                  { this->alive = false;                    }
-	void updateDirection(double amount)  { this->direction.rotate(amount); }
+	void kill()                 { this->alive = false;            }
+	void rotate(double amount)  { this->direction.rotate(amount); }
 	
 	Position getPos()          const { return pos;              }
 	double getPosX()           const { return pos.getMetersX(); }

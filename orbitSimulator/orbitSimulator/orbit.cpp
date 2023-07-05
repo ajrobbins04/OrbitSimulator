@@ -97,6 +97,7 @@ void Orbit::move()
 {
 	vector<Satellite*>::iterator sats_Iter;
 
+	ship->move(time);
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
@@ -105,7 +106,7 @@ void Orbit::move()
 	}
 	
 	if (earth->isAlive())
-		earth->updateDirection(earth->getRotationSpeed());
+		earth->rotate(earth->getRotationSpeed());
 }
 
 /*********************************************

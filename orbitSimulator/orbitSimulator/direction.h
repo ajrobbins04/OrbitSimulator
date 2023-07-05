@@ -69,6 +69,12 @@ public:
 	double getRadians() const { return radians; }
 	double getDegrees() const { return convertToDegrees(radians); }
 	
+	void update(double dx, double dy)
+	{
+		double angleDifference = atan2(dx, dy);
+		rotate(angleDifference);
+	}
+	
 	// rotates by an amount in radians
 	void rotate(double amount)
 	{
