@@ -71,15 +71,15 @@ public:
 		pos.setMetersY(y);
 	}
 
-	void kill()                          { this->alive = false;            }
+	void kill()                                  { this->alive = false;                    }
 	void adjustDirection(double amount)  { this->direction.rotate(amount); }
 	
-	Position getPos()         const { return pos;              }
-	Direction getDirection()  const { return direction;        }
-	double getPosX()          const { return pos.getMetersX(); }
-	double getPosY()          const { return pos.getMetersY(); }
-	double getRotationAngle() const { return direction.getRadians(); }
-	bool isAlive()            const { return alive;                  }
+	Position getPos()          const { return pos;              }
+	Direction getDirection()   const { return direction;        }
+	double getPosX()           const { return pos.getMetersX(); }
+	double getPosY()           const { return pos.getMetersY(); }
+	double getDirectionAngle() const { return direction.getRadians(); }
+	bool isAlive()             const { return alive;                  }
 	
 	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;

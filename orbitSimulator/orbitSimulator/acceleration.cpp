@@ -3,7 +3,7 @@
 /*********************************************
  * SET ACCELERATION
  * Sets acceleration based on its two components: its
- * magnitude and its direction
+ * magnitude and its direction 
  *  *********************************************/
 void Acceleration::setAcc(double aGravity, const Direction &direction)
 {

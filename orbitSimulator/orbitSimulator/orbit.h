@@ -37,12 +37,14 @@ class Orbit
 public:
  
 	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time): ship(ship),
-	earth(earth), satellites(satellites), stars(stars), time(time), rotationSpeed(0.0) {}
+	earth(earth), satellites(satellites), stars(stars), time(time) {}
  
 	void initialize(const Position &ptUpperRight);
-	void setRotationSpeed(double frameRate, double secondsPerDay, double dilation);
+	void setRotationSpeed(double amount)  { earth->setRotationSpeed(amount); }
 	
+	double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 	double computeCollisionRange(const Satellite &sat1, const Satellite &sat2);
+	
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
 	void move();
@@ -55,8 +57,6 @@ private:
 	vector<Satellite*> satellites;
 
 	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
-	double rotationSpeed;  // amount of rotation per frame
-
 
 };
 

@@ -24,14 +24,13 @@ Acceleration Satellite::getGravity()
 	double altitude = getAltitude();
 	double gravity = -9.8067;
 	
-	// direction of gravity points down
-	Direction dir;
-	dir.setDxDy(pos.getMetersX(), pos.getMetersY());
+	Direction dirGravity;
+	dirGravity.setDxDy(pos.getMetersX(), pos.getMetersY());
 
 	double tmp = earthRadius / (earthRadius + altitude);
 	double aGravity = gravity * pow(tmp, 2);
 	
-	return Acceleration(aGravity, dir);
+	return Acceleration(aGravity, dirGravity);
 }
 
 /*********************************************

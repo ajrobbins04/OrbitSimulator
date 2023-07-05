@@ -19,9 +19,12 @@ public:
 	
 	Earth() : SpaceObject(0.0, 0.0, 6378000.0) {}
 	Earth(double x, double y, double radius) : SpaceObject(x, y, radius) {}
-	void setRotation(double time);
+
+	void setRotationSpeed(double amount)  { this->rotationSpeed = amount; }
 	
-	virtual double getRadius() const { return radius; }
+	double  getRotationSpeed() const { return rotationSpeed; }
+	virtual double getRadius() const { return radius;        }
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawEarth(getPos(), rotation);
@@ -29,6 +32,7 @@ public:
 
 private:
 	// inherits pos, direction, radius, and alive
+	double rotationSpeed;  // amount of rotation per frame
 
 	
 };
