@@ -72,12 +72,12 @@ public:
 	}
 
 	void kill()                                  { this->alive = false;                    }
-	void adjustDirection(double amount)  { this->direction.rotate(amount); }
+	void updateDirection(double amount)  { this->direction.rotate(amount); }
 	
 	Position getPos()          const { return pos;              }
-	Direction getDirection()   const { return direction;        }
 	double getPosX()           const { return pos.getMetersX(); }
 	double getPosY()           const { return pos.getMetersY(); }
+	Direction getDirection()   const { return direction;        }
 	double getDirectionAngle() const { return direction.getRadians(); }
 	bool isAlive()             const { return alive;                  }
 	

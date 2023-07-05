@@ -103,6 +103,9 @@ void Orbit::move()
 		if ((*sats_Iter)->isAlive())
 			(*sats_Iter)->move(time);
 	}
+	
+	if (earth->isAlive())
+		earth->updateDirection(earth->getRotationSpeed());
 }
 
 /*********************************************
@@ -154,7 +157,6 @@ void Orbit::draw()
 	if (earth->isAlive())
 	{
 		earth->draw(earth->getDirectionAngle(), gout);
-		earth->adjustDirection(earth->getRotationSpeed());
 	}
  
 

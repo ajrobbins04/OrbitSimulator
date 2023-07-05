@@ -62,4 +62,5 @@ void Satellite::move(double time)
 	Acceleration aGravity = getGravity();
 	velocity.updateVelocity(aGravity, time);
 	updatePosition(aGravity, time);
+ 
 }

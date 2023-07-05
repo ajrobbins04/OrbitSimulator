@@ -49,7 +49,8 @@ public:
 	
 	double getAltitude();
 	Acceleration getGravity();
-	Velocity getVelocity()      { return velocity; }
+	
+	Velocity getVelocity()      { return velocity;        }
 	double getAngularVelocity() { return angularVelocity; }
 	
 	void computeAngularVelocity(double time);
@@ -57,7 +58,7 @@ public:
 	void updatePosition(const Acceleration &acGravity, double time);
 	void destroy();
 	
-	void move(double time);
+	virtual void move(double time);
 	
 	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
