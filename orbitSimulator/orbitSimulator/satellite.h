@@ -57,7 +57,6 @@ public:
 	void updatePosition(const Acceleration &acGravity, double time);
 	
 	void addKick();
-	void destroy();
 	
 	void move(double time);
 	

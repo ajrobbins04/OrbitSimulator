@@ -36,6 +36,8 @@ public:
 			double radiusMeters = pos.convertToMeters(radius);
 			setRadius(radiusMeters);
 		}
+		else
+			setRadius(6378000);
 	}
 
 	SpaceObject(double x, double y): pos(x, y), radius(0.0), direction(0.0), alive(true) {}
@@ -49,6 +51,8 @@ public:
 			double radiusMeters = pos.convertToMeters(radius);
 			setRadius(radiusMeters);
 		}
+		else
+			setRadius(6378000);
 	}
 	
 	SpaceObject(double x, double y, double radius, const Direction &dir): pos(x, y), radius(0.0),
@@ -60,8 +64,11 @@ public:
 			double radiusMeters = pos.convertToMeters(radius);
 			setRadius(radiusMeters);
 		}
+		else
+			setRadius(6378000);
 	}
 
+	
 	void setRadius(double radius)         { this->radius = radius;               }
 	void setDirection(double radians)     { this->direction.setRadians(radians); }
 	void setDirection(const Direction &d) { this->direction = d;                 }
@@ -73,7 +80,8 @@ public:
 
 	void kill()                 { this->alive = false;            }
 	void rotate(double amount)  { this->direction.rotate(amount); }
-	
+
+	void destroy();
 	Position getPos()          const { return pos;              }
 	double getPosX()           const { return pos.getMetersX(); }
 	double getPosY()           const { return pos.getMetersY(); }
