@@ -7,15 +7,15 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 	// ship turns counter-clockwise
 	if (pUI->isLeft())
 	{
-		// rotates in radians
-		direction.rotate(-0.1);
+		// rotates direction in radians
+		rotate(-0.1);
 	}
 	 
 	// ship turns clockwise
 	if (pUI->isRight())
 	{
-		// rotates in radians
-		direction.rotate(0.1);
+		// rotates direction in radians
+		rotate(0.1);
 	}
   
 	// add thrust
@@ -23,11 +23,9 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 	{
 		// thrust acceleration is 2.0,
 		// which lasts for 48 seconds of simulation time
-		 
 		applyThrust(2.0, 48);
-		
 	}
-  
+	
 	if (!pUI->isDown())
 		setThrust(false);
 	
@@ -48,6 +46,9 @@ void Ship::applyThrust(double thrustAmount, double time)
 
 void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 {
+	Direction fireDirection;
+ 
+	fireDirection.setRadians(getDirectionAngle() * -1 + (M_PI / 2.0));
 	Projectile *p = new Projectile(getPos(), 1, getVelocity());
 	satellites.push_back(p);
 	p->fire(time);

@@ -71,9 +71,8 @@ public:
 	virtual ~SpaceObject() {};
 
 	
-	void setRadius(double radius)         { this->radius = radius;               }
-	void setDirection(double radians)     { this->direction.setRadians(radians); }
-	void setDirection(const Direction &d) { this->direction = d;                 }
+	void setRadius(double radius)         { this->radius = radius; }
+	void setDirection(const Direction &d) { this->direction = d;   }
 	void setPosition(double x, double y)
 	{
 		pos.setMetersX(x);
