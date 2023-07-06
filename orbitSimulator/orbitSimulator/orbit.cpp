@@ -118,31 +118,29 @@ void Orbit::collisionDetection()
 	vector<Satellite*>::iterator iter1;
 	vector<Satellite*>::iterator iter2;
 
-	/*for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
 		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
 		{
 			double collisionRange = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
 			double satelliteRadius1 = (*iter1)->getRadius();
-			double satelliteRadius2 = (*iter1)->getRadius();
+			double satelliteRadius2 = (*iter2)->getRadius();
 			
-			if (satelliteRadius1 + satelliteRadius2 <= collisionRange)
+			if (collisionRange < satelliteRadius1 + satelliteRadius2)
 			{
 				(*iter1)->kill();
 				(*iter2)->kill();
 			}
 		}
-	}*/
+	}
 
 	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
-		double collisionRange = computeDistance((*iter1)->getPos(), earth->getPos());
 		double height = (*iter1)->getAltitude();
 	
 		if (height <= 0)
 		{
 			(*iter1)->kill();
-			
 		}
 	}
 }
