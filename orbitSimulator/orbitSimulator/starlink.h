@@ -21,7 +21,8 @@ public:
 	Starlink(double x, double y): Satellite(x, y) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
-
+	virtual ~Starlink() {};
+	
 	virtual double getRadius() const
 	{
 		double rightSolarPiece = pos.convertToMeters(4);

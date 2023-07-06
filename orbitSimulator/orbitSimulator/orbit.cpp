@@ -145,6 +145,22 @@ void Orbit::collisionDetection()
 	}
 }
 
+void Orbit::removeDeadSatellites()
+{
+	vector<Satellite*>::iterator iter1;
+
+	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	{
+		if (!(*iter1)->isAlive())
+		{
+			SpaceObject* pSpaceObj = *iter1;
+			delete pSpaceObj;
+			pSpaceObj = NULL;
+			
+			iter1 = satellites.erase(iter1);
+		}
+	}
+}
 /*********************************************
  * DRAW
  * Draws everything currently in orbit.

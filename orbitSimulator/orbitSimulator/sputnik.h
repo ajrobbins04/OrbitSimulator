@@ -21,7 +21,8 @@ public:
 	Sputnik(double x, double y): Satellite(x, y) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
 	Sputnik(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
-
+	virtual ~Sputnik() {};
+	
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)
 	{ 

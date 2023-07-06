@@ -21,7 +21,8 @@ public:
 	Dragon(double x, double y): Satellite(x, y) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
-
+	virtual ~Dragon() {};
+	
 	virtual double getRadius() const
 	{
 		// left & right solar array pieces each

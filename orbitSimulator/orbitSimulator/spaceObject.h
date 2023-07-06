@@ -67,6 +67,8 @@ public:
 		else
 			setRadius(6378000);
 	}
+	
+	virtual ~SpaceObject() {};
 
 	
 	void setRadius(double radius)         { this->radius = radius;               }

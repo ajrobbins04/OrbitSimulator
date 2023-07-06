@@ -24,6 +24,7 @@ public:
 	Hubble(double x, double y): Satellite(x, y) {}
 	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
 	Hubble(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	virtual ~Hubble() {};
 	
 	virtual double getRadius() const
 	{

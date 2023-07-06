@@ -22,6 +22,7 @@ public:
 	GPS(double x, double y): Satellite(x, y) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	virtual ~GPS() {};
 	
 	virtual double getRadius() const
 	{

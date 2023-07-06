@@ -22,6 +22,7 @@ void callBack(const Interface* pUI, void* p)
 	orbit->handleInput(pUI);
 	orbit->move();
 	orbit->collisionDetection();
+	orbit->removeDeadSatellites();
 	orbit->draw();
 	
 }

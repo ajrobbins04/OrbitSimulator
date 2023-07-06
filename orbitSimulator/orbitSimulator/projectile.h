@@ -22,6 +22,7 @@ public:
 		setRadius(0.5);
 	}
 	Projectile(const Position &pos, double radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	virtual ~Projectile() {};
 	
 	void fire(double time);
 	

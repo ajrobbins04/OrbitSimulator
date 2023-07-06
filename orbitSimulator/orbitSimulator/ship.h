@@ -28,6 +28,7 @@ public:
 	
 	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
 	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)), thrust(false) {}
+	virtual ~Ship() {};
 	
 	void setThrust(bool thrust) { this->thrust = thrust; }
 	void input(const Interface *pUI, double time, vector<Satellite*> &satellites);
