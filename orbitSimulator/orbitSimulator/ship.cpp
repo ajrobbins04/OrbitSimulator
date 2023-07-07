@@ -36,6 +36,9 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 	 }
  }
 
+/*********************************************
+* UPDATE SHIP FRONT POSITION
+*********************************************/
 void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 {
 	
@@ -56,6 +59,9 @@ void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 	shipFrontPos.setMetersY(pos.getMetersY() + 760.0);
 }
 
+/*********************************************
+* APPLY THRUST
+*********************************************/
 void Ship::applyThrust(double time)
 {
 	setThrust(true);
@@ -68,6 +74,9 @@ void Ship::applyThrust(double time)
 	updateShipFrontPos(aGravity, time);
 }
 
+/*********************************************
+* LAUNCH PROJECTILE
+*********************************************/
 void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 {
 

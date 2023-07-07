@@ -147,6 +147,9 @@ void Orbit::collisionDetection()
 	}
 }
 
+/*********************************************
+* CHECK AGE
+*********************************************/
 void Orbit::checkAge()
 {
 	vector<Satellite*>::iterator iter1;
@@ -161,6 +164,10 @@ void Orbit::checkAge()
 	}
 	
 }
+
+/*********************************************
+* REMOVE DEAD SATELLITES
+*********************************************/
 void Orbit::removeDeadSatellites()
 {
 	vector<Satellite*>::iterator iter1 = satellites.begin();
@@ -180,6 +187,7 @@ void Orbit::removeDeadSatellites()
 			++iter1;
 	}
 }
+
 /*********************************************
  * DRAW
  * Draws everything currently in orbit.
@@ -211,8 +219,6 @@ void Orbit::draw()
 	{
 		earth->draw(earth->getDirectionAngle(), gout);
 	}
- 
-
 }
 
 /*********************************************
