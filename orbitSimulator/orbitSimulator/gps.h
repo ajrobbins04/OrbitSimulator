@@ -31,6 +31,7 @@ public:
 			
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		updateDirection(posPrev, time);
 	}
 
 	virtual double getRadius() const

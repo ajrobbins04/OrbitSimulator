@@ -22,29 +22,39 @@ class Ship : public Satellite
 public:
 	friend TestShip;
  
-	Ship() : Satellite(Position(0.0, 0.0), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
+	Ship() : Satellite(Position(0.0, 0.0), 0.0, Velocity(0.0, 0.0)), thrust(false),
+	shipFrontPos(Position(0.0, 760.0)), prevDir(0.0) {}
 	
-	Ship(const Position &pos, double radius, const Velocity &velocity) : Satellite(pos, radius, velocity), thrust(false) {}
+	Ship(const Position &pos, double radius, const Velocity &velocity, const Position &frontPos) :
+	Satellite(pos, radius, velocity), thrust(false), shipFrontPos(frontPos), prevDir(0.0) {}
 	
 	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
-	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)), thrust(false) {}
+	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)),
+	prevDir(0.0), thrust(false) {}
+	
 	virtual ~Ship() {};
 	
-	void setThrust(bool thrust) { this->thrust = thrust; }
+	void setThrust(bool thrust)     { this->thrust = thrust;   }
+	void setPrevDir(double radians) { this->prevDir = radians; }
+	
+	bool getThrust() const         { return thrust;               }
+	double getPrevDirAngle() const { return prevDir.getRadians(); }
+	
 	void input(const Interface *pUI, double time, vector<Satellite*> &satellites);
 	void applyThrust(double thrustAmount, double time);
-	bool getThrust() const { return thrust; }
 	
-	void launchProjectile(vector<Satellite*> &satellites, double time, double formerAngle);
+	double getShipFrontPosX() { return shipFrontPos.getMetersX(); }
+	double getShipFrontPosY() { return shipFrontPos.getMetersY(); }
 	
+	void updateShipFrontPos(const Acceleration &aGravity, double time);
+	void launchProjectile(vector<Satellite*> &satellites, double time);
+
 	virtual void move(double time)
 	{
-		Position posPrev = getPos();
 		Acceleration aGravity = getGravity();
-			
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
-		updateDirection(posPrev, time);
+		updateShipFrontPos(aGravity, time);
 	}
 
 	virtual double getRadius() const { return radius; }
@@ -56,6 +66,7 @@ public:
 private:
 	// inherits pos, radius, velocity, direction, alive, age, and angularVelocity
 	bool thrust;
- 
+	Position shipFrontPos;
+	Direction prevDir;
 };
 #endif

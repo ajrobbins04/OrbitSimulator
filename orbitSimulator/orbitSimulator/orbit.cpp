@@ -27,8 +27,12 @@ Orbit initialize(const Position &ptUpperRight)
 	shipPos.setPixelsX(-450.0);
 	shipPos.setPixelsY(450.0);
 	
+	Position shipFrontPos;
+	shipFrontPos.setPixelsX(shipPos.getPixelsX());
+	shipFrontPos.setPixelsY(shipPos.getPixelsY() + 19.0);
+	
 	// create the ship
-	Ship *ship = new Ship(shipPos, 10, Velocity(0.0, 0.0));
+	Ship *ship = new Ship(shipPos, 10, Velocity(0.0, 0.0), shipFrontPos);
 	satellites.push_back(ship);
 	
 	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), 12, Velocity(-3880, 0.0));
@@ -97,7 +101,6 @@ void Orbit::move()
 {
 	vector<Satellite*>::iterator sats_Iter;
 
-	ship->move(time);
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{

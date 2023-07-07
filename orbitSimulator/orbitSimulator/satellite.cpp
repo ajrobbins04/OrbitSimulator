@@ -43,26 +43,14 @@ void Satellite::updateDirection(const Position &posPrev, double time)
 	double distance = computeDistance(posCurrent, posPrev);
 	double linearVelocity = distance / time;
 		
-	double angularVelocity = linearVelocity / radius;
+	double angularVelocity = linearVelocity / 40000;
 	double angleChange = angularVelocity / time;
 	direction.rotate(angleChange);
-	
-	/*
-	Position posCurrent = getPos();
-	
-	if (posPrev.getMetersX() != posCurrent.getMetersX() &&
-		posPrev.getMetersY() != posCurrent.getMetersY())
-	{
-		double dx = posCurrent.getMetersX() - posPrev.getMetersX();
-		double dy = posCurrent.getMetersY() - posPrev.getMetersY();
-		
-		direction.update(dx, dy);
-	}
-	 */
+
 }
 
 /*********************************************
- *  UPDATE
+ *  UPDATE POSITION
  *  Updates the satellite's position based on its current
  *  position, velocity, and time.
  *********************************************/
