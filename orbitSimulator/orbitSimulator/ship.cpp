@@ -47,10 +47,13 @@ void Ship::applyThrust(double thrustAmount, double time)
 void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 {
 	Direction fireDirection;
- 
-	fireDirection.setRadians(getDirectionAngle() * -1 + (M_PI / 2.0));
-	Projectile *p = new Projectile(getPos(), 1, getVelocity());
+	fireDirection.setRadians(getDirectionAngle());
+	
+	Position ptShipFront(pos.getMetersX(), pos.getMetersY() + 760.0);
+
+	Projectile *p = new Projectile(ptShipFront, 1, getVelocity(), fireDirection);
 	satellites.push_back(p);
+	
 	p->fire(time);
 }
 

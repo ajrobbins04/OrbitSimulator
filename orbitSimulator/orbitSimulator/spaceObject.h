@@ -39,6 +39,23 @@ public:
 		else
 			setRadius(6378000);
 	}
+	
+	SpaceObject(const Position &pos, double radius, const Direction &dir):
+	pos(pos), radius(0.0), direction(dir), alive(true)
+	{
+		// Earth's radius = 6378000 meters
+		// All other radius values are given in pixels, and must be converted to meters
+		if (radius != 6378000)
+		{
+			// fragments have smallest radius of 2 px
+			// GPS Satellite has largest radius of 12 px
+			//	assert(radius >= 2 && radius <= 12);
+			double radiusMeters = pos.convertToMeters(radius);
+			setRadius(radiusMeters);
+		}
+		else
+			setRadius(6378000);
+	}
 
 	SpaceObject(double x, double y): pos(x, y), radius(0.0), direction(0.0), alive(true) {}
 	

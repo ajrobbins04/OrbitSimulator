@@ -128,8 +128,8 @@ void Orbit::collisionDetection()
 			
 			if (collisionRange < satelliteRadius1 + satelliteRadius2)
 			{
-				(*iter1)->kill();
-				(*iter2)->kill();
+				//(*iter1)->kill();
+				//(*iter2)->kill();
 			}
 		}
 	}
