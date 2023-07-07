@@ -27,26 +27,35 @@ public:
 	
 	virtual ~Projectile() {};
  
+	void fire();
+	void updateProjectilePath();
+	
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
-			
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		
+		updateProjectilePath();
+		
+		increaseAge();
 	}
 	
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)
 	{
-		gout.drawProjectile(getPos());
+		if (age <= 70)
+		{
+			for (int i = 0; i < 8; i++)
+				gout.drawProjectile(Position(projectilePath[i].getMetersX(), projectilePath[i].getMetersY()));
+		}
 	}
 	
 	
 private:
 	// inherits pos, radius, velocity, direction, alive,
 	// angularVelocity and age
-	
-	deque<Position> projectilePath;
+	Position projectilePath[8]; // path of the projectile
 
 };
 #endif

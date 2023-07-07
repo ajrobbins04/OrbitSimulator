@@ -74,13 +74,6 @@ void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 	Direction fireDirection;
 	fireDirection.setRadians(getDirectionAngle());
 	
-	// projectile should originate at the front
-	// of the ship (760 meters ahead of it)
-	/*Position ptShipFront(pos.getMetersX() + distance * cos(angleChange),
-						 pos.getMetersY() + 760 + distance * sin(angleChange));*/
-	
-
-	
 	// projectile velocity should be 9,000 m/s faster than
 	// the ship
 	Velocity fireVelocity;
@@ -88,10 +81,12 @@ void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 	
 	// create projectile with ptShipFront, a 0.5 px radius,
 	// fireVelocity, and fireDirection
-	Projectile *p = new Projectile(shipFrontPos, 0.5, fireVelocity, fireDirection);
+	Projectile *projectile = new Projectile(shipFrontPos, 0.5, fireVelocity, fireDirection);
+	
+	projectile->fire();
 	
 	// add to satellites vector
-	satellites.push_back(p);
+	satellites.push_back(projectile);
 
 }
 

@@ -148,6 +148,21 @@ void Orbit::collisionDetection()
 	}
 }
 
+void Orbit::checkAge()
+{
+	vector<Satellite*>::iterator iter1;
+	
+	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	{
+		// check if projectile is past its lifespan
+		if ((*iter1)->isAlive() && (*iter1)->getAge() <= 70
+			&& (*iter1)->getRadius() == 20)
+		{
+			(*iter1)->kill();
+		}
+	}
+	
+}
 void Orbit::removeDeadSatellites()
 {
 	vector<Satellite*>::iterator iter1;

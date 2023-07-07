@@ -47,6 +47,7 @@ public:
 	
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
+	void checkAge();
 	void removeDeadSatellites();
 	void move();
 	void draw();

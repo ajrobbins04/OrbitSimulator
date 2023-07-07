@@ -62,6 +62,8 @@ public:
 	void updatePosition(const Acceleration &acGravity, double time);
 	
 	void addKick();
+	void increaseAge() { age += 1;   }
+	double getAge()    { return age; }
 	
 	virtual void move(double time) = 0;
 	virtual double getRadius() const = 0;
