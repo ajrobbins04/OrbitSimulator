@@ -33,7 +33,7 @@ bool TestShip::closeEnough(double actual, double expected, double tolerance)
 *********************************************/
 void TestShip::test_rotate_right()
 {
-	Ship ship(Position(0.0, 26560000), 10, Velocity(-3.880, 0), Position(0.0, 26560000 + 760));
+	Ship ship(Position(0.0, 26560000), Velocity(-3.880, 0), Position(0.0, 26560000 + 760));
 
 	// equivalent of clicking right keyboard arrow 3 times
 	ship.direction.rotate(0.1);
@@ -49,7 +49,7 @@ void TestShip::test_rotate_right()
 *********************************************/
 void TestShip::test_rotate_left()
 {
-	Ship ship(Position(0.0, 26560000), 10, Velocity(-3.880, 0), Position(0.0, 26560000 + 760));
+	Ship ship(Position(0.0, 26560000), Velocity(-3.880, 0), Position(0.0, 26560000 + 760));
 	
 	// equivalent of clicking right keyboard arrow 3 times
 	ship.direction.rotate(-0.1);
@@ -64,7 +64,7 @@ void TestShip::test_rotate_left()
 *********************************************/
 void TestShip::test_rotate_alternating()
 {
-	Ship ship(Position(0, -26560000), 10, Velocity(3880, 0), Position(0, -26560000 + 760));
+	Ship ship(Position(0, -26560000), Velocity(3880, 0), Position(0, -26560000 + 760));
 
 	ship.direction.rotate(-0.1); // click left
 	ship.direction.rotate(0.1);  // click right
@@ -81,7 +81,7 @@ void TestShip::test_rotate_alternating()
 *********************************************/
 void TestShip::test_applyThrust_stationary()
 {
-	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(0, 0), Position(-23001634.72, 13280000 + 760));
+	Ship ship(Position(-23001634.72, 13280000), Velocity(0, 0), Position(-23001634.72, 13280000 + 760));
 	
 	// thrust amount = 2.0 and time = 1
 	ship.applyThrust(1);
@@ -96,7 +96,7 @@ void TestShip::test_applyThrust_stationary()
 *********************************************/
 void TestShip::test_applyThrust_moving()
 {
-	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
+	Ship ship(Position(-23001634.72, 13280000), Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
 
 	// thrust amount = 2.0 and time = 1
 	ship.applyThrust(1);
@@ -110,7 +110,7 @@ void TestShip::test_applyThrust_moving()
 *********************************************/
 void TestShip::test_applyThrust_double()
 {
-	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
+	Ship ship(Position(-23001634.72, 13280000), Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
 
 	// thrust amount = 2.0 and time = 1
 	ship.applyThrust(1);

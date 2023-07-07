@@ -19,9 +19,8 @@ public:
 	
 	GPS(): Satellite() {}
 	GPS(const Satellite &s): Satellite(s) {}
-	GPS(double x, double y): Satellite(x, y) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
-	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px
 	virtual ~GPS() {};
 	
 	virtual bool isShip()       const { return false; }

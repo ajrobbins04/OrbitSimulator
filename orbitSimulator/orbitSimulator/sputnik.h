@@ -18,9 +18,8 @@ public:
 	
 	Sputnik(): Satellite() {}
 	Sputnik(const Satellite &s): Satellite(s) {}
-	Sputnik(double x, double y): Satellite(x, y) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
-	Sputnik(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	Sputnik(const Position &pos, const Velocity &velocity): Satellite(pos, 4, velocity) {} // radius = 4px
 	virtual ~Sputnik() {};
 	
 	virtual void move(double time)

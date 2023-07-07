@@ -25,12 +25,10 @@ public:
 	Ship() : Satellite(Position(0.0, 0.0), 0.0, Velocity(0.0, 0.0)), thrust(false),
 	shipFrontPos(Position(0.0, 760.0)), prevDir(0.0) {}
 	
-	Ship(const Position &pos, double radius, const Velocity &velocity, const Position &frontPos) :
-	Satellite(pos, radius, velocity), thrust(false), shipFrontPos(frontPos), prevDir(0.0) {}
+	Ship(const Position &pos, const Velocity &velocity, const Position &frontPos) :
+	Satellite(pos, 10, velocity), thrust(false), shipFrontPos(frontPos), prevDir(0.0) {} // radius = 10px
 	
 	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
-	Ship(double x, double y, double radius): Satellite(Position(x, y), radius, Velocity(0.0, 0.0)),
-	prevDir(0.0), thrust(false) {}
 	
 	virtual ~Ship() {};
 	

@@ -21,9 +21,9 @@ public:
 	
 	Hubble(): Satellite() {}
 	Hubble(const Satellite &s, const Direction &d): Satellite(s, d) {}
-	Hubble(double x, double y): Satellite(x, y) {}
+	Hubble(double x, double y): Satellite(x, y) {} // used in test cases
 	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
-	Hubble(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	Hubble(const Position &pos, const Velocity &velocity): Satellite(pos, 10, velocity) {} // radius = 10px
 	virtual ~Hubble() {};
 	
 	virtual void move(double time)

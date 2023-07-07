@@ -18,9 +18,8 @@ public:
 	
 	Dragon(): Satellite() {}
 	Dragon(const Satellite &s): Satellite(s) {}
-	Dragon(double x, double y): Satellite(x, y) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
-	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	Dragon(const Position &pos, const Velocity &velocity): Satellite(pos, radius, velocity) {} // radius = 7px
 	virtual ~Dragon() {};
 	
 	virtual bool isShip()       const { return false; }

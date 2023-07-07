@@ -18,9 +18,8 @@ public:
 	
 	Starlink(): Satellite() {}
 	Starlink(const Satellite &s): Satellite(s) {}
-	Starlink(double x, double y): Satellite(x, y) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
-	Starlink(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
+	Starlink(const Position &pos, const Velocity &velocity): Satellite(pos, 6, velocity) {} // radius = 6px
 	virtual ~Starlink() {};
 	
 	virtual bool isShip()       const { return false; }
