@@ -26,8 +26,7 @@ public:
 	Satellite(pos, radius, velocity, dir) {}
 	
 	virtual ~Projectile() {};
-	
-	void fire(double time);
+
 	
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)

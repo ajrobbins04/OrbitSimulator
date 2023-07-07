@@ -46,14 +46,25 @@ void Ship::applyThrust(double thrustAmount, double time)
 
 void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 {
+	// set direction for projectile to be fired
 	Direction fireDirection;
 	fireDirection.setRadians(getDirectionAngle());
 	
-	Position ptShipFront(pos.getMetersX(), pos.getMetersY() + 760.0);
+	// projectile should originate at the front
+	// of the ship
+	Position ptShipFront(pos.getMetersX() + 760.0, pos.getMetersY());
 
-	Projectile *p = new Projectile(ptShipFront, 1, getVelocity(), fireDirection);
-	satellites.push_back(p);
+	// projectile velocity should be 9,000 m/s faster than
+	// the shipj
+	Velocity fireVelocity;
+	fireVelocity.setSpeedDirection((velocity.getSpeed() + 9000), getDirection());
 	
-	p->fire(time);
+	// create projectile with ptShipFront, a 0.5 px radius,
+	// fireVelocity, and fireDirection
+	Projectile *p = new Projectile(ptShipFront, 0.5, fireVelocity, fireDirection);
+	
+	// add to satellites vector
+	satellites.push_back(p);
+
 }
 
