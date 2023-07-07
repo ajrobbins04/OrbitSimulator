@@ -26,7 +26,14 @@ public:
 	Satellite(pos, radius, velocity, dir) {}
 	
 	virtual ~Projectile() {};
-
+ 
+	virtual void move(double time)
+	{
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+	}
 	
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)

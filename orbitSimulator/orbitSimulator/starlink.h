@@ -23,6 +23,16 @@ public:
 	Starlink(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~Starlink() {};
 	
+	virtual void move(double time)
+	{
+		Position posPrev = getPos();
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+		updateDirection(posPrev, time);
+	}
+	
 	virtual double getRadius() const
 	{
 		double rightSolarPiece = pos.convertToMeters(4);

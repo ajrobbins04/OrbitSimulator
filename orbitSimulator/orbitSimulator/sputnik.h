@@ -23,6 +23,16 @@ public:
 	Sputnik(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~Sputnik() {};
 	
+	virtual void move(double time)
+	{
+		Position posPrev = getPos();
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+		updateDirection(posPrev, time);
+	}
+	
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)
 	{ 

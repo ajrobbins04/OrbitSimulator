@@ -24,6 +24,15 @@ public:
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~GPS() {};
 	
+	virtual void move(double time)
+	{
+		Position posPrev = getPos();
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+	}
+
 	virtual double getRadius() const
 	{
 		// left & right solar array pieces each

@@ -63,8 +63,7 @@ public:
 	
 	void addKick();
 	
-	void move(double time);
-	
+	virtual void move(double time) = 0;
 	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
  

@@ -35,7 +35,17 @@ public:
 	void applyThrust(double thrustAmount, double time);
 	bool getThrust() const { return thrust; }
 	
-	void launchProjectile(vector<Satellite*> &satellites, double time);
+	void launchProjectile(vector<Satellite*> &satellites, double time, double formerAngle);
+	
+	virtual void move(double time)
+	{
+		Position posPrev = getPos();
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+		updateDirection(posPrev, time);
+	}
 
 	virtual double getRadius() const { return radius; }
 	virtual void draw(double rotation, ogstream & gout)

@@ -23,6 +23,16 @@ public:
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~Dragon() {};
 	
+	virtual void move(double time)
+	{
+		Position posPrev = getPos();
+		Acceleration aGravity = getGravity();
+			
+		velocity.updateVelocity(aGravity, time);
+		updatePosition(aGravity, time);
+		updateDirection(posPrev, time);
+	}
+	
 	virtual double getRadius() const
 	{
 		// left & right solar array pieces each

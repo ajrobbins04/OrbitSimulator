@@ -4,6 +4,8 @@
 *********************************************/
 void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellites)
 {
+	double angle = getDirectionAngle();
+	
 	// ship turns counter-clockwise
 	if (pUI->isLeft())
 	{
@@ -32,7 +34,7 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 	// launch projectile
 	if (pUI->isSpace())
 	{
-		launchProjectile(satellites, time);
+		launchProjectile(satellites, time, angle);
 	 }
  }
 
@@ -44,15 +46,21 @@ void Ship::applyThrust(double thrustAmount, double time)
 	updatePosition(aGravity, time);
 }
 
-void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
+void Ship::launchProjectile(vector<Satellite*> &satellites, double time, double formerAngle)
 {
+	double currentAngle = getDirectionAngle();
+	
+	double angleChange = currentAngle - formerAngle;
+	double radius = 40000.0;
+	double distance = radius * angleChange;
 	// set direction for projectile to be fired
 	Direction fireDirection;
 	fireDirection.setRadians(getDirectionAngle());
 	
 	// projectile should originate at the front
-	// of the ship
-	Position ptShipFront(pos.getMetersX() + 760.0, pos.getMetersY());
+	// of the ship (760 meters ahead of it)
+	Position ptShipFront(pos.getMetersX() + distance * cos(angleChange),
+						 pos.getMetersY() + 760 + distance * sin(angleChange));
 
 	// projectile velocity should be 9,000 m/s faster than
 	// the shipj
