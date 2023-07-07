@@ -65,6 +65,8 @@ public:
 	void increaseAge() { age += 1;   }
 	double getAge()    { return age; }
 	
+	virtual bool isShip() const = 0;
+	virtual bool isProjectile() const = 0;
 	virtual void move(double time) = 0;
 	virtual double getRadius() const = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;

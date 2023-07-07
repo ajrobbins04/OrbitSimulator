@@ -36,6 +36,9 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return false; }
+	
 	virtual double getRadius() const
 	{
 		// left & right solar array pieces each

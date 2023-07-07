@@ -41,10 +41,12 @@ public:
 		increaseAge();
 	}
 	
-	virtual double getRadius() const { return radius; }
+	virtual bool isShip()       const { return false;  }
+	virtual bool isProjectile() const { return true;   }
+	virtual double getRadius()  const { return radius; }
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
-		if (age <= 70)
 		{
 			for (int i = 0; i < 8; i++)
 				gout.drawProjectile(Position(projectilePath[i].getMetersX(), projectilePath[i].getMetersY()));

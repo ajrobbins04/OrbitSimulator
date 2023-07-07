@@ -24,6 +24,9 @@ public:
 	GPS(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~GPS() {};
 	
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return false; }
+	
 	virtual void move(double time)
 	{
 		Position posPrev = getPos();

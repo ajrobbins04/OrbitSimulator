@@ -79,11 +79,6 @@ Orbit initialize(const Position &ptUpperRight)
  
 }
 
-double Orbit::computeCollisionRange(const Satellite &sat1, const Satellite &sat2)
-{
-	return 0;
-}
-
 /*********************************************
  * HANDLE INPUT
  *
@@ -129,10 +124,14 @@ void Orbit::collisionDetection()
 			double satelliteRadius1 = (*iter1)->getRadius();
 			double satelliteRadius2 = (*iter2)->getRadius();
 			
-			if (collisionRange < satelliteRadius1 + satelliteRadius2)
+			// exclude bullets that originate from the ship
+			if ((*iter2)->getRadius() != 20 && !(*iter1)->isShip())
 			{
-				//(*iter1)->kill();
-				//(*iter2)->kill();
+				if (collisionRange < satelliteRadius1 + satelliteRadius2)
+				{
+					(*iter1)->kill();
+					(*iter2)->kill();
+				}
 			}
 		}
 	}
@@ -155,8 +154,7 @@ void Orbit::checkAge()
 	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
 		// check if projectile is past its lifespan
-		if ((*iter1)->isAlive() && (*iter1)->getAge() <= 70
-			&& (*iter1)->getRadius() == 20)
+		if ( (*iter1)->isProjectile() && (*iter1)->isAlive() && (*iter1)->getAge() > 70)
 		{
 			(*iter1)->kill();
 		}

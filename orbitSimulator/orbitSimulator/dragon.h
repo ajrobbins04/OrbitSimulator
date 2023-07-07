@@ -23,6 +23,9 @@ public:
 	Dragon(const Position &pos, float radius, const Velocity &velocity): Satellite(pos, radius, velocity) {}
 	virtual ~Dragon() {};
 	
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return false; }
+	
 	virtual void move(double time)
 	{
 		Position posPrev = getPos();

@@ -56,8 +56,11 @@ public:
 		updatePosition(aGravity, time);
 		updateShipFrontPos(aGravity, time);
 	}
-
-	virtual double getRadius() const { return radius; }
+	
+	virtual bool isShip()       const { return true;   }
+	virtual bool isProjectile() const { return false;  }
+	virtual double getRadius()  const { return radius; }
+	
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawShip(getPos(), rotation, getThrust());
