@@ -163,18 +163,21 @@ void Orbit::checkAge()
 }
 void Orbit::removeDeadSatellites()
 {
-	vector<Satellite*>::iterator iter1;
+	vector<Satellite*>::iterator iter1 = satellites.begin();
 
-	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	while (iter1 != satellites.end())
 	{
 		if (!(*iter1)->isAlive())
 		{
-			SpaceObject* pSpaceObj = *iter1;
-			delete pSpaceObj;
-			pSpaceObj = NULL;
+		
+			Satellite* pSatellite = *iter1;
+			delete pSatellite;
+			pSatellite = NULL;
 			
-			iter1 = satellites.erase(iter1);
+			satellites.erase(iter1);
 		}
+		else
+			++iter1;
 	}
 }
 /*********************************************
