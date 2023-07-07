@@ -84,7 +84,7 @@ void TestShip::test_applyThrust_stationary()
 	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(0, 0), Position(-23001634.72, 13280000 + 760));
 	
 	// thrust amount = 2.0 and time = 1
-	ship.applyThrust(2.0, 1);
+	ship.applyThrust(1);
 	
 	//assert(closeEnough(ship.velocity.getDx(), 2.489, 0.01));
 //	assert(closeEnough(ship.velocity.getDy(), 1.717, 0.01));
@@ -99,7 +99,7 @@ void TestShip::test_applyThrust_moving()
 	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
 
 	// thrust amount = 2.0 and time = 1
-	ship.applyThrust(2.0, 1);
+	ship.applyThrust(1);
 	
 	assert(closeEnough(ship.velocity.getDx(), -1937.51, 0.01));
 	assert(closeEnough(ship.velocity.getDy(), -3358.46, 0.01));
@@ -113,8 +113,8 @@ void TestShip::test_applyThrust_double()
 	Ship ship(Position(-23001634.72, 13280000), 10, Velocity(-1940, -3360.18), Position(-23001634.72, 13280000 + 760));
 
 	// thrust amount = 2.0 and time = 1
-	ship.applyThrust(2.0, 1);
-	ship.applyThrust(2.0, 1);
+	ship.applyThrust(1);
+	ship.applyThrust(1);
 	
 //	assert(closeEnough(ship.velocity.getDx(), -1935.01, 0.01));
 //	assert(closeEnough(ship.velocity.getDy(), -3356.74, 0.01));

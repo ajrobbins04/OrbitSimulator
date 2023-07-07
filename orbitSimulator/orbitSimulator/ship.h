@@ -41,7 +41,7 @@ public:
 	double getPrevDirAngle() const { return prevDir.getRadians(); }
 	
 	void input(const Interface *pUI, double time, vector<Satellite*> &satellites);
-	void applyThrust(double thrustAmount, double time);
+	void applyThrust(double time);
 	
 	double getShipFrontPosX() { return shipFrontPos.getMetersX(); }
 	double getShipFrontPosY() { return shipFrontPos.getMetersY(); }

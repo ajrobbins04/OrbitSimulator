@@ -23,9 +23,7 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 	// add thrust
 	if (pUI->isDown())
 	{
-		// thrust acceleration is 2.0,
-		// which lasts for 48 seconds of simulation time
-		applyThrust(2.0, 48);
+		applyThrust(time);
 	}
 	
 	if (!pUI->isDown())
@@ -58,10 +56,13 @@ void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 	shipFrontPos.setMetersY(pos.getMetersY() + 760.0);
 }
 
-void Ship::applyThrust(double thrustAmount, double time)
+void Ship::applyThrust(double time)
 {
 	setThrust(true);
 	Acceleration aGravity = getGravity();
+	
+	// thrust acceleration is 2.0,
+	// which lasts for 48 seconds of simulation time
 	velocity.updateVelocity(aGravity, time * 2.0);
 	updatePosition(aGravity, time);
 	updateShipFrontPos(aGravity, time);
