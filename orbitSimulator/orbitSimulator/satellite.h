@@ -55,8 +55,8 @@ public:
 	double getAltitude();
 	Acceleration getGravity();
 	
-	Velocity getVelocity()      { return velocity;        }
-	double getAngularVelocity() { return angularVelocity; }
+	Velocity getVelocity()      const { return velocity;        }
+	double getAngularVelocity() const { return angularVelocity; }
 	
 	void updateDirection(const Position &posPrev, double time);
 	void updatePosition(const Acceleration &acGravity, double time);
