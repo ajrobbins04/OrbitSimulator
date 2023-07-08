@@ -21,11 +21,13 @@ double Satellite::getAltitude()
  *********************************************/
 Acceleration Satellite::getGravity()
 {
+	// altitude = height above the earth
 	double altitude = getAltitude();
-	double gravity = -9.8067;
+	double gravity = 9.8067;
 	
+	// direction of gravity points down
 	Direction dirGravity;
-	dirGravity.setDxDy(pos.getMetersX(), pos.getMetersY());
+	dirGravity.setDxDy(-pos.getMetersX(), -pos.getMetersY());
 
 	double tmp = earthRadius / (earthRadius + altitude);
 	double aGravity = gravity * pow(tmp, 2);
