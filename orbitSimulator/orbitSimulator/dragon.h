@@ -20,7 +20,7 @@ public:
 	Dragon(const Dragon &rhs) : Satellite(rhs) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, const Velocity &velocity): Satellite(pos, radius, velocity) {} // radius = 7px
-	virtual ~Dragon() {};
+	virtual ~Dragon();
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
@@ -46,7 +46,7 @@ public:
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{
-		
+		kill();
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

@@ -20,7 +20,7 @@ public:
 	Sputnik(const Sputnik &rhs) : Satellite(rhs) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
 	Sputnik(const Position &pos, const Velocity &velocity): Satellite(pos, 4, velocity) {} // radius = 4px
-	virtual ~Sputnik() {};
+	virtual ~Sputnik();
 	
 	virtual void move(double time)
 	{
@@ -38,7 +38,7 @@ public:
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{
-		
+		kill();
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

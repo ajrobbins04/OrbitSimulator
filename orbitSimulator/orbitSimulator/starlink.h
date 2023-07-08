@@ -20,7 +20,7 @@ public:
 	Starlink(const Starlink &rhs) : Satellite(rhs) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, const Velocity &velocity): Satellite(pos, 6, velocity) {} // radius = 6px
-	virtual ~Starlink() {};
+	virtual ~Starlink();
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }

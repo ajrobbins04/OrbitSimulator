@@ -47,7 +47,7 @@ public:
 	Satellite(const Position &pos, float radius, const Velocity &velocity, const Direction &dir) :
 	SpaceObject(pos, radius, dir), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
 	
-	virtual ~Satellite() {};
+	virtual ~Satellite();
 	
 	void setVelocity(double dx, double dy)
 	{

@@ -22,7 +22,7 @@ public:
 	SatellitePiece(const Satellite &rhs, double degrees, double radius) : Satellite(Position(rhs.getPos()), radius,
 																Velocity(rhs.getVelocity()), Direction(degrees)) {}
 	
-	virtual ~SatellitePiece() {}
+	virtual ~SatellitePiece();
 
 	// addKick();
 	

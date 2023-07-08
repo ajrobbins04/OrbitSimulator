@@ -27,7 +27,7 @@ public:
 																   Velocity(rhs.getVelocity()), Direction(degrees)) {}
 
 	
-	virtual ~SatelliteFragment() {}
+	virtual ~SatelliteFragment();
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }

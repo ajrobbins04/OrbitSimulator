@@ -13,6 +13,7 @@
 
 #include "satellite.h"
 #include "satelliteFragment.h"
+#include "satellitePiece.h"
 #include "gpsCenter.h"
 #include "gpsLeft.h"
 #include "gpsRight.h"
@@ -25,7 +26,7 @@ public:
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px
-	virtual ~GPS() {};
+	virtual ~GPS();
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
@@ -51,7 +52,6 @@ public:
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{
-
 		GPSCenter *gpsCenter = new GPSCenter(*this, 90);
 		satellites.push_back(gpsCenter);
 		

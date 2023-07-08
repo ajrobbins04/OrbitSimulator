@@ -25,7 +25,7 @@ public:
 	Hubble(double x, double y): Satellite(x, y) {} // used in test cases
 	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
 	Hubble(const Position &pos, const Velocity &velocity): Satellite(pos, 10, velocity) {} // radius = 10px
-	virtual ~Hubble() {};
+	virtual ~Hubble();
 	
 	virtual void move(double time)
 	{
@@ -54,7 +54,7 @@ public:
 	
 	virtual void destroy()
 	{
-		
+		kill();
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

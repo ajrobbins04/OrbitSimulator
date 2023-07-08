@@ -88,7 +88,7 @@ public:
 			setRadius(6378000);
 	}
 	
-	virtual ~SpaceObject() {};
+	virtual ~SpaceObject();
 
 	
 	void setRadius(double radius)         { this->radius = radius; }

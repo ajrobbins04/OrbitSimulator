@@ -30,7 +30,7 @@ public:
 	
 	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
 	
-	virtual ~Ship() {};
+	virtual ~Ship();
 	
 	void setThrust(bool thrust)     { this->thrust = thrust;   }
 	void setPrevDir(double radians) { this->prevDir = radians; }

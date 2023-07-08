@@ -25,7 +25,7 @@ public:
 	Projectile(const Position &pos, double radius, const Velocity &velocity, const Direction &dir):
 	Satellite(pos, radius, velocity, dir) {}
 	
-	virtual ~Projectile() {};
+	virtual ~Projectile();
  
 	void fire();
 	void updateProjectilePath();
@@ -47,7 +47,7 @@ public:
 	
 	virtual void destroy()
 	{
-		
+		kill();
 	}
 	virtual void draw(double rotation, ogstream & gout)
 	{
