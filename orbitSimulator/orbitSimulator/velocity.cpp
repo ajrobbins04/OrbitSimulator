@@ -28,8 +28,8 @@ Direction Velocity::getDirection() const
  *********************************************/
 void Velocity::setSpeedDirection(double speed, const Direction &dir)
 {
-	dx = speed * dir.getDx();
-	dy = speed * dir.getDy();
+	dx = speed * dir.getDx(); // speed * sin(angle)
+	dy = speed * dir.getDy(); // speed * cos(angle)
 }
 
 /*********************************************

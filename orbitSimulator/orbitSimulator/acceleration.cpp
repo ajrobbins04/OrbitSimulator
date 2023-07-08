@@ -5,12 +5,12 @@
  * Sets acceleration based on its two components: its
  * magnitude and its direction 
  *  *********************************************/
-void Acceleration::setAcc(double aGravity, const Direction &direction)
+void Acceleration::setAccelerationDirection(double acc, const Direction &dir)
 {
 	// ddx = acc * sin(angle)
-	setDDx(aGravity * direction.getDx());
+	setDDx(acc * dir.getDx());
 	
 	// ddy = acc * cos(angle)
-	setDDy(aGravity * direction.getDy());
+	setDDy(acc * dir.getDy());
 }
 

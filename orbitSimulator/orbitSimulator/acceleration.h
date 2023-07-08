@@ -24,12 +24,12 @@ public:
 	
 	Acceleration(): ddx(0.0), ddy(0.0) {}
 	Acceleration(double ddx, double ddy): ddx(ddx), ddy(ddy) {}
-	Acceleration(double aGravity, const Direction &direction): ddx(0.0), ddy(0.0)
+	Acceleration(double acc, const Direction &dir): ddx(0.0), ddy(0.0)
 	{
-		setAcc(aGravity, direction);
+		setAccelerationDirection(acc, dir);
 	}
 	
-	void setAcc(double aGravity, const Direction &direction);
+	void setAccelerationDirection(double acc, const Direction &dir);
 	void setDDx(double ddx) { this->ddx = ddx; }
 	void setDDy(double ddy) { this->ddy = ddy; }
 	
