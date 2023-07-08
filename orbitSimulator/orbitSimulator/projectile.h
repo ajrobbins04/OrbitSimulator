@@ -55,11 +55,8 @@ public:
 				gout.drawProjectile(Position(projectilePath[i].getMetersX(), projectilePath[i].getMetersY()));
 		}
 	}
-	
-	
+		
 private:
-	// inherits pos, radius, velocity, direction, alive,
-	// angularVelocity and age
 	Position projectilePath[8]; // path of the projectile
 
 };

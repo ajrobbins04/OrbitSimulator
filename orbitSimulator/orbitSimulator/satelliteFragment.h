@@ -50,8 +50,6 @@ public:
 		gout.drawFragment(getPos(), rotation);
 	}
 	
-private:
-	
 };
   
 #endif /* satelliteFragment_h */

@@ -11,24 +11,14 @@ double Velocity::getSpeed() const
 
 /*********************************************
  * GET DIRECTION
- * Computes the direction based on the current
- * velocity.
+ * Computes the direction of travel based on
+ * the current velocity.
  *********************************************/
 Direction Velocity::getDirection() const
 {
 	Direction dir;
 	dir.setDxDy(dx, dy);
 	return dir;
-}
-
-/*********************************************
- * APPLY ACCELERATION
- * Applies acceleration to the current velocity
- *********************************************/
-void Velocity::applyAcceleration(const Acceleration &acc)
-{
-	dx += acc.getDDx();
-	dy += acc.getDDy();
 }
 
 /*********************************************
@@ -40,6 +30,29 @@ void Velocity::setSpeedDirection(double speed, const Direction &dir)
 {
 	dx = speed * dir.getDx();
 	dy = speed * dir.getDy();
+}
+
+/*********************************************
+ * SET SPEED DIRECTION
+ * Sets the speed and the direction (in degrees)
+ * of an object's velocity.
+ *********************************************/
+void Velocity::setSpeedDirection(double speed, double degrees)
+{
+	Direction dir(degrees);
+	
+	dx = speed * dir.getDx();
+	dy = speed * dir.getDy();
+}
+
+/*********************************************
+ * APPLY ACCELERATION
+ * Applies acceleration to the current velocity
+ *********************************************/
+void Velocity::applyAcceleration(const Acceleration &acc)
+{
+	dx += acc.getDDx();
+	dy += acc.getDDy();
 }
 
 /*********************************************

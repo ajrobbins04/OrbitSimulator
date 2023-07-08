@@ -47,6 +47,7 @@ public:
 	
 	Direction getDirection() const;
 	void setSpeedDirection(double speed, const Direction &dir);
+	void setSpeedDirection(double speed, double degrees);
 	
 	// getters
 	double getDx() const    { return dx; }

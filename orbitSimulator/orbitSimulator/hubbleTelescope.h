@@ -1,19 +1,16 @@
-
-
-#ifndef gpsLeft_h
-#define gpsLeft_h
-
+#ifndef hubbleTelescope_h
+#define hubbleTelescope_h
 
 #include "satellitePiece.h"
 
-class GPSLeft : public SatellitePiece
+class HubbleTelescope : public SatellitePiece
 {
 public:
 	 
-	GPSLeft() : SatellitePiece() {}
-	GPSLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) {} // radius = 8 px.
+	HubbleTelescope() : SatellitePiece() {}
+	HubbleTelescope(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 10.0) {} // radius = 10 px.
 	
-	virtual ~GPSLeft() {}
+	virtual ~HubbleTelescope() {}
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }
@@ -35,8 +32,8 @@ public:
 	
 	virtual void draw(double rotation, ogstream & gout)
 	{
-		gout.drawGPSLeft(getPos(), rotation);
+		gout.drawHubbleTelescope(getPos(), rotation);
 	}
 };
 
-#endif /* gpsLeft_h */
+#endif /* hubbleTelescope_h */

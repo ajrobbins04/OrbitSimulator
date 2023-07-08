@@ -86,6 +86,10 @@
 		02DEF06C2A4404E300999231 /* testDirection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testDirection.cpp; sourceTree = "<group>"; };
 		02DEF06E2A44CA6100999231 /* testVelocity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testVelocity.h; sourceTree = "<group>"; };
 		02DEF06F2A44CA7200999231 /* testVelocity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = testVelocity.cpp; sourceTree = "<group>"; };
+		02E0874B2A59DE6B00E72118 /* hubbleTelescope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleTelescope.h; sourceTree = "<group>"; };
+		02E0874C2A59DE7D00E72118 /* hubbleComputer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleComputer.h; sourceTree = "<group>"; };
+		02E0874D2A59DE9100E72118 /* hubbleLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleLeft.h; sourceTree = "<group>"; };
+		02E0874E2A59DE9F00E72118 /* hubbleRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleRight.h; sourceTree = "<group>"; };
 		02E65B0F2A4BB8F000ED0814 /* earth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = earth.cpp; sourceTree = "<group>"; };
 		02E65B112A4BBF1A00ED0814 /* hubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubble.h; sourceTree = "<group>"; };
 		02E65B142A4BC51700ED0814 /* simulator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simulator.cpp; sourceTree = "<group>"; };
@@ -152,10 +156,14 @@
 				02E65B192A4D266300ED0814 /* gps.h */,
 				02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */,
 				02F3A3A22A59CF9700B4769C /* gpsCenter.h */,
-				027656062A58E51B0039DE8E /* gpsRight.h */,
 				027656052A58E50A0039DE8E /* gpsLeft.h */,
+				027656062A58E51B0039DE8E /* gpsRight.h */,
 				02E65B162A4D257200ED0814 /* sputnik.h */,
 				02E65B112A4BBF1A00ED0814 /* hubble.h */,
+				02E0874B2A59DE6B00E72118 /* hubbleTelescope.h */,
+				02E0874C2A59DE7D00E72118 /* hubbleComputer.h */,
+				02E0874D2A59DE9100E72118 /* hubbleLeft.h */,
+				02E0874E2A59DE9F00E72118 /* hubbleRight.h */,
 				02E65B1C2A4D26F900ED0814 /* dragon.h */,
 				02E65B212A4D288500ED0814 /* starlink.h */,
 				02DEF05F2A3E2FDC00999231 /* ship.h */,

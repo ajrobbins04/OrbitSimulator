@@ -43,7 +43,9 @@ public:
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{
-		GPSCenter *gpsCenter = new GPSCenter(*this, 90);
+		Velocity v1(getVelocity());
+		v1.setSpeedDirection(random(5000, 9000), 90);
+		GPSCenter *gpsCenter = new GPSCenter(*this, 90, v1);
 		satellites.push_back(gpsCenter);
 		
 		GPSLeft *gpsLeft = new GPSLeft(*this, 0);
@@ -57,6 +59,8 @@ public:
 		
 		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 250);
 		satellites.push_back(sFragment2);
+		
+		kill();
 	
 	}
 	

@@ -11,6 +11,10 @@
 #define hubble_h
 
 #include "satellite.h"
+#include "hubbleTelescope.h"
+#include "hubbleComputer.h"
+#include "hubbleLeft.h"
+#include "hubbleRight.h"
 
 class TestHubble;
 

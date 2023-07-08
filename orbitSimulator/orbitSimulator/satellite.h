@@ -41,11 +41,11 @@ public:
 	Satellite(double x, double y, double radius): SpaceObject(Position(x, y), radius), velocity(0.0, 0.0),
 	age(0.0), angularVelocity(0.0) {}
 	
-	Satellite(const Position &pos, float radius, const Velocity &velocity) :
-	SpaceObject(pos, radius), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
+	Satellite(const Position &pos, double radius, const Velocity &velocity) :
+	SpaceObject(pos, radius), velocity(velocity), age(0.0), angularVelocity(0.0) {}
 	
-	Satellite(const Position &pos, float radius, const Velocity &velocity, const Direction &dir) :
-	SpaceObject(pos, radius, dir), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
+	Satellite(const Position &pos, double radius, const Velocity &velocity, const Direction &dir) :
+	SpaceObject(pos, radius, dir), velocity(velocity), age(0.0), angularVelocity(0.0) {}
 	
 	virtual ~Satellite() {}
 	
@@ -77,8 +77,8 @@ public:
 	
 protected: // inherits pos, direction, radius, and alive
 	Velocity velocity;
-	double angularVelocity;
 	double age;
+	double angularVelocity;
    
 };
 

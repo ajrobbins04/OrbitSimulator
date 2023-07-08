@@ -129,8 +129,8 @@ void Orbit::collisionDetection()
 			{
 				if (collisionRange < satelliteRadius1 + satelliteRadius2)
 				{
-					(*iter1)->kill();
-					(*iter2)->kill();
+					(*iter1)->destroy(satellites);
+					(*iter2)->destroy(satellites);
 				}
 			}
 		}
@@ -142,7 +142,7 @@ void Orbit::collisionDetection()
 	
 		if (height <= 0)
 		{
-			(*iter1)->kill();
+			(*iter1)->kill(); // gets reabsorbed in earth's atmosphere
 		}
 	}
 }

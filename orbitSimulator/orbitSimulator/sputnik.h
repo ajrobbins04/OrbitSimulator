@@ -39,8 +39,6 @@ public:
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{
-		kill();
-		
 		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 330);
 		satellites.push_back(sFragment1);
 		
@@ -52,6 +50,8 @@ public:
 		
 		SatelliteFragment *sFragment4 = new SatelliteFragment(*this, 90);
 		satellites.push_back(sFragment4);
+		
+		kill();
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)
