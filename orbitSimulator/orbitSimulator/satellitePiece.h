@@ -18,9 +18,9 @@ class SatellitePiece : public Satellite
 public:
  
 	SatellitePiece() : Satellite() {}
-	
-	SatellitePiece(const Satellite &s, double degrees) : Satellite(Position(s.getPosX(), s.getPosY()), 0,
-																Velocity(s.getVelocity()), Direction(degrees)) {}
+	SatellitePiece(const Satellite &rhs) : Satellite(rhs) {}
+	SatellitePiece(const Satellite &rhs, double degrees, double radius) : Satellite(Position(rhs.getPos()), radius,
+																Velocity(rhs.getVelocity()), Direction(degrees)) {}
 	
 	virtual ~SatellitePiece() {}
 
@@ -29,7 +29,8 @@ public:
 	virtual bool isShip() const = 0;
 	virtual bool isProjectile() const = 0;
 	virtual void move(double time) = 0;
-	virtual double getRadius() const = 0;
+	/*virtual double getRadius() const = 0;*/
+	virtual void destroy(vector<Satellite*> satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
 	
 private:
@@ -38,4 +39,4 @@ private:
 };
 
 
-#endif /* satellitePiece_h */
+#endif

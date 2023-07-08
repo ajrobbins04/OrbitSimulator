@@ -24,7 +24,7 @@ public:
 	void setRotationSpeed(double amount) { this->rotationSpeed = amount; }
 	
 	double  getRotationSpeed() const { return rotationSpeed; }
-	virtual double getRadius() const { return radius;        }
+	/*virtual double getRadius() const { return radius;        }*/
 	
 	virtual void draw(double rotation, ogstream & gout)
 	{

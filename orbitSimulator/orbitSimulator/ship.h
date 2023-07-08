@@ -57,7 +57,12 @@ public:
 	
 	virtual bool isShip()       const { return true;   }
 	virtual bool isProjectile() const { return false;  }
-	virtual double getRadius()  const { return radius; }
+	/*virtual double getRadius()  const { return radius; }*/
+	
+	virtual void destroy(vector<Satellite*> satellites)
+	{
+		kill();
+	}
 	
 	virtual void draw(double rotation, ogstream & gout)
 	{

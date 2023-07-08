@@ -2,6 +2,7 @@
 #ifndef gpsRight_h
 #define gpsRight_h
 
+#include "gps.h"
 #include "satellitePiece.h"
 
 class GPSRight : public SatellitePiece
@@ -9,13 +10,13 @@ class GPSRight : public SatellitePiece
 public:
  
 	GPSRight() : SatellitePiece() {}
-	GPSRight(const Satellite &s, double degrees) : SatellitePiece(s, degrees) {}
+	GPSRight(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) {} // radius = 8 px.
 	
 	virtual ~GPSRight() {};
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }
-	virtual double getRadius()  const { return radius; }
+	/*virtual double getRadius()  const { return radius; }*/
 	
 	virtual void move(double time)
 	{
@@ -25,6 +26,11 @@ public:
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
 		updateDirection(posPrev, time);
+	}
+	
+	virtual void destroy(vector<Satellite*> satellites)
+	{
+		
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

@@ -18,7 +18,7 @@ class Projectile : public Satellite
 public:
 	
 	Projectile(): Satellite() {}
-	Projectile(const Satellite &s): Satellite(s) {
+	Projectile(const Projectile &rhs) : Satellite(rhs) {
 		setRadius(0.5);
 	}
 	
@@ -43,8 +43,12 @@ public:
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return true;   }
-	virtual double getRadius()  const { return radius; }
+	/*virtual double getRadius()  const { return radius; }*/
 	
+	virtual void destroy()
+	{
+		
+	}
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		{

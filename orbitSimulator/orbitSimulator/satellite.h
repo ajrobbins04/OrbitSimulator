@@ -29,6 +29,9 @@ public:
 	
 	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), age(0.0), angularVelocity(0.0) {}
 	
+	Satellite(const Satellite &rhs) : SpaceObject(rhs), velocity(rhs.getVelocity()),
+	angularVelocity(rhs.getAngularVelocity()), age(rhs.getAge()) {}
+	
 	Satellite(const Satellite &s, const Direction &dir) : SpaceObject(s.pos.getMetersX(), s.pos.getMetersY(), 0.0, Direction(dir.getRadians())),
 	velocity(s.velocity.getDx(), s.velocity.getDy()), age(0.0), angularVelocity(0.0) {}
 	
@@ -61,13 +64,14 @@ public:
 	void updateDirection(const Position &posPrev, double time);
 	void updatePosition(const Acceleration &acGravity, double time);
 	
-	void increaseAge() { age += 1;   }
-	double getAge()    { return age; }
+	void increaseAge()     { age += 1;   }
+	double getAge() const  { return age; }
 	
 	virtual bool isShip() const = 0;
 	virtual bool isProjectile() const = 0;
 	virtual void move(double time) = 0;
-	virtual double getRadius() const = 0;
+	/*virtual double getRadius() const = 0;*/
+	virtual void destroy(vector<Satellite*> satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
  
  

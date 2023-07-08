@@ -11,6 +11,7 @@
 		022C91CC2A58E72100D7D367 /* gpsCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022C91CB2A58E72100D7D367 /* gpsCenter.cpp */; };
 		022C91CE2A58E74B00D7D367 /* gpsLeft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022C91CD2A58E74B00D7D367 /* gpsLeft.cpp */; };
 		022C91D02A58E77600D7D367 /* gpsRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 022C91CF2A58E77600D7D367 /* gpsRight.cpp */; };
+		0230660F2A58F02C004FA15D /* satelliteFragment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0230660E2A58F02C004FA15D /* satelliteFragment.cpp */; };
 		024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 024223C02A4F5CFF00BBB7EF /* star.cpp */; };
 		02A2CD7C2A4E64A200D9ABD6 /* gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02A2CD7B2A4E64A200D9ABD6 /* gps.cpp */; };
 		02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0392A3D2C6100999231 /* acceleration.cpp */; };
@@ -53,6 +54,7 @@
 		022C91CB2A58E72100D7D367 /* gpsCenter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gpsCenter.cpp; sourceTree = "<group>"; };
 		022C91CD2A58E74B00D7D367 /* gpsLeft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gpsLeft.cpp; sourceTree = "<group>"; };
 		022C91CF2A58E77600D7D367 /* gpsRight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gpsRight.cpp; sourceTree = "<group>"; };
+		0230660E2A58F02C004FA15D /* satelliteFragment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = satelliteFragment.cpp; sourceTree = "<group>"; };
 		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
 		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		027656042A58E4FB0039DE8E /* gpsCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsCenter.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				022C91CB2A58E72100D7D367 /* gpsCenter.cpp */,
 				022C91CD2A58E74B00D7D367 /* gpsLeft.cpp */,
 				022C91CF2A58E77600D7D367 /* gpsRight.cpp */,
+				0230660E2A58F02C004FA15D /* satelliteFragment.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */,
 				022C91CC2A58E72100D7D367 /* gpsCenter.cpp in Sources */,
 				02E65B152A4BC51700ED0814 /* simulator.cpp in Sources */,
+				0230660F2A58F02C004FA15D /* satelliteFragment.cpp in Sources */,
 				02DEF05E2A3D456500999231 /* testHubble.cpp in Sources */,
 				02DEF0402A3D2CAC00999231 /* position.cpp in Sources */,
 				022C91CE2A58E74B00D7D367 /* gpsLeft.cpp in Sources */,

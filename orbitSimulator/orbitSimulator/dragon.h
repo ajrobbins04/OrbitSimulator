@@ -17,7 +17,7 @@ class Dragon : public Satellite
 public:
 	
 	Dragon(): Satellite() {}
-	Dragon(const Satellite &s): Satellite(s) {}
+	Dragon(const Dragon &rhs) : Satellite(rhs) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
 	Dragon(const Position &pos, const Velocity &velocity): Satellite(pos, radius, velocity) {} // radius = 7px
 	virtual ~Dragon() {};
@@ -35,13 +35,18 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual double getRadius() const
+	/*virtual double getRadius() const
 	{
 		// left & right solar array pieces each
 		// have 6 px. radius
 		double solarPiece = pos.convertToMeters(6);
 		
 		return radius + (solarPiece * 2);
+	}*/
+	
+	virtual void destroy(vector<Satellite*> satellites)
+	{
+		
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

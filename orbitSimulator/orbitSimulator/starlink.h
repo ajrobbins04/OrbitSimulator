@@ -17,7 +17,7 @@ class Starlink : public Satellite
 public:
 	
 	Starlink(): Satellite() {}
-	Starlink(const Satellite &s): Satellite(s) {}
+	Starlink(const Starlink &rhs) : Satellite(rhs) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, const Velocity &velocity): Satellite(pos, 6, velocity) {} // radius = 6px
 	virtual ~Starlink() {};
@@ -35,10 +35,15 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual double getRadius() const
+	/*virtual double getRadius() const
 	{
 		double rightSolarPiece = pos.convertToMeters(4);
 		return radius + rightSolarPiece;
+	}*/
+	
+	virtual void destroy(vector<Satellite*> satellites)
+	{
+		
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

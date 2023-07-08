@@ -2,6 +2,7 @@
 #ifndef gpsCenter_h
 #define gpsCenter_h
 
+#include "gps.h"
 #include "satellitePiece.h"
 
 class GPSCenter : public SatellitePiece
@@ -9,13 +10,13 @@ class GPSCenter : public SatellitePiece
 public:
 	
 	GPSCenter() : SatellitePiece() {}
-	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees) {}
-	
+	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) {} // radius = 7px
+
 	virtual ~GPSCenter() {};
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }
-	virtual double getRadius()  const { return radius; }
+	/*virtual double getRadius()  const { return radius; }*/
 	
 	virtual void move(double time)
 	{
@@ -26,13 +27,15 @@ public:
 		updatePosition(aGravity, time);
 		updateDirection(posPrev, time);
 	}
-	
+	virtual void destroy(vector<Satellite*> satellites)
+	{
+		
+	}
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawGPSCenter(getPos(), rotation);
 	}
 
-	
 };
 
 #endif /* gpsCenter_h */

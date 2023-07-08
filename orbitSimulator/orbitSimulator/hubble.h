@@ -20,7 +20,8 @@ public:
 	friend TestHubble;
 	
 	Hubble(): Satellite() {}
-	Hubble(const Satellite &s, const Direction &d): Satellite(s, d) {}
+	Hubble(const Hubble &rhs) : Satellite(rhs) {}
+	Hubble(const Hubble &rhs, const Direction &d): Satellite(rhs, d) {}
 	Hubble(double x, double y): Satellite(x, y) {} // used in test cases
 	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
 	Hubble(const Position &pos, const Velocity &velocity): Satellite(pos, 10, velocity) {} // radius = 10px
@@ -39,7 +40,7 @@ public:
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
 	
-	virtual double getRadius() const
+	/*virtual double getRadius() const
 	{
 		// left & right solar array pieces each
 		// have 8 px. radius
@@ -49,6 +50,11 @@ public:
 		double computerPiece = pos.convertToMeters(7);
 		
 		return radius + (solarPiece * 2) + telescopePiece + computerPiece;
+	}*/
+	
+	virtual void destroy()
+	{
+		
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

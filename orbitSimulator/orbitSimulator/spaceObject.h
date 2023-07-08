@@ -23,6 +23,9 @@ class SpaceObject
 public:
 	SpaceObject(): pos(0.0, 0.0), radius(0.0), direction(0.0), alive(true){}
 	
+	SpaceObject(const SpaceObject &rhs) : pos(rhs.getPos()), direction(rhs.getDirection()),
+	radius(rhs.getRadius()), alive(true) {}
+	
 	SpaceObject(const Position &pos, double radius):
 	pos(pos), radius(0.0), direction(0.0), alive(true)
 	{
@@ -99,7 +102,7 @@ public:
 	void kill()                 { this->alive = false;            }
 	void rotate(double amount)  { this->direction.rotate(amount); }
 
-	void destroy();
+	double getRadius()         const { return radius;           }
 	Position getPos()          const { return pos;              }
 	double getPosX()           const { return pos.getMetersX(); }
 	double getPosY()           const { return pos.getMetersY(); }
@@ -107,7 +110,7 @@ public:
 	double getDirectionAngle() const { return direction.getRadians(); }
 	bool isAlive()             const { return alive;                  }
 	
-	virtual double getRadius() const = 0;
+	/*virtual double getRadius() const = 0;*/
 	virtual void draw(double rotation, ogstream & gout) = 0;
 //	virtual void move(int time);
 	
