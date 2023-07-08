@@ -47,7 +47,7 @@ bool TestHubble::closeEnough(double actual, double expected, double tolerance)
 *********************************************/
 void TestHubble::test_constructor_stationaryNorth()
 {
-	Hubble sParent(512000000, 640000000);
+	Hubble sParent(Position(512000000, 640000000));
 	sParent.setVelocity(0.0, 0.0);
 	
 	Direction d;
@@ -71,7 +71,7 @@ void TestHubble::test_constructor_stationaryNorth()
 *********************************************/
 void TestHubble::test_getAltitude_surface()
 {
-	Hubble s(6378000, 0);
+	Hubble s(Position(6378000, 0));
 	
 	double alt = s.getAltitude();
 	
@@ -84,7 +84,7 @@ void TestHubble::test_getAltitude_surface()
 *********************************************/
 void TestHubble::test_getAltitude_xAxis()
 {
-	Hubble s(6379000, 0);
+	Hubble s(Position(6379000, 0));
 	
 	double alt = s.getAltitude();
 	
@@ -96,7 +96,7 @@ void TestHubble::test_getAltitude_xAxis()
 *********************************************/
 void TestHubble::test_getAltitude_yAxis()
 {
-	Hubble s(0, 6379000);
+	Hubble s(Position(0, 6379000));
 	
 	double alt = s.getAltitude();
 	
@@ -108,7 +108,7 @@ void TestHubble::test_getAltitude_yAxis()
 *********************************************/
 void TestHubble::test_getGravity_surface()
 {
-	Hubble s(6378000, 0);
+	Hubble s(Position(6378000, 0));
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -122,7 +122,7 @@ void TestHubble::test_getGravity_surface()
 *********************************************/
 void TestHubble::test_getGravity_500k()
 {
-	Hubble s(6378000 + 500000, 0);
+	Hubble s(Position(6378000 + 500000, 0));
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -137,7 +137,7 @@ void TestHubble::test_getGravity_500k()
 *********************************************/
 void TestHubble::test_getGravity_2000k()
 {
-	Hubble s(6378000 + 2000000, 0);
+	Hubble s(Position(6378000 + 2000000, 0));
 	Acceleration aGravity(0.0, 0.0);
 	
 	aGravity = s.getGravity();
@@ -208,7 +208,7 @@ void TestHubble::test_updateVelocity_complex()
 
 void TestHubble::test_updatePosition_stationary()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	Velocity velocity(0.0, 0.0);
 	Acceleration acc;
 	double time = 0;
@@ -222,7 +222,7 @@ void TestHubble::test_updatePosition_stationary()
 
 void TestHubble::test_updatePosition_moving()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	s.setVelocity(0.5, 0.4);
 	Acceleration acc(0.0, 0.0);
 	double time = 1;
@@ -236,7 +236,7 @@ void TestHubble::test_updatePosition_moving()
 
 void TestHubble::test_updatePosition_movingLonger()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	s.setVelocity(0.5, 0.4);
 	Acceleration acc;
 	double time = 2;
@@ -250,7 +250,7 @@ void TestHubble::test_updatePosition_movingLonger()
 
 void TestHubble::test_updatePosition_fromStop()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	s.setVelocity(0.0, 0.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 1;
@@ -264,7 +264,7 @@ void TestHubble::test_updatePosition_fromStop()
 
 void TestHubble::test_updatePosition_fromStop_longer()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	s.setVelocity(0.0, 0.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 2;
@@ -278,12 +278,12 @@ void TestHubble::test_updatePosition_fromStop_longer()
 
 void TestHubble::test_updatePosition_complex()
 {
-	Hubble s(11.1, 22.2);
+	Hubble s(Position(11.1, 22.2));
 	s.setVelocity(1.0, 2.0);
 	Acceleration acc(0.2, 0.3);
 	double time = 2;
 	
-	Hubble s2(11.1, 22.2);
+	Hubble s2(Position(11.1, 22.2));
 	s2.velocity.updateVelocity(acc, time);
 	
 	s.updatePosition(acc, time);

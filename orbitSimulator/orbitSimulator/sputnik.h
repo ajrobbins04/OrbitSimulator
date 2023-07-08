@@ -20,7 +20,11 @@ public:
 	Sputnik(const Sputnik &rhs) : Satellite(rhs) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}
 	Sputnik(const Position &pos, const Velocity &velocity): Satellite(pos, 4, velocity) {} // radius = 4px
-	virtual ~Sputnik();
+	
+	virtual ~Sputnik() {}
+	
+	virtual bool isShip()       const { return false;  }
+	virtual bool isProjectile() const { return false;  }
 	
 	virtual void move(double time)
 	{
@@ -31,10 +35,6 @@ public:
 		updatePosition(aGravity, time);
 		updateDirection(posPrev, time);
 	}
-	
-	virtual bool isShip()       const { return false;  }
-	virtual bool isProjectile() const { return false;  }
-	/*virtual double getRadius()  const { return radius; }*/
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{

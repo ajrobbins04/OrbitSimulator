@@ -26,7 +26,8 @@ public:
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px
-	virtual ~GPS();
+	
+	virtual ~GPS() {}
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
@@ -40,15 +41,6 @@ public:
 		updatePosition(aGravity, time);
 		updateDirection(posPrev, time);
 	}
-	
-	/*virtual double getRadius() const
-	{
-		// left & right solar array pieces each
-		// have 8 px. radius
-		double pieceRadius = pos.convertToMeters(8);
-		
-		return radius + pieceRadius * 2;
-	}*/
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{

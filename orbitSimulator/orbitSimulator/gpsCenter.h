@@ -11,7 +11,7 @@ public:
 	GPSCenter() : SatellitePiece() {}
 	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) {} // radius = 7 px.
 	
-	virtual ~GPSCenter();
+	virtual ~GPSCenter() {}
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }

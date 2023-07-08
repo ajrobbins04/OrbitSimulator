@@ -11,7 +11,7 @@ public:
 	GPSRight() : SatellitePiece() {}
 	GPSRight(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) {} // radius = 8 px.
 	
-	virtual ~GPSRight();
+	virtual ~GPSRight() {}
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }

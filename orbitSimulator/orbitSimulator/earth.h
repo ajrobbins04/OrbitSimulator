@@ -19,13 +19,12 @@ public:
 	
 	Earth() : SpaceObject(0.0, 0.0, 6378000.0) {}
 	Earth(double x, double y, double radius) : SpaceObject(x, y, radius) {}
-	virtual ~Earth();
+	
+	virtual ~Earth() {}
 
 	void setRotationSpeed(double amount) { this->rotationSpeed = amount; }
-	
 	double  getRotationSpeed() const { return rotationSpeed; }
-	/*virtual double getRadius() const { return radius;        }*/
-	
+
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawEarth(getPos(), rotation);

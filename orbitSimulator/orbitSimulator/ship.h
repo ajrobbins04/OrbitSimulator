@@ -30,7 +30,7 @@ public:
 	
 	Ship(double x, double y): Satellite(Position(x, y), 0.0, Velocity(0.0, 0.0)), thrust(false) {}
 	
-	virtual ~Ship();
+	virtual ~Ship() {}
 	
 	void setThrust(bool thrust)     { this->thrust = thrust;   }
 	void setPrevDir(double radians) { this->prevDir = radians; }
@@ -47,6 +47,9 @@ public:
 	void updateShipFrontPos(const Acceleration &aGravity, double time);
 	void launchProjectile(vector<Satellite*> &satellites, double time);
 
+	virtual bool isShip()       const { return true;   }
+	virtual bool isProjectile() const { return false;  }
+	
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
@@ -54,10 +57,6 @@ public:
 		updatePosition(aGravity, time);
 		updateShipFrontPos(aGravity, time);
 	}
-	
-	virtual bool isShip()       const { return true;   }
-	virtual bool isProjectile() const { return false;  }
-	/*virtual double getRadius()  const { return radius; }*/
 	
 	virtual void destroy(vector<Satellite*> satellites)
 	{

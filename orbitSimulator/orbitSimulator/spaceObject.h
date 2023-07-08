@@ -88,7 +88,7 @@ public:
 			setRadius(6378000);
 	}
 	
-	virtual ~SpaceObject();
+	virtual ~SpaceObject() {}
 
 	
 	void setRadius(double radius)         { this->radius = radius; }
@@ -110,9 +110,7 @@ public:
 	double getDirectionAngle() const { return direction.getRadians(); }
 	bool isAlive()             const { return alive;                  }
 	
-	/*virtual double getRadius() const = 0;*/
 	virtual void draw(double rotation, ogstream & gout) = 0;
-//	virtual void move(int time);
 	
 protected:
 	Position pos;

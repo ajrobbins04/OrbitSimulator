@@ -22,10 +22,13 @@ public:
 	Hubble(): Satellite() {}
 	Hubble(const Hubble &rhs) : Satellite(rhs) {}
 	Hubble(const Hubble &rhs, const Direction &d): Satellite(rhs, d) {}
-	Hubble(double x, double y): Satellite(x, y) {} // used in test cases
-	Hubble(double x, double y, double radius): Satellite(x, y, radius) {}
-	Hubble(const Position &pos, const Velocity &velocity): Satellite(pos, 10, velocity) {} // radius = 10px
-	virtual ~Hubble();
+	Hubble(const Position &pos): Satellite(Position(pos), 10, Velocity(0, 0)) {}  // used in test cases
+	Hubble(const Position &pos, const Velocity &velocity): Satellite(pos, 10, velocity) {}      // radius = 10px
+	
+	virtual ~Hubble() {}
+	
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return false; }
 	
 	virtual void move(double time)
 	{
@@ -37,22 +40,7 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual bool isShip()       const { return false; }
-	virtual bool isProjectile() const { return false; }
-	
-	/*virtual double getRadius() const
-	{
-		// left & right solar array pieces each
-		// have 8 px. radius
-		double solarPiece = pos.convertToMeters(8);
-		
-		double telescopePiece = pos.convertToMeters(10);
-		double computerPiece = pos.convertToMeters(7);
-		
-		return radius + (solarPiece * 2) + telescopePiece + computerPiece;
-	}*/
-	
-	virtual void destroy()
+	virtual void destroy(vector<Satellite*> satellites)
 	{
 		kill();
 	}

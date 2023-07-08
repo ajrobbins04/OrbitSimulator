@@ -25,10 +25,13 @@ public:
 	Projectile(const Position &pos, double radius, const Velocity &velocity, const Direction &dir):
 	Satellite(pos, radius, velocity, dir) {}
 	
-	virtual ~Projectile();
+	virtual ~Projectile() {}
  
 	void fire();
 	void updateProjectilePath();
+	
+	virtual bool isShip()       const { return false;  }
+	virtual bool isProjectile() const { return true;   }
 	
 	virtual void move(double time)
 	{
@@ -41,11 +44,7 @@ public:
 		increaseAge();
 	}
 	
-	virtual bool isShip()       const { return false;  }
-	virtual bool isProjectile() const { return true;   }
-	/*virtual double getRadius()  const { return radius; }*/
-	
-	virtual void destroy()
+	virtual void destroy(vector<Satellite*> satellites)
 	{
 		kill();
 	}

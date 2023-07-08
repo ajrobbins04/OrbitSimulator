@@ -47,7 +47,7 @@ public:
 	Satellite(const Position &pos, float radius, const Velocity &velocity, const Direction &dir) :
 	SpaceObject(pos, radius, dir), velocity(velocity), age(0.0), angularVelocity(0.0)  {}
 	
-	virtual ~Satellite();
+	virtual ~Satellite() {}
 	
 	void setVelocity(double dx, double dy)
 	{
@@ -70,7 +70,6 @@ public:
 	virtual bool isShip() const = 0;
 	virtual bool isProjectile() const = 0;
 	virtual void move(double time) = 0;
-	/*virtual double getRadius() const = 0;*/
 	virtual void destroy(vector<Satellite*> satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;
  
