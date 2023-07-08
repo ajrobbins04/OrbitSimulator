@@ -66,6 +66,7 @@ public:
 	
 	double getDx() const { return sin(radians); }
 	double getDy() const { return cos(radians); }
+
 	double getRadians() const { return radians; }
 	double getDegrees() const { return convertToDegrees(radians); }
 	

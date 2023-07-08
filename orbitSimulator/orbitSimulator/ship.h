@@ -14,6 +14,7 @@
 #include "uiInteract.h"
 #include "satellite.h"
 #include "projectile.h"
+#include <cmath>
 
 class TestShip;
 
@@ -53,9 +54,10 @@ public:
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
+		updateShipFrontPos(aGravity, time);
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
-		updateShipFrontPos(aGravity, time);
+	
 	}
 	
 	virtual void destroy(vector<Satellite*> satellites)

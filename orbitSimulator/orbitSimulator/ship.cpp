@@ -41,22 +41,11 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
 *********************************************/
 void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 {
-	
-	double currentAngle = getDirectionAngle();
-	double formerAngle = getPrevDirAngle();
-	
-	if (currentAngle != formerAngle)
-	{
-		double angleChange = currentAngle - formerAngle;
-		double radius = 40000.0;
-		double distance = radius * angleChange;
-		
-		shipFrontPos.setMetersX(pos.getMetersX() + distance * cos(angleChange));
-		shipFrontPos.setMetersY(pos.getMetersY() + 760.0 + distance * sin(angleChange));
-	}
-	
-	shipFrontPos.setMetersX(pos.getMetersX());
-	shipFrontPos.setMetersY(pos.getMetersY() + 760.0);
+	double distance = 19.0 * 40.0;
+
+	shipFrontPos.setMetersX(pos.getMetersX() + distance * cos(direction.getDegrees()));
+	shipFrontPos.setMetersY(pos.getMetersY() + distance * sin(direction.getDegrees()));
+
 }
 
 /*********************************************
