@@ -17,7 +17,6 @@ public:
 	
 	virtual bool isShip()       const { return false;  }
 	virtual bool isProjectile() const { return false;  }
-	/*virtual double getRadius()  const { return radius; }*/
 	
 	virtual void move(double time)
 	{

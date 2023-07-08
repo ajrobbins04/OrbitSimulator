@@ -13,7 +13,6 @@
 
 #include "satellite.h"
 #include "satelliteFragment.h"
-#include "satellitePiece.h"
 #include "gpsCenter.h"
 #include "gpsLeft.h"
 #include "gpsRight.h"

@@ -11,6 +11,7 @@
 #define sputnik_h
 
 #include "satellite.h"
+#include "satelliteFragment.h"
 
 class Sputnik : public Satellite
 {
@@ -39,6 +40,18 @@ public:
 	virtual void destroy(vector<Satellite*> satellites)
 	{
 		kill();
+		
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 330);
+		satellites.push_back(sFragment1);
+		
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 250);
+		satellites.push_back(sFragment2);
+		
+		SatelliteFragment *sFragment3 = new SatelliteFragment(*this, 130);
+		satellites.push_back(sFragment3);
+		
+		SatelliteFragment *sFragment4 = new SatelliteFragment(*this, 90);
+		satellites.push_back(sFragment4);
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)
