@@ -65,8 +65,9 @@ void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 void Ship::applyThrust(double time)
 {
 	setThrust(true);
+
+	velocity.setSpeedDirection(velocity.getSpeed() + 15, getDirection());
 	Acceleration aGravity = getGravity();
-	
 	// thrust acceleration is 2.0,
 	// which lasts for 48 seconds of simulation time
 	velocity.updateVelocity(aGravity, time * 2.0);

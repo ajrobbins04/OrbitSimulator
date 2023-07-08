@@ -125,12 +125,12 @@ void Orbit::collisionDetection()
 			double satelliteRadius2 = (*iter2)->getRadius();
 			
 			// exclude bullets that originate from the ship
-			if ((*iter2)->getRadius() != 20 && !(*iter1)->isShip())
+			if (!(*iter1)->isShip() && !(*iter2)->isProjectile())
 			{
 				if (collisionRange < satelliteRadius1 + satelliteRadius2)
 				{
-					(*iter1)->destroy(satellites);
-					(*iter2)->destroy(satellites);
+					(*iter1)->kill();
+					(*iter2)->kill();
 				}
 			}
 		}
@@ -176,7 +176,8 @@ void Orbit::removeDeadSatellites()
 	{
 		if (!(*iter1)->isAlive())
 		{
-		
+			(*iter1)->destroy(satellites); // create any potential pieces/fragments
+			
 			Satellite* pSatellite = *iter1;
 			delete pSatellite;
 			pSatellite = NULL;
