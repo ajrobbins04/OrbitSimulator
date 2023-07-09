@@ -94,19 +94,21 @@ void Orbit::handleInput(const Interface *pUI)
  *********************************************/
 void Orbit::move()
 {
-	vector<Satellite*>::iterator sats_Iter;
+	vector<Satellite*>::iterator iter;
 
-	sats_Iter = satellites.begin();
-	for (; sats_Iter != satellites.end(); sats_Iter++)
+	iter = satellites.begin();
+	for (; iter != satellites.end(); iter++)
 	{
-		if ((*sats_Iter)->isProjectile())
-			cout << "projectile" << endl;
-		if ((*sats_Iter)->isAlive())
-			(*sats_Iter)->move(time);
+		if ((*iter)->isAlive())
+			(*iter)->move(time);
 	}
 	
-	if (earth->isAlive())
-		earth->rotate(earth->getRotationSpeed());
+	// always rotate earth
+	earth->rotate(earth->getRotationSpeed());
+
+	collisionDetection();
+	checkAge();
+	removeDeadSatellites();
 }
 
 /*********************************************
@@ -122,17 +124,19 @@ void Orbit::collisionDetection()
 	{
 		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
 		{
-			double collisionRange = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
-			double satelliteRadius1 = (*iter1)->getRadius();
-			double satelliteRadius2 = (*iter2)->getRadius();
-			
-			// exclude bullets that originate from the ship
-			if (!(*iter1)->isShip() && !(*iter2)->isProjectile())
+			if ((*iter1)->isShip() && (*iter2)->isProjectile())
+				return;
+			else
 			{
-				if (collisionRange < satelliteRadius1 + satelliteRadius2)
+				if ((*iter1)->isAlive() && (*iter2)->isAlive())
 				{
-					(*iter1)->kill();
-					(*iter2)->kill();
+					double distance = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
+					
+					if (distance < (*iter1)->getRadius() + (*iter2)->getRadius())
+					{
+						(*iter1)->kill();
+						(*iter2)->kill();
+					}
 				}
 			}
 		}
@@ -218,10 +222,9 @@ void Orbit::draw()
 		stars_Iter->draw(gout);
 	}
 	
-	if (earth->isAlive())
-	{
-		earth->draw(earth->getDirectionAngle(), gout);
-	}
+
+	earth->draw(earth->getDirectionAngle(), gout);
+
 }
 
 /*********************************************
