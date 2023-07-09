@@ -10,7 +10,6 @@
 #ifndef projectile_h
 #define projectile_h
 
-#include <deque>
 #include "satellite.h"
 
 class Projectile : public Satellite
@@ -38,9 +37,7 @@ public:
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
-		
-		updateProjectilePath();
-		
+
 		increaseAge();
 	}
 	
@@ -51,13 +48,12 @@ public:
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		{
-			for (int i = 0; i < 8; i++)
-				gout.drawProjectile(Position(projectilePath[i].getMetersX(), projectilePath[i].getMetersY()));
+				gout.drawProjectile(getPos());
 		}
 	}
 		
 private:
-	Position projectilePath[8]; // path of the projectile
+
 
 };
 #endif

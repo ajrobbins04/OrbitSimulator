@@ -43,8 +43,8 @@ void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
 {
 	double distance = 19.0 * 40.0;
 
-	shipFrontPos.setMetersX(pos.getMetersX() + distance * cos(direction.getDegrees()));
-	shipFrontPos.setMetersY(pos.getMetersY() + distance * sin(direction.getDegrees()));
+	shipFrontPos.setMetersX(pos.getMetersX() + distance * sin(direction.getDegrees()));
+	shipFrontPos.setMetersY(pos.getMetersY() + distance * cos(direction.getDegrees()));
 
 }
 
@@ -81,7 +81,7 @@ void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 	
 	// create projectile with ptShipFront, a 0.5 px radius,
 	// fireVelocity, and fireDirection
-	Projectile *projectile = new Projectile(shipFrontPos, 0.5, fireVelocity, fireDirection);
+	Projectile *projectile = new Projectile(pos, 0.5, fireVelocity, fireDirection);
 	
 	projectile->fire();
 	

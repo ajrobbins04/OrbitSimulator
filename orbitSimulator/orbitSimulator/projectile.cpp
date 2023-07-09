@@ -5,20 +5,8 @@
 *********************************************/
 void Projectile::fire()
 {
-	projectilePath[0].setMetersX(pos.getMetersX());
-	projectilePath[0].setMetersY(pos.getMetersY());
+	pos.addMetersX(760 * direction.getDx());
+	pos.addMetersY(760 * direction.getDy());
+
 }
 
-/*********************************************
-* UPDATE PROJECTILE PATH
-*********************************************/
-void Projectile::updateProjectilePath()
-{
-	for (int i = 7; i >= 1; --i)
-	{
-	   projectilePath[i] = projectilePath[i - 1];
-	}
-	
-	projectilePath[0].setMetersX(pos.getMetersX());
-	projectilePath[0].setMetersY(pos.getMetersY());
-}

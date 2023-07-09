@@ -99,6 +99,8 @@ void Orbit::move()
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
+		if ((*sats_Iter)->isProjectile())
+			cout << "projectile" << endl;
 		if ((*sats_Iter)->isAlive())
 			(*sats_Iter)->move(time);
 	}
