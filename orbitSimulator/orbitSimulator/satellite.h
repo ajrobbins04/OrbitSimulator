@@ -66,6 +66,7 @@ public:
 	
 	void updateDirection(const Position &posPrev, double time);
 	void updatePosition(const Acceleration &acGravity, double time);
+	void explode();
 	
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }

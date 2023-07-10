@@ -62,3 +62,17 @@ void Satellite::updatePosition(const Acceleration &aGravity, double time)
 	pos.addMetersY(velocity.getDy() * time + (0.5 * aGravity.getDDy()) * (time * time));
 }
 
+/*********************************************
+ * 	EXPLODE
+ *  Makes a Satellite object "shoot off" in a random
+ *  direction upon collosion.
+ *********************************************/
+void Satellite::explode()
+{
+	if (isYPositive())
+		pos.addPixelsY(4.0); // moves satelliteFragment 4px. from its point of creation
+	else
+		pos.addPixelsY(-4.0);
+	
+	velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
+}

@@ -145,9 +145,10 @@ void Orbit::collisionDetection()
 					{
 						if ((*iter1)->isPiece())
 							cout << "piece";
-					
-						(*iter1)->kill();
-						(*iter2)->kill();
+						else{
+							(*iter1)->kill();
+							(*iter2)->kill();
+						}
 					}
 				}
 			}

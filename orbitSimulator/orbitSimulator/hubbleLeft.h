@@ -8,7 +8,10 @@ class HubbleLeft : public SatellitePiece
 public:
 	 
 	HubbleLeft() : SatellitePiece() {}
-	HubbleLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) {} // radius = 8 px.
+	HubbleLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) // radius = 8 px.
+	{
+		explode();
+	}
 	
 	virtual ~HubbleLeft() {}
 	

@@ -11,13 +11,7 @@ public:
 	GPSCenter() : SatellitePiece() {}
 	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
 	{
-		if (isYPositive())
-			pos.addPixelsY(4.0); // moves GPSCenter 4px. from its point of creation
-		else
-			pos.addPixelsY(-4.0);
-		
-		velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
-
+		explode();
 	}
 
 	virtual ~GPSCenter() {}

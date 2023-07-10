@@ -8,7 +8,10 @@ class HubbleComputer : public SatellitePiece
 public:
 	 
 	HubbleComputer() : SatellitePiece() {}
-	HubbleComputer(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) {} // radius = 7 px.
+	HubbleComputer(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
+	{
+		explode();
+	}
 	
 	virtual ~HubbleComputer() {}
 	

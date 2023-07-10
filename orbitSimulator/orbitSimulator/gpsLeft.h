@@ -13,8 +13,7 @@ public:
 	GPSLeft() : SatellitePiece() {}
 	GPSLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0)  // radius = 8 px.
 	{
-		pos.addPixelsY(4.0); // moves GPSLeft 4px. from its point of creation
-		velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
+		explode();
 	}
 	
 	virtual ~GPSLeft() {}
