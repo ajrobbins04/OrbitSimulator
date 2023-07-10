@@ -11,16 +11,9 @@ public:
 	GPSCenter() : SatellitePiece() {}
 	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
 	{
-		//moveForward(512000); // moves GPSCenter 160 meters from its point of creation
-		//velocity.setSpeed(velocity.getSpeed() + random(5000, 9000));
-		direction.setDegrees(180);
-		pos.setPixelsX(700);
-		pos.setPixelsY(-300);
-		moveForward(512000);
-		double x = pos.getPixelsX();
-		double y = pos.getPixelsY();
-		cout << x << endl;
-		cout << y << endl;
+		pos.addPixelsY(4.0); // moves GPSCenter 4px. from its point of creation
+		velocity.setSpeed(velocity.getSpeed() + random(5000, 9000));
+
 	}
 
 	virtual ~GPSCenter() {}
