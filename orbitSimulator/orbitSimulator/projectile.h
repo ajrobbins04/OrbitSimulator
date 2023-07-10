@@ -21,8 +21,8 @@ public:
 		setRadius(0.5);
 	}
 	
-	Projectile(const Position &pos, double radius, const Velocity &velocity, const Direction &dir):
-	Satellite(pos, radius, velocity, dir) {}
+	Projectile(const Position &pos, const Velocity &velocity, const Direction &dir):
+	Satellite(pos, 0.5, velocity, dir) {} // radius = 0.5 px.
 	
 	virtual ~Projectile() {}
  
@@ -41,16 +41,9 @@ public:
 		increaseAge();
 	}
 	
-	virtual void destroy(vector<Satellite*> satellites)
-	{
-		kill();
-	}
-	virtual void draw(double rotation, ogstream & gout)
-	{
-		{
-				gout.drawProjectile(getPos());
-		}
-	}
+	virtual void destroy(vector<Satellite*> satellites) { kill(); }
+	virtual void draw(double rotation, ogstream & gout) { gout.drawProjectile(getPos()); }
+	
 		
 private:
 

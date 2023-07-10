@@ -124,11 +124,19 @@ void Orbit::collisionDetection()
 	{
 		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
 		{
+			auto end = satellites.end();
+			
 			if ((*iter1)->isShip() && (*iter2)->isProjectile())
-				return;
+			{
+				if (iter2 == end - 1)
+					return;
+				else
+					iter2++;
+			}
+	
 			else
 			{
-				if ((*iter1)->isAlive() && (*iter2)->isAlive())
+				if  ((*iter1)->isAlive() && (*iter2)->isAlive())
 				{
 					double distance = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
 					
@@ -141,14 +149,24 @@ void Orbit::collisionDetection()
 			}
 		}
 	}
+}
 
-	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+/*********************************************
+* CHECK EARTH RE-ENTRY
+* Check if a satellite has re-entered the
+* Earth's atmosphere
+*********************************************/
+void Orbit::checkEarthReEntry()
+{
+	vector<Satellite*>::iterator iter;
+	
+	for (iter = satellites.begin(); iter != satellites.end(); iter++)
 	{
-		double height = (*iter1)->getAltitude();
+		double height = (*iter)->getAltitude();
 	
 		if (height <= 0)
 		{
-			(*iter1)->kill(); // gets reabsorbed in earth's atmosphere
+			(*iter)->kill(); // gets reabsorbed in earth's atmosphere
 		}
 	}
 }

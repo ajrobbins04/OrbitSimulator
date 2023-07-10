@@ -79,11 +79,13 @@ void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 	Velocity fireVelocity;
 	fireVelocity.setSpeedDirection((velocity.getSpeed() + 9000), fireDirection);
 	
+	Position firePos(getPos());
+	firePos.addMetersX(760 * direction.getDx());
+	firePos.addMetersY(760 * direction.getDy());
+	
 	// create projectile with ptShipFront, a 0.5 px radius,
 	// fireVelocity, and fireDirection
-	Projectile *projectile = new Projectile(pos, 0.5, fireVelocity, fireDirection);
-	
-	projectile->fire();
+	Projectile *projectile = new Projectile(firePos, fireVelocity, fireDirection);
 	
 	// add to satellites vector
 	satellites.push_back(projectile);
