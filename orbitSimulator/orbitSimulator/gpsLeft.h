@@ -11,7 +11,11 @@ class GPSLeft : public SatellitePiece
 public:
 	 
 	GPSLeft() : SatellitePiece() {}
-	GPSLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0) {} // radius = 8 px.
+	GPSLeft(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0)  // radius = 8 px.
+	{
+		moveForward(160); // moves GPSLeft 160 meters from its point of creation
+		velocity.setSpeed(velocity.getSpeed() + random(5000, 9000));
+	}
 	
 	virtual ~GPSLeft() {}
 	

@@ -58,8 +58,13 @@ void Satellite::updateDirection(const Position &posPrev, double time)
  *********************************************/
 void Satellite::moveForward(double amount)
 {
-	pos.addMetersX(amount * direction.getDx());
-	pos.addMetersY(amount * direction.getDy());
+	//pos.addMetersX(amount * direction.getDx());
+	//pos.addMetersY(amount * direction.getDy());
+	//pos.addMetersX(dx);
+	//pos.addMetersY(dy);
+ 
+	pos.addMetersY(amount);
+
 }
 
 /*********************************************

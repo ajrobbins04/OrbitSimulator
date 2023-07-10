@@ -61,7 +61,7 @@ public:
 private:
 	double x;                 // horizontal position
 	double y;                 // vertical position
-	static double metersFromPixels;
+	static double metersFromPixels; // 128000
 };
 
 /*********************************************

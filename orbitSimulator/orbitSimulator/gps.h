@@ -43,11 +43,10 @@ public:
 	
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
-
 		GPSCenter *gpsCenter = new GPSCenter(*this, 90);
 		satellites.push_back(gpsCenter);
 		
-	/*	GPSLeft *gpsLeft = new GPSLeft(*this, 0);
+		GPSLeft *gpsLeft = new GPSLeft(*this, 0);
 		satellites.push_back(gpsLeft);
 		
 		GPSRight *gpsRight = new GPSRight(*this, 180);
@@ -57,7 +56,7 @@ public:
 		satellites.push_back(sFragment1);
 		
 		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 250);
-		satellites.push_back(sFragment2);*/
+		satellites.push_back(sFragment2);
 	
 	}
 	
