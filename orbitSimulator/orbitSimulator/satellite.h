@@ -69,6 +69,8 @@ public:
 	
 	virtual bool isShip() const = 0;
 	virtual bool isProjectile() const = 0;
+	virtual bool isPiece() const = 0;
+	
 	virtual void move(double time) = 0;
 	virtual void destroy(vector<Satellite*> satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout) = 0;

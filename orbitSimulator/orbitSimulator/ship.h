@@ -48,8 +48,9 @@ public:
 	void updateShipFrontPos(const Acceleration &aGravity, double time);
 	void launchProjectile(vector<Satellite*> &satellites, double time);
 
-	virtual bool isShip()       const { return true;   }
-	virtual bool isProjectile() const { return false;  }
+	virtual bool isShip()       const { return true;  }
+	virtual bool isProjectile() const { return false; }
+	virtual bool isPiece()      const { return false; }
 	
 	virtual void move(double time)
 	{

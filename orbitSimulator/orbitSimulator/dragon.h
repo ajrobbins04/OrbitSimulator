@@ -25,6 +25,7 @@ public:
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
+	virtual bool isPiece()      const { return false; }
 	
 	virtual void move(double time)
 	{

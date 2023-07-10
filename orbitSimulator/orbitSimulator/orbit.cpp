@@ -107,6 +107,7 @@ void Orbit::move()
 	earth->rotate(earth->getRotationSpeed());
 
 	collisionDetection();
+	checkEarthReEntry();
 	checkAge();
 	removeDeadSatellites();
 }

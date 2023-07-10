@@ -12,8 +12,9 @@ public:
 	
 	virtual ~HubbleComputer() {}
 	
-	virtual bool isShip()       const { return false;  }
-	virtual bool isProjectile() const { return false;  }
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return false; }
+	virtual bool isPiece()      const { return true;  }
 	
 	virtual void move(double time)
 	{
