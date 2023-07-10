@@ -29,9 +29,15 @@ public:
 		
 	}
 	
+	// breaks into 2 fragments
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
-		kill();
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 120);
+		satellites.push_back(sFragment1);
+		
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 60);
+		satellites.push_back(sFragment2);
+ 
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

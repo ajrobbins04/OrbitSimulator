@@ -12,6 +12,7 @@
 #define satellitePiece_h
 
 #include "satellite.h"
+#include "satelliteFragment.h"
 
 class SatellitePiece : public Satellite
 {
