@@ -46,6 +46,8 @@
 		0208CF002A53543C0027F794 /* satellitePiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satellitePiece.h; sourceTree = "<group>"; };
 		0208CF012A5354510027F794 /* satelliteFragment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satelliteFragment.h; sourceTree = "<group>"; };
 		02148DF22A5CB6660039ADDF /* dragonRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonRight.h; sourceTree = "<group>"; };
+		02148DF52A5CB8460039ADDF /* starlinkBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = starlinkBody.h; sourceTree = "<group>"; };
+		02148DF62A5CB8520039ADDF /* starlinkArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = starlinkArray.h; sourceTree = "<group>"; };
 		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
 		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		027656052A58E50A0039DE8E /* gpsLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsLeft.h; sourceTree = "<group>"; };
@@ -162,7 +164,12 @@
 				02E0874D2A59DE9100E72118 /* hubbleLeft.h */,
 				02E0874E2A59DE9F00E72118 /* hubbleRight.h */,
 				02E65B1C2A4D26F900ED0814 /* dragon.h */,
+				02CC0D752A5CB63100B6AC0B /* dragonCenter.h */,
+				02CC0D762A5CB64000B6AC0B /* dragonLeft.h */,
+				02148DF22A5CB6660039ADDF /* dragonRight.h */,
 				02E65B212A4D288500ED0814 /* starlink.h */,
+				02148DF52A5CB8460039ADDF /* starlinkBody.h */,
+				02148DF62A5CB8520039ADDF /* starlinkArray.h */,
 				02DEF05F2A3E2FDC00999231 /* ship.h */,
 				02DEF0602A3E37D100999231 /* ship.cpp */,
 				02DEF0552A3D2DB900999231 /* orbit.h */,
@@ -182,9 +189,6 @@
 				02DEF0492A3D2D3000999231 /* testHubble.h */,
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
-				02CC0D752A5CB63100B6AC0B /* dragonCenter.h */,
-				02CC0D762A5CB64000B6AC0B /* dragonLeft.h */,
-				02148DF22A5CB6660039ADDF /* dragonRight.h */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";

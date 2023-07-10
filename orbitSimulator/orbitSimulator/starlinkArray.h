@@ -1,20 +1,20 @@
-
-#ifndef dragonCenter_h
-#define dragonCenter_h
+ 
+#ifndef starlinkRight_h
+#define starlinkRight_h
 
 #include "satellitePiece.h"
 
-class DragonCenter : public SatellitePiece
+class StarlinkArray : public SatellitePiece
 {
 public:
  
-	DragonCenter() : SatellitePiece() {}
-	DragonCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
+	StarlinkArray() : SatellitePiece() {}
+	StarlinkArray(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
 	{
 		explode();
 	}
 
-	virtual ~DragonCenter() {}
+	virtual ~StarlinkArray() {}
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return false; }
@@ -36,8 +36,8 @@ public:
 	
 	virtual void draw(double rotation, ogstream & gout)
 	{
-		gout.drawCrewDragonCenter(getPos(), rotation);
+		gout.drawStarlinkArray(getPos(), rotation);
 	}
 };
 
-#endif /* dragonCenter_h */
+#endif /* starlinkArray_h */

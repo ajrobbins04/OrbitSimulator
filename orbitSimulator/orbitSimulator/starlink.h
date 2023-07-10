@@ -11,6 +11,9 @@
 #define starlink_h
 
 #include "satellite.h"
+#include "satelliteFragment.h"
+#include "starlinkBody.h"
+#include "starlinkArray.h"
 
 class Starlink : public Satellite
 {
