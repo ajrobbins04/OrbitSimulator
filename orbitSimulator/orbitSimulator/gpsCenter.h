@@ -9,8 +9,12 @@ class GPSCenter : public SatellitePiece
 public:
  
 	GPSCenter() : SatellitePiece() {}
-	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) {} // radius = 7 px.
-	GPSCenter(const Satellite &s, double degrees, const Velocity &v) : SatellitePiece(s, degrees, v, 7.0) {} // radius = 7 px.
+	GPSCenter(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
+	{
+		moveForward(160); // moves GPSCenter 160 meters from its point of creation
+		velocity.setSpeed(velocity.getSpeed() + random(5000, 9000));
+	}
+
 	virtual ~GPSCenter() {}
 	
 	virtual bool isShip()       const { return false; }

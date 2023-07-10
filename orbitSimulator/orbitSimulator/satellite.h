@@ -67,6 +67,8 @@ public:
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }
 	
+	void moveForward(double amoount);
+	
 	virtual bool isShip()       const = 0;
 	virtual bool isProjectile() const = 0;
 	virtual bool isPiece()      const = 0;

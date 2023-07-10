@@ -52,6 +52,17 @@ void Satellite::updateDirection(const Position &posPrev, double time)
 }
 
 /*********************************************
+ *  MOVE FORWARD
+ *  Shifts the position of a satellite forward based
+ *  on the given distance amount.
+ *********************************************/
+void Satellite::moveForward(double amount)
+{
+	pos.addMetersX(amount * direction.getDx());
+	pos.addMetersY(amount * direction.getDy());
+}
+
+/*********************************************
  *  UPDATE POSITION
  *  Updates the satellite's position based on its current
  *  position, velocity, and time.
@@ -62,18 +73,3 @@ void Satellite::updatePosition(const Acceleration &aGravity, double time)
 	pos.addMetersY(velocity.getDy() * time + (0.5 * aGravity.getDDy()) * (time * time));
 }
 
-/*********************************************
- *  MOVE
- *  Moves the satellite by updating the velocity, followed
- *  by the position.
- *********************************************/
-void Satellite::move(double time)
-{
-	Position posPrev = getPos();
-	Acceleration aGravity = getGravity();
-	
-	velocity.updateVelocity(aGravity, time);
-	updatePosition(aGravity, time);
-	updateDirection(posPrev, time);
-	
-}

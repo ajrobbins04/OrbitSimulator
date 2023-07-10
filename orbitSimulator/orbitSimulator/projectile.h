@@ -27,7 +27,6 @@ public:
 	virtual ~Projectile() {}
  
 	void fire();
-	void updateProjectilePath();
 	
 	virtual bool isShip()       const { return false; }
 	virtual bool isProjectile() const { return true;  }
