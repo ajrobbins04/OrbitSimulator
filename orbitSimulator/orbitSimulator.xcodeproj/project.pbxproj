@@ -45,10 +45,13 @@
 		0208CEFE2A5351BA0027F794 /* projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projectile.cpp; sourceTree = "<group>"; };
 		0208CF002A53543C0027F794 /* satellitePiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satellitePiece.h; sourceTree = "<group>"; };
 		0208CF012A5354510027F794 /* satelliteFragment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satelliteFragment.h; sourceTree = "<group>"; };
+		02148DF22A5CB6660039ADDF /* dragonRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonRight.h; sourceTree = "<group>"; };
 		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
 		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		027656052A58E50A0039DE8E /* gpsLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsLeft.h; sourceTree = "<group>"; };
 		027656062A58E51B0039DE8E /* gpsRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsRight.h; sourceTree = "<group>"; };
+		02CC0D752A5CB63100B6AC0B /* dragonCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonCenter.h; sourceTree = "<group>"; };
+		02CC0D762A5CB64000B6AC0B /* dragonLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonLeft.h; sourceTree = "<group>"; };
 		02DEF02E2A3D2C0900999231 /* orbitSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = orbitSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DEF0382A3D2C4A00999231 /* acceleration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
 		02DEF0392A3D2C6100999231 /* acceleration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = acceleration.cpp; sourceTree = "<group>"; };
@@ -179,6 +182,9 @@
 				02DEF0492A3D2D3000999231 /* testHubble.h */,
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
+				02CC0D752A5CB63100B6AC0B /* dragonCenter.h */,
+				02CC0D762A5CB64000B6AC0B /* dragonLeft.h */,
+				02148DF22A5CB6660039ADDF /* dragonRight.h */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";

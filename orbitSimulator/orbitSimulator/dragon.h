@@ -11,6 +11,10 @@
 #define dragon_h
 
 #include "satellite.h"
+#include "satelliteFragment.h"
+#include "dragonCenter.h"
+#include "dragonLeft.h"
+#include "dragonRight.h"
 
 class Dragon : public Satellite
 {
