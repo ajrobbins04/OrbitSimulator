@@ -43,7 +43,7 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual void destroy(vector<Satellite*> satellites)
+	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		Velocity v1(getVelocity());
 		v1.setSpeedDirection(velocity.getSpeed() + random(5000, 9000), 90);

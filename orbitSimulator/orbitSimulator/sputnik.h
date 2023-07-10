@@ -39,7 +39,7 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual void destroy(vector<Satellite*> satellites)
+	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 330);
 		satellites.push_back(sFragment1);

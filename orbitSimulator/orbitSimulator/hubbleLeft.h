@@ -27,7 +27,7 @@ public:
 		updateDirection(posPrev, time);
 	}
 	
-	virtual void destroy(vector<Satellite*> satellites)
+	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		kill();
 	}

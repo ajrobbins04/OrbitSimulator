@@ -229,6 +229,8 @@ void Orbit::draw()
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
+		if ((*sats_Iter)->isPiece())
+			cout << "piece";
 		if ((*sats_Iter)->isAlive())
 			(*sats_Iter)->draw((*sats_Iter)->getDirectionAngle(), gout);
 	}
