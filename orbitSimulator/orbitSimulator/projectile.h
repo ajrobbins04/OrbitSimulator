@@ -29,9 +29,10 @@ public:
 	void fire();
 	void updateProjectilePath();
 	
-	virtual bool isShip()       const { return false;  }
-	virtual bool isProjectile() const { return true;   }
-	virtual bool isPiece()      const { return false;  }
+	virtual bool isShip()       const { return false; }
+	virtual bool isProjectile() const { return true;  }
+	virtual bool isPiece()      const { return false; }
+	virtual bool isFragment()   const { return false; }
 	
 	virtual void move(double time)
 	{
