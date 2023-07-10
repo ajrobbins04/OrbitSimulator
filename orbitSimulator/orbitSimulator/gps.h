@@ -52,10 +52,10 @@ public:
 		GPSRight *gpsRight = new GPSRight(*this, 180);
 		satellites.push_back(gpsRight);
 		
-		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 330);
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 350);
 		satellites.push_back(sFragment1);
 		
-		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 250);
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 270);
 		satellites.push_back(sFragment2);
 	
 	}

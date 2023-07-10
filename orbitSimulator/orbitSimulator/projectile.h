@@ -17,12 +17,17 @@ class Projectile : public Satellite
 public:
 	
 	Projectile(): Satellite() {}
-	Projectile(const Projectile &rhs) : Satellite(rhs) {
-		setRadius(0.5);
+	Projectile(const Projectile &rhs) : Satellite(rhs)
+	{
+		setRadius(0.5);    
+		setLifeSpan(70.0);
 	}
 	
 	Projectile(const Position &pos, const Velocity &velocity, const Direction &dir):
-	Satellite(pos, 0.5, velocity, dir) {} // radius = 0.5 px.
+	Satellite(pos, 0.5, velocity, dir)
+	{
+		setLifeSpan(70.0);
+	}
 	
 	virtual ~Projectile() {}
  

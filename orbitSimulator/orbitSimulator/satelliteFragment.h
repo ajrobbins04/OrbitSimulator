@@ -21,10 +21,18 @@ public:
 	SatelliteFragment() : Satellite() {}
 	
 	SatelliteFragment(const Satellite &rhs, double degrees) : Satellite(Position(rhs.getPos()), 2.0,  // radius = 2 px.
-															  Velocity(rhs.getVelocity()), Direction(degrees)) {}
-	
-	SatelliteFragment(const SatellitePiece &rhs, double degrees) : Satellite(Position(rhs.getPos()), 2.0,
-																   Velocity(rhs.getVelocity()), Direction(degrees)) {}
+															  Velocity(rhs.getVelocity()), Direction(degrees))
+	{
+		lifeSpan = random(50, 100);
+		
+		if (isYPositive())
+			pos.addPixelsY(4.0); // moves satelliteFragment 4px. from its point of creation
+		else
+			pos.addPixelsY(-4.0);
+		
+		velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
+	}
+
 
 	virtual ~SatelliteFragment() {}
 	

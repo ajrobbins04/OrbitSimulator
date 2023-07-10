@@ -108,7 +108,7 @@ void Orbit::move()
 
 	collisionDetection();
 	checkEarthReEntry();
-	checkAge();
+	checkLifeSpan();
 	removeDeadSatellites();
 }
 
@@ -145,6 +145,7 @@ void Orbit::collisionDetection()
 					{
 						if ((*iter1)->isPiece())
 							cout << "piece";
+					
 						(*iter1)->kill();
 						(*iter2)->kill();
 					}
@@ -175,16 +176,17 @@ void Orbit::checkEarthReEntry()
 }
 
 /*********************************************
-* CHECK AGE
+* CHECK LIFESPAN
 *********************************************/
-void Orbit::checkAge()
+void Orbit::checkLifeSpan()
 {
 	vector<Satellite*>::iterator iter1;
 	
 	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
-		// check if projectile is past its lifespan
-		if ( (*iter1)->isProjectile() && (*iter1)->isAlive() && (*iter1)->getAge() > 70)
+		// check if projectile or fragment is past its lifespan
+		if ( ((*iter1)->isProjectile() || (*iter1)->isProjectile())
+			&& (*iter1)->isAlive() && (*iter1)->getAge() >= (*iter1)->getLifeSpan())
 		{
 			(*iter1)->kill();
 		}

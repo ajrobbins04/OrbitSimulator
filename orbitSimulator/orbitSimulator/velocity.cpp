@@ -37,12 +37,10 @@ void Velocity::setSpeedDirection(double speed, const Direction &dir)
  * Sets the speed and the direction (in degrees)
  * of an object's velocity.
  *********************************************/
-void Velocity::setSpeedDirection(double speed, double degrees)
+void Velocity::setSpeedDirection(double speedX, double speedY, const Direction &dir)
 {
-	Direction dir(degrees);
-	
-	dx = speed * dir.getDx();
-	dy = speed * dir.getDy();
+	dx = speedX * dir.getDx();
+	dy = speedY * dir.getDy();
 }
 
 /*********************************************

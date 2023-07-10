@@ -45,9 +45,14 @@ public:
 		setSpeedDirection(speed, getDirection());
 	}
 	
+	void setSpeed(double speedX, double speedY)
+	{
+		setSpeedDirection(speedX, speedY, getDirection());
+	}
+	
 	Direction getDirection() const;
 	void setSpeedDirection(double speed, const Direction &dir);
-	void setSpeedDirection(double speed, double degrees);
+	void setSpeedDirection(double speedX, double speedY, const Direction &dir);
 	
 	// getters
 	double getDx() const    { return dx; }
