@@ -157,9 +157,10 @@ void Orbit::collisionDetection()
 }
 
 /*********************************************
-* CHECK EARTH RE-ENTRY
-* Check if a satellite has re-entered the
-* Earth's atmosphere
+* REMOVE EARTH RE-ENTRY
+* Removes a satellite has re-entered the
+* Earth's atmosphere. This action will
+* not result in broken-off pieces or fragments.
 *********************************************/
 void Orbit::checkEarthReEntry()
 {
@@ -172,6 +173,12 @@ void Orbit::checkEarthReEntry()
 		if (height <= 0)
 		{
 			(*iter)->kill(); // gets reabsorbed in earth's atmosphere
+			Satellite* pSatellite = *iter;
+			delete pSatellite;
+			pSatellite = NULL;
+			
+			// erase the satellite & update the iterator
+			iter = satellites.erase(iter);
 		}
 	}
 }
@@ -200,22 +207,23 @@ void Orbit::checkLifeSpan()
 *********************************************/
 void Orbit::removeDeadSatellites()
 {
-	vector<Satellite*>::iterator iter1 = satellites.begin();
+	vector<Satellite*>::iterator iter = satellites.begin();
 
-	while (iter1 != satellites.end())
+	while (iter != satellites.end())
 	{
-		if (!(*iter1)->isAlive())
+		if (!(*iter)->isAlive() && (*iter) != NULL)
 		{
-			(*iter1)->destroy(satellites); // create any potential pieces/fragments
+			(*iter)->destroy(satellites); // create any potential pieces/fragments
 			
-			Satellite* pSatellite = *iter1;
+			Satellite* pSatellite = *iter;
 			delete pSatellite;
 			pSatellite = NULL;
 			
-			satellites.erase(iter1);
+			// erase the satellite & update the iterator
+			iter = satellites.erase(iter);
 		}
 		else
-			++iter1;
+			++iter;
 	}
 }
 
@@ -234,8 +242,6 @@ void Orbit::draw()
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
-		if ((*sats_Iter)->isPiece())
-			cout << "piece";
 		if ((*sats_Iter)->isAlive())
 			(*sats_Iter)->draw((*sats_Iter)->getDirectionAngle(), gout);
 	}
@@ -248,9 +254,7 @@ void Orbit::draw()
 		stars_Iter->draw(gout);
 	}
 	
-
 	earth->draw(earth->getDirectionAngle(), gout);
-
 }
 
 /*********************************************
