@@ -20,12 +20,10 @@ public:
 	
 	virtual void move(double time)
 	{
-		Position posPrev = getPos();
 		Acceleration aGravity = getGravity();
 		
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
-		updateDirection(posPrev, time);
 	}
 	
 	virtual void destroy(vector<Satellite*> &satellites)
