@@ -39,9 +39,20 @@ public:
 		updatePosition(aGravity, time);
 	}
 
+	// breaks into 2 pieces & 2 fragments
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
-		kill();
+		StarlinkBody *sBody = new StarlinkBody(*this, 305);
+		satellites.push_back(sBody);
+		
+		StarlinkArray *sArray = new StarlinkArray(*this, 100);
+		satellites.push_back(sArray);
+		
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 50);
+		satellites.push_back(sFragment1);
+		
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 240);
+		satellites.push_back(sFragment2);
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)

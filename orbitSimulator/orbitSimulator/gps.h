@@ -41,6 +41,7 @@ public:
 		updatePosition(aGravity, time);
 	}
 	
+	// breaks into 3 pieces & 2 fragments
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		GPSCenter *gpsCenter = new GPSCenter(*this, 90);

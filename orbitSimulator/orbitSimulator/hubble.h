@@ -44,6 +44,7 @@ public:
 		updatePosition(aGravity, time);
 	}
 	
+	// breaks into 4 pieces
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		HubbleTelescope *hTelescope = new HubbleTelescope(*this, 75);

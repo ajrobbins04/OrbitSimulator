@@ -36,6 +36,7 @@ public:
 		updatePosition(aGravity, time);
 	}
 	
+	// breaks into 4 fragments
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
 		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 330);
