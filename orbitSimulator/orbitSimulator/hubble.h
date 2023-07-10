@@ -46,7 +46,17 @@ public:
 	
 	virtual void destroy(vector<Satellite*> &satellites)
 	{
-		kill();
+		HubbleTelescope *hTelescope = new HubbleTelescope(*this, 75);
+		satellites.push_back(hTelescope);
+		
+		HubbleComputer *hComputer = new HubbleComputer(*this, 345);
+		satellites.push_back(hComputer);
+		
+		HubbleRight *hRight = new HubbleRight(*this, 160);
+		satellites.push_back(hRight);
+		
+		HubbleLeft *hLeft = new HubbleLeft(*this, 275);
+		satellites.push_back(hLeft);
 	}
 	
 	virtual void draw(double rotation, ogstream & gout)
