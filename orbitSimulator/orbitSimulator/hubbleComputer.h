@@ -40,9 +40,9 @@ public:
  
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawHubbleComputer(getPos(), rotation);
+		gout.drawHubbleComputer(getPos(), getAngularVelocity());
 	}
 	
 	

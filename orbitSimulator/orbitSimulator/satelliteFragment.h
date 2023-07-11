@@ -47,9 +47,9 @@ public:
 	{
 		kill();
 	}
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawFragment(getPos(), rotation);
+		gout.drawFragment(getPos(), getAngularVelocity());
 	}
 	
 	

@@ -32,13 +32,7 @@ public:
 		// Earth's radius = 6378000 meters
 		// All other radius values are given in pixels, and must be converted to meters
 		if (radius != 6378000)
-		{
-			// fragments have smallest radius of 2 px
-			// GPS Satellite has largest radius of 12 px
-			//	assert(radius >= 2 && radius <= 12);
-			double radiusMeters = pos.convertToMeters(radius);
-			setRadius(radiusMeters);
-		}
+			setRadius(pos.convertToMeters(radius));
 		else
 			setRadius(6378000);
 	}
@@ -46,16 +40,8 @@ public:
 	SpaceObject(const Position &pos, double radius, const Direction &dir):
 	pos(pos), radius(0.0), direction(dir), angularVelocity(0.0), alive(true)
 	{
-		// Earth's radius = 6378000 meters
-		// All other radius values are given in pixels, and must be converted to meters
 		if (radius != 6378000)
-		{
-			// fragments have smallest radius of 2 px
-			// GPS Satellite has largest radius of 12 px
-			//	assert(radius >= 2 && radius <= 12);
-			double radiusMeters = pos.convertToMeters(radius);
-			setRadius(radiusMeters);
-		}
+			setRadius(pos.convertToMeters(radius));
 		else
 			setRadius(6378000);
 	}
@@ -67,11 +53,7 @@ public:
 	direction(0.0), angularVelocity(0.0), alive(true)
 	{
 		if (radius != 6378000)
-		{
-			//assert(radius >= 2 && radius <= 12);
-			double radiusMeters = pos.convertToMeters(radius);
-			setRadius(radiusMeters);
-		}
+			setRadius(pos.convertToMeters(radius));
 		else
 			setRadius(6378000);
 	}
@@ -80,18 +62,13 @@ public:
 	direction(dir), angularVelocity(0.0), alive(true)
 	{
 		if (radius != 6378000)
-		{
-			//assert(radius >= 2 && radius <= 12);
-			double radiusMeters = pos.convertToMeters(radius);
-			setRadius(radiusMeters);
-		}
+			setRadius(pos.convertToMeters(radius));
 		else
 			setRadius(6378000);
 	}
 	
 	virtual ~SpaceObject() {}
 
-	
 	void setRadius(double radius)           { this->radius = radius;          }
 	void setDirection(const Direction &dir) { this->direction = dir;          }
 	void setAngularVelocity(double amount)  { this->angularVelocity = amount; }
@@ -116,7 +93,7 @@ public:
 	bool isAlive()              const { return alive;                  }
 	
 	
-	virtual void draw(double rotation, ogstream & gout) = 0;
+	virtual void draw(ogstream & gout) = 0;
 	
 protected:
 	Position pos;

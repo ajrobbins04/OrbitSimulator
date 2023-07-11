@@ -45,9 +45,9 @@ public:
 		satellites.push_back(sFragment4);
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawCrewDragonCenter(getPos(), rotation);
+		gout.drawCrewDragonCenter(getPos(), getAngularVelocity());
 	}
 };
 

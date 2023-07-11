@@ -43,9 +43,9 @@ public:
 		 
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawGPSCenter(getPos(), rotation);
+		gout.drawGPSCenter(getPos() getAngularVelocity());
 	}
 
 };

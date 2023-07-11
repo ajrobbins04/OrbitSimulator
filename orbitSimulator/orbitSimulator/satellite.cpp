@@ -1,6 +1,15 @@
 #include "satellite.h"
  
 /*********************************************
+ *  COMPUTE ANGULAR VELOCITY
+ *********************************************/
+void Satellite::computeAngularVelocity()
+{
+	double angularVelocity = velocity.getSpeed() / radius;
+	setAngularVelocity(angularVelocity);
+}
+
+/*********************************************
  *  GET ALTITUDE
  *  Computes the distance from the center of the
  *  earth to the satellite's current position.

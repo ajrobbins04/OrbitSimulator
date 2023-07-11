@@ -48,7 +48,8 @@ public:
 	}
 	
 	virtual void destroy(vector<Satellite*> &satellites) { kill(); }
-	virtual void draw(double rotation, ogstream & gout)  { gout.drawProjectile(getPos()); }
+	
+	virtual void draw(ogstream & gout) { gout.drawProjectile(getPos()); }
 	
 		
 private: // inherits pos, direction, radius, angularVelociy, alive,

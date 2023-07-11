@@ -24,7 +24,10 @@ public:
 	GPS(): Satellite() {}
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
-	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px
+	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) // radius = 12 px
+	{
+		computeAngularVelocity();
+	}
 	
 	virtual ~GPS() {}
 	
@@ -36,7 +39,6 @@ public:
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
-		
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
 	}
@@ -61,9 +63,9 @@ public:
 	
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawGPS(getPos(), rotation);
+		gout.drawGPS(getPos(), getAngularVelocity());
 	}
 
 	

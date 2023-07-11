@@ -67,9 +67,9 @@ public:
 		kill();
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawShip(getPos(), rotation, getThrust());
+		gout.drawShip(getPos(), getAngularVelocity(), getThrust());
 	}
  
 	

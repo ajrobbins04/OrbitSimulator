@@ -39,9 +39,9 @@ public:
  
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawHubbleLeft(getPos(), rotation);
+		gout.drawHubbleLeft(getPos(), getAngularVelocity());
 	}
 };
 

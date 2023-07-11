@@ -38,9 +38,9 @@ public:
 		satellites.push_back(sFragment2);
 	}
 	
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawHubbleRight(getPos(), rotation);
+		gout.drawHubbleRight(getPos(), getAngularVelocity());
 	}
 };
 

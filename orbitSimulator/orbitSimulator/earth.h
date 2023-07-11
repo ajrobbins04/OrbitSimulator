@@ -22,9 +22,9 @@ public:
 	
 	virtual ~Earth() {}
 
-	virtual void draw(double rotation, ogstream & gout)
+	virtual void draw(ogstream & gout)
 	{
-		gout.drawEarth(getPos(), rotation);
+		gout.drawEarth(getPos(), getAngularVelocity());
 	}
 	
 private: // inherits pos, direction, radius, angularVelociy, and alive
