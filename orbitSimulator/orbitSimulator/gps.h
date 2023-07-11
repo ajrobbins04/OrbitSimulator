@@ -41,6 +41,7 @@ public:
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		direction.rotate(angularVelocity);
 	}
 	
 	// breaks into 3 pieces & 2 fragments
@@ -65,7 +66,7 @@ public:
 	
 	virtual void draw(ogstream & gout)
 	{
-		gout.drawGPS(getPos(), getAngularVelocity());
+		gout.drawGPS(getPos(), getDirectionAngle());
 	}
 
 	

@@ -24,7 +24,7 @@ public:
 
 	virtual void draw(ogstream & gout)
 	{
-		gout.drawEarth(getPos(), getAngularVelocity());
+		gout.drawEarth(getPos(), getDirectionAngle());
 	}
 	
 private: // inherits pos, direction, radius, angularVelociy, and alive
