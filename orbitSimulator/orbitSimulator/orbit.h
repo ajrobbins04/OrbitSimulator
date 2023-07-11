@@ -41,12 +41,9 @@ public:
  
 	virtual ~Orbit() {}
 	
-	void initialize(const Position &ptUpperRight);
-	void setRotationSpeed(double amount)  { earth->setRotationSpeed(amount); }
-	
-	double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 	double computeCollisionRange(const Satellite &sat1, const Satellite &sat2);
 	
+	void initialize(const Position &ptUpperRight);
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
 	void checkEarthReEntry();
@@ -72,5 +69,11 @@ private:
  *********************************************/
 Orbit initialize(const Position &ptUpperRight);
 
+/*********************************************
+ * COMPUTE ROTATION SPEED
+ * Sets the amount of rotation change (in radians) that's applied
+ * to an object (typically earth) as each new frame is drawn.
+ *********************************************/
+double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 
 #endif /* orbit_h */

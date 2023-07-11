@@ -70,14 +70,28 @@ Orbit initialize(const Position &ptUpperRight)
 	double dilation = hoursPerDay * minPerHour;
 	double time = dilation / frameRate;
 
+	double rotationSpeed = computeRotationSpeed(frameRate, secondsPerDay, dilation);
+	earth->setAngularVelocity(rotationSpeed);
+	
 	Orbit orbit(ship, earth, satellites, stars, time);
-	
-	double rotationSpeed = orbit.computeRotationSpeed(frameRate, secondsPerDay, dilation);
-	orbit.setRotationSpeed(rotationSpeed);
-	
+
 	return orbit;
  
 }
+
+/*********************************************
+ * COMPUTE ROTATION SPEED
+ * Sets the amount of rotation change (in radians) that's applied
+ * to an object (typically earth) as each new frame is drawn.
+ *********************************************/
+double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation)
+{
+	double radiansPerDay = (M_PI * 2.0) / frameRate;
+	double radiansPerFrame =  -(radiansPerDay) * (dilation / secondsPerDay);
+ 
+	return radiansPerFrame;
+}
+
 
 /*********************************************
  * HANDLE INPUT
@@ -104,7 +118,7 @@ void Orbit::move()
 	}
 	
 	// always rotate earth
-	earth->rotate(earth->getRotationSpeed());
+	earth->rotate(earth->getAngularVelocity());
 
 	collisionDetection();
 	checkEarthReEntry();
@@ -255,17 +269,4 @@ void Orbit::draw()
 	}
 	
 	earth->draw(earth->getDirectionAngle(), gout);
-}
-
-/*********************************************
- * COMPUTE ROTATION SPEED
- * Sets the amount of rotation change (in radians) that's applied
- * to an object (typically earth) as each new frame is drawn.
- *********************************************/
-double Orbit::computeRotationSpeed(double frameRate, double secondsPerDay, double dilation)
-{
-	double radiansPerDay = (M_PI * 2.0) / frameRate;
-	double radiansPerFrame =  -(radiansPerDay) * (dilation / secondsPerDay);
- 
-	return radiansPerFrame;
 }

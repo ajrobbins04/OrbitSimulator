@@ -22,9 +22,6 @@ public:
 	
 	virtual ~Earth() {}
 
-	void setRotationSpeed(double amount) { this->rotationSpeed = amount; }
-	double  getRotationSpeed() const { return rotationSpeed; }
-
 	virtual void draw(double rotation, ogstream & gout)
 	{
 		gout.drawEarth(getPos(), rotation);
