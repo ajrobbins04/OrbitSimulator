@@ -257,7 +257,7 @@ void Orbit::draw()
 	for (; sats_Iter != satellites.end(); sats_Iter++)
 	{
 		if ((*sats_Iter)->isAlive())
-			(*sats_Iter)->draw((*sats_Iter)->getDirectionAngle(), gout);
+			(*sats_Iter)->draw(gout);
 	}
  
 	vector<Star>::iterator stars_Iter;
@@ -268,5 +268,5 @@ void Orbit::draw()
 		stars_Iter->draw(gout);
 	}
 	
-	earth->draw(earth->getDirectionAngle(), gout);
+	earth->draw(gout);
 }

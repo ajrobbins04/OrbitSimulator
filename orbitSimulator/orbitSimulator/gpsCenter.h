@@ -45,7 +45,7 @@ public:
 	
 	virtual void draw(ogstream & gout)
 	{
-		gout.drawGPSCenter(getPos() getAngularVelocity());
+		gout.drawGPSCenter(getPos(), getAngularVelocity());
 	}
 
 };

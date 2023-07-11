@@ -42,7 +42,7 @@ public:
 		satellites.push_back(sFragment3);
 	}
 	
-	virtual void draw(double rotation)
+	virtual void draw(ogstream & gout)
 	{
 		gout.drawGPSRight(getPos(), getAngularVelocity());
 	}
