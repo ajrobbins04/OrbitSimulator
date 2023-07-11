@@ -69,7 +69,7 @@ public:
 	
 	virtual void draw(ogstream & gout)
 	{
-		gout.drawShip(getPos(), getAngularVelocity(), getThrust());
+		gout.drawShip(getPos(), getDirectionAngle(), getThrust());
 	}
  
 	

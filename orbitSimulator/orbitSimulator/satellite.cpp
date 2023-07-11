@@ -6,11 +6,11 @@
 void Satellite::computeAngularVelocity()
 {
 	
-	double orbitRadius = getAltitude();
-	double angularVelocity = (2 * M_PI * orbitRadius) / velocity.getSpeed();
+	//double orbitRadius = getAltitude();
+	//double angularVelocity = (2 * M_PI * orbitRadius) / velocity.getSpeed();
 
 	 
-	setAngularVelocity(angularVelocity);
+	//setAngularVelocity(angularVelocity);
 }
 
 /*********************************************
