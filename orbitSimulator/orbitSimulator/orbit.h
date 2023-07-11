@@ -40,9 +40,7 @@ public:
 	earth(earth), satellites(satellites), stars(stars), time(time) {}
  
 	virtual ~Orbit() {}
-	
-	double computeCollisionRange(const Satellite &sat1, const Satellite &sat2);
-	
+
 	void initialize(const Position &ptUpperRight);
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
@@ -58,7 +56,7 @@ private:
 	vector<Star> stars;
 	vector<Satellite*> satellites;
 
-	double time;           // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
+	double time;  // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 
 };
 

@@ -33,6 +33,10 @@ public:
 	virtual void move(double time) = 0;
 	virtual void destroy(vector<Satellite*> &satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout)  = 0;
+
+	
+private: // inherits pos, direction, radius, angularVelociy, alive,
+	     // velocity, age, and lifeSpan
 	
 };
 

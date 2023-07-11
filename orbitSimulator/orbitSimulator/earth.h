@@ -26,11 +26,8 @@ public:
 	{
 		gout.drawEarth(getPos(), rotation);
 	}
-
-private:
-	// inherits pos, direction, radius, and alive
-	double rotationSpeed;  // amount of rotation per frame
-
+	
+private: // inherits pos, direction, radius, angularVelociy, and alive
 	
 };
 #endif  

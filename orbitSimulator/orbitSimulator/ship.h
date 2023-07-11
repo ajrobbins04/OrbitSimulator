@@ -72,10 +72,11 @@ public:
 		gout.drawShip(getPos(), rotation, getThrust());
 	}
  
-private:
-	// inherits pos, radius, velocity, direction, alive, age, and angularVelocity
-	bool thrust;
+	
+private:                    // inherits pos, direction, radius, angularVelociy, alive,
+	bool thrust;            // velocity, age, and lifeSpan
 	Position shipFrontPos;
 	Direction prevDir;
+	
 };
 #endif

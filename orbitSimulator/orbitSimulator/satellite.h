@@ -79,9 +79,8 @@ public:
 	virtual void destroy(vector<Satellite*> &satellites) = 0;
 	virtual void draw(double rotation, ogstream & gout)  = 0;
  
- 
-	
-protected: // inherits pos, direction, radius, and alive
+ 	
+protected: // inherits pos, direction, radius, angularVelociy, and alive
 	Velocity velocity;
 	double age;
 	double lifeSpan;

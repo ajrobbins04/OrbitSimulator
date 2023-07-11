@@ -63,10 +63,11 @@ public:
 	{
 		gout.drawCrewDragon(getPos(), rotation);
 	}
+
 	
-private:
-	// inherits pos, radius, velocity, direction, alive,
-	// angularVelocity and age
+private: // inherits pos, direction, radius, angularVelociy, alive,
+		 // velocity, age, and lifeSpan
+	
 };
 
 #endif /* dragon_h */

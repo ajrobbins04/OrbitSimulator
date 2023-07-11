@@ -51,8 +51,8 @@ public:
 	virtual void draw(double rotation, ogstream & gout)  { gout.drawProjectile(getPos()); }
 	
 		
-private:
-
+private: // inherits pos, direction, radius, angularVelociy, alive,
+		 // velocity, age, and lifeSpan
 
 };
 #endif

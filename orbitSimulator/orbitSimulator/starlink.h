@@ -60,9 +60,10 @@ public:
 		gout.drawStarlink(getPos(), rotation);
 	}
 	
-private:
-	// inherits pos, radius, velocity, direction, alive,
-	// angularVelocity and age
+	
+private: // inherits pos, direction, radius, angularVelociy, alive,
+		 // velocity, age, and lifeSpan
+	
 };
 
 #endif /* starlink_h */

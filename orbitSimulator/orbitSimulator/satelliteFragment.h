@@ -52,6 +52,10 @@ public:
 		gout.drawFragment(getPos(), rotation);
 	}
 	
+	
+private: // inherits pos, direction, radius, angularVelociy, alive,
+		 // velocity, age, and lifeSpan
+	
 };
   
 #endif /* satelliteFragment_h */
