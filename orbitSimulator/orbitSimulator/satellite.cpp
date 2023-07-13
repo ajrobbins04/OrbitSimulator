@@ -69,11 +69,11 @@ void Satellite::explode()
 	// moves satelliteFragment 4px. from its point of creation
 	double distance = pos.convertToMeters(4.0);
 	
-	double changeX = distance * direction.getDx();
-	double changeY = distance * direction.getDy();
+	double shiftX = distance * direction.getDx();
+	double shiftY = distance * direction.getDy();
 	
-	pos.addMetersX(changeX);
-	pos.addMetersY(changeY);
+	pos.addMetersX(shiftX);
+	pos.addMetersY(shiftY);
 	
 	velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
 

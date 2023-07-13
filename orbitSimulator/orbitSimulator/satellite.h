@@ -73,11 +73,6 @@ public:
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }
 	
-	bool isXPositive()  const { return pos.getMetersX() >= 0; }
-	bool isYPositive()  const { return pos.getMetersY() >= 0; }
-	bool isDXPositive() const { return velocity.getDx() >= 0; }
-	bool isDYPositive() const { return velocity.getDy() >= 0; }
-	
 	bool isAlive()     const { return alive;     }
 	bool isInvisible() const { return invisible; }
 
