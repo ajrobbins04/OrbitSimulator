@@ -21,13 +21,13 @@ using namespace std;
 class SpaceObject
 {
 public:
-	SpaceObject(): pos(0.0, 0.0), radius(0.0), direction(0.0), angularVelocity(0.0), alive(true) {}
+	SpaceObject(): pos(0.0, 0.0), radius(0.0), direction(0.0), angularVelocity(0.0) {}
 	
 	SpaceObject(const SpaceObject &rhs) : pos(rhs.getPos()), direction(rhs.getDirection()),
-	radius(rhs.getRadius()), angularVelocity(rhs.getAngularVelocity()), alive(true) {}
+	radius(rhs.getRadius()), angularVelocity(rhs.getAngularVelocity()) {}
 	
 	SpaceObject(const Position &pos, double radius):
-	pos(pos), radius(0.0), direction(0.0), angularVelocity(0.0), alive(true)
+	pos(pos), radius(0.0), direction(0.0), angularVelocity(0.0)
 	{
 		// Earth's radius = 6378000 meters
 		// All other radius values are given in pixels, and must be converted to meters
@@ -38,7 +38,7 @@ public:
 	}
 	
 	SpaceObject(const Position &pos, double radius, const Direction &dir):
-	pos(pos), radius(0.0), direction(dir), angularVelocity(0.0), alive(true)
+	pos(pos), radius(0.0), direction(dir), angularVelocity(0.0)
 	{
 		if (radius != 6378000)
 			setRadius(pos.convertToMeters(radius));
@@ -47,10 +47,10 @@ public:
 	}
 
 	SpaceObject(double x, double y): pos(x, y), radius(0.0), direction(0.0),
-	angularVelocity(0.0), alive(true) {}
+	angularVelocity(0.0) {}
 	
 	SpaceObject(double x, double y, double radius): pos(x, y), radius(0.0),
-	direction(0.0), angularVelocity(0.0), alive(true)
+	direction(0.0), angularVelocity(0.0)
 	{
 		if (radius != 6378000)
 			setRadius(pos.convertToMeters(radius));
@@ -59,7 +59,7 @@ public:
 	}
 	
 	SpaceObject(double x, double y, double radius, const Direction &dir): pos(x, y), radius(0.0),
-	direction(dir), angularVelocity(0.0), alive(true)
+	direction(dir), angularVelocity(0.0)
 	{
 		if (radius != 6378000)
 			setRadius(pos.convertToMeters(radius));
@@ -79,9 +79,8 @@ public:
 		pos.setMetersY(y);
 	}
 
-	void kill()                 { this->alive = false;            }
 	void rotate(double amount)  { this->direction.rotate(amount); }
-
+	
 	double getRadius()          const { return radius;           }
 	Position getPos()           const { return pos;              }
 	double getPosX()            const { return pos.getMetersX(); }
@@ -90,7 +89,6 @@ public:
 	
 	double getDirectionAngle()  const { return direction.getRadians(); }
 	double getAngularVelocity() const { return angularVelocity;        }
-	bool isAlive()              const { return alive;                  }
 	
 	
 	virtual void draw(ogstream & gout) = 0;
@@ -100,8 +98,6 @@ protected:
 	Direction direction;
 	double angularVelocity;
 	double radius;
-	bool alive;
-
 };
  
 #endif

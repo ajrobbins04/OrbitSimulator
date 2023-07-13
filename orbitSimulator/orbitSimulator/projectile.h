@@ -21,12 +21,14 @@ public:
 	{
 		setRadius(0.5);    
 		setLifeSpan(70.0);
+		setInvisible(true);
 	}
 	
 	Projectile(const Position &pos, const Velocity &velocity, const Direction &dir):
 	Satellite(pos, 0.5, velocity, dir)
 	{
 		setLifeSpan(70.0);
+		setInvisible(true);
 	}
 	
 	virtual ~Projectile() {}
@@ -40,6 +42,9 @@ public:
 	
 	virtual void move(double time)
 	{
+		if (age >= 5)
+			setInvisible(false);
+		
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
