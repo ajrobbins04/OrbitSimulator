@@ -4,7 +4,6 @@
 *********************************************/
 void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellites)
 {
-	setPrevDir(getDirectionAngle());
 	
 	// ship turns counter-clockwise
 	if (pUI->isLeft())
@@ -37,18 +36,6 @@ void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellit
  }
 
 /*********************************************
-* UPDATE SHIP FRONT POSITION
-*********************************************/
-void Ship::updateShipFrontPos(const Acceleration &aGravity, double time)
-{
-	double distance = 19.0 * 40.0;
-
-	shipFrontPos.setMetersX(pos.getMetersX() + distance * sin(direction.getDegrees()));
-	shipFrontPos.setMetersY(pos.getMetersY() + distance * cos(direction.getDegrees()));
-
-}
-
-/*********************************************
 * APPLY THRUST
 *********************************************/
 void Ship::applyThrust(double time)
@@ -61,7 +48,6 @@ void Ship::applyThrust(double time)
 	// which lasts for 48 seconds of simulation time
 	velocity.updateVelocity(aGravity, time * 2.0);
 	updatePosition(aGravity, time);
-	updateShipFrontPos(aGravity, time);
 }
 
 /*********************************************
