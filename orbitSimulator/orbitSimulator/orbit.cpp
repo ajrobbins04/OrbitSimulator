@@ -157,12 +157,8 @@ void Orbit::collisionDetection()
 					
 					if (distance < (*iter1)->getRadius() + (*iter2)->getRadius())
 					{
-						if ((*iter1)->isPiece())
-							cout << "piece";
-						else{
-							(*iter1)->kill();
-							(*iter2)->kill();
-						}
+						(*iter1)->kill();
+						(*iter2)->kill();
 					}
 				}
 			}
@@ -179,8 +175,8 @@ void Orbit::collisionDetection()
 void Orbit::checkEarthReEntry()
 {
 	vector<Satellite*>::iterator iter;
-	
-	for (iter = satellites.begin(); iter != satellites.end(); iter++)
+	 
+	for (iter = satellites.begin(); iter != satellites.end();)
 	{
 		double height = (*iter)->getAltitude();
 	
@@ -194,6 +190,8 @@ void Orbit::checkEarthReEntry()
 			// erase the satellite & update the iterator
 			iter = satellites.erase(iter);
 		}
+		else
+			++iter;
 	}
 }
 
@@ -207,7 +205,7 @@ void Orbit::checkLifeSpan()
 	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
 	{
 		// check if projectile or fragment is past its lifespan
-		if ( ((*iter1)->isProjectile() || (*iter1)->isProjectile())
+		if ( ((*iter1)->isProjectile() || (*iter1)->isFragment())
 			&& (*iter1)->isAlive() && (*iter1)->getAge() >= (*iter1)->getLifeSpan())
 		{
 			(*iter1)->kill();

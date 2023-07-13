@@ -24,6 +24,7 @@ public:
 															  Velocity(rhs.getVelocity()), Direction(degrees))
 	{
 		explode();
+		setLifeSpan(random(50, 100));
 	}
 
 
