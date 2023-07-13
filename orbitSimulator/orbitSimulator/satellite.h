@@ -30,7 +30,7 @@ public:
 	Satellite() : SpaceObject(0.0, 0.0), velocity(0.0, 0.0), age(0.0), lifeSpan(0.0), alive(true), invisible(false) {}
 	
 	Satellite(const Satellite &rhs) : SpaceObject(rhs), velocity(rhs.getVelocity()),
-	age(rhs.getAge()), lifeSpan(rhs.getLifeSpan()), alive(rhs.isAlive()), invisible(rhs.isInvisible())  {}
+	age(rhs.getAge()), lifeSpan(rhs.getLifeSpan()), alive(true), invisible(rhs.isInvisible())  {}
 	
 	Satellite(const Satellite &s, const Direction &dir) : SpaceObject(s.pos.getMetersX(), s.pos.getMetersY(), 0.0, Direction(dir.getRadians())), velocity(s.velocity.getDx(), s.velocity.getDy()), age(0.0), lifeSpan(0.0),
 	    alive(true), invisible(false){}
@@ -67,14 +67,16 @@ public:
 	Velocity getVelocity()      const { return velocity;        }
 	double getLifeSpan()        const { return lifeSpan;        }
 	
-	void updateDirection(const Position &posPrev, double time);
 	void updatePosition(const Acceleration &acGravity, double time);
 	void explode();
 	
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }
 	
-	bool isYPositive() const { return pos.getMetersY() >= 0; }
+	bool isXPositive()  const { return pos.getMetersX() >= 0; }
+	bool isYPositive()  const { return pos.getMetersY() >= 0; }
+	bool isDXPositive() const { return velocity.getDx() >= 0; }
+	bool isDYPositive() const { return velocity.getDy() >= 0; }
 	
 	bool isAlive()     const { return alive;     }
 	bool isInvisible() const { return invisible; }

@@ -42,7 +42,7 @@ public:
 	
 	virtual void move(double time)
 	{
-		if (age >= 5)
+		if (age >= 3)
 			setInvisible(false);
 		
 		Acceleration aGravity = getGravity();

@@ -139,27 +139,15 @@ void Orbit::collisionDetection()
 	{
 		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
 		{
-			auto end = satellites.end();
-			
-			if ((*iter1)->isShip() && (*iter2)->isProjectile())
+			if  ((*iter1)->isAlive() && (*iter2)->isAlive() &&
+				 !(*iter1)->isInvisible() && !(*iter2)->isInvisible())
 			{
-				if (iter2 == end - 1)
-					return;
-				else
-					iter2++;
-			}
-	
-			else
-			{
-				if  ((*iter1)->isAlive() && (*iter2)->isAlive())
+				double distance = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
+				
+				if (distance < (*iter1)->getRadius() + (*iter2)->getRadius())
 				{
-					double distance = computeDistance((*iter1)->getPos(), (*iter2)->getPos());
-					
-					if (distance < (*iter1)->getRadius() + (*iter2)->getRadius())
-					{
-						(*iter1)->kill();
-						(*iter2)->kill();
-					}
+					(*iter1)->kill();
+					(*iter2)->kill();
 				}
 			}
 		}
