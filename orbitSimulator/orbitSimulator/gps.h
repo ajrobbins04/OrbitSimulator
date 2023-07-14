@@ -102,7 +102,7 @@ public:
 	}
 	
 	// breaks into 3 pieces & 2 fragments
-	virtual void destroy(vector<Satellite*> &satellites)
+	virtual void destroy(list<Satellite*> &satellites)
 	{
 		GPSCenter *gpsCenter = new GPSCenter(*this, 90);
 		satellites.push_back(gpsCenter);

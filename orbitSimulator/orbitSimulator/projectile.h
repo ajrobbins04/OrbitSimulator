@@ -52,7 +52,7 @@ public:
 		increaseAge();
 	}
 	
-	virtual void destroy(vector<Satellite*> &satellites) {}
+	virtual void destroy(list<Satellite*> &satellites) {}
 	virtual void draw(ogstream & gout) { gout.drawProjectile(getPos()); }
 	
 		

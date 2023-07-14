@@ -19,7 +19,7 @@ double Orbit::computeRotationSpeed()
 {
 	double dilation = HOURS_PER_DAY * MIN_PER_HOUR;
 	double secondsPerDay = HOURS_PER_DAY * MIN_PER_HOUR * SEC_PER_MIN;
-	double radiansPerDay = (M_PI * 2.0) / FRAME_RATE;
+	double radiansPerDay = (PI * 2.0) / FRAME_RATE;
 	double radiansPerFrame =  -(radiansPerDay) * (dilation / secondsPerDay);
  
 	return radiansPerFrame;
@@ -41,7 +41,7 @@ void Orbit::handleInput(const Interface *pUI)
  *********************************************/
 void Orbit::move()
 {
-	vector<Satellite*>::iterator iter;
+	list<Satellite*>::iterator iter;
 
 	iter = satellites.begin();
 	for (; iter != satellites.end(); iter++)
@@ -54,8 +54,6 @@ void Orbit::move()
 	earth->rotate(earth->getAngularVelocity());
 
 	collisionDetection();
-	checkEarthReEntry();
-	checkLifeSpan();
 	removeDeadSatellites();
 }
 
@@ -65,12 +63,15 @@ void Orbit::move()
  *********************************************/
 void Orbit::collisionDetection()
 {
-	vector<Satellite*>::iterator iter1;
-	vector<Satellite*>::iterator iter2;
+	list<Satellite*>::iterator iter1;
+	list<Satellite*>::iterator iter2;
 
-	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	for (iter1 = satellites.begin(); iter1 != satellites.end(); ++iter1)
 	{
-		for (iter2 = iter1 + 1; iter2 != satellites.end(); iter2++)
+		iter2 = iter1;
+		++iter2;
+		
+		while (iter2 != satellites.end())
 		{
 			if  ((*iter1)->isAlive() && (*iter2)->isAlive() &&
 				 !(*iter1)->isInvisible() && !(*iter2)->isInvisible())
@@ -83,39 +84,8 @@ void Orbit::collisionDetection()
 					(*iter2)->kill();
 				}
 			}
+			++iter2;
 		}
-	}
-}
-
-/*********************************************
-* REMOVE EARTH RE-ENTRY
-* Removes a satellite has re-entered the
-* Earth's atmosphere. This action will
-* not result in broken-off pieces or fragments.
-*********************************************/
-void Orbit::checkEarthReEntry()
-{
-	vector<Satellite*>::iterator iter = satellites.begin();
-	
-	while (iter != satellites.end())
-	{
-		double height = (*iter)->getAltitude();
-		
-		if (height <= 0)
-		{
-			(*iter)->kill();
-			
-			// delete dead satellite & set
-			// it to null
-			delete *iter;
-			*iter = nullptr;
-			
-			// removes dead satellite & returns another
-			// iterator to next valid satellite
-			iter = satellites.erase(iter);
-		}
-		else
-			++iter;
 	}
 }
 
@@ -124,7 +94,7 @@ void Orbit::checkEarthReEntry()
 *********************************************/
 void Orbit::checkLifeSpan()
 {
-	vector<Satellite*>::iterator iter;
+	list<Satellite*>::iterator iter;
 	
 	for (iter = satellites.begin(); iter != satellites.end(); iter++)
 	{
@@ -143,8 +113,8 @@ void Orbit::checkLifeSpan()
 *********************************************/
 void Orbit::removeDeadSatellites()
 {
-	vector<Satellite*>::iterator iter = satellites.begin();
-
+	list<Satellite*>::iterator iter = satellites.begin();
+	
 	while (iter != satellites.end())
 	{
 		if (!(*iter)->isAlive())
@@ -160,10 +130,21 @@ void Orbit::removeDeadSatellites()
 			// removes dead satellite & returns an iterator
 			// to next valid satellite
 			iter = satellites.erase(iter);
-			
+		
+		}
+		else if ((*iter)->hitEarth())
+		{
+			iter = satellites.erase(iter);
+		}
+		else if (((*iter)->isProjectile() || (*iter)->isFragment())
+				 && (*iter)->pastLifeSpan())
+		{
+			iter = satellites.erase(iter);
 		}
 		else
+		{
 			++iter;
+		}
 	}
 }
 
@@ -177,7 +158,7 @@ void Orbit::draw()
  
 	ogstream gout(pt);
 	
-	vector<Satellite*>::iterator sats_Iter;
+	list<Satellite*>::iterator sats_Iter;
 
 	sats_Iter = satellites.begin();
 	for (; sats_Iter != satellites.end(); sats_Iter++)

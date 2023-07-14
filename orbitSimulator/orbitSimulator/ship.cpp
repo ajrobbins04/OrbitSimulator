@@ -2,7 +2,7 @@
 /*********************************************
 * ROTATE SHIP
 *********************************************/
-void Ship::input(const Interface *pUI, double time, vector<Satellite*> &satellites)
+void Ship::input(const Interface *pUI, double time, list<Satellite*> &satellites)
 {
 	
 	// ship turns counter-clockwise
@@ -53,7 +53,7 @@ void Ship::applyThrust(double time)
 /*********************************************
 * LAUNCH PROJECTILE
 *********************************************/
-void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
+void Ship::launchProjectile(list<Satellite*> &satellites, double time)
 {
 
 	// set direction for projectile to be fired
@@ -70,7 +70,7 @@ void Ship::launchProjectile(vector<Satellite*> &satellites, double time)
 	// fireVelocity, and fireDirection
 	Projectile *projectile = new Projectile(firePos, fireVelocity, fireDirection);
 	
-	// add to satellites vector
+	// add to satellites list
 	satellites.push_back(projectile);
 
 }

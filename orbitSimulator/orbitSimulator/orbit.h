@@ -10,14 +10,8 @@
 #ifndef orbit_h
 #define orbit_h
 
-#ifndef M_PI
-#define M_PI    3.14159265358979323846
-#endif
-
-#include <cmath>
 #include <vector>
-#include <deque>
-#include <typeinfo>
+#include <list>
 
 #include "uiInteract.h"
 #include "earth.h"
@@ -33,6 +27,8 @@ const double FRAME_RATE = 30.0;    // OpenGL draws 30 frames/second
 const double HOURS_PER_DAY = 24.0;
 const double MIN_PER_HOUR = 60.0;
 const double SEC_PER_MIN = 60.0;
+
+const double PI = 3.14159265358979323846;
 
 using namespace std;
 
@@ -69,7 +65,7 @@ public:
 		
 	}
 	
-	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time) : ship(ship),
+	Orbit(Ship *ship, Earth *earth, list<Satellite*> satellites, vector<Star> &stars, double time) : ship(ship),
 	earth(earth), satellites(satellites), stars(stars), time(time) {}
  
 	virtual ~Orbit() {}
@@ -79,7 +75,6 @@ public:
 	
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
-	void checkEarthReEntry();
 	void checkLifeSpan();
 	void removeDeadSatellites();
 	void move();
@@ -89,7 +84,7 @@ private:
 	Ship *ship;
 	Earth *earth;
 	vector<Star> stars;
-	vector<Satellite*> satellites;
+	list<Satellite*> satellites;
 
 	double time;  // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 

@@ -11,14 +11,14 @@
 #ifndef satellite_h
 #define satellite_h
  
-#include <vector>
+#include <list>
 #include <cmath>
 #include <iostream>
 #include <iomanip>
 #include "velocity.h"
 #include "spaceObject.h"
 
-const double earthRadius = 6378000;
+const double EARTH_RADIUS = 6378000;
 
 class TestSatellite;
 
@@ -62,10 +62,10 @@ public:
 	void setLifeSpan(double amount) { this->lifeSpan = amount; }
 	void computeAngularVelocity();
 	
-	double getAltitude();
 	Acceleration getGravity();
 	Velocity getVelocity()      const { return velocity;        }
 	double getLifeSpan()        const { return lifeSpan;        }
+	double getAltitude()        const;
 	
 	void updatePosition(const Acceleration &acGravity, double time);
 	void explode();
@@ -73,8 +73,10 @@ public:
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }
 	
-	bool isAlive()     const { return alive;     }
-	bool isInvisible() const { return invisible; }
+	bool isAlive()      const { return alive;     }
+	bool isInvisible()  const { return invisible; }
+	bool hitEarth()     const { return getAltitude() <= 0; }
+	bool pastLifeSpan() const { return age > lifeSpan;     }
 
 	virtual bool isShip()       const = 0;
 	virtual bool isProjectile() const = 0;
@@ -82,7 +84,7 @@ public:
 	virtual bool isFragment()   const = 0;
 	
 	virtual void move(double time) = 0;
-	virtual void destroy(vector<Satellite*> &satellites) = 0;
+	virtual void destroy(list<Satellite*> &satellites) = 0;
 	virtual void draw(ogstream & gout)  = 0;
  
  	

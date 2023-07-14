@@ -46,7 +46,7 @@ public:
 	}
 	
 	// breaks into 3 pieces & 2 fragments
-	virtual void destroy(vector<Satellite*> &satellites)
+	virtual void destroy(list<Satellite*> &satellites)
 	{
 		DragonCenter *dCenter = new DragonCenter(*this, 160);
 		satellites.push_back(dCenter);

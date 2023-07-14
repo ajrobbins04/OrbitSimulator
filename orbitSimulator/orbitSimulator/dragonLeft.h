@@ -35,7 +35,7 @@ public:
 	}
 	
 	// breaks into 2 fragments
-	virtual void destroy(vector<Satellite*> &satellites)
+	virtual void destroy(list<Satellite*> &satellites)
 	{
 		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 290);
 		satellites.push_back(sFragment1);

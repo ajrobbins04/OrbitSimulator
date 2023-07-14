@@ -18,13 +18,13 @@ void Satellite::computeAngularVelocity()
  *  Computes the distance from the center of the
  *  earth to the satellite's current position.
  *********************************************/
-double Satellite::getAltitude()
+double Satellite::getAltitude() const
 {
  
 	float distance = sqrt(pos.getMetersX() * pos.getMetersX()
 						  + pos.getMetersY() * pos.getMetersY());
 
-	return distance - earthRadius;
+	return distance - EARTH_RADIUS;
 }
 
 /*********************************************
@@ -42,7 +42,7 @@ Acceleration Satellite::getGravity()
 	Direction dirGravity;
 	dirGravity.setDxDy(-pos.getMetersX(), -pos.getMetersY());
 
-	double tmp = earthRadius / (earthRadius + altitude);
+	double tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
 	double aGravity = gravity * pow(tmp, 2);
 	
 	return Acceleration(aGravity, dirGravity);

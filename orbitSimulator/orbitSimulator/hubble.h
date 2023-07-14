@@ -51,7 +51,7 @@ public:
 	}
 	
 	// breaks into 4 pieces
-	virtual void destroy(vector<Satellite*> &satellites)
+	virtual void destroy(list<Satellite*> &satellites)
 	{
 		HubbleTelescope *hTelescope = new HubbleTelescope(*this, 75);
 		satellites.push_back(hTelescope);

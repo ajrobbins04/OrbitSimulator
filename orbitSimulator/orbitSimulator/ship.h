@@ -41,8 +41,8 @@ public:
 	bool getThrust() const      { return thrust;         }
 	void applyThrust(double time);
 	
-	void input(const Interface *pUI, double time, vector<Satellite*> &satellites);
-	void launchProjectile(vector<Satellite*> &satellites, double time);
+	void input(const Interface *pUI, double time, list<Satellite*> &satellites);
+	void launchProjectile(list<Satellite*> &satellites, double time);
 
 	virtual bool isShip()       const { return true;  }
 	virtual bool isProjectile() const { return false; }
@@ -56,7 +56,7 @@ public:
 		updatePosition(aGravity, time);
 	}
 	
-	virtual void destroy(vector<Satellite*> &satellites) {}
+	virtual void destroy(list<Satellite*> &satellites) {}
 	virtual void draw(ogstream & gout)
 	{
 		gout.drawShip(getPos(), getDirectionAngle(), getThrust());

@@ -46,7 +46,7 @@ public:
 	}
 
 	// breaks into 2 pieces & 2 fragments
-	virtual void destroy(vector<Satellite*> &satellites)
+	virtual void destroy(list<Satellite*> &satellites)
 	{
 		StarlinkBody *sBody = new StarlinkBody(*this, 305);
 		satellites.push_back(sBody);
