@@ -17,13 +17,6 @@ class Projectile : public Satellite
 public:
 	
 	Projectile() : Satellite() {}
-	Projectile(const Projectile &rhs) : Satellite(rhs)
-	{
-		setRadius(0.5);    
-		setLifeSpan(70.0);
-		setInvisible(true);
-	}
-	
 	Projectile(const Position &pos, const Velocity &velocity, const Direction &dir):
 	Satellite(pos, 0.5, velocity, dir)
 	{
@@ -42,6 +35,7 @@ public:
 	
 	virtual void move(double time)
 	{
+
 		if (age >= 3)
 			setInvisible(false);
 		

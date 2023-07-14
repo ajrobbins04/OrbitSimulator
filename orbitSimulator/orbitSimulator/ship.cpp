@@ -31,7 +31,7 @@ void Ship::input(const Interface *pUI, double time, list<Satellite*> &satellites
 	// launch projectile
 	if (pUI->isSpace())
 	{
-		launchProjectile(satellites, time);
+		launchProjectile(satellites);
 	 }
  }
 
@@ -44,6 +44,7 @@ void Ship::applyThrust(double time)
 
 	velocity.setSpeedDirection(velocity.getSpeed() + 15, getDirection());
 	Acceleration aGravity = getGravity();
+	
 	// thrust acceleration is 2.0,
 	// which lasts for 48 seconds of simulation time
 	velocity.updateVelocity(aGravity, time * 2.0);
@@ -53,25 +54,19 @@ void Ship::applyThrust(double time)
 /*********************************************
 * LAUNCH PROJECTILE
 *********************************************/
-void Ship::launchProjectile(list<Satellite*> &satellites, double time)
+void Ship::launchProjectile(list<Satellite*> &satellites)
 {
-
 	// set direction for projectile to be fired
 	Direction fireDirection;
 	fireDirection.setRadians(getDirectionAngle());
 	
-	// projectile velocity should be 9,000 m/s faster than
-	// the ship
+	// projectile is 9,000 m/s faster than the ship
 	Velocity fireVelocity;
 	fireVelocity.setSpeedDirection((velocity.getSpeed() + 9000), fireDirection);
-	
-	Position firePos(getPos());
-	// create projectile with ptShipFront, a 0.5 px radius,
-	// fireVelocity, and fireDirection
-	Projectile *projectile = new Projectile(firePos, fireVelocity, fireDirection);
-	
+
+	Projectile *projectile = new Projectile(getPos(), fireVelocity, fireDirection);
 	// add to satellites list
 	satellites.push_back(projectile);
-
+	
 }
 

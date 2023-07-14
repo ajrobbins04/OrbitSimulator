@@ -42,7 +42,7 @@ public:
 	void applyThrust(double time);
 	
 	void input(const Interface *pUI, double time, list<Satellite*> &satellites);
-	void launchProjectile(list<Satellite*> &satellites, double time);
+	void launchProjectile(list<Satellite*> &satellites);
 
 	virtual bool isShip()       const { return true;  }
 	virtual bool isProjectile() const { return false; }

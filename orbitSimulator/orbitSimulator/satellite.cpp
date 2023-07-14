@@ -60,6 +60,19 @@ void Satellite::updatePosition(const Acceleration &aGravity, double time)
 }
 
 /*********************************************
+ *  SHIFT POSITION
+ *  Shifts a satellite from its original position using
+ *  a given distance in meters and direction of travel.
+ *********************************************/
+void Satellite::shiftPosition(double distance)
+{
+	double shiftX = distance * direction.getDx();
+	double shiftY = distance * direction.getDy();
+	
+	pos.addMetersX(shiftX);
+	pos.addMetersY(shiftY);
+}
+/*********************************************
  * 	EXPLODE
  *  Makes a Satellite object "shoot off" in a random
  *  direction upon collosion.
@@ -69,12 +82,7 @@ void Satellite::explode()
 	// moves satelliteFragment 4px. from its point of creation
 	double distance = pos.convertToMeters(4.0);
 	
-	double shiftX = distance * direction.getDx();
-	double shiftY = distance * direction.getDy();
-	
-	pos.addMetersX(shiftX);
-	pos.addMetersY(shiftY);
-	
+	shiftPosition(distance);
 	velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
 
 }

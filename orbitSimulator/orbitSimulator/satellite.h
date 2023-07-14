@@ -69,6 +69,7 @@ public:
 	double getAltitude()        const;
 	
 	void updatePosition(const Acceleration &acGravity, double time);
+	void shiftPosition(double distance);
 	void explode();
 	
 	void increaseAge()     { age += 1;   }
