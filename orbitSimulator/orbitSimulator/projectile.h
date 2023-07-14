@@ -16,7 +16,7 @@ class Projectile : public Satellite
 {
 public:
 	
-	Projectile(): Satellite() {}
+	Projectile() : Satellite() {}
 	Projectile(const Projectile &rhs) : Satellite(rhs)
 	{
 		setRadius(0.5);    

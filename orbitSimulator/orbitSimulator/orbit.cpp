@@ -20,42 +20,21 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	// create satellites (including the ship)
 	vector<Satellite*> satellites;
-	
-	// create a random position for the ship's
-	// starting point
-	Position shipPos;
-	shipPos.setPixelsX(-450.0);
-	shipPos.setPixelsY(450.0);
-	
-	// create the ship
-	Ship *ship = new Ship(shipPos, Velocity(0.0, 0.0));
+
+	Ship *ship = new Ship();
 	satellites.push_back(ship);
-	
-	GPS *GPS_1 = new GPS(Position(0.0, 26560000.0), Velocity(-3880, 0.0));
-	GPS *GPS_2 = new GPS(Position(23001634.72, 13280000.0), Velocity(-1940.0, 3360.18));
-	GPS *GPS_3 = new GPS(Position(23001634.72, -13280000.0), Velocity(1940, 3360.18));
-	GPS *GPS_4 = new GPS(Position(0.0, -26560000.0), Velocity(3880.0, 0.0));
-	GPS *GPS_5 = new GPS(Position(-23001634.72, -13280000.0), Velocity(1940.0, -3360.18));
-	GPS *GPS_6 = new GPS(Position(-23001634.72, 13280000.0), Velocity(-1940.0, -3360.18));
-	
-	satellites.push_back(GPS_1);
-	satellites.push_back(GPS_2);
-	satellites.push_back(GPS_3);
-	satellites.push_back(GPS_4);
-	satellites.push_back(GPS_5);
-	satellites.push_back(GPS_6);
-	
-	Sputnik *sputnik = new Sputnik(Position(-36515095.13, 21082000.0), Velocity(2050.0, 2684.68));
-	satellites.push_back(sputnik);
-	
-	Hubble *hubble = new Hubble(Position(0.0, -42164000.0), Velocity(3100.0, 0.0));
-	satellites.push_back(hubble);
-	
-	Dragon *dragon = new Dragon(Position(0.0, 8000000.0), Velocity(-7900.0, 0.0));
-	satellites.push_back(dragon);
-	
-	Starlink *starlink = new Starlink(Position(0.0, -13020000.0), Velocity(5800.0, 0.0));
-	satellites.push_back(starlink);
+
+	satellites.push_back(static_cast<Satellite*>(new GPS(1)));
+	satellites.push_back(static_cast<Satellite*>(new GPS(2)));
+	satellites.push_back(static_cast<Satellite*>(new GPS(3)));
+	satellites.push_back(static_cast<Satellite*>(new GPS(4)));
+	satellites.push_back(static_cast<Satellite*>(new GPS(5)));
+	satellites.push_back(static_cast<Satellite*>(new GPS(6)));
+
+	satellites.push_back(static_cast<Satellite*>(new Sputnik()));
+	satellites.push_back(static_cast<Satellite*>(new Hubble()));
+	satellites.push_back(static_cast<Satellite*>(new Dragon()));
+	satellites.push_back(static_cast<Satellite*>(new Starlink()));
 	
 	double frameRate = 30.0;    // OpenGL draws 30 frames/second
 	double hoursPerDay = 24.0;
@@ -68,8 +47,36 @@ Orbit initialize(const Position &ptUpperRight)
 	
 	double rotationSpeed = computeRotationSpeed(frameRate, secondsPerDay, dilation);
 	earth->setAngularVelocity(rotationSpeed);
-	
+
 	Orbit orbit(ship, earth, satellites, stars, time);
+	/*Ship *ship = new Ship();
+	satellites.push_back(ship);
+
+	GPS *GPS_1 = new GPS(1);
+	GPS *GPS_2 = new GPS(2);
+	GPS *GPS_3 = new GPS(3);
+	GPS *GPS_4 = new GPS(4);
+	GPS *GPS_5 = new GPS(5);
+	GPS *GPS_6 = new GPS(6);
+
+	satellites.push_back(GPS_1);
+	satellites.push_back(GPS_2);
+	satellites.push_back(GPS_3);
+	satellites.push_back(GPS_4);
+	satellites.push_back(GPS_5);
+	satellites.push_back(GPS_6);
+
+	Sputnik *sputnik = new Sputnik();
+	satellites.push_back(sputnik);
+
+	Hubble *hubble = new Hubble();
+	satellites.push_back(hubble);
+	
+	Dragon *dragon = new Dragon();
+	satellites.push_back(dragon);
+ 
+	Starlink *starlink = new Starlink();
+	satellites.push_back(starlink);*/
 	
 	return orbit;
 }
@@ -186,15 +193,15 @@ void Orbit::checkEarthReEntry()
 *********************************************/
 void Orbit::checkLifeSpan()
 {
-	vector<Satellite*>::iterator iter1;
+	vector<Satellite*>::iterator iter;
 	
-	for (iter1 = satellites.begin(); iter1 != satellites.end(); iter1++)
+	for (iter = satellites.begin(); iter != satellites.end(); iter++)
 	{
 		// check if projectile or fragment is past its lifespan
-		if ( ((*iter1)->isProjectile() || (*iter1)->isFragment())
-			&& (*iter1)->isAlive() && (*iter1)->getAge() >= (*iter1)->getLifeSpan())
+		if ( ((*iter)->isProjectile() || (*iter)->isFragment())
+			&& (*iter)->isAlive() && (*iter)->getAge() >= (*iter)->getLifeSpan())
 		{
-			(*iter1)->kill();
+			(*iter)->kill();
 		}
 	}
 	

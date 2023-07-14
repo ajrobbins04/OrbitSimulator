@@ -36,7 +36,7 @@ class Orbit
 {
 public:
  
-	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time): ship(ship),
+	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time) : ship(ship),
 	earth(earth), satellites(satellites), stars(stars), time(time) {}
  
 	virtual ~Orbit() {}

@@ -20,10 +20,16 @@ class Dragon : public Satellite
 {
 public:
 	
-	Dragon(): Satellite() {}
+	Dragon(): Satellite() {
+
+		pos.setMeters(0.0, 8000000.0);
+		velocity.setDxDy(-7900.0, 0.0);
+		setRadius(pos.convertToMeters(7));
+	}
+	
 	Dragon(const Dragon &rhs) : Satellite(rhs) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
-	Dragon(const Position &pos, const Velocity &velocity): Satellite(pos, radius, velocity) {} // radius = 7px
+	Dragon(const Position &pos, const Velocity &velocity): Satellite(pos, 7, velocity) {} // radius = 7px
 	
 	virtual ~Dragon() {}
 	

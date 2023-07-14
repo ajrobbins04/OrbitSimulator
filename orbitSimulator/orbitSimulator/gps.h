@@ -21,7 +21,66 @@ class GPS : public Satellite
 {
 public:
 
-	GPS(): Satellite() {}
+	GPS(int idNum): Satellite() {
+
+		switch (idNum) {
+				
+			case 1:
+			{
+				pos.setMeters(0.0, 26560000.0);
+				velocity.setDxDy(-3880, 0.0);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+				
+			case 2:
+			{
+				pos.setMeters(23001634.72, 13280000.0);
+				velocity.setDxDy(-1940.0, 3360.18);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+				
+			case 3:
+			{
+				pos.setMeters(23001634.72, -13280000.0);
+				velocity.setDxDy(1940, 3360.18);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+				
+			case 4:
+			{
+				pos.setMeters(0.0, -26560000.0);
+				velocity.setDxDy(3880.0, 0.0);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+				
+			case 5:
+			{
+				pos.setMeters(-23001634.72, -13280000.0);
+				velocity.setDxDy(1940.0, -3360.18);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+				
+			case 6:
+			{
+				pos.setMeters(-23001634.72, 13280000.0);
+				velocity.setDxDy(-1940.0, -3360.18);
+				setRadius(pos.convertToMeters(12));
+				break;
+			}
+			default:
+			{
+				pos.setMeters(0.0, 0.0);
+				velocity.setDxDy(0.0, 0.0);
+				setRadius(pos.convertToMeters(12));
+			}
+		}
+	}
+	
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
 	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px

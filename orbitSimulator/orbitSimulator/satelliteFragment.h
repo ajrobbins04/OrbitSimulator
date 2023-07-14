@@ -19,15 +19,12 @@ class SatelliteFragment : public Satellite
 public:
 	
 	SatelliteFragment() : Satellite() {}
-	
 	SatelliteFragment(const Satellite &rhs, double degrees) : Satellite(Position(rhs.getPos()), 2.0,  // radius = 2 px.
-															  Velocity(rhs.getVelocity()), Direction(degrees))
-	{
+															  Velocity(rhs.getVelocity()), Direction(degrees)) {
 		setInvisible(true);
 		explode();
 		setLifeSpan(random(50, 100));
 	}
-
 
 	virtual ~SatelliteFragment() {}
 	
