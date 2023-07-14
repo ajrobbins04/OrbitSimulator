@@ -1,94 +1,25 @@
 #include "orbit.h"
 
 /*********************************************
- * INITIALIZE
- * Sets all the values needed to run the
- * orbit simulator.
- * *********************************************/
-Orbit initialize(const Position &ptUpperRight)
+ * COMPUTE TIME
+ *
+ *********************************************/
+double Orbit::computeTime()
 {
-	// create earth
-	Earth *earth = new Earth();
+	double dilation = HOURS_PER_DAY * MIN_PER_HOUR;
+	return dilation / FRAME_RATE;
 	
-	// create stars
-	vector<Star> stars;
-	for (int i = 0; i < 200; i++)
-	{
-		Star star(ptUpperRight);
-		stars.push_back(star);
-	}
-	
-	// create satellites (including the ship)
-	vector<Satellite*> satellites;
-
-	Ship *ship = new Ship();
-	satellites.push_back(ship);
-
-	satellites.push_back(static_cast<Satellite*>(new GPS(1)));
-	satellites.push_back(static_cast<Satellite*>(new GPS(2)));
-	satellites.push_back(static_cast<Satellite*>(new GPS(3)));
-	satellites.push_back(static_cast<Satellite*>(new GPS(4)));
-	satellites.push_back(static_cast<Satellite*>(new GPS(5)));
-	satellites.push_back(static_cast<Satellite*>(new GPS(6)));
-
-	satellites.push_back(static_cast<Satellite*>(new Sputnik()));
-	satellites.push_back(static_cast<Satellite*>(new Hubble()));
-	satellites.push_back(static_cast<Satellite*>(new Dragon()));
-	satellites.push_back(static_cast<Satellite*>(new Starlink()));
-	
-	double frameRate = 30.0;    // OpenGL draws 30 frames/second
-	double hoursPerDay = 24.0;
-	double minPerHour = 60.0;
-	double secondsPerMin = 60.0;
-	
-	double secondsPerDay = hoursPerDay * minPerHour * secondsPerMin;
-	double dilation = hoursPerDay * minPerHour;
-	double time = dilation / frameRate;
-	
-	double rotationSpeed = computeRotationSpeed(frameRate, secondsPerDay, dilation);
-	earth->setAngularVelocity(rotationSpeed);
-
-	Orbit orbit(ship, earth, satellites, stars, time);
-	/*Ship *ship = new Ship();
-	satellites.push_back(ship);
-
-	GPS *GPS_1 = new GPS(1);
-	GPS *GPS_2 = new GPS(2);
-	GPS *GPS_3 = new GPS(3);
-	GPS *GPS_4 = new GPS(4);
-	GPS *GPS_5 = new GPS(5);
-	GPS *GPS_6 = new GPS(6);
-
-	satellites.push_back(GPS_1);
-	satellites.push_back(GPS_2);
-	satellites.push_back(GPS_3);
-	satellites.push_back(GPS_4);
-	satellites.push_back(GPS_5);
-	satellites.push_back(GPS_6);
-
-	Sputnik *sputnik = new Sputnik();
-	satellites.push_back(sputnik);
-
-	Hubble *hubble = new Hubble();
-	satellites.push_back(hubble);
-	
-	Dragon *dragon = new Dragon();
-	satellites.push_back(dragon);
- 
-	Starlink *starlink = new Starlink();
-	satellites.push_back(starlink);*/
-	
-	return orbit;
 }
-
 /*********************************************
  * COMPUTE ROTATION SPEED
  * Sets the amount of rotation change (in radians) that's applied
  * to an object (typically earth) as each new frame is drawn.
  *********************************************/
-double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation)
+double Orbit::computeRotationSpeed()
 {
-	double radiansPerDay = (M_PI * 2.0) / frameRate;
+	double dilation = HOURS_PER_DAY * MIN_PER_HOUR;
+	double secondsPerDay = HOURS_PER_DAY * MIN_PER_HOUR * SEC_PER_MIN;
+	double radiansPerDay = (M_PI * 2.0) / FRAME_RATE;
 	double radiansPerFrame =  -(radiansPerDay) * (dilation / secondsPerDay);
  
 	return radiansPerFrame;
@@ -179,8 +110,8 @@ void Orbit::checkEarthReEntry()
 			delete *iter;
 			*iter = nullptr;
 			
-			// removes dead satellite & returns an iterator
-			// to next valid satellite
+			// removes dead satellite & returns another
+			// iterator to next valid satellite
 			iter = satellites.erase(iter);
 		}
 		else

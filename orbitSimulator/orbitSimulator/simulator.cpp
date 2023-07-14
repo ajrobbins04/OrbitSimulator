@@ -49,12 +49,10 @@ int main(int argc, char** argv)
    Interface ui(0, NULL,
 	  "Orbit Simulator",   /* name on the window */
 	  ptUpperRight);
-
-
-   /*Demo demo(ptUpperRight);*/
  
 	//testRunner();
-    Orbit orbit = initialize(ptUpperRight);
+	
+	Orbit orbit(ptUpperRight);
  
    // set everything into action
    ui.run(callBack, &orbit);

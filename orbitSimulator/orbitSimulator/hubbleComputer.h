@@ -41,7 +41,6 @@ public:
 		
 		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 60);
 		satellites.push_back(sFragment2);
- 
 	}
 	
 	virtual void draw(ogstream & gout)

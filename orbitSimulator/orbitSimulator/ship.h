@@ -56,11 +56,7 @@ public:
 		updatePosition(aGravity, time);
 	}
 	
-	virtual void destroy(vector<Satellite*> &satellites)
-	{
-		kill();
-	}
-	
+	virtual void destroy(vector<Satellite*> &satellites) {}
 	virtual void draw(ogstream & gout)
 	{
 		gout.drawShip(getPos(), getDirectionAngle(), getThrust());

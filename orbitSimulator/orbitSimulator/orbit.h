@@ -29,19 +29,54 @@
 #include "dragon.h"
 #include "starlink.h"
 
+const double FRAME_RATE = 30.0;    // OpenGL draws 30 frames/second
+const double HOURS_PER_DAY = 24.0;
+const double MIN_PER_HOUR = 60.0;
+const double SEC_PER_MIN = 60.0;
 
 using namespace std;
 
 class Orbit
 {
 public:
- 
+	
+	Orbit(const Position &ptUpperRight) : ship(new Ship()), earth(new Earth()) {
+
+		for (int i = 0; i < 200; i++)
+		{
+			Star star(ptUpperRight);
+			stars.push_back(star);
+		}
+		
+		satellites.push_back(ship);
+
+		satellites.push_back(new GPS(1));
+		satellites.push_back(new GPS(2));
+		satellites.push_back(new GPS(3));
+		satellites.push_back(new GPS(4));
+		satellites.push_back(new GPS(5));
+		satellites.push_back(new GPS(6));
+
+		satellites.push_back(new Sputnik());
+		satellites.push_back(new Hubble());
+		satellites.push_back(new Dragon());
+		satellites.push_back(new Starlink());
+		
+		time = computeTime();
+		
+		double rotationSpeed = computeRotationSpeed();
+		earth->setAngularVelocity(rotationSpeed);
+		
+	}
+	
 	Orbit(Ship *ship, Earth *earth, vector<Satellite*> satellites, vector<Star> &stars, double time) : ship(ship),
 	earth(earth), satellites(satellites), stars(stars), time(time) {}
  
 	virtual ~Orbit() {}
 
-	void initialize(const Position &ptUpperRight);
+	double computeRotationSpeed();
+	double computeTime();
+	
 	void handleInput(const Interface *pUI);
 	void collisionDetection();
 	void checkEarthReEntry();
@@ -59,19 +94,5 @@ private:
 	double time;  // (24 hours/day * 60 min/hour) /  30 frames/second = 48 seconds per frame
 
 };
-
-/*********************************************
- * INITIALIZE
- * Create all attributes to be passed into a new orbit
- * object, then return the object.
- *********************************************/
-Orbit initialize(const Position &ptUpperRight);
-
-/*********************************************
- * COMPUTE ROTATION SPEED
- * Sets the amount of rotation change (in radians) that's applied
- * to an object (typically earth) as each new frame is drawn.
- *********************************************/
-double computeRotationSpeed(double frameRate, double secondsPerDay, double dilation);
 
 #endif /* orbit_h */
