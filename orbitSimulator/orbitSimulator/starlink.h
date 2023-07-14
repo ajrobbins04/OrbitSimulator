@@ -18,12 +18,7 @@
 class Starlink : public Satellite
 {
 public:
-	
-	/*Starlink(): Satellite() {
-		
-		pos.setMeters(0.0, -13020000.0);
-		velocity.setDxDy(5800.0, 0.0);
-	}*/
+
 	Starlink(): Satellite() {}
 	Starlink(const Starlink &rhs) : Satellite(rhs) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}

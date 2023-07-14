@@ -16,12 +16,7 @@
 class Sputnik : public Satellite
 {
 public:
-	
-	/*Sputnik(): Satellite() {
-		
-		pos.setMeters(-36515095.13, 21082000.0);
-		velocity.setDxDy(2050.0, 2684.68);
-	}*/
+
 	Sputnik(): Satellite() {}
 	Sputnik(const Sputnik &rhs) : Satellite(rhs) {}
 	Sputnik(double x, double y, double radius): Satellite(x, y, radius) {}

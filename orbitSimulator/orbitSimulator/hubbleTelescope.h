@@ -10,6 +10,7 @@ public:
 	HubbleTelescope() : SatellitePiece() {}
 	HubbleTelescope(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 10.0) // radius = 10 px.
 	{
+		setInvisible(true);
 		explode();
 	}
 	
@@ -22,9 +23,14 @@ public:
 	
 	virtual void move(double time)
 	{
+		if (age >= 3)
+			setInvisible(false);
+		
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		
+		increaseAge();
 	}
 	
 	// breaks into 3 fragments

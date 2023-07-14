@@ -27,10 +27,6 @@ Orbit initialize(const Position &ptUpperRight)
 	shipPos.setPixelsX(-450.0);
 	shipPos.setPixelsY(450.0);
 	
-	Position shipFrontPos;
-	shipFrontPos.setPixelsX(shipPos.getPixelsX());
-	shipFrontPos.setPixelsY(shipPos.getPixelsY() + 19.0);
-	
 	// create the ship
 	Ship *ship = new Ship(shipPos, Velocity(0.0, 0.0));
 	satellites.push_back(ship);

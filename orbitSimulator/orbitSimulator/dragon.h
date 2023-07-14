@@ -20,11 +20,6 @@ class Dragon : public Satellite
 {
 public:
 	
-	/*Dragon(): Satellite() {
-		
-		pos.setMeters(0.0, 8000000.0);
-		velocity.setDxDy(-7900.0, 0.0);
-	}*/
 	Dragon(): Satellite() {}
 	Dragon(const Dragon &rhs) : Satellite(rhs) {}
 	Dragon(double x, double y, double radius): Satellite(x, y, radius) {}
@@ -40,7 +35,6 @@ public:
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
-			
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
 	}

@@ -22,12 +22,7 @@ class Hubble : public Satellite
 {
 public:
 	friend TestHubble;
-	
-	/*Hubble(): Satellite() {
-		
-		pos.setMeters(0.0, -42164000.0);
-		velocity.setDxDy(3100.0, 0.0);
-	}*/
+
 	Hubble(): Satellite() {}
 	Hubble(const Hubble &rhs) : Satellite(rhs) {}
 	Hubble(const Hubble &rhs, const Direction &d): Satellite(rhs, d) {}

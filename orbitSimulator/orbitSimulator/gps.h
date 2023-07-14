@@ -20,40 +20,7 @@
 class GPS : public Satellite
 {
 public:
-	
-	/*GPS(int idNum): Satellite() {
-		
-		if (idNum == 1)
-		{
-			pos.setMeters(0.0, 26560000.0);
-			velocity.setDxDy(-3880, 0.0);
-		}
-		else if (idNum == 2)
-		{
-			pos.setMeters(23001634.72, 13280000.0);
-			velocity.setDxDy(-1940.0, 3360.18);
-		}
-		else if (idNum == 3)
-		{
-			pos.setMeters(23001634.72, -13280000.0);
-			velocity.setDxDy(1940, 3360.18);
-		}
-		else if (idNum == 4)
-		{
-			pos.setMeters(0.0, -26560000.0);
-			velocity.setDxDy(3880.0, 0.0);
-		}
-		else if (idNum == 5)
-		{
-			pos.setMeters(-23001634.72, -13280000.0);
-			velocity.setDxDy(1940.0, -3360.18);
-		}
-		else if (idNum == 6)
-		{
-			pos.setMeters(-23001634.72, 13280000.0);
-			velocity.setDxDy(-1940.0, -3360.18);
-		}
-	}*/
+
 	GPS(): Satellite() {}
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}

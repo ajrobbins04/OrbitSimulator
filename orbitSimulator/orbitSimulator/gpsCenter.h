@@ -24,11 +24,13 @@ public:
 	
 	virtual void move(double time)
 	{
-		if (age >= 6)
+		if (age >= 3)
 			setInvisible(false);
+		
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		
 		increaseAge();
 	}
 	

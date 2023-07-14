@@ -11,6 +11,7 @@ public:
 	StarlinkArray() : SatellitePiece() {}
 	StarlinkArray(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
 	{
+		setInvisible(true);
 		explode();
 	}
 
@@ -23,9 +24,14 @@ public:
 	
 	virtual void move(double time)
 	{
+		if (age >= 3)
+			setInvisible(false);
+		
 		Acceleration aGravity = getGravity();
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
+		
+		increaseAge();
 	}
 	
 	// breaks into 3 fragments
