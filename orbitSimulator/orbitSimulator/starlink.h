@@ -19,12 +19,12 @@ class Starlink : public Satellite
 {
 public:
 	
-	Starlink(): Satellite() {
+	/*Starlink(): Satellite() {
 		
 		pos.setMeters(0.0, -13020000.0);
 		velocity.setDxDy(5800.0, 0.0);
-	}
-	
+	}*/
+	Starlink(): Satellite() {}
 	Starlink(const Starlink &rhs) : Satellite(rhs) {}
 	Starlink(double x, double y, double radius): Satellite(x, y, radius) {}
 	Starlink(const Position &pos, const Velocity &velocity): Satellite(pos, 6, velocity) {} // radius = 6px

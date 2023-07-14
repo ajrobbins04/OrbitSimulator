@@ -23,11 +23,12 @@ class Hubble : public Satellite
 public:
 	friend TestHubble;
 	
-	Hubble(): Satellite() {
+	/*Hubble(): Satellite() {
 		
 		pos.setMeters(0.0, -42164000.0);
 		velocity.setDxDy(3100.0, 0.0);
-	}
+	}*/
+	Hubble(): Satellite() {}
 	Hubble(const Hubble &rhs) : Satellite(rhs) {}
 	Hubble(const Hubble &rhs, const Direction &d): Satellite(rhs, d) {}
 	Hubble(const Position &pos): Satellite(Position(pos), 10, Velocity(0, 0)) {}  // used in test cases

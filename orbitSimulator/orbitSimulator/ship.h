@@ -23,13 +23,14 @@ class Ship : public Satellite
 public:
 	friend TestShip;
  
-	Ship() : Satellite(Position(0.0, 0.0), 10.0, Velocity(0.0, 0.0)), thrust(false) {
+	/*Ship() : Satellite(Position(0.0, 0.0), 10.0, Velocity(0.0, 0.0)), thrust(false) {
 		
 		// starts in top left corner of screen
 		pos.setPixelsX(-450.0);
 		pos.setPixelsY(450.0);
-	}
+	}*/
 	
+	Ship() : Satellite(Position(0.0, 0.0), 10.0, Velocity(0.0, 0.0)), thrust(false) {}
 	Ship(const Position &pos, const Velocity &velocity) :
 	Satellite(pos, 10.0, velocity), thrust(false) {} // radius = 10px
 	

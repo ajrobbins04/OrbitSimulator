@@ -24,7 +24,6 @@ public:
 	virtual void move(double time)
 	{
 		Acceleration aGravity = getGravity();
-		
 		velocity.updateVelocity(aGravity, time);
 		updatePosition(aGravity, time);
 	}

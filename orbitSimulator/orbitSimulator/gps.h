@@ -21,7 +21,7 @@ class GPS : public Satellite
 {
 public:
 	
-	GPS(int idNum): Satellite() {
+	/*GPS(int idNum): Satellite() {
 		
 		if (idNum == 1)
 		{
@@ -53,13 +53,12 @@ public:
 			pos.setMeters(-23001634.72, 13280000.0);
 			velocity.setDxDy(-1940.0, -3360.18);
 		}
-	}
+	}*/
+	GPS(): Satellite() {}
 	GPS(const GPS &rhs) : Satellite(rhs) {}
 	GPS(double x, double y, double radius): Satellite(x, y, radius) {}
-	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) // radius = 12 px
-	{
-		computeAngularVelocity();
-	}
+	GPS(const Position &pos, const Velocity &velocity): Satellite(pos, 12, velocity) {} // radius = 12 px
+ 
 	
 	virtual ~GPS() {}
 	
