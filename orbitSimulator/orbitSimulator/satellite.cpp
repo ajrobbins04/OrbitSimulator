@@ -43,7 +43,7 @@ Acceleration Satellite::getGravity()
 	dirGravity.setDxDy(-pos.getMetersX(), -pos.getMetersY());
 
 	double tmp = EARTH_RADIUS / (EARTH_RADIUS + altitude);
-	double aGravity = gravity * pow(tmp, 2);
+	double aGravity = GRAVITY * pow(tmp, 2);
 	
 	return Acceleration(aGravity, dirGravity);
 }

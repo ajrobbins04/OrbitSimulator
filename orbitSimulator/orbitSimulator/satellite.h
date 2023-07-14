@@ -19,6 +19,7 @@
 #include "spaceObject.h"
 
 const double EARTH_RADIUS = 6378000;
+const double GRAVITY = 9.8067;
 
 class TestSatellite;
 

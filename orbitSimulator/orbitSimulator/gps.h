@@ -104,19 +104,19 @@ public:
 	// breaks into 3 pieces & 2 fragments
 	virtual void destroy(list<Satellite*> &satellites)
 	{
-		GPSCenter *gpsCenter = new GPSCenter(*this, 90);
+		GPSCenter *gpsCenter = new GPSCenter(*this, random(0, 100));
 		satellites.push_back(gpsCenter);
 		
-		GPSLeft *gpsLeft = new GPSLeft(*this, 0);
+		GPSLeft *gpsLeft = new GPSLeft(*this, random(300, 360));
 		satellites.push_back(gpsLeft);
 		
-		GPSRight *gpsRight = new GPSRight(*this, 180);
+		GPSRight *gpsRight = new GPSRight(*this, random(150, 2500));
 		satellites.push_back(gpsRight);
 		
-		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 350);
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, random(300, 360));
 		satellites.push_back(sFragment1);
 		
-		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 270);
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, random(50, 150));
 		satellites.push_back(sFragment2);
 	
 	}

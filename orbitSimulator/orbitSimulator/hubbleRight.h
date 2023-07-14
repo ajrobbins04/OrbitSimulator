@@ -36,10 +36,10 @@ public:
 	// breaks into 2 fragments
 	virtual void destroy(list<Satellite*> &satellites)
 	{
-		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 300);
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this,  random(250, 350));
 		satellites.push_back(sFragment1);
 		
-		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 100);
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, random(0, 230));
 		satellites.push_back(sFragment2);
 	}
 	

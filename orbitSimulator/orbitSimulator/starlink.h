@@ -48,16 +48,16 @@ public:
 	// breaks into 2 pieces & 2 fragments
 	virtual void destroy(list<Satellite*> &satellites)
 	{
-		StarlinkBody *sBody = new StarlinkBody(*this, 305);
+		StarlinkBody *sBody = new StarlinkBody(*this, random(280, 350));
 		satellites.push_back(sBody);
 		
-		StarlinkArray *sArray = new StarlinkArray(*this, 100);
+		StarlinkArray *sArray = new StarlinkArray(*this, random(100, 160));
 		satellites.push_back(sArray);
 		
-		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 50);
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, random(0, 60));
 		satellites.push_back(sFragment1);
 		
-		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 240);
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, random(170, 250));
 		satellites.push_back(sFragment2);
 	}
 	

@@ -53,16 +53,16 @@ public:
 	// breaks into 4 pieces
 	virtual void destroy(list<Satellite*> &satellites)
 	{
-		HubbleTelescope *hTelescope = new HubbleTelescope(*this, 75);
+		HubbleTelescope *hTelescope = new HubbleTelescope(*this, random(200, 270));
 		satellites.push_back(hTelescope);
 		
-		HubbleComputer *hComputer = new HubbleComputer(*this, 345);
+		HubbleComputer *hComputer = new HubbleComputer(*this, random(0, 70));
 		satellites.push_back(hComputer);
 		
-		HubbleRight *hRight = new HubbleRight(*this, 160);
+		HubbleRight *hRight = new HubbleRight(*this, random(290, 360));
 		satellites.push_back(hRight);
 		
-		HubbleLeft *hLeft = new HubbleLeft(*this, 275);
+		HubbleLeft *hLeft = new HubbleLeft(*this, random(100, 170));
 		satellites.push_back(hLeft);
 	}
 	

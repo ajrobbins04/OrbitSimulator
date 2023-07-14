@@ -48,19 +48,19 @@ public:
 	// breaks into 3 pieces & 2 fragments
 	virtual void destroy(list<Satellite*> &satellites)
 	{
-		DragonCenter *dCenter = new DragonCenter(*this, 160);
+		DragonCenter *dCenter = new DragonCenter(*this, random(300, 360));
 		satellites.push_back(dCenter);
 		
-		DragonLeft *dLeft = new DragonLeft(*this, 85);
+		DragonLeft *dLeft = new DragonLeft(*this, random(0, 60));
 		satellites.push_back(dLeft);
 		
-		DragonRight *dRight = new DragonRight(*this, 200);
+		DragonRight *dRight = new DragonRight(*this, random(200, 260));
 		satellites.push_back(dRight);
 		
-		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, 350);
+		SatelliteFragment *sFragment1 = new SatelliteFragment(*this, random(100, 180));
 		satellites.push_back(sFragment1);
 		
-		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, 270);
+		SatelliteFragment *sFragment2 = new SatelliteFragment(*this, random(250, 360));
 		satellites.push_back(sFragment2);
 	}
 	
