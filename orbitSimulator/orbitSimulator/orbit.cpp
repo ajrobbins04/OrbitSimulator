@@ -161,20 +161,23 @@ void Orbit::collisionDetection()
 *********************************************/
 void Orbit::checkEarthReEntry()
 {
-	vector<Satellite*>::iterator iter;
-	 
-	for (iter = satellites.begin(); iter != satellites.end();)
+	vector<Satellite*>::iterator iter = satellites.begin();
+	
+	while (iter != satellites.end())
 	{
 		double height = (*iter)->getAltitude();
-	
+		
 		if (height <= 0)
 		{
-			(*iter)->kill(); // gets reabsorbed in earth's atmosphere
-			Satellite* pSatellite = *iter;
-			delete pSatellite;
-			pSatellite = NULL;
+			(*iter)->kill();
 			
-			// erase the satellite & update the iterator
+			// delete dead satellite & set
+			// it to null
+			delete *iter;
+			*iter = nullptr;
+			
+			// removes dead satellite & returns an iterator
+			// to next valid satellite
 			iter = satellites.erase(iter);
 		}
 		else
@@ -208,35 +211,26 @@ void Orbit::removeDeadSatellites()
 {
 	vector<Satellite*>::iterator iter = satellites.begin();
 
-	while (iter != satellites.end()) {
-		if (!(*iter)->isAlive()) {
-			
-			(*iter)->destroy(satellites);
-			delete *iter;
-			*iter = nullptr;
-			iter = satellites.erase(iter);
-			
-		} else {
-			++iter;
-		}
-	}
-	
-	/*while (iter != satellites.end())
+	while (iter != satellites.end())
 	{
 		if (!(*iter)->isAlive())
 		{
-			(*iter)->destroy(satellites); // create any potential pieces/fragments
 			
-			Satellite* pSatellite = *iter;
-			delete pSatellite;
-			pSatellite = NULL;
+			(*iter)->destroy(satellites);
 			
-			// erase the satellite & update the iterator
+			// delete dead satellite & set
+			// it to null
+			delete *iter;
+			*iter = nullptr;
+			
+			// removes dead satellite & returns an iterator
+			// to next valid satellite
 			iter = satellites.erase(iter);
+			
 		}
 		else
 			++iter;
-	}*/
+	}
 }
 
 /*********************************************
