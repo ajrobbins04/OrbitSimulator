@@ -36,7 +36,6 @@ Acceleration Satellite::getGravity()
 {
 	// altitude = height above the earth
 	double altitude = getAltitude();
-	double gravity = 9.8067;
 	
 	// direction of gravity points down
 	Direction dirGravity;
@@ -83,6 +82,8 @@ void Satellite::explode()
 	double distance = pos.convertToMeters(4.0);
 	
 	shiftPosition(distance);
+	
+	
 	velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
 
 }

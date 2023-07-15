@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0208CEFF2A5351BA0027F794 /* projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0208CEFE2A5351BA0027F794 /* projectile.cpp */; };
-		024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 024223C02A4F5CFF00BBB7EF /* star.cpp */; };
 		02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0392A3D2C6100999231 /* acceleration.cpp */; };
 		02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF03C2A3D2C8100999231 /* direction.cpp */; };
 		02DEF0402A3D2CAC00999231 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF03F2A3D2CAC00999231 /* position.cpp */; };
@@ -25,7 +23,6 @@
 		02DEF0672A3E503300999231 /* testShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF0662A3E503300999231 /* testShip.cpp */; };
 		02DEF06D2A4404E300999231 /* testDirection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF06C2A4404E300999231 /* testDirection.cpp */; };
 		02DEF0702A44CA7200999231 /* testVelocity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DEF06F2A44CA7200999231 /* testVelocity.cpp */; };
-		02E142522A5F75F9009F2FB3 /* satelliteFragment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E142512A5F75F9009F2FB3 /* satelliteFragment.cpp */; };
 		02E65B152A4BC51700ED0814 /* simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02E65B142A4BC51700ED0814 /* simulator.cpp */; };
 /* End PBXBuildFile section */
 
@@ -43,14 +40,12 @@
 
 /* Begin PBXFileReference section */
 		0208CEFD2A5351A90027F794 /* projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projectile.h; sourceTree = "<group>"; };
-		0208CEFE2A5351BA0027F794 /* projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projectile.cpp; sourceTree = "<group>"; };
 		0208CF002A53543C0027F794 /* satellitePiece.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satellitePiece.h; sourceTree = "<group>"; };
 		0208CF012A5354510027F794 /* satelliteFragment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = satelliteFragment.h; sourceTree = "<group>"; };
 		02148DF22A5CB6660039ADDF /* dragonRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonRight.h; sourceTree = "<group>"; };
 		02148DF52A5CB8460039ADDF /* starlinkBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = starlinkBody.h; sourceTree = "<group>"; };
 		02148DF62A5CB8520039ADDF /* starlinkArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = starlinkArray.h; sourceTree = "<group>"; };
 		024223BD2A4F584500BBB7EF /* star.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
-		024223C02A4F5CFF00BBB7EF /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		027656052A58E50A0039DE8E /* gpsLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsLeft.h; sourceTree = "<group>"; };
 		027656062A58E51B0039DE8E /* gpsRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gpsRight.h; sourceTree = "<group>"; };
 		02CC0D752A5CB63100B6AC0B /* dragonCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dragonCenter.h; sourceTree = "<group>"; };
@@ -93,7 +88,6 @@
 		02E0874C2A59DE7D00E72118 /* hubbleComputer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleComputer.h; sourceTree = "<group>"; };
 		02E0874D2A59DE9100E72118 /* hubbleLeft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleLeft.h; sourceTree = "<group>"; };
 		02E0874E2A59DE9F00E72118 /* hubbleRight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubbleRight.h; sourceTree = "<group>"; };
-		02E142512A5F75F9009F2FB3 /* satelliteFragment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = satelliteFragment.cpp; sourceTree = "<group>"; };
 		02E65B112A4BBF1A00ED0814 /* hubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hubble.h; sourceTree = "<group>"; };
 		02E65B142A4BC51700ED0814 /* simulator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = simulator.cpp; sourceTree = "<group>"; };
 		02E65B162A4D257200ED0814 /* sputnik.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sputnik.h; sourceTree = "<group>"; };
@@ -146,7 +140,6 @@
 				02DEF03E2A3D2C9B00999231 /* position.h */,
 				02DEF03F2A3D2CAC00999231 /* position.cpp */,
 				024223BD2A4F584500BBB7EF /* star.h */,
-				024223C02A4F5CFF00BBB7EF /* star.cpp */,
 				02DEF0442A3D2CE000999231 /* spaceObject.h */,
 				02DEF0622A3E3FD900999231 /* earth.h */,
 				02DEF0412A3D2CBD00999231 /* satellite.h */,
@@ -154,7 +147,6 @@
 				0208CF002A53543C0027F794 /* satellitePiece.h */,
 				0208CF012A5354510027F794 /* satelliteFragment.h */,
 				0208CEFD2A5351A90027F794 /* projectile.h */,
-				0208CEFE2A5351BA0027F794 /* projectile.cpp */,
 				02E65B192A4D266300ED0814 /* gps.h */,
 				02F3A3A22A59CF9700B4769C /* gpsCenter.h */,
 				027656052A58E50A0039DE8E /* gpsLeft.h */,
@@ -191,7 +183,6 @@
 				02DEF0492A3D2D3000999231 /* testHubble.h */,
 				02DEF0662A3E503300999231 /* testShip.cpp */,
 				02DEF0652A3E4FEF00999231 /* testShip.h */,
-				02E142512A5F75F9009F2FB3 /* satelliteFragment.cpp */,
 			);
 			path = orbitSimulator;
 			sourceTree = "<group>";
@@ -262,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0208CEFF2A5351BA0027F794 /* projectile.cpp in Sources */,
 				02DEF0702A44CA7200999231 /* testVelocity.cpp in Sources */,
 				02DEF03A2A3D2C6100999231 /* acceleration.cpp in Sources */,
 				02DEF0432A3D2CCD00999231 /* satellite.cpp in Sources */,
@@ -273,8 +263,6 @@
 				02DEF06D2A4404E300999231 /* testDirection.cpp in Sources */,
 				02DEF0522A3D2D8D00999231 /* velocity.cpp in Sources */,
 				02DEF03D2A3D2C8100999231 /* direction.cpp in Sources */,
-				02E142522A5F75F9009F2FB3 /* satelliteFragment.cpp in Sources */,
-				024223C12A4F5CFF00BBB7EF /* star.cpp in Sources */,
 				02E65B152A4BC51700ED0814 /* simulator.cpp in Sources */,
 				02DEF05E2A3D456500999231 /* testHubble.cpp in Sources */,
 				02DEF0402A3D2CAC00999231 /* position.cpp in Sources */,

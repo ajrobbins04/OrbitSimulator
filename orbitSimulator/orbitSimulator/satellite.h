@@ -56,16 +56,16 @@ public:
 		velocity.setDy(dy);
 	}
 	
-	void setInvisible(bool status) { invisible = status;}
-	void setAlive(bool status)     { alive = status; }
-	void kill()                    { this->alive = false;  }
+	void setInvisible(bool status) { invisible = status;  }
+	void setAlive(bool status)     { alive = status;      }
+	void kill()                    { this->alive = false; }
 
 	void setLifeSpan(double amount) { this->lifeSpan = amount; }
 	void computeAngularVelocity();
 	
 	Acceleration getGravity();
-	Velocity getVelocity()      const { return velocity;        }
-	double getLifeSpan()        const { return lifeSpan;        }
+	Velocity getVelocity()      const { return velocity; }
+	double getLifeSpan()        const { return lifeSpan; }
 	double getAltitude()        const;
 	
 	void updatePosition(const Acceleration &acGravity, double time);
@@ -75,10 +75,11 @@ public:
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }
 	
-	bool isAlive()      const { return alive;     }
-	bool isInvisible()  const { return invisible; }
+	bool isAlive()      const { return alive;          }
+	bool isInvisible()  const { return invisible;      }
+	bool pastLifeSpan() const { return age > lifeSpan; }
+	
 	bool hitEarth()     const { return getAltitude() <= 0; }
-	bool pastLifeSpan() const { return age > lifeSpan;     }
 
 	virtual bool isShip()       const = 0;
 	virtual bool isProjectile() const = 0;
