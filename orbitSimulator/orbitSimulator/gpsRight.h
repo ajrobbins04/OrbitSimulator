@@ -12,7 +12,7 @@ public:
 	GPSRight(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 8.0)  // radius = 8 px.
 	{
 		setInvisible(true);
-		explode();
+		explode(degrees);
 	}
 	
 	virtual ~GPSRight() {}
@@ -24,7 +24,7 @@ public:
 	
 	virtual void move(double time)
 	{
-		if (age > 2)
+		if (age > 1)
 			setInvisible(false);
 		
 		Acceleration aGravity = getGravity();

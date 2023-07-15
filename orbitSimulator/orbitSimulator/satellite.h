@@ -70,7 +70,7 @@ public:
 	
 	void updatePosition(const Acceleration &acGravity, double time);
 	void shiftPosition(double distance);
-	void explode();
+	void explode(double degrees);
 	
 	void increaseAge()     { age += 1;   }
 	double getAge() const  { return age; }

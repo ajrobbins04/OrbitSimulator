@@ -12,7 +12,7 @@ public:
 	DragonRight(const Satellite &s, double degrees) : SatellitePiece(s, degrees, 7.0) // radius = 7 px.
 	{
 		setInvisible(true);
-		explode();
+		explode(degrees);
 	}
 
 	virtual ~DragonRight() {}
@@ -24,7 +24,7 @@ public:
 	
 	virtual void move(double time)
 	{
-		if (age > 2)
+		if (age > 1)
 			setInvisible(false);
 		
 		Acceleration aGravity = getGravity();

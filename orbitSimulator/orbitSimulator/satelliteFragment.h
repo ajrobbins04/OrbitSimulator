@@ -22,7 +22,7 @@ public:
 	SatelliteFragment(const Satellite &rhs, double degrees) : Satellite(Position(rhs.getPos()), 2.0,  // radius = 2 px.
 															Velocity(rhs.getVelocity()), Direction(degrees)) {
 		setInvisible(true);
-		explode();
+		explode(degrees);
 		setLifeSpan(random(50, 100));
 	}
 
@@ -36,7 +36,7 @@ public:
 	
 	virtual void move(double time)
 	{
-		if (age > 2)
+		if (age > 1)
 			setInvisible(false);
 		
 		Acceleration aGravity = getGravity();

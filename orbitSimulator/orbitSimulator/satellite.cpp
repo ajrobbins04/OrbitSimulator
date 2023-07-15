@@ -76,14 +76,13 @@ void Satellite::shiftPosition(double distance)
  *  Makes a Satellite object "shoot off" in a random
  *  direction upon collosion.
  *********************************************/
-void Satellite::explode()
+void Satellite::explode(double degrees)
 {
 	// moves satelliteFragment 4px. from its point of creation
 	double distance = pos.convertToMeters(4.0);
 	
 	shiftPosition(distance);
 	
-	
-	velocity.setSpeed(velocity.getDx() + random(5000, 9000), velocity.getDy() + random(5000, 9000));
+	velocity.setSpeedDirection(velocity.getSpeed() + random(100, 500), degrees);
 
 }
